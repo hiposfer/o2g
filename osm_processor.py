@@ -57,7 +57,7 @@ class GTFSPreprocessor(o.SimpleHandler):
 
         self.nodes = {}
         self.agencies = {}
-        self.stops = []
+        self.stops = {}
         self.routes = {}
         self.all_routes = []
 
@@ -120,11 +120,12 @@ class GTFSPreprocessor(o.SimpleHandler):
         """Extract stops in a relation."""
         for m in relation.members:
             if self._is_stop(m):
-                if self._is_node_loaded(m.ref):
-                    self.stops.append({'stop_id': self.nodes[m.ref].id,
-                                       'stop_name': self.nodes[m.ref].tags.get('name'),
-                                       'stop_lon': self.nodes[m.ref].lon,
-                                       'stop_lat': self.nodes[m.ref].lat})
+                if self._is_node_loaded(m.ref) and self.nodes[m.ref].id not in self.stops:
+                    self.stops[self.nodes[m.ref].id] = \
+                        {'stop_id': self.nodes[m.ref].id,
+                         'stop_name': self.nodes[m.ref].tags.get('name'),
+                         'stop_lon': self.nodes[m.ref].lon,
+                         'stop_lat': self.nodes[m.ref].lat}
                 else:
                     print('Route %s requires unavailable node %s' % (relation.id, m.ref))
 

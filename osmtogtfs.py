@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     writer = GTFSWriter()
     writer.add_agencies(h.agencies.values())
-    writer.add_stops(h.stops)
+    writer.add_stops(h.stops.values())
     supported_routes = [r for r in h.all_routes if r['route_type'] in\
         [GTFSRouteType.Bus.value,
          GTFSRouteType.Tram.value,

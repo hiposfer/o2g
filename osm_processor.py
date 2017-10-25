@@ -123,7 +123,7 @@ class GTFSPreprocessor(o.SimpleHandler):
                 if self._is_node_loaded(m.ref) and self.nodes[m.ref].id not in self.stops:
                     self.stops[self.nodes[m.ref].id] = \
                         {'stop_id': self.nodes[m.ref].id,
-                         'stop_name': self.nodes[m.ref].tags.get('name'),
+                         'stop_name': self.nodes[m.ref].tags.get('name') or "Unnamed {} stop.".format(relation.tags.get('route')),
                          'stop_lon': self.nodes[m.ref].lon,
                          'stop_lat': self.nodes[m.ref].lat}
                 else:

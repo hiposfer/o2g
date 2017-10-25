@@ -111,7 +111,7 @@ class GTFSPreprocessor(o.SimpleHandler):
         #    would be sufficient to only tag those that are not with an operator tag.
         agency_id = None
         if 'operator' in relation.tags and relation.tags['operator'] not in self.agencies:
-            agency_id = id(relation.tags['operator'])
+            agency_id = abs(hash(relation.tags['operator']))
             self.agencies[agency_id] = {'agency_id': agency_id,
                                         'agency_name': relation.tags['operator']}
         return agency_id

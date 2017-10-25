@@ -2,14 +2,16 @@
 """
 Extracts partial GTFS data from OSM file.
 """
+import os
 import sys
 import time
+import tempfile
 
 from osm_processor import GTFSPreprocessor
 from gtfs_writer import GTFSWriter, GTFSRouteType
 
 
-if __name__ == '__main__':
+def main():
     if len(sys.argv) != 2:
         print("Usage: python osmtogtfs.py <osmfile>")
         sys.exit(-1)
@@ -29,5 +31,16 @@ if __name__ == '__main__':
          GTFSRouteType.Subway.value,
          GTFSRouteType.Rail.value]]
     writer.add_routes(supported_routes)
-    writer.write_feed('gtfs.zip')
-    print('GTFS feed was written to gtfs.zip file.')
+    filename = "gtfs_{}.zip".format(os.path.split(tempfile.mktemp())[1])
+    writer.write_feed(filename)
+    print('GTFS feed saved in %s' % filename)
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as err:
+        raise
+        #print("Failed: %s" % err)
+    finally:
+        print("Bye.")

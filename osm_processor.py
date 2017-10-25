@@ -114,6 +114,10 @@ class GTFSPreprocessor(o.SimpleHandler):
             agency_id = abs(hash(relation.tags['operator']))
             self.agencies[agency_id] = {'agency_id': agency_id,
                                         'agency_name': relation.tags['operator']}
+        else:
+            agency_id = -1
+            self.agencies[agency_id] = {'agency_id': agency_id,
+                                        'agency_name': 'Unkown agency'}
         return agency_id
 
     def extract_stops(self, relation):

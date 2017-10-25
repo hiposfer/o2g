@@ -119,14 +119,23 @@ class GTFSPreprocessor(o.SimpleHandler):
     def extract_stops(self, relation):
         """Extract stops in a relation."""
         for m in relation.members:
-            if m.type == OSMElement.Node.value and m.ref in self.nodes:
-                if self.nodes[m.ref].tags.get('public_transport') in ('stop_position', 'platform'):
+            if self._is_stop(m):
+                if self._is_node_loaded(m.ref):
                     self.stops.append({'stop_id': self.nodes[m.ref].id,
                                        'stop_name': self.nodes[m.ref].tags.get('name'),
                                        'stop_lon': self.nodes[m.ref].lon,
                                        'stop_lat': self.nodes[m.ref].lat})
-            else:
-                print('member skipped', m)
+                else:
+                    print('Route %s requires unavailable node %s' % (relation.id, m.ref))
+
+    def _is_stop(self, member):
+        """Check wether the given member designates a public transport stop."""
+        return member.role == 'stop' or\
+            (member.ref in self.nodes and self.nodes[member.ref].tags.get('public_transport') == 'stop_position')
+
+    def _is_node_loaded(self, node_id):
+        """Check whether the node is loaded from the OSM data."""
+        return node_id in self.nodes
 
     def extract_route(self, relation, agency_id):
         """Extract information of one route."""

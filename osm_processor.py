@@ -81,16 +81,21 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     def relation(self, r):
         """Process each relation."""
-        if r.tags.get('type') == 'route':
+        if r.deleted or not r.visible:
+            return
+
+        if r.tags.get('type') == 'route' and self._is_public_transport(r.tags.get('route')):
             self.process_route(r)
 
         if r.tags.get('type') == 'route_master':
             self.process_route_master(r)
 
+    def _is_public_transport(self, route_type):
+        """See wether the given route defines a public transport route."""
+        return route_type in ['bus', 'trolleybus', 'ferry', 'train', 'tram', 'light_trail']
+
     def process_route(self, r):
         """Process one route."""
-        if 'public_transport:version' in r.tags and r.tags['public_transport:version'] != 2:
-            pass
 
         agency_id = self.extract_agency(r)
 

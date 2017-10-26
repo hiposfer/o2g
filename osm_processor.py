@@ -141,7 +141,7 @@ class GTFSPreprocessor(o.SimpleHandler):
         lon, lat = self._get_first_coordinate(relation)
         tz = self.tzfinder.timezone_at(lng=lon, lat=lat)
         if not tz:
-            print('No tz found for %s %s' % (lon, lat))
+            print('No timezone found for (%s, %s)' % (lon, lat))
         return tz
 
     def _get_first_coordinate(self, relation):
@@ -161,15 +161,13 @@ class GTFSPreprocessor(o.SimpleHandler):
     def extract_stops(self, relation):
         """Extract stops in a relation."""
         for m in relation.members:
-            if self._is_stop(m):
-                if self._is_node_loaded(m.ref) and self.nodes[m.ref].id not in self.stops:
+            if m.ref not in self.stops and self._is_stop(m):
+                if self._is_node_loaded(m.ref):
                     self.stops[self.nodes[m.ref].id] = \
                         {'stop_id': self.nodes[m.ref].id,
                          'stop_name': self.nodes[m.ref].tags.get('name') or "Unnamed {} stop.".format(relation.tags.get('route')),
                          'stop_lon': self.nodes[m.ref].lon,
                          'stop_lat': self.nodes[m.ref].lat}
-                else:
-                    print('Route %s requires unavailable node %s' % (relation.id, m.ref))
 
     def _is_stop(self, member):
         """Check wether the given member designates a public transport stop."""

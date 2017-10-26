@@ -37,10 +37,4 @@ def main():
 
 
 if __name__ == '__main__':
-    try:
-        main()
-    except Exception as err:
-        raise
-        #print("Failed: %s" % err)
-    finally:
-        print("Bye.")
+    main()

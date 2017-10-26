@@ -97,11 +97,11 @@ class GTFSPreprocessor(o.SimpleHandler):
     def process_route(self, r):
         """Process one route."""
 
-        agency_id = self.extract_agency(r)
+        self.extract_agency(r)
 
         self.extract_stops(r)
 
-        self.extract_route(r, agency_id)
+        self.extract_route(r)
 
         # TODO: Extract trips
         # TODO: Extract trip's shapes
@@ -122,9 +122,8 @@ class GTFSPreprocessor(o.SimpleHandler):
         #    and only very few by others then it may be sufficient to only tag the exceptions.
         #    For example, when nearly all roads in an area are managed by a local authority then it
         #    would be sufficient to only tag those that are not with an operator tag.
-        agency_id = None
-        if 'operator' in relation.tags and relation.tags['operator'] not in self.agencies:
-            agency_id = abs(hash(relation.tags['operator']))
+        agency_id = self._get_agency_id(relation)
+        if agency_id != -1 and agency_id not in self.agencies:
             self.agencies[agency_id] = {'agency_id': agency_id,
                                         'agency_name': relation.tags['operator'],
                                         'agency_timezone': self._guess_timezone(relation)}
@@ -181,10 +180,10 @@ class GTFSPreprocessor(o.SimpleHandler):
         """Check whether the node is loaded from the OSM data."""
         return node_id in self.nodes
 
-    def extract_route(self, relation, agency_id):
+    def extract_route(self, relation):
         """Extract information of one route."""
         if relation.id not in self.routes[relation.tags.get('route')] or \
-         self.routes[r.tags.get('route')][relation.id][0] < relation.version:
+         self.routes[relation.tags.get('route')][relation.id][0] < relation.version:
             route = {'route_id': relation.id,
                      'route_short_name': relation.tags.get('name') or relation.tags.get('ref'),
                      'route_long_name': "{0}-to-{1}".format(relation.tags.get('from'),

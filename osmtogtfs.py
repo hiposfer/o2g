@@ -5,10 +5,17 @@ Extracts partial GTFS data from OSM file.
 import os
 import sys
 import time
+import tempfile
 
 from osm_processor import GTFSPreprocessor
 from gtfs_writer import GTFSWriter, GTFSRouteType
 
+
+def _make_gtfs_filename(input_filename):
+    base = os.path.split(input_filename)[-1][:10]
+    return "{base}_{slug}.gtfs.zip".format(
+        base=base,
+        slug=os.path.split(tempfile.mktemp())[-1])
 
 if __name__ == '__main__':
     if len(sys.argv) != 2:
@@ -30,6 +37,6 @@ if __name__ == '__main__':
          GTFSRouteType.Subway.value,
          GTFSRouteType.Rail.value]]
     writer.add_routes(supported_routes)
-    filename = "gtfs_{}.zip".format(os.path.split(sys.argv[1])[-1])
+    filename = _make_gtfs_filename(sys.argv[1])
     writer.write_feed(filename)
     print('GTFS feed saved in %s' % filename)

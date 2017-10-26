@@ -186,11 +186,17 @@ class GTFSPreprocessor(o.SimpleHandler):
          self.routes[relation.tags.get('route')][relation.id][0] < relation.version:
             route = {'route_id': relation.id,
                      'route_short_name': relation.tags.get('name') or relation.tags.get('ref'),
-                     'route_long_name': "{0}-to-{1}".format(relation.tags.get('from'),
-                                                            relation.tags.get('to')),
+                     'route_long_name': self._create_route_long_name(relation),
                      'route_type': map_osm_route_type_to_gtfs(relation.tags.get('route')),
                      'route_url': 'https://www.openstreetmap.org/relation/{}'.format(relation.id),
                      'route_color': relation.tags.get('color'),
                      'agency_id': self._get_agency_id(relation)}
             self.routes[relation.tags.get('route')][relation.id] = relation.version, route
             self.all_routes.append(route)
+
+    def _create_route_long_name(self, relation):
+        """Create a meaningful route name."""
+        if not relation.tags.get('from') or not relation.tags.get('to'):
+            return ''
+        return "{0}-to-{1}".format(relation.tags.get('from'),
+                                   relation.tags.get('to'))

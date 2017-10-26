@@ -3,6 +3,7 @@ import enum
 from collections import namedtuple
 
 import osmium as o
+from timezonefinder import TimezoneFinder
 
 
 # OSM definitions with their essential attributes
@@ -56,10 +57,12 @@ class GTFSPreprocessor(o.SimpleHandler):
         super(GTFSPreprocessor, self).__init__()
 
         self.nodes = {}
-        self.agencies = {}
+        self.ways = {}
+        self.agencies = {-1: {'agency_id': -1, 'agency_name': 'Unkown agency', 'agency_timezone': ''}}
         self.stops = {}
         self.routes = {}
         self.all_routes = []
+        self.tzfinder = TimezoneFinder()
 
     def node(self, n):
         """Process each node."""
@@ -70,6 +73,11 @@ class GTFSPreprocessor(o.SimpleHandler):
                                     {t.k:t.v for t in n.tags})
         except o.InvalidLocationError:
             pass
+
+    def way(self, w):
+        """Process each way."""
+        # For the moment we only need node locations of each way.
+        self.ways[w.id] = [n.location for n in w.nodes]
 
     def relation(self, r):
         """Process each relation."""
@@ -113,12 +121,38 @@ class GTFSPreprocessor(o.SimpleHandler):
         if 'operator' in relation.tags and relation.tags['operator'] not in self.agencies:
             agency_id = abs(hash(relation.tags['operator']))
             self.agencies[agency_id] = {'agency_id': agency_id,
-                                        'agency_name': relation.tags['operator']}
-        else:
-            agency_id = -1
-            self.agencies[agency_id] = {'agency_id': agency_id,
-                                        'agency_name': 'Unkown agency'}
+                                        'agency_name': relation.tags['operator'],
+                                        'agency_timezone': self._guess_timezone(relation)}
         return agency_id
+
+    def _get_agency_id(self, relation):
+        """Construct an id for agency using its tags."""
+        if 'operator' in relation.tags:
+            return abs(hash(relation.tags['operator']))
+        else:
+            return -1
+
+    def _guess_timezone(self, relation):
+        """Guess timezone of the relation by looking at it's nodes."""
+        lon, lat = self._get_first_coordinate(relation)
+        tz = self.tzfinder.timezone_at(lng=lon, lat=lat)
+        if not tz:
+            print('No tz found for %s %s' % (lon, lat))
+        return tz
+
+    def _get_first_coordinate(self, relation):
+        for m in relation.members:
+            if m.ref in self.nodes:
+                return self.nodes[m.ref].lon, self.nodes[m.ref].lat
+            elif m.ref in self.ways:
+                return self._get_first_way_coordinate(m.ref)
+        print('No node found for relation %s' % relation.id)
+        return 0, 0
+
+    def _get_first_way_coordinate(self, way_id):
+        if len(self.ways[way_id]) > 0:
+            # Pick the first node
+            return self.ways[way_id][0].lon, self.ways[way_id][0].lat
 
     def extract_stops(self, relation):
         """Extract stops in a relation."""
@@ -156,6 +190,6 @@ class GTFSPreprocessor(o.SimpleHandler):
                      'route_type': map_osm_route_type_to_gtfs(relation.tags.get('route')),
                      'route_url': 'https://www.openstreetmap.org/relation/{}'.format(relation.id),
                      'route_color': relation.tags.get('color'),
-                     'agency_id': agency_id}
+                     'agency_id': self._get_agency_id(relation)}
             self.routes[relation.tags.get('route')][relation.id] = relation.version, route
             self.all_routes.append(route)

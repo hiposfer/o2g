@@ -1,6 +1,6 @@
 """Utilities for processing OSM data and extracting GTFS relevant transit data."""
 import enum
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 import osmium as o
 from timezonefinder import TimezoneFinder
@@ -60,7 +60,7 @@ class GTFSPreprocessor(o.SimpleHandler):
         self.ways = {}
         self.agencies = {-1: {'agency_id': -1, 'agency_name': 'Unkown agency', 'agency_timezone': ''}}
         self.stops = {}
-        self.routes = {}
+        self.routes = defaultdict(lambda: {})
         self.all_routes = []
         self.tzfinder = TimezoneFinder()
 
@@ -178,9 +178,6 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     def extract_route(self, relation, agency_id):
         """Extract information of one route."""
-        if relation.tags.get('route') not in self.routes:
-            self.routes[relation.tags.get('route')] = {}
-
         if relation.id not in self.routes[relation.tags.get('route')] or \
          self.routes[r.tags.get('route')][relation.id][0] < relation.version:
             route = {'route_id': relation.id,

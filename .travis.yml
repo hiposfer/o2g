@@ -19,4 +19,4 @@ deploy:
 addons:
   apt:
     packages:
-    - pyosmium
+    - libosmium-dev

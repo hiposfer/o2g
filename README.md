@@ -46,20 +46,13 @@ However, there are some routes without operator tags. In such cases we use a dum
 
     {'agency_id': -1, 'agency_name': 'Unkown agency', 'agency_timezone': ''}
 
-#### agency_id
-We use the _operator_ value to produce _agency_id_:
-
-    agency_id = abs(hash(operator_name))
-
-#### agency_name
-Is the value of _operator_ tag.
-
-#### agency_timezone
-Since there is no explicit operator timezone tag, we try to guess it based on the coordinate of the elements in a relation.
+ - agency_id: we use the _operator_ value to produce the _agency_id_: `agency_id = abs(hash(operator_name))`
+ - agency_name: the value of the _operator_ tag
+ - agency_timezone: we guess it based on the coordinates of the elements in the relation
 
 ### stops.txt
 
- - stop_id: is the node id from OSM
+ - stop_id: value of the node id from OSM
  - stop_name: value of _name_ tag or _Unknown_
  - stop_lon: longitute of the node
  - stop_lat: latitute of the node

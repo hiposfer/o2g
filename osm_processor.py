@@ -1,8 +1,9 @@
 """Utilities for processing OSM data and extracting GTFS relevant transit data."""
 import enum
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 import osmium as o
+from timezonefinder import TimezoneFinder
 
 
 # OSM definitions with their essential attributes
@@ -56,10 +57,12 @@ class GTFSPreprocessor(o.SimpleHandler):
         super(GTFSPreprocessor, self).__init__()
 
         self.nodes = {}
-        self.agencies = {}
-        self.stops = []
-        self.routes = {}
+        self.ways = {}
+        self.agencies = {-1: {'agency_id': -1, 'agency_name': 'Unkown agency', 'agency_timezone': ''}}
+        self.stops = {}
+        self.routes = defaultdict(lambda: {})
         self.all_routes = []
+        self.tzfinder = TimezoneFinder()
 
     def node(self, n):
         """Process each node."""
@@ -71,24 +74,34 @@ class GTFSPreprocessor(o.SimpleHandler):
         except o.InvalidLocationError:
             pass
 
+    def way(self, w):
+        """Process each way."""
+        # For the moment we only need node locations of each way.
+        self.ways[w.id] = [n.location for n in w.nodes]
+
     def relation(self, r):
         """Process each relation."""
-        if r.tags.get('type') == 'route':
+        if r.deleted or not r.visible:
+            return
+
+        if r.tags.get('type') == 'route' and self._is_public_transport(r.tags.get('route')):
             self.process_route(r)
 
         if r.tags.get('type') == 'route_master':
             self.process_route_master(r)
 
+    def _is_public_transport(self, route_type):
+        """See wether the given route defines a public transport route."""
+        return route_type in ['bus', 'trolleybus', 'ferry', 'train', 'tram', 'light_trail']
+
     def process_route(self, r):
         """Process one route."""
-        if 'public_transport:version' in r.tags and r.tags['public_transport:version'] != 2:
-            pass
 
-        agency_id = self.extract_agency(r)
+        self.extract_agency(r)
 
         self.extract_stops(r)
 
-        self.extract_route(r, agency_id)
+        self.extract_route(r)
 
         # TODO: Extract trips
         # TODO: Extract trip's shapes
@@ -109,39 +122,79 @@ class GTFSPreprocessor(o.SimpleHandler):
         #    and only very few by others then it may be sufficient to only tag the exceptions.
         #    For example, when nearly all roads in an area are managed by a local authority then it
         #    would be sufficient to only tag those that are not with an operator tag.
-        agency_id = None
-        if 'operator' in relation.tags and relation.tags['operator'] not in self.agencies:
-            agency_id = id(relation.tags['operator'])
+        agency_id = self._get_agency_id(relation)
+        if agency_id != -1 and agency_id not in self.agencies:
             self.agencies[agency_id] = {'agency_id': agency_id,
-                                        'agency_name': relation.tags['operator']}
+                                        'agency_name': relation.tags['operator'],
+                                        'agency_timezone': self._guess_timezone(relation)}
         return agency_id
+
+    def _get_agency_id(self, relation):
+        """Construct an id for agency using its tags."""
+        if 'operator' in relation.tags:
+            return abs(hash(relation.tags['operator']))
+        else:
+            return -1
+
+    def _guess_timezone(self, relation):
+        """Guess timezone of the relation by looking at it's nodes."""
+        lon, lat = self._get_first_coordinate(relation)
+        tz = self.tzfinder.timezone_at(lng=lon, lat=lat)
+        if not tz:
+            print('No timezone found for (%s, %s)' % (lon, lat))
+        return tz
+
+    def _get_first_coordinate(self, relation):
+        for m in relation.members:
+            if m.ref in self.nodes:
+                return self.nodes[m.ref].lon, self.nodes[m.ref].lat
+            elif m.ref in self.ways:
+                return self._get_first_way_coordinate(m.ref)
+        print('No node found for relation %s' % relation.id)
+        return 0, 0
+
+    def _get_first_way_coordinate(self, way_id):
+        if len(self.ways[way_id]) > 0:
+            # Pick the first node
+            return self.ways[way_id][0].lon, self.ways[way_id][0].lat
 
     def extract_stops(self, relation):
         """Extract stops in a relation."""
         for m in relation.members:
-            if m.type == OSMElement.Node.value and m.ref in self.nodes:
-                if self.nodes[m.ref].tags.get('public_transport') in ('stop_position', 'platform'):
-                    self.stops.append({'stop_id': self.nodes[m.ref].id,
-                                       'stop_name': self.nodes[m.ref].tags.get('name'),
-                                       'stop_lon': self.nodes[m.ref].lon,
-                                       'stop_lat': self.nodes[m.ref].lat})
-            else:
-                print('member skipped', m)
+            if m.ref not in self.stops and self._is_stop(m):
+                if self._is_node_loaded(m.ref):
+                    self.stops[self.nodes[m.ref].id] = \
+                        {'stop_id': self.nodes[m.ref].id,
+                         'stop_name': self.nodes[m.ref].tags.get('name') or "Unnamed {} stop.".format(relation.tags.get('route')),
+                         'stop_lon': self.nodes[m.ref].lon,
+                         'stop_lat': self.nodes[m.ref].lat}
 
-    def extract_route(self, relation, agency_id):
+    def _is_stop(self, member):
+        """Check wether the given member designates a public transport stop."""
+        return member.role == 'stop' or\
+            (member.ref in self.nodes and self.nodes[member.ref].tags.get('public_transport') == 'stop_position')
+
+    def _is_node_loaded(self, node_id):
+        """Check whether the node is loaded from the OSM data."""
+        return node_id in self.nodes
+
+    def extract_route(self, relation):
         """Extract information of one route."""
-        if relation.tags.get('route') not in self.routes:
-            self.routes[relation.tags.get('route')] = {}
-
         if relation.id not in self.routes[relation.tags.get('route')] or \
-         self.routes[r.tags.get('route')][relation.id][0] < relation.version:
+         self.routes[relation.tags.get('route')][relation.id][0] < relation.version:
             route = {'route_id': relation.id,
                      'route_short_name': relation.tags.get('name') or relation.tags.get('ref'),
-                     'route_long_name': "{0}-to-{1}".format(relation.tags.get('from'),
-                                                            relation.tags.get('to')),
+                     'route_long_name': self._create_route_long_name(relation),
                      'route_type': map_osm_route_type_to_gtfs(relation.tags.get('route')),
                      'route_url': 'https://www.openstreetmap.org/relation/{}'.format(relation.id),
                      'route_color': relation.tags.get('color'),
-                     'agency_id': agency_id}
+                     'agency_id': self._get_agency_id(relation)}
             self.routes[relation.tags.get('route')][relation.id] = relation.version, route
             self.all_routes.append(route)
+
+    def _create_route_long_name(self, relation):
+        """Create a meaningful route name."""
+        if not relation.tags.get('from') or not relation.tags.get('to'):
+            return ''
+        return "{0}-to-{1}".format(relation.tags.get('from'),
+                                   relation.tags.get('to'))

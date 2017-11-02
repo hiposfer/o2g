@@ -60,7 +60,7 @@ class GTFSWriter(object):
             self._routes_writer.writerow([v for v in record.values()])
         
     def write_feed(self, filename):
-        with zipfile.ZipFile(filename, mode='x') as z:
+        with zipfile.ZipFile(filename, mode='w') as z:
             agencies = io.BytesIO(self._agencies_buffer.getvalue().encode('utf-8'))
             z.writestr('agency.txt', agencies.getbuffer())
             stops = io.BytesIO(self._stops_buffer.getvalue().encode('utf-8'))

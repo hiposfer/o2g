@@ -22,7 +22,6 @@ def osm(request):
         h.apply_file(os.path.join('tests', 'bremen-latest.osm.pbf'),
                      locations=True,
                      idx='sparse_mem_array')
-        print(h.agencies)
         data = OSMHandler(h.nodes, h.ways, h.agencies, h.stops, h.routes, h.all_routes)
         request.config.cache.set('osm_sample', data)
     else:

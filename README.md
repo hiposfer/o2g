@@ -1,4 +1,4 @@
-# osmtogtfs
+# osmtogtfs [![Build Status](https://travis-ci.org/hiposfer/osmtogtfs.svg?branch=master)](https://travis-ci.org/hiposfer/osmtogtfs)
 Extracts partial GTFS feed from OSM data.
 
 OpenStreeMaps data contain information about bus, tram, train and other public transport means.

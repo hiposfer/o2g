@@ -10,8 +10,8 @@ from osm_processor import GTFSPreprocessor
 from gtfs_writer import GTFSWriter, GTFSRouteType
 
 
-# A lightweight GTFSPreprocessor for test caching
-OSMData = namedtuple('OSMHandler', ['nodes', 'ways', 'agencies', 'stops', 'routes', 'all_routes'])
+# A lightweight data structor to keep preprocessing result for caching
+OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes', 'all_routes'])
 
 
 def get_osm_data():

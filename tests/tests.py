@@ -11,21 +11,28 @@ from gtfs_writer import GTFSWriter, GTFSRouteType
 
 
 # A lightweight GTFSPreprocessor for test caching
-OSMHandler = namedtuple('OSMHandler', ['nodes', 'ways', 'agencies', 'stops', 'routes', 'all_routes'])
+OSMData = namedtuple('OSMHandler', ['nodes', 'ways', 'agencies', 'stops', 'routes', 'all_routes'])
+
+
+def get_osm_data():
+    h = GTFSPreprocessor()
+    h.apply_file(os.path.join('tests', 'bremen-latest.osm.pbf'),
+                 locations=True,
+                 idx='sparse_mem_array')
+    return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes, h.all_routes)
 
 
 @pytest.fixture
 def osm(request):
-    data = request.config.cache.get('osm_sample', None)
+    if not hasattr(request.config, 'cache'):
+        return get_osm_data()
+
+    data = request.config.cache.get('osm', None)
     if not data:
-        h = GTFSPreprocessor()
-        h.apply_file(os.path.join('tests', 'bremen-latest.osm.pbf'),
-                     locations=True,
-                     idx='sparse_mem_array')
-        data = OSMHandler(h.nodes, h.ways, h.agencies, h.stops, h.routes, h.all_routes)
-        request.config.cache.set('osm_sample', data)
+        data = get_osm_data()
+        request.config.cache.set('osm', data)
     else:
-        data = OSMHandler(*data)
+        data = OSMData(*data)
     return data
 
 

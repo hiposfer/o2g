@@ -1,5 +1,6 @@
 """Utilities for processing OSM data and extracting GTFS relevant transit data."""
 import enum
+import logging
 from collections import namedtuple, defaultdict
 
 import osmium as o
@@ -8,6 +9,7 @@ from timezonefinder import TimezoneFinder
 
 # OSM definitions with their essential attributes
 Node = namedtuple('Node', ['id', 'lon', 'lat', 'tags'])
+Location = namedtuple('Location', ['lon', 'lat'])
 
 
 OSM2GTFS_ROUTE_TYPE_MAP = {
@@ -77,7 +79,13 @@ class GTFSPreprocessor(o.SimpleHandler):
     def way(self, w):
         """Process each way."""
         # For the moment we only need node locations of each way.
-        self.ways[w.id] = [n.location for n in w.nodes]
+        self.ways[w.id] = [loc for loc in map(self._make_location, w.nodes) if loc]
+
+    def _make_location(self, node):
+        try:
+            return Location(node.location.lon, node.location.lat)
+        except:
+            return None
 
     def relation(self, r):
         """Process each relation."""
@@ -141,7 +149,7 @@ class GTFSPreprocessor(o.SimpleHandler):
         lon, lat = self._get_first_coordinate(relation)
         tz = self.tzfinder.timezone_at(lng=lon, lat=lat)
         if not tz:
-            print('No timezone found for (%s, %s)' % (lon, lat))
+            logging.debug('No timezone found for (%s, %s)' % (lon, lat))
         return tz
 
     def _get_first_coordinate(self, relation):
@@ -150,7 +158,7 @@ class GTFSPreprocessor(o.SimpleHandler):
                 return self.nodes[m.ref].lon, self.nodes[m.ref].lat
             elif m.ref in self.ways:
                 return self._get_first_way_coordinate(m.ref)
-        print('No node found for relation %s' % relation.id)
+        logging.debug('No node found for relation %s' % relation.id)
         return 0, 0
 
     def _get_first_way_coordinate(self, way_id):

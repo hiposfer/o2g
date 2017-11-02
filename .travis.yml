@@ -7,8 +7,9 @@ python:
 - '3.6'
 install:
 - pip install -r requirements.txt
+- pip install pytest
 - python setup.py install
-script: pytest tests.py
+script: pytest --cache-clear -s tests/tests.py
 deploy:
   provider: pypi
   user: mehdix

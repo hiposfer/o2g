@@ -23,7 +23,7 @@ This will install `osmtogtfs.py` executable on your OS. You can also directly ru
 in the source code. Make sure to run it with python 3.
 
 # Tests
-We use wonder `pytest` package for testing. Install pytest and run the tests:
+We use the wonderful `pytest` package for testing. Install pytest and run the tests:
 
     $ pip install pytest
     $ pytest -s tests/tests.py

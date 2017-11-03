@@ -1,0 +1,2 @@
+osmium==2.13.0
+timezonefinder==2.1.0

@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     start = time.time()
     h.apply_file(sys.argv[1], locations=True, idx='sparse_mem_array')
-    print("Preprocessing tooke %d seconds." % (time.time() - start))
+    print("Preprocessing took %d seconds." % (time.time() - start))
 
     writer = GTFSWriter()
     writer.add_agencies(h.agencies.values())

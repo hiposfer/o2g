@@ -45,22 +45,22 @@ class GTFSWriter(object):
         for agency in agencies:
             record = OrderedDict.fromkeys(self._agencies_headers, '')
             record.update(agency)
-            self._agencies_writer.writerow(record.values())
+            self._agencies_writer.writerow([v for v in record.values()])
 
     def add_stops(self, stops):
         for stop in stops:
             record = OrderedDict.fromkeys(self._stops_headers, '')
             record.update(stop)
-            self._stops_writer.writerow(record.values())
+            self._stops_writer.writerow([v for v in record.values()])
 
     def add_routes(self, routes):
         for route in routes:
             record = OrderedDict.fromkeys(self._routes_headers, '')
             record.update(route)
-            self._routes_writer.writerow(record.values())
+            self._routes_writer.writerow([v for v in record.values()])
         
     def write_feed(self, filename):
-        with zipfile.ZipFile(filename, mode='x') as z:
+        with zipfile.ZipFile(filename, mode='w') as z:
             agencies = io.BytesIO(self._agencies_buffer.getvalue().encode('utf-8'))
             z.writestr('agency.txt', agencies.getbuffer())
             stops = io.BytesIO(self._stops_buffer.getvalue().encode('utf-8'))

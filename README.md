@@ -1,4 +1,4 @@
-# osmtogtfs
+# osmtogtfs [![Build Status](https://travis-ci.org/hiposfer/osmtogtfs.svg?branch=master)](https://travis-ci.org/hiposfer/osmtogtfs)
 Extracts partial GTFS feed from OSM data.
 
 OpenStreeMaps data contain information about bus, tram, train and other public transport means.
@@ -21,6 +21,18 @@ Afterwards clone the repo and install it:
 
 This will install `osmtogtfs.py` executable on your OS. You can also directly run the script found
 in the source code. Make sure to run it with python 3.
+
+# Tests
+We use the wonderful `pytest` package for testing. Install pytest and run the tests:
+
+    $ pip install pytest
+    $ pytest -s tests/tests.py
+
+`-s` disables capturing and shows us more output (such as print statements and log messages).
+
+## Pytest Caching
+In order to run tests faster we use caching. The result of OSM preprocessing will be cached and used
+for subsequent tests. In order to clear the cache run pytest with `--cache-clear` option.
 
 # Usage
 Run the tool over your OSM data source (or whatever osmium accepts):

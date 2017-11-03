@@ -29,6 +29,61 @@ Run the tool over your OSM data source (or whatever osmium accepts):
 
 After a while, depending on the file size, a file named `gtfs.zip` will be produced inside the working directory.
 
+# Implementation Notes
+In this section we describe important aspects of the implementation in order to help understand how the program works.
+
+## Field Mapping
+GTFS feeds could contain up to thirteen different CSV files with `.txt` extension. Six of these files are required for a valid
+feed, including _agency.txt_, _stops.txt_, _routes.txt_, _trips.txt_, _stop_times.txt_ and _calendar.txt_. 
+Each file contains a set of comumns. Some columns are required and some are optional. 
+Most importantly, not all the fields necessary to build a GTFS feed are available in OSM data. 
+Therefore we have to generate some fileds ourselves or leave them blank.
+Below we cover how the values for each column of the files that we produce at the moment are produced.
+
+### agency.txt
+We use _operator_ tag on OSM relations which are tagged as `relation=route` to extract agency information. 
+However, there are some routes without operator tags. In such cases we use a dummy agency:
+
+    {'agency_id': -1, 'agency_name': 'Unkown agency', 'agency_timezone': ''}
+
+ - agency_id: we use the _operator_ value to produce the _agency_id_: `agency_id = abs(hash(operator_name))`
+ - agency_name: the value of the _operator_ tag
+ - agency_timezone: we guess it based on the coordinates of the elements in the relation
+
+### stops.txt
+
+ - stop_id: value of the node id from OSM
+ - stop_name: value of _name_ tag or _Unknown_
+ - stop_lon: longitute of the node
+ - stop_lat: latitute of the node
+
+### routes.txt
+
+ - route_id: id of the OSM relation element
+ - route_short_name: value of _name_ or _ref_ tag of the relation
+ - route_long_name: a combination of _from_ and _to_ tags on the relation otherwise empty
+ - route_type: we map OSM route types to GTFS
+ - route_url: link to the relation on openstreetmaps.org
+ - route_color: value of the _color_ tag if present otherwise empty
+ - agency_id: ID of the agency otherwise -1
+
+ #### OSM to GTFS Route Type Mapping
+ Below is the mapping that we use, the left column is the OSM value and the right column is the 
+ corresponding value from GTFS specification (make sure the see the code for any changes):
+
+    tram: 		0
+    light_rail: 0
+    subway: 	1
+    rail: 		2
+    railway: 	2
+    train: 		2
+    bus: 		3
+    ex-bus: 	3
+    ferry: 		4
+    cableCar: 	5
+    gondola: 	6
+    funicular: 	7
+
 
 # Lincense
 MIT

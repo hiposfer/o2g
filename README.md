@@ -34,7 +34,7 @@ In this section we describe important aspects of the implementation in order to 
 
 ## Field Mapping
 GTFS feeds could contain up to thirteen different CSV files with `.txt` extension. Six of these files are required for a valid
-field, including _agency.txt_, _stops.txt_, _routes.txt_, _trips.txt_, _stop_tiles.txt_ and _calendar.txt_. 
+feed, including _agency.txt_, _stops.txt_, _routes.txt_, _trips.txt_, _stop_times.txt_ and _calendar.txt_. 
 Each file contains a set of comumns. Some columns are required and some are optional. 
 Most importantly, not all the fields necessary to build a GTFS feed are available in OSM data. 
 Therefore we have to generate some fileds ourselves or leave them blank.

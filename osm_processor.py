@@ -60,7 +60,7 @@ class GTFSPreprocessor(o.SimpleHandler):
 
         self.nodes = {}
         self.ways = {}
-        self.agencies = {-1: {'agency_id': -1, 'agency_name': 'Unkown agency', 'agency_timezone': ''}}
+        self.agencies = {-1: {'agency_id': -1, 'agency_name': 'Unknown agency', 'agency_timezone': ''}}
         self.stops = {}
         self.routes = defaultdict(lambda: {})
         self.all_routes = []

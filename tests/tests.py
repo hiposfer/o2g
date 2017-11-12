@@ -50,9 +50,9 @@ def writer(osm):
     return w
 
 
-def test_write_feed(writer):
+def test_write_zipped(writer):
     filename = tempfile.mktemp()
     print('Writing GTFS feed to %s' % filename)
-    writer.write_feed(filename)
+    writer.write_zipped(filename)
 
     assert os.path.exists(filename)

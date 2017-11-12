@@ -1,4 +1,5 @@
 """Utilities for writing GTFS feeds."""
+import os
 import io
 import csv
 import enum
@@ -59,11 +60,21 @@ class GTFSWriter(object):
             record.update(route)
             self._routes_writer.writerow([v for v in record.values()])
         
-    def write_feed(self, filename):
+    def write_zipped(self, filename):
         with zipfile.ZipFile(filename, mode='w') as z:
-            agencies = io.BytesIO(self._agencies_buffer.getvalue().encode('utf-8'))
-            z.writestr('agency.txt', agencies.getbuffer())
-            stops = io.BytesIO(self._stops_buffer.getvalue().encode('utf-8'))
-            z.writestr('stops.txt', stops.getbuffer())
-            routes = io.BytesIO(self._routes_buffer.getvalue().encode('utf-8'))
-            z.writestr('routes.txt', routes.getbuffer())
+            self._write_to_zipfile(z, self._agencies_buffer, 'agency.txt')
+            self._write_to_zipfile(z, self._stops_buffer, 'stops.txt')
+            self._write_to_zipfile(z, self._routes_buffer, 'routes.txt')
+
+    def _write_to_zipfile(self, zipfile, buffer, filename):
+        encoded_values = io.BytesIO(buffer.getvalue().encode('utf-8'))
+        zipfile.writestr(filename, encoded_values.getbuffer())
+
+    def write_unzipped(self, path):
+        self._write_file(self._agencies_buffer, os.path.join(path, 'agency.txt'))
+        self._write_file(self._stops_buffer, os.path.join(path, 'stops.txt'))
+        self._write_file(self._routes_buffer, os.path.join(path, 'routes.txt'))
+
+    def _write_file(self, buffer, endpoint):
+        with open(endpoint, 'w', encoding='utf-8') as f:
+            f.write(buffer.getvalue())

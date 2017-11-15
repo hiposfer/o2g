@@ -16,7 +16,10 @@ OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes',
 
 def get_osm_data():
     h = GTFSPreprocessor()
-    h.apply_file(os.path.join('..', 'resources', 'osm', 'bremen-latest.osm.pbf'),
+    filepath = os.path.join(os.path.dirname(__file__),
+                            os.path.pardir,
+                            'resources', 'osm', 'bremen-latest.osm.pbf')
+    h.apply_file(filepath,
                  locations=True,
                  idx='sparse_mem_array')
     return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes, h.all_routes)

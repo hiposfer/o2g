@@ -23,7 +23,8 @@ from gtfs_writer import GTFSWriter, GTFSRouteType
 @click.command()
 @click.argument('input', type=click.Path(exists=True, readable=True))
 @click.option('--outdir', default='.',
-              type=click.Path(dir_okay=True,
+              type=click.Path(exists=True,
+                              dir_okay=True,
                               writable=True,
                               resolve_path=True),
               help='Store output in this directory.')

@@ -16,7 +16,10 @@ OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes',
 
 def get_osm_data():
     h = GTFSPreprocessor()
-    h.apply_file(os.path.join('tests', 'bremen-latest.osm.pbf'),
+    filepath = os.path.join(os.path.dirname(__file__),
+                            os.path.pardir,
+                            'resources', 'osm', 'bremen-latest.osm.pbf')
+    h.apply_file(filepath,
                  locations=True,
                  idx='sparse_mem_array')
     return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes, h.all_routes)
@@ -50,9 +53,9 @@ def writer(osm):
     return w
 
 
-def test_write_feed(writer):
+def test_write_zipped(writer):
     filename = tempfile.mktemp()
     print('Writing GTFS feed to %s' % filename)
-    writer.write_feed(filename)
+    writer.write_zipped(filename)
 
     assert os.path.exists(filename)

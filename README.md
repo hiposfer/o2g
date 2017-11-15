@@ -40,6 +40,18 @@ Run the tool over your OSM data source (or whatever osmium accepts):
     python osmtogtfs.py <osmfile>
 
 After a while, depending on the file size, a file named `gtfs.zip` will be produced inside the working directory.
+Moreover, if you install the package, you will get an script called `osmtogtfs` in your python path:
+
+    $ osmtogtfs --help
+    Usage: osmtogtfs [OPTIONS] INPUT
+
+    Options:
+      --outdir PATH   Store output in this directory.
+      --zipfile PATH  Save as Zip file if provided.
+      --help          Show this message and exit.
+
+`--outdir` defaults to the working directory and if `--zipfile` is provided, the feed will be zipped and stored in
+the _outdir_ with the given name, otherwise feed will be stored as plain text in multiple files.
 
 # Implementation Notes
 In this section we describe important aspects of the implementation in order to help understand how the program works.

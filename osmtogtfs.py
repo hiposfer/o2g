@@ -12,14 +12,6 @@ from osm_processor import GTFSPreprocessor
 from gtfs_writer import GTFSWriter, GTFSRouteType
 
 
-# def zip_callback(ctx, param, value):
-#     if value and ctx.params.get('zipfile') is None:
-#         ctx.params['zipfile'] = click.prompt('Zip filename',
-#                                 type=click.Path(file_okay=True,
-#                                                 writable=True,
-#                                                 resolve_path=True))
-#     return value
-
 @click.command()
 @click.argument('input', type=click.Path(exists=True, readable=True))
 @click.option('--outdir', default='.',
@@ -33,9 +25,6 @@ from gtfs_writer import GTFSWriter, GTFSRouteType
                               writable=True,
                               resolve_path=True),
               help='Save as Zip file if provided.')
-#@click.option('--zip/--no-zip',
-#              help='To zip or not to zip the feed.',
-#              callback=zip_callback)
 def cli(input, outdir, zipfile):
     processor = GTFSPreprocessor()
 

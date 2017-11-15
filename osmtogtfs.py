@@ -3,40 +3,51 @@
 Extracts partial GTFS data from OSM file.
 """
 import os
-import sys
 import time
-import tempfile
+import logging
+
+import click
 
 from osm_processor import GTFSPreprocessor
 from gtfs_writer import GTFSWriter, GTFSRouteType
 
 
-def _make_gtfs_filename(input_filename):
-    base = os.path.split(input_filename)[-1][:10]
-    return "{base}_{slug}.gtfs.zip".format(
-        base=base,
-        slug=os.path.split(tempfile.mktemp())[-1])
-
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: python osmtogtfs.py <osmfile>")
-        sys.exit(-1)
-
-    h = GTFSPreprocessor()
+@click.command()
+@click.argument('input', type=click.Path(exists=True, readable=True))
+@click.option('--outdir', default='.',
+              type=click.Path(exists=True,
+                              dir_okay=True,
+                              writable=True,
+                              resolve_path=True),
+              help='Store output in this directory.')
+@click.option('--zipfile',
+              type=click.Path(file_okay=True,
+                              writable=True,
+                              resolve_path=True),
+              help='Save as Zip file if provided.')
+def cli(input, outdir, zipfile):
+    processor = GTFSPreprocessor()
 
     start = time.time()
-    h.apply_file(sys.argv[1], locations=True, idx='sparse_mem_array')
-    print("Preprocessing took %d seconds." % (time.time() - start))
+    processor.apply_file(input, locations=True, idx='sparse_mem_array')
+    logging.debug("Preprocessing took %d seconds." % (time.time() - start))
 
     writer = GTFSWriter()
-    writer.add_agencies(h.agencies.values())
-    writer.add_stops(h.stops.values())
-    supported_routes = [r for r in h.all_routes if r['route_type'] in\
+    writer.add_agencies(processor.agencies.values())
+    writer.add_stops(processor.stops.values())
+    supported_routes = [r for r in processor.all_routes if r['route_type'] in\
         [GTFSRouteType.Bus.value,
          GTFSRouteType.Tram.value,
          GTFSRouteType.Subway.value,
          GTFSRouteType.Rail.value]]
     writer.add_routes(supported_routes)
-    filename = _make_gtfs_filename(sys.argv[1])
-    writer.write_feed(filename)
-    print('GTFS feed saved in %s' % filename)
+    if zipfile:
+        writer.write_zipped(os.path.join(outdir, zipfile))
+        click.echo('GTFS feed saved in %s' % zipfile)
+    else:
+        writer.write_unzipped(outdir)
+        click.echo('GTFS feed saved in %s' % outdir)
+
+
+if __name__ == '__main__':
+    cli()

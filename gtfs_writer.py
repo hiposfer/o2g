@@ -25,21 +25,21 @@ class GTFSWriter(object):
         self._agencies_headers = ['agency_id', 'agency_name', 'agency_url', 'agency_timezone',
                                   'agency_lang', 'agency_phone', 'agency_fare_url', 'agency_email']
         self._agencies_buffer = io.StringIO()
-        self._agencies_writer = csv.writer(self._agencies_buffer)
+        self._agencies_writer = csv.writer(self._agencies_buffer, lineterminator='\n')
         self._agencies_writer.writerow(self._agencies_headers)
         
         # self._stops_required_headers = ['stop_id', 'stop_name', 'stop_lat', 'stop_lon']
         self._stops_headers = ['stop_id', 'stop_code', 'stop_name', 'stop_desc', 'stop_lat', 'stop_lon',
                                'zone_id', 'stop_url', 'location_type', 'parent_station', 'stop_timezone', 'wheelchair_boarding']
         self._stops_buffer = io.StringIO()
-        self._stops_writer = csv.writer(self._stops_buffer)
+        self._stops_writer = csv.writer(self._stops_buffer, lineterminator='\n')
         self._stops_writer.writerow(self._stops_headers)
 
         # self._routes_required_headers = ['route_id', 'route_short_name', 'route_long_name', 'route_type', 'route_url', 'route_color', 'agency_id']
         self._routes_headers = ['route_id', 'agency_id', 'route_short_name', 'route_long_name', 'route_desc', 'route_type',
                                 'route_url', 'route_color', 'route_text_color']
         self._routes_buffer = io.StringIO()
-        self._routes_writer = csv.writer(self._routes_buffer)
+        self._routes_writer = csv.writer(self._routes_buffer, lineterminator='\n')
         self._routes_writer.writerow(self._routes_headers)
 
     def add_agencies(self, agencies):

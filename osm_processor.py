@@ -140,7 +140,7 @@ class GTFSPreprocessor(o.SimpleHandler):
     def _get_agency_id(self, relation):
         """Construct an id for agency using its tags."""
         if 'operator' in relation.tags:
-            return abs(hash(relation.tags['operator']))
+            return relation.tags['operator']
         else:
             return -1
 

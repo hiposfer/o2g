@@ -1,6 +1,7 @@
 """Utilities for processing OSM data and extracting GTFS relevant transit data."""
 import enum
 import logging
+import hashlib
 from collections import namedtuple, defaultdict
 
 import osmium as o
@@ -143,7 +144,8 @@ class GTFSPreprocessor(o.SimpleHandler):
     def _get_agency_id(self, relation):
         """Construct an id for agency using its tags."""
         if 'operator' in relation.tags:
-            return relation.tags['operator']
+            s = relation.tags['operator']
+            return int(hashlib.sha256(s.encode('utf-8')).hexdigest(), 16) % 10**8
         else:
             return -1
 

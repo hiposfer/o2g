@@ -73,7 +73,7 @@ class GTFSPreprocessor(o.SimpleHandler):
             self.nodes[n.id] = Node(n.id,
                                     n.location.lon,
                                     n.location.lat,
-                                    # Instead of {t.k:t.v for t in n.tags} we only pick tags that we need,
+                                    # Instead of {t.k:t.v for t in n.tags} we only pick the tags that we need,
                                     # because this way it is way faster. Try for yourself using cProfile:
                                     # python -m cProfile -s cumtime osmtogtfs.py resources/osm/bremen-latest.osm.pbf
                                     {'name': n.tags.get('name'), 'public_transport': n.tags.get('public_transport')})

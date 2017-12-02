@@ -61,7 +61,8 @@ class GTFSPreprocessor(o.SimpleHandler):
 
         self.nodes = {}
         self.ways = {}
-        self.agencies = {-1: {'agency_id': -1, 'agency_name': 'Unknown agency', 'agency_timezone': ''}}
+        self.agencies =\
+            {-1: {'agency_id': -1, 'agency_name': 'Unknown agency', 'agency_timezone': ''}}
         self.stops = {}
         self.routes = defaultdict(lambda: {})
         self.all_routes = []
@@ -70,13 +71,14 @@ class GTFSPreprocessor(o.SimpleHandler):
     def node(self, n):
         """Process each node."""
         try:
-            self.nodes[n.id] = Node(n.id,
-                                    n.location.lon,
-                                    n.location.lat,
-                                    # Instead of {t.k:t.v for t in n.tags} we only pick the tags that we need,
-                                    # because this way it is way faster. Try for yourself using cProfile:
-                                    # python -m cProfile -s cumtime osmtogtfs.py resources/osm/bremen-latest.osm.pbf
-                                    {'name': n.tags.get('name'), 'public_transport': n.tags.get('public_transport')})
+            self.nodes[n.id] =\
+              Node(n.id,
+                   n.location.lon,
+                   n.location.lat,
+                   # Instead of {t.k:t.v for t in n.tags} we only pick the tags that we need,
+                   # because this way it is way faster. Try for yourself using cProfile:
+                   # python -m cProfile -s cumtime osmtogtfs.py resources/osm/bremen-latest.osm.pbf
+                   {'name': n.tags.get('name'), 'public_transport': n.tags.get('public_transport')})
         except o.InvalidLocationError:
             pass
 
@@ -85,24 +87,26 @@ class GTFSPreprocessor(o.SimpleHandler):
         # For the moment we only need node locations of each way.
         self.ways[w.id] = [loc for loc in map(self._make_location, w.nodes) if loc]
 
-    def _make_location(self, node):
+    @staticmethod
+    def _make_location(node):
         try:
             return Location(node.location.lon, node.location.lat)
         except:
             return None
 
-    def relation(self, r):
+    def relation(self, rel):
         """Process each relation."""
-        if r.deleted or not r.visible:
+        if rel.deleted or not rel.visible:
             return
 
-        if r.tags.get('type') == 'route' and self._is_public_transport(r.tags.get('route')):
-            self.process_route(r)
+        if rel.tags.get('type') == 'route' and self._is_public_transport(rel.tags.get('route')):
+            self.process_route(rel)
 
-        if r.tags.get('type') == 'route_master':
-            self.process_route_master(r)
+        if rel.tags.get('type') == 'route_master':
+            self.process_route_master(rel)
 
-    def _is_public_transport(self, route_type):
+    @staticmethod
+    def _is_public_transport(route_type):
         """See wether the given route defines a public transport route."""
         return route_type in ['bus', 'trolleybus', 'ferry', 'train', 'tram', 'light_trail']
 
@@ -141,51 +145,54 @@ class GTFSPreprocessor(o.SimpleHandler):
                                         'agency_timezone': self._guess_timezone(relation)}
         return agency_id
 
-    def _get_agency_id(self, relation):
+    @staticmethod
+    def _get_agency_id(relation):
         """Construct an id for agency using its tags."""
         if 'operator' in relation.tags:
-            s = relation.tags['operator']
-            return int(hashlib.sha256(s.encode('utf-8')).hexdigest(), 16) % 10**8
-        else:
-            return -1
+            op_name = relation.tags['operator']
+            return int(hashlib.sha256(op_name.encode('utf-8')).hexdigest(), 16) % 10**8
+
+        return -1
 
     def _guess_timezone(self, relation):
         """Guess timezone of the relation by looking at it's nodes."""
         lon, lat = self._get_first_coordinate(relation)
-        tz = self.tzfinder.timezone_at(lng=lon, lat=lat)
-        if not tz:
-            logging.debug('No timezone found for (%s, %s)' % (lon, lat))
-        return tz
+        timezone = self.tzfinder.timezone_at(lng=lon, lat=lat)
+        if not timezone:
+            logging.debug('No timezone found for (%s, %s)', lon, lat)
+        return timezone
 
     def _get_first_coordinate(self, relation):
-        for m in relation.members:
-            if m.ref in self.nodes:
-                return self.nodes[m.ref].lon, self.nodes[m.ref].lat
-            elif m.ref in self.ways:
-                return self._get_first_way_coordinate(m.ref)
-        logging.debug('No node found for relation %s' % relation.id)
+        for member in relation.members:
+            if member.ref in self.nodes:
+                return self.nodes[member.ref].lon, self.nodes[member.ref].lat
+            elif member.ref in self.ways:
+                return self._get_first_way_coordinate(member.ref)
+        logging.debug('No node found for relation %s', relation.id)
         return 0, 0
 
     def _get_first_way_coordinate(self, way_id):
-        if len(self.ways[way_id]) > 0:
+        if self.ways[way_id]:
             # Pick the first node
             return self.ways[way_id][0].lon, self.ways[way_id][0].lat
 
     def extract_stops(self, relation):
         """Extract stops in a relation."""
-        for m in relation.members:
-            if m.ref not in self.stops and self._is_stop(m):
-                if self._is_node_loaded(m.ref):
-                    self.stops[self.nodes[m.ref].id] = \
-                        {'stop_id': self.nodes[m.ref].id,
-                         'stop_name': self.nodes[m.ref].tags.get('name') or "Unnamed {} stop.".format(relation.tags.get('route')),
-                         'stop_lon': self.nodes[m.ref].lon,
-                         'stop_lat': self.nodes[m.ref].lat}
+        for member in relation.members:
+            if member.ref not in self.stops and self._is_stop(member):
+                if self._is_node_loaded(member.ref):
+                    self.stops[self.nodes[member.ref].id] = \
+                        {'stop_id': self.nodes[member.ref].id,
+                         'stop_name': self.nodes[member.ref].tags.get('name') or\
+                            "Unnamed {} stop.".format(relation.tags.get('route')),
+                         'stop_lon': self.nodes[member.ref].lon,
+                         'stop_lat': self.nodes[member.ref].lat}
 
     def _is_stop(self, member):
         """Check wether the given member designates a public transport stop."""
         return member.role == 'stop' or\
-            (member.ref in self.nodes and self.nodes[member.ref].tags.get('public_transport') == 'stop_position')
+            (member.ref in self.nodes and\
+             self.nodes[member.ref].tags.get('public_transport') == 'stop_position')
 
     def _is_node_loaded(self, node_id):
         """Check whether the node is loaded from the OSM data."""
@@ -205,7 +212,8 @@ class GTFSPreprocessor(o.SimpleHandler):
             self.routes[relation.tags.get('route')][relation.id] = relation.version, route
             self.all_routes.append(route)
 
-    def _create_route_long_name(self, relation):
+    @staticmethod
+    def _create_route_long_name(relation):
         """Create a meaningful route name."""
         if not relation.tags.get('from') or not relation.tags.get('to'):
             return ''

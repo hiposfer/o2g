@@ -22,7 +22,8 @@ class GTFSWriter(object):
             records = sorted(records, key=lambda x: x[sortkey])
         for record in records:
             csv_record = OrderedDict.fromkeys(self.headers[name])
-            csv_record.update(record)
+            # Update csv with keys present in headers. Skip anything else.
+            csv_record.update({k: v for k, v in record.items() if k in self.headers[name]})
             self._csv_writers[name].writerow([v for v in csv_record.values()])
 
     @property

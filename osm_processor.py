@@ -26,7 +26,6 @@ class GTFSPreprocessor(o.SimpleHandler):
     """
     # OSM definitions with their essential attributes
     Node = namedtuple('Node', ['id', 'lon', 'lat', 'tags'])
-    Location = namedtuple('Location', ['lon', 'lat'])
 
     class OSMElement(enum.Enum):
         Node = 'n'
@@ -84,13 +83,7 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     def way(self, w):
         """Process each way."""
-        def make_location(node):
-            try:
-                return GTFSPreprocessor.Location(node.location.lon, node.location.lat)
-            except:
-                return None
-        # For the moment we only need node locations of each way.
-        self.ways[w.id] = [loc for loc in map(make_location, w.nodes) if loc]
+        self.ways[w.id] = [node.location for node in w.nodes]
 
     def relation(self, rel):
         """Process each relation."""

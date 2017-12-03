@@ -65,7 +65,7 @@ class GTFSPreprocessor(o.SimpleHandler):
             {-1: {'agency_id': -1, 'agency_name': 'Unknown agency', 'agency_timezone': ''}}
         self.stops = {}
         self.routes = defaultdict(lambda: {})
-        self.all_routes = []
+        self.shapes = []
         self.tzfinder = TimezoneFinder()
 
     def node(self, n):
@@ -103,30 +103,19 @@ class GTFSPreprocessor(o.SimpleHandler):
             self.process_route(rel)
 
         if rel.tags.get('type') == 'route_master':
-            self.process_route_master(rel)
+            pass
 
     @staticmethod
     def _is_public_transport(route_type):
         """See wether the given route defines a public transport route."""
         return route_type in ['bus', 'trolleybus', 'ferry', 'train', 'tram', 'light_trail']
 
-    def process_route(self, r):
+    def process_route(self, relation):
         """Process one route."""
-
-        self.extract_agency(r)
-
-        self.extract_stops(r)
-
-        self.extract_route(r)
-
-        # TODO: Extract trips
-        # TODO: Extract trip's shapes
-        # TODO: Create and link dummy stop times
-        # TODO: Create and link dummy cal_dates or calendar
-
-    def process_route_master(self, r):
-        """Process one master route."""
-        pass
+        # Extract any available transport data
+        self.extract_agency(relation)
+        self.extract_stops(relation)
+        self.extract_routes(relation)
 
     def extract_agency(self, relation):
         """Extract agency information."""
@@ -134,10 +123,11 @@ class GTFSPreprocessor(o.SimpleHandler):
         # See: http://wiki.openstreetmap.org/wiki/Key:operator
         # Quote from the above link:
         #
-        #    If the vast majority of a certain object in an area is operated by a certain organization
-        #    and only very few by others then it may be sufficient to only tag the exceptions.
-        #    For example, when nearly all roads in an area are managed by a local authority then it
-        #    would be sufficient to only tag those that are not with an operator tag.
+        #    If the vast majority of a certain object in an area is operated by a certain
+        #    organization and only very few by others then it may be sufficient to only tag the
+        #    exceptions. For example, when nearly all roads in an area are managed by a local
+        #    authority then it would be sufficient to only tag those that are not with an operator
+        #    tag.
         agency_id = self._get_agency_id(relation)
         if agency_id != -1 and agency_id not in self.agencies:
             self.agencies[agency_id] = {'agency_id': agency_id,
@@ -151,7 +141,6 @@ class GTFSPreprocessor(o.SimpleHandler):
         if 'operator' in relation.tags:
             op_name = relation.tags['operator']
             return int(hashlib.sha256(op_name.encode('utf-8')).hexdigest(), 16) % 10**8
-
         return -1
 
     def _guess_timezone(self, relation):
@@ -178,15 +167,33 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     def extract_stops(self, relation):
         """Extract stops in a relation."""
+        sequence_id = 0
+        shape_id = self._make_shape_id(relation.id)
         for member in relation.members:
-            if member.ref not in self.stops and self._is_stop(member):
-                if self._is_node_loaded(member.ref):
-                    self.stops[self.nodes[member.ref].id] = \
-                        {'stop_id': self.nodes[member.ref].id,
-                         'stop_name': self.nodes[member.ref].tags.get('name') or\
-                            "Unnamed {} stop.".format(relation.tags.get('route')),
-                         'stop_lon': self.nodes[member.ref].lon,
-                         'stop_lat': self.nodes[member.ref].lat}
+            if all([member.ref not in self.stops,
+                    self._is_stop(member),
+                    self._is_node_loaded(member.ref)]):
+                stop_id = self.nodes[member.ref].id
+                self.stops[stop_id] = \
+                    {'stop_id': stop_id,
+                     'stop_name': self.nodes[member.ref].tags.get('name') or\
+                        "Unnamed {} stop.".format(relation.tags.get('route')),
+                     'stop_lon': self.nodes[member.ref].lon,
+                     'stop_lat': self.nodes[member.ref].lat}
+                self.shapes.append(
+                    {'shape_id': shape_id,
+                     'shape_pt_lat': self.nodes[member.ref].lat,
+                     'shape_pt_lon': self.nodes[member.ref].lon,
+                     'shape_pt_sequence': sequence_id})
+                sequence_id += 1
+
+    @staticmethod
+    def _make_route_id(relation):
+        return relation.id
+
+    @staticmethod
+    def _make_shape_id(route_id):
+        return 'shp_{}'.format(route_id)
 
     def _is_stop(self, member):
         """Check wether the given member designates a public transport stop."""
@@ -198,19 +205,22 @@ class GTFSPreprocessor(o.SimpleHandler):
         """Check whether the node is loaded from the OSM data."""
         return node_id in self.nodes
 
-    def extract_route(self, relation):
+    def extract_routes(self, relation):
         """Extract information of one route."""
-        if relation.id not in self.routes[relation.tags.get('route')] or \
-         self.routes[relation.tags.get('route')][relation.id][0] < relation.version:
-            route = {'route_id': relation.id,
+        if self._is_new_relation(relation):
+            route_id = self._make_route_id(relation)
+            route = {'route_id': route_id,
                      'route_short_name': relation.tags.get('name') or relation.tags.get('ref'),
                      'route_long_name': self._create_route_long_name(relation),
                      'route_type': map_osm_route_type_to_gtfs(relation.tags.get('route')),
                      'route_url': 'https://www.openstreetmap.org/relation/{}'.format(relation.id),
                      'route_color': relation.tags.get('color'),
                      'agency_id': self._get_agency_id(relation)}
-            self.routes[relation.tags.get('route')][relation.id] = relation.version, route
-            self.all_routes.append(route)
+            self.routes[relation.tags.get('route')][route_id] = relation.version, route
+
+    def _is_new_relation(self, relation):
+        return relation.id not in self.routes[relation.tags.get('route')] or \
+            self.routes[relation.tags.get('route')][relation.id][0] < relation.version
 
     @staticmethod
     def _create_route_long_name(relation):

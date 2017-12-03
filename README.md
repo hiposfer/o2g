@@ -82,7 +82,7 @@ However, there are some routes without operator tags. In such cases we use a dum
 
     {'agency_id': -1, 'agency_name': 'Unkown agency', 'agency_timezone': ''}
 
- - agency_id: we use the _operator_ value to produce the _agency_id_: `agency_id = abs(hash(operator_name))`
+ - agency_id: we use the _operator_ value to produce the _agency_id_: `agency_id = int(hashlib.sha256(op_name.encode('utf-8')).hexdigest(), 16) % 10**8`
  - agency_name: the value of the _operator_ tag
  - agency_timezone: we guess it based on the coordinates of the elements in the relation
 

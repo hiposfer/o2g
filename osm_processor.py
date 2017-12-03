@@ -2,42 +2,11 @@
 import enum
 import logging
 import hashlib
-from collections import namedtuple, defaultdict
-
 import osmium as o
+
+from collections import namedtuple, defaultdict
 from timezonefinder import TimezoneFinder
-
-
-# OSM definitions with their essential attributes
-Node = namedtuple('Node', ['id', 'lon', 'lat', 'tags'])
-Location = namedtuple('Location', ['lon', 'lat'])
-
-
-OSM2GTFS_ROUTE_TYPE_MAP = {
-    'tram': 0,
-    'light_rail': 0,
-    'subway': 1,
-    'rail': 2,
-    'railway': 2,
-    'train': 2,
-    'bus': 3,
-    'ex-bus': 3,
-    'ferry': 4,
-    'cableCar': 5,
-    'gondola': 6,
-    'funicular': 7
-}
-
-
-def map_osm_route_type_to_gtfs(route_type, default=-1):
-    "Return numeral code for the given route type."
-    return OSM2GTFS_ROUTE_TYPE_MAP.get(route_type, default)
-
-
-class OSMElement(enum.Enum):
-    Node = 'n'
-    Way = 'w'
-    Releation = 'r'
+from gtfs_misc import map_osm_route_type_to_gtfs, GTFSRouteType
 
 
 class GTFSPreprocessor(o.SimpleHandler):
@@ -55,24 +24,59 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     If you don't respect the above, you'll get segmentation faults.
     """
+    # OSM definitions with their essential attributes
+    Node = namedtuple('Node', ['id', 'lon', 'lat', 'tags'])
+    Location = namedtuple('Location', ['lon', 'lat'])
+
+    class OSMElement(enum.Enum):
+        Node = 'n'
+        Way = 'w'
+        Releation = 'r'
 
     def __init__(self):
         super(GTFSPreprocessor, self).__init__()
+        self.tzfinder = TimezoneFinder()
 
+        # map: node_id -> node
         self.nodes = {}
+
+        # map: way_id -> [locations]
         self.ways = {}
+
+        # map: agency_id -> agency
         self.agencies =\
             {-1: {'agency_id': -1, 'agency_name': 'Unknown agency', 'agency_timezone': ''}}
+        # map of maps: route_type -> map of route_id: route
+        self._routes = defaultdict(lambda: {})
+
+        # map: stop_id: stop
         self.stops = {}
-        self.routes = defaultdict(lambda: {})
+
+        # list of shape dicts
         self.shapes = []
-        self.tzfinder = TimezoneFinder()
+
+        # map to keep track of relation versions (for route types mainly)
+        self._relation_versions = {}
+
+    @property
+    def routes(self):
+        """Available routes."""
+        route_types = [GTFSRouteType.Bus.value,
+                       GTFSRouteType.Tram.value,
+                       GTFSRouteType.Subway.value,
+                       GTFSRouteType.Rail.value]
+        #return [route for bulk in self._routes.values() for version, route in bulk.values()
+        #        if route['route_type'] in route_types]
+        for subroutes in self._routes.values():
+            for route in subroutes.values():
+                if route['route_type'] in route_types:
+                    yield route
 
     def node(self, n):
         """Process each node."""
         try:
             self.nodes[n.id] =\
-              Node(n.id,
+              GTFSPreprocessor.Node(n.id,
                    n.location.lon,
                    n.location.lat,
                    # Instead of {t.k:t.v for t in n.tags} we only pick the tags that we need,
@@ -84,15 +88,13 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     def way(self, w):
         """Process each way."""
+        def make_location(node):
+            try:
+                return GTFSPreprocessor.Location(node.location.lon, node.location.lat)
+            except:
+                return None
         # For the moment we only need node locations of each way.
-        self.ways[w.id] = [loc for loc in map(self._make_location, w.nodes) if loc]
-
-    @staticmethod
-    def _make_location(node):
-        try:
-            return Location(node.location.lon, node.location.lat)
-        except:
-            return None
+        self.ways[w.id] = [loc for loc in map(make_location, w.nodes) if loc]
 
     def relation(self, rel):
         """Process each relation."""
@@ -102,8 +104,8 @@ class GTFSPreprocessor(o.SimpleHandler):
         if rel.tags.get('type') == 'route' and self._is_public_transport(rel.tags.get('route')):
             self.process_route(rel)
 
-        if rel.tags.get('type') == 'route_master':
-            pass
+        # if rel.tags.get('type') == 'route_master':
+        #    pass
 
     @staticmethod
     def _is_public_transport(route_type):
@@ -188,10 +190,6 @@ class GTFSPreprocessor(o.SimpleHandler):
                 sequence_id += 1
 
     @staticmethod
-    def _make_route_id(relation):
-        return relation.id
-
-    @staticmethod
     def _make_shape_id(route_id):
         return 'shp_{}'.format(route_id)
 
@@ -207,8 +205,9 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     def extract_routes(self, relation):
         """Extract information of one route."""
-        if self._is_new_relation(relation):
-            route_id = self._make_route_id(relation)
+        #if self._is_new_relation(relation):
+        if self._is_new_version(relation):
+            route_id = relation.id
             route = {'route_id': route_id,
                      'route_short_name': relation.tags.get('name') or relation.tags.get('ref'),
                      'route_long_name': self._create_route_long_name(relation),
@@ -216,11 +215,16 @@ class GTFSPreprocessor(o.SimpleHandler):
                      'route_url': 'https://www.openstreetmap.org/relation/{}'.format(relation.id),
                      'route_color': relation.tags.get('color'),
                      'agency_id': self._get_agency_id(relation)}
-            self.routes[relation.tags.get('route')][route_id] = relation.version, route
+            self._routes[relation.tags.get('route')][route_id] = route
+            self._relation_versions[relation.id] = relation.version
 
-    def _is_new_relation(self, relation):
-        return relation.id not in self.routes[relation.tags.get('route')] or \
-            self.routes[relation.tags.get('route')][relation.id][0] < relation.version
+    def _is_new_version(self, relation):
+        return relation.id not in self._relation_versions or\
+            relation.version > self._relation_versions[relation.id]
+
+#    def _is_new_relation(self, relation):
+#        return relation.id not in self._routes[relation.tags.get('route')] or \
+#            self._routes[relation.tags.get('route')][relation.id][0] < relation.version
 
     @staticmethod
     def _create_route_long_name(relation):

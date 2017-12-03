@@ -53,13 +53,15 @@ class GTFSWriter(object):
                            'route_long_name', 'route_desc', 'route_type',
                            'route_url', 'route_color', 'route_text_color'],
 
-                'trips': ['route_id', 'service_id', 'trip_id'],
+                'trips': ['route_id', 'service_id', 'trip_id', 'shape_id'],
 
                 'calendar': ['service_id', 'monday', 'tuesday', 'wednesday', 'thursday',
                              'friday', 'saturday', 'sunday', 'start_date', 'end_date'],
 
                 'stop_times': ['trip_id', 'arrival_time', 'departure_time', 'stop_id',
-                               'stop_sequence']}
+                               'stop_sequence'],
+
+                'shapes': ['shape_id', 'shape_pt_lat', 'shape_pt_lon', 'shape_pt_sequence']}
 
     def add_agencies(self, agencies):
         self._add_records('agency', agencies)
@@ -78,6 +80,9 @@ class GTFSWriter(object):
 
     def add_stop_times(self, stop_times):
         self._add_records('stop_times', stop_times)
+
+    def add_shapes(self, shapes):
+        self._add_records('shapes', shapes)
 
     def write_zipped(self, filepath):
         """Write the GTFS feed in the given file."""

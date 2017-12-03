@@ -2,21 +2,8 @@
 import os
 import io
 import csv
-import enum
 import zipfile
 from collections import OrderedDict
-
-
-class GTFSRouteType(enum.Enum):
-    """Route types according to the GTFS specification."""
-    Tram = 0
-    Subway = 1
-    Rail = 2
-    Bus = 3
-    Ferry = 4
-    CableCar = 5
-    Gondola = 6
-    Funicular = 7
 
 
 class GTFSWriter(object):
@@ -30,7 +17,9 @@ class GTFSWriter(object):
             self._csv_writers[name] = csv.writer(self._buffers[name], lineterminator='\n')
             self._csv_writers[name].writerow(csv_headers)
 
-    def _add_records(self, name, records):
+    def _add_records(self, name, records, sortkey=None):
+        if sortkey:
+            records = sorted(records, key=lambda x: x[sortkey])
         for record in records:
             csv_record = OrderedDict.fromkeys(self.headers[name])
             csv_record.update(record)
@@ -70,7 +59,7 @@ class GTFSWriter(object):
         self._add_records('stops', stops)
 
     def add_routes(self, routes):
-        self._add_records('routes', sorted(routes, key=lambda x: x['route_id']))
+        self._add_records('routes', routes, sortkey='route_id')
 
     def add_calendar(self, weekly_schedules):
         self._add_records('calendar', weekly_schedules)

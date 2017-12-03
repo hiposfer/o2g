@@ -37,11 +37,11 @@ def cli(osmfile, outdir, zipfile, dummy):
     writer = GTFSWriter()
     writer.add_agencies(processor.agencies.values())
     writer.add_stops(processor.stops.values())
-    writer.add_routes(processor.routes)
+    writer.add_routes(processor.routes.values())
     writer.add_shapes(processor.shapes)
 
     if dummy:
-        populate_dummy_data(processor, writer, processor.routes)
+        populate_dummy_data(writer, processor)
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))

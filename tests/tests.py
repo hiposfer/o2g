@@ -1,17 +1,17 @@
 '''osmtogtfs tests.'''
 import os
 import tempfile
-from collections import namedtuple
-
 import pytest
 import osmium as o
 
+from collections import namedtuple
 from osm_processor import GTFSPreprocessor
-from gtfs_writer import GTFSWriter, GTFSRouteType
+from gtfs_writer import GTFSWriter
+from gtfs_misc import GTFSRouteType
 
 
 # A lightweight data structor to keep preprocessing result for caching
-OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes', 'all_routes'])
+OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes'])
 
 
 def get_osm_data():
@@ -22,7 +22,7 @@ def get_osm_data():
     h.apply_file(filepath,
                  locations=True,
                  idx='sparse_mem_array')
-    return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes, h.all_routes)
+    return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes)
 
 
 @pytest.fixture
@@ -44,12 +44,7 @@ def writer(osm):
     w = GTFSWriter()
     w.add_agencies(osm.agencies.values())
     w.add_stops(osm.stops.values())
-    supported_routes = [r for r in osm.all_routes if r['route_type'] in\
-        [GTFSRouteType.Bus.value,
-         GTFSRouteType.Tram.value,
-         GTFSRouteType.Subway.value,
-         GTFSRouteType.Rail.value]]
-    w.add_routes(supported_routes)
+    w.add_routes(osm.routes.values())
     return w
 
 

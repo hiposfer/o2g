@@ -65,12 +65,8 @@ class GTFSPreprocessor(o.SimpleHandler):
                        GTFSRouteType.Tram.value,
                        GTFSRouteType.Subway.value,
                        GTFSRouteType.Rail.value]
-        #return [route for bulk in self._routes.values() for version, route in bulk.values()
-        #        if route['route_type'] in route_types]
-        for subroutes in self._routes.values():
-            for route in subroutes.values():
-                if route['route_type'] in route_types:
-                    yield route
+        return {route_id: route for bulk in self._routes.values()
+                for route_id, route in bulk.items() if route['route_type'] in route_types}
 
     def node(self, n):
         """Process each node."""

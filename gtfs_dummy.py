@@ -1,11 +1,10 @@
 """Tools to generate dummy GTFS feeds."""
 import datetime
-from time import gmtime, strftime
 
 
-def populate_dummy_data(processor, writer, routes):
+def populate_dummy_data(writer, processor):
     calendar = _create_dummy_calendar()
-    trips = _create_dummy_trips(routes, calendar)
+    trips = _create_dummy_trips(processor.routes, calendar)
     writer.add_trips(trips)
     writer.add_stop_times(_create_dummy_stoptimes(trips, processor.stops))
     writer.add_calendar(calendar)
@@ -20,15 +19,15 @@ def _create_dummy_calendar():
 
 def _create_dummy_trips(routes, calendar):
     trips = []
-    for route in routes:
+    for route_id in routes:
         for cal in calendar:
         # TODO: Create multiple dummy trips per route, e.g. every 20 minutes
             trips.append(
-                {'route_id': route['route_id'],
+                {'route_id': route_id,
                  'service_id': cal['service_id'],
-                 'trip_id': 'trp_{}'.format(route['route_id']),
+                 'trip_id': 'trp_{}'.format(route_id),
                  'trip_headsign': 'Dummy Trip',
-                 'shape_id': 'shp_{}'.format(route['route_id'])}
+                 'shape_id': 'shp_{}'.format(route_id)}
                 )
     return trips
 

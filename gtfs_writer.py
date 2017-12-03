@@ -70,7 +70,7 @@ class GTFSWriter(object):
         self._add_records('stops', stops)
 
     def add_routes(self, routes):
-        self._add_records('routes', routes)
+        self._add_records('routes', sorted(routes, key=lambda x: x['route_id']))
 
     def add_calendar(self, weekly_schedules):
         self._add_records('calendar', weekly_schedules)

@@ -65,6 +65,11 @@ Moreover, if you install the package, you will get an script called `osmtogtfs` 
 `--outdir` defaults to the working directory and if `--zipfile` is provided, the feed will be zipped and stored in
 the _outdir_ with the given name, otherwise feed will be stored as plain text in multiple files.
 
+## Dummy Feed Information
+Not all of GTFS necessary data are available in OSM files. In order to fill the missing fields with
+some dummy data use `--dummy` CLI option. This will produce `trips.txt`, `stop_times.txt` and `calendar`
+feeds. These files will contain dummy data of course.
+
 # Implementation Notes
 In this section we describe important aspects of the implementation in order to help understand how the program works.
 

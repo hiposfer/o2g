@@ -43,7 +43,7 @@ class GTFSWriter(object):
                            'route_long_name', 'route_desc', 'route_type',
                            'route_url', 'route_color', 'route_text_color'],
 
-                'trips': ['route_id', 'service_id', 'trip_id', 'shape_id'],
+                'trips': ['route_id', 'service_id', 'trip_id', 'trip_headsign', 'shape_id'],
 
                 'calendar': ['service_id', 'monday', 'tuesday', 'wednesday', 'thursday',
                              'friday', 'saturday', 'sunday', 'start_date', 'end_date'],

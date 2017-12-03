@@ -181,7 +181,8 @@ class GTFSPreprocessor(o.SimpleHandler):
                      'stop_name': self.nodes[member.ref].tags.get('name') or\
                         "Unnamed {} stop.".format(relation.tags.get('route')),
                      'stop_lon': self.nodes[member.ref].lon,
-                     'stop_lat': self.nodes[member.ref].lat}
+                     'stop_lat': self.nodes[member.ref].lat,
+                     'route_id': relation.id}
                 self.shapes.append(
                     {'shape_id': shape_id,
                      'shape_pt_lat': self.nodes[member.ref].lat,

@@ -13,14 +13,18 @@ not validate if you check it, because it is of course partial. Nevertheless, it 
 # Installation
 This tool uses osmium which is a C++ library built using boost, so one should install that first.
 The best way would be using the package manager of your OS and installing [pyosmium](https://github.com/osmcode/pyosmium).
-Afterwards clone the repo and install it:
+
+Afterwards install the script from pypi:
+
+    $ pip install osmtogtfs
+
+Alternatively you can clone the repo and install it:
 
     $ git clone https://github.com/hiposfer/osmtogtfs & cd osmtogtfs
     $ python setup.py install
 
-
-This will install `osmtogtfs.py` executable on your OS. You can also directly run the script found
-in the source code. Make sure to run it with python 3.
+This will install `osmtogtfs` executable on your OS. You can also directly run the `osmtogtfs.py` script found
+in the source directory. Make sure to run it with python 3.
 
 # Tests
 We use the wonderful `pytest` package for testing. Install pytest and run the tests:

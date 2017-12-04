@@ -67,6 +67,17 @@ class GTFSPreprocessor(o.SimpleHandler):
         return {route_id: route for bulk in self._routes.values()
                 for route_id, route in bulk.items() if route['route_type'] in route_types}
 
+    @property
+    def shapes(self):
+        sequence_id = 0
+        for stop in self.stops.values():
+            # If you change shape_id, update the dummy generator too.
+            yield {'shape_id': stop['route_id'],
+                   'shape_pt_lat': stop['stop_lon'],
+                   'shape_pt_lon': stop['stop_lat'],
+                   'shape_pt_sequence': sequence_id}
+            sequence_id += 1
+
     def node(self, n):
         """Process each node."""
         try:
@@ -160,11 +171,6 @@ class GTFSPreprocessor(o.SimpleHandler):
     def extract_stops(self, relation):
         """Extract stops in a relation."""
         sequence_id = 0
-
-        # If you change this line, change the dummy generator too.
-        shape_id = relation.id
-
-
         for member in relation.members:
             if all([member.ref not in self.stops,
                     self._is_stop(member),
@@ -177,11 +183,6 @@ class GTFSPreprocessor(o.SimpleHandler):
                      'stop_lon': self.nodes[member.ref].lon,
                      'stop_lat': self.nodes[member.ref].lat,
                      'route_id': relation.id}
-                self.shapes.append(
-                    {'shape_id': shape_id,
-                     'shape_pt_lat': self.nodes[member.ref].lat,
-                     'shape_pt_lon': self.nodes[member.ref].lon,
-                     'shape_pt_sequence': sequence_id})
                 sequence_id += 1
 
     def _is_stop(self, member):

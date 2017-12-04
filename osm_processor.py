@@ -160,7 +160,11 @@ class GTFSPreprocessor(o.SimpleHandler):
     def extract_stops(self, relation):
         """Extract stops in a relation."""
         sequence_id = 0
+
+        # If you change this line, change the dummy generator too.
         shape_id = relation.id
+
+
         for member in relation.members:
             if all([member.ref not in self.stops,
                     self._is_stop(member),
@@ -179,12 +183,6 @@ class GTFSPreprocessor(o.SimpleHandler):
                      'shape_pt_lon': self.nodes[member.ref].lon,
                      'shape_pt_sequence': sequence_id})
                 sequence_id += 1
-
-    # @staticmethod
-    # def _make_shape_id(relation):
-    #     return '{relation_id}{changeset}'.format(
-    #         relation_id=relation.id,
-    #         changeset=relation.changeset)
 
     def _is_stop(self, member):
         """Check wether the given member designates a public transport stop."""

@@ -4,7 +4,7 @@ import datetime
 
 def populate_dummy_data(writer, processor):
     calendar = _create_dummy_calendar()
-    trips = _create_dummy_trips(processor.routes, calendar)
+    trips = _create_dummy_trips(processor, calendar)
     writer.add_trips(trips)
     writer.add_stop_times(_create_dummy_stoptimes(trips, processor.stops))
     writer.add_calendar(calendar)
@@ -17,17 +17,17 @@ def _create_dummy_calendar():
              'friday': 1, 'saturday': 0, 'sunday': 0, 'start_date': 20170101, 'end_date': 20190101}]
 
 
-def _create_dummy_trips(routes, calendar):
+def _create_dummy_trips(processor, calendar):
     trips = []
-    for route_id in routes:
+    for route_id, route in processor.routes.items():
         for cal in calendar:
         # TODO: Create multiple dummy trips per route, e.g. every 20 minutes
             trips.append(
                 {'route_id': route_id,
                  'service_id': cal['service_id'],
                  'trip_id': 'trp_{}'.format(route_id),
-                 'trip_headsign': 'Dummy Trip',
-                 'shape_id': 'shp_{}'.format(route_id)}
+                 'trip_headsign': '[Dummy]{}'.format(route['route_long_name']),
+                 'shape_id': route_id}
                 )
     return trips
 

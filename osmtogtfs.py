@@ -28,7 +28,13 @@ from gtfs_dummy import populate_dummy_data
 @click.option('--dummy/--no-dummy',
               default=False,
               help='Whether to fill the missing parts with dummy data.')
-def cli(osmfile, outdir, zipfile, dummy):
+@click.option('--loglevel',
+              default='ERROR',
+              type=click.Choice(['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']),
+              help="Set the logging level")
+def cli(osmfile, outdir, zipfile, dummy, loglevel):
+    if loglevel:
+        logging.basicConfig(level=loglevel)
     processor = GTFSPreprocessor()
     start = time.time()
     processor.apply_file(osmfile, locations=True, idx='sparse_mem_array')

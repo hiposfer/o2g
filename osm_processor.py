@@ -83,7 +83,8 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     def way(self, w):
         """Process each way."""
-        self.ways[w.id] = [node.location for node in w.nodes]
+        self.ways[w.id] =\
+            [(node.location.lon, node.location.lat) for node in w.nodes]
 
     def relation(self, rel):
         """Process each relation."""
@@ -152,9 +153,9 @@ class GTFSPreprocessor(o.SimpleHandler):
         return 0, 0
 
     def _get_first_way_coordinate(self, way_id):
-        if self.ways[way_id]:
+        if way_id in self.ways and self.ways[way_id]:
             # Pick the first node
-            return self.ways[way_id][0].lon, self.ways[way_id][0].lat
+            return self.ways[way_id][0][0], self.ways[way_id][0][1]
 
     def extract_stops(self, relation):
         """Extract stops in a relation."""

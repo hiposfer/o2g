@@ -41,7 +41,7 @@ In order to profile the code we use `cProfile`:
     # For the `osmtogtfs` script
     $ python -m cProfile -s cumtime osmtogtfs.py resources/osm/bremen-latest.osm.pbf --outdir tests/out > tests/benchmark.txt
 
-You will find results in [`tests/benchmark.txt`](tests/main_profile.txt).
+You will find results in [`tests/benchmark.txt`](tests/benchmark.txt).
 Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.
 
 # Usage

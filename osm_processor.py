@@ -51,11 +51,11 @@ class GTFSPreprocessor(o.SimpleHandler):
         # map: stop_id: stop
         self.stops = {}
 
-        # list of shape dicts
-        self.shapes = []
-
         # map to keep track of relation versions (for route types mainly)
         self._relation_versions = {}
+
+        # map to keep track of stops for each route
+        self.route_stops = defaultdict(lambda: [])
 
     @property
     def routes(self):

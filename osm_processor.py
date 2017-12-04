@@ -183,6 +183,7 @@ class GTFSPreprocessor(o.SimpleHandler):
                      'stop_lon': self.nodes[member.ref].lon,
                      'stop_lat': self.nodes[member.ref].lat,
                      'route_id': relation.id}
+                self.route_stops[relation.id].append(stop_id)
                 sequence_id += 1
 
     def _is_stop(self, member):
@@ -213,10 +214,6 @@ class GTFSPreprocessor(o.SimpleHandler):
     def _is_new_version(self, relation):
         return relation.id not in self._relation_versions or\
             relation.version > self._relation_versions[relation.id]
-
-#    def _is_new_relation(self, relation):
-#        return relation.id not in self._routes[relation.tags.get('route')] or \
-#            self._routes[relation.tags.get('route')][relation.id][0] < relation.version
 
     @staticmethod
     def _create_route_long_name(relation):

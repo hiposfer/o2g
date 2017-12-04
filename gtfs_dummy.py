@@ -1,5 +1,6 @@
 """Tools to generate dummy GTFS feeds."""
 import datetime
+import logging
 from functools import lru_cache
 
 
@@ -62,5 +63,21 @@ def _create_dummy_trip_stoptimes(trip, sequence, processor):
 
 @lru_cache()
 def _get_route_stops(route_id, processor):
-    for stop_id in processor.route_stops[route_id]:
-        yield processor.stops[stop_id]
+    # Node: there are routes that are not present in route_stops,
+    # the reason is, we have processed every node in the OSM data
+    # to find stops, without filtering out anything. However,
+    # apparently not all of those stops belong to transport
+    # relations. Remember that we have filtered relations in favor
+    # of transport means (bus, tram, train). Therefore we have
+    # some mis-consistencies here.
+    # Moreover, it could simply be a bug in finding stops.
+    # Even more, it could be that the route is streched among
+    # multiple regions and we simply have not loaded that data.
+    # For example, see relation 1686600807 which is an ICE train
+    # from Hamburg to Köln when processing Bremen OSM data.
+    if route_id not in processor.route_stops:
+        logging.debug('No stops information for route %s', route_id)
+        return
+    else:
+        for stop_id in processor.route_stops[route_id]:
+            yield processor.stops[stop_id]

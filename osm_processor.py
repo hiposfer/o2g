@@ -73,8 +73,8 @@ class GTFSPreprocessor(o.SimpleHandler):
         for stop in self.stops.values():
             # If you change shape_id, update the dummy generator too.
             yield {'shape_id': stop['route_id'],
-                   'shape_pt_lat': stop['stop_lon'],
-                   'shape_pt_lon': stop['stop_lat'],
+                   'shape_pt_lat': stop['stop_lat'],
+                   'shape_pt_lon': stop['stop_lon'],
                    'shape_pt_sequence': sequence_id}
             sequence_id += 1
 

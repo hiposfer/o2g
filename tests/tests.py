@@ -5,9 +5,9 @@ import pytest
 import osmium as o
 
 from collections import namedtuple
-from osm_processor import GTFSPreprocessor
-from gtfs_writer import GTFSWriter
-from gtfs_misc import GTFSRouteType
+from _osmtogtfs.osm_processor import GTFSPreprocessor
+from _osmtogtfs.gtfs_writer import GTFSWriter
+from _osmtogtfs.gtfs_misc import GTFSRouteType
 
 
 # A lightweight data structor to keep preprocessing result for caching

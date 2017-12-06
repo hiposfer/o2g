@@ -43,11 +43,9 @@ you can delete `.cache` folder.
 In order to profile the code we use `cProfile`:
     
     # For the `osmtogtfs` script
-    $ python -m cProfile -s cumtime osmtogtfs.py resources/osm/bremen-latest.osm.pbf --outdir tests/out > tests/main_profile.txt
-    # For tests
-    $ python -m cProfile -s cumtime /path/to/pytest tests/tests.py > tests/tests_profile.txt
+    $ python -m cProfile -s cumtime osmtogtfs.py resources/osm/bremen-latest.osm.pbf --outdir tests/out > tests/benchmark.txt
 
-You will find results in [`tests/main_profile.txt`](tests/main_profile.txt) and [`tests/main_profile.txt`](tests/tests_profile.txt).
+You will find results in [`tests/benchmark.txt`](tests/benchmark.txt).
 Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.
 
 # Usage
@@ -69,6 +67,11 @@ Moreover, if you install the package, you will get an script called `osmtogtfs` 
 `--outdir` defaults to the working directory and if `--zipfile` is provided, the feed will be zipped and stored in
 the _outdir_ with the given name, otherwise feed will be stored as plain text in multiple files.
 
+## Dummy Feed Information
+Not all of GTFS necessary data are available in OSM files. In order to fill the missing fields with
+some dummy data use `--dummy` CLI option. This will produce `trips.txt`, `stop_times.txt` and `calendar`
+feeds. These files will contain dummy data of course.
+
 # Implementation Notes
 In this section we describe important aspects of the implementation in order to help understand how the program works.
 
@@ -86,7 +89,7 @@ However, there are some routes without operator tags. In such cases we use a dum
 
     {'agency_id': -1, 'agency_name': 'Unkown agency', 'agency_timezone': ''}
 
- - agency_id: we use the _operator_ value to produce the _agency_id_: `agency_id = abs(hash(operator_name))`
+ - agency_id: we use the _operator_ value to produce the _agency_id_: `agency_id = int(hashlib.sha256(op_name.encode('utf-8')).hexdigest(), 16) % 10**8`
  - agency_name: the value of the _operator_ tag
  - agency_timezone: we guess it based on the coordinates of the elements in the relation
 

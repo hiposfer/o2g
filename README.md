@@ -1,4 +1,7 @@
-# osmtogtfs [![Build Status](https://travis-ci.org/hiposfer/osmtogtfs.svg?branch=master)](https://travis-ci.org/hiposfer/osmtogtfs) [![pypi](https://img.shields.io/pypi/v/osmtogtfs.svg)](https://pypi.python.org/pypi/osmtogtfs)
+# osmtogtfs
+
+[![Build Status](https://travis-ci.org/hiposfer/osmtogtfs.svg?branch=master)](https://travis-ci.org/hiposfer/osmtogtfs) [![pypi](https://img.shields.io/pypi/v/osmtogtfs.svg)](https://pypi.python.org/pypi/osmtogtfs)
+
 Extracts partial GTFS feed from OSM data.
 
 OpenStreeMaps data contain information about bus, tram, train and other public transport means.
@@ -23,7 +26,7 @@ Alternatively you can clone the repo and install it:
     $ git clone https://github.com/hiposfer/osmtogtfs & cd osmtogtfs
     $ python setup.py install
 
-This will install `osmtogtfs` executable on your OS. You can also directly run the `osmtogtfs.py` script found
+This will install `osmtogtfs` command on your system. You can also directly run the `osmtogtfs.py` script found
 in the source directory. Make sure to run it with python 3.
 
 # Tests

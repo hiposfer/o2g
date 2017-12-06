@@ -7,9 +7,9 @@ import time
 import logging
 import click
 
-from osm_processor import GTFSPreprocessor
-from gtfs_writer import GTFSWriter
-from gtfs_dummy import populate_dummy_data
+from _osmtogtfs.osm_processor import GTFSPreprocessor
+from _osmtogtfs.gtfs_writer import GTFSWriter
+from _osmtogtfs.gtfs_dummy import populate_dummy_data
 
 
 @click.command()

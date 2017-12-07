@@ -10,7 +10,7 @@ This tool takes an OSM file or URI and thanks to [osmium](http://osmcode.org/) l
 for sharing public transport information and there are many tools around it. The resulting feed would
 not validate if you check it, because it is of course partial. Nevertheless, it is yet valuable to us.
 
-# Installation
+## Installation
 This tool uses osmium which is a C++ library built using boost, so one should install that first.
 The best way would be using the package manager of your OS and installing [pyosmium](https://github.com/osmcode/pyosmium).
 Afterwards clone the repo and install it:
@@ -22,29 +22,7 @@ Afterwards clone the repo and install it:
 This will install `osmtogtfs.py` executable on your OS. You can also directly run the script found
 in the source code. Make sure to run it with python 3.
 
-# Tests
-We use the wonderful `pytest` package for testing. Install pytest and run the tests:
-
-    $ pip install pytest
-    $ pytest -s tests/tests.py
-
-`-s` disables capturing and shows us more output (such as print statements and log messages).
-
-## Pytest Caching
-In order to run tests faster we use caching. The result of OSM preprocessing will be cached and used
-for subsequent tests. In order to clear the cache run pytest with `--cache-clear` option. Alternatively
-you can delete `.cache` folder.
-
-## Profiling
-In order to profile the code we use `cProfile`:
-    
-    # For the `osmtogtfs` script
-    $ python -m cProfile -s cumtime osmtogtfs.py resources/osm/bremen-latest.osm.pbf --outdir tests/out > tests/benchmark.txt
-
-You will find results in [`tests/benchmark.txt`](tests/benchmark.txt).
-Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.
-
-# Usage
+## Usage
 Run the tool over your OSM data source (or whatever osmium accepts):
 
     python osmtogtfs.py <osmfile>
@@ -63,15 +41,51 @@ Moreover, if you install the package, you will get an script called `osmtogtfs` 
 `--outdir` defaults to the working directory and if `--zipfile` is provided, the feed will be zipped and stored in
 the _outdir_ with the given name, otherwise feed will be stored as plain text in multiple files.
 
-## Dummy Feed Information
+### With Docker
+If osmium is not available in your package manager, it could be troublesome to install it manually. So here
+is an executable docker image that could be used directly. The only cavet here is passing input file to the
+docker container and also getting the results back. The containerized script will write its output to `/data`
+by default. The only step necessary is to mount the folder containing the input OSM file to `/data` inside 
+the container. The following command shows this, note that my input file is called `bremen-latest.osm.pbf` and
+is located inside `/path/to/osm` directory:
+
+    $ docker run -v /path/to/osm/:/data hiposfer/osmtogtfs /data/bremen-latest.osm.pbf
+
+The above command will write the output files inside `/path/to/osm` directory. The `osmtogtfs` docker image
+will be downloaded on first run.
+
+## Tests
+We use the `pytest` package for testing. Install pytest and run the tests:
+
+    $ pip install pytest
+    $ pytest -s tests/tests.py
+
+`-s` disables capturing and shows us more output (such as print statements and log messages).
+
+### Pytest Caching
+In order to run tests faster we use caching. The result of OSM preprocessing will be cached and used
+for subsequent tests. In order to clear the cache run pytest with `--cache-clear` option. Alternatively
+you can delete `.cache` folder.
+
+### Profiling
+In order to profile the code we use `cProfile`:
+    
+    # For the `osmtogtfs` script
+    $ python -m cProfile -s cumtime osmtogtfs.py resources/osm/bremen-latest.osm.pbf --outdir tests/out > tests/benchmark.txt
+
+You will find results in [`tests/benchmark.txt`](tests/benchmark.txt).
+Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.
+
+
+### Dummy Feed Information
 Not all of GTFS necessary data are available in OSM files. In order to fill the missing fields with
 some dummy data use `--dummy` CLI option. This will produce `trips.txt`, `stop_times.txt` and `calendar`
 feeds. These files will contain dummy data of course.
 
-# Implementation Notes
+## Implementation Notes
 In this section we describe important aspects of the implementation in order to help understand how the program works.
 
-## Field Mapping
+### Field Mapping
 GTFS feeds could contain up to thirteen different CSV files with `.txt` extension. Six of these files are required for a valid
 feed, including _agency.txt_, _stops.txt_, _routes.txt_, _trips.txt_, _stop_times.txt_ and _calendar.txt_. 
 Each file contains a set of comumns. Some columns are required and some are optional. 
@@ -79,7 +93,7 @@ Most importantly, not all the fields necessary to build a GTFS feed are availabl
 Therefore we have to generate some fileds ourselves or leave them blank.
 Below we cover how the values for each column of the files that we produce at the moment are produced.
 
-### agency.txt
+#### agency.txt
 We use _operator_ tag on OSM relations which are tagged as `relation=route` to extract agency information. 
 However, there are some routes without operator tags. In such cases we use a dummy agency:
 
@@ -89,14 +103,14 @@ However, there are some routes without operator tags. In such cases we use a dum
  - agency_name: the value of the _operator_ tag
  - agency_timezone: we guess it based on the coordinates of the elements in the relation
 
-### stops.txt
+#### stops.txt
 
  - stop_id: value of the node id from OSM
  - stop_name: value of _name_ tag or _Unknown_
  - stop_lon: longitute of the node
  - stop_lat: latitute of the node
 
-### routes.txt
+#### routes.txt
 
  - route_id: id of the OSM relation element
  - route_short_name: value of _name_ or _ref_ tag of the relation
@@ -106,7 +120,7 @@ However, there are some routes without operator tags. In such cases we use a dum
  - route_color: value of the _color_ tag if present otherwise empty
  - agency_id: ID of the agency otherwise -1
 
- #### OSM to GTFS Route Type Mapping
+### OSM to GTFS Route Type Mapping
  Below is the mapping that we use, the left column is the OSM value and the right column is the 
  corresponding value from GTFS specification (make sure the see the code for any changes):
 
@@ -124,5 +138,5 @@ However, there are some routes without operator tags. In such cases we use a dum
     funicular: 	7
 
 
-# Lincense
+## Lincense
 MIT

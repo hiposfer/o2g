@@ -7,9 +7,9 @@ import time
 import logging
 import click
 
-from osm_processor import GTFSPreprocessor
-from gtfs_writer import GTFSWriter
-from gtfs_dummy import populate_dummy_data
+from _osmtogtfs.osm_processor import GTFSPreprocessor
+from _osmtogtfs.gtfs_writer import GTFSWriter
+from _osmtogtfs.gtfs_dummy import populate_dummy_data
 
 
 @click.command()
@@ -21,9 +21,7 @@ from gtfs_dummy import populate_dummy_data
                               resolve_path=True),
               help='Output directory. Default is the current directory.')
 @click.option('--zipfile',
-              type=click.Path(file_okay=True,
-                              writable=True,
-                              resolve_path=True),
+              type=click.Path(),
               help='Save to zipfile. Default is saving to flat text files.')
 @click.option('--dummy/--no-dummy',
               default=False,
@@ -51,7 +49,7 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))
-        click.echo('GTFS feed saved in %s' % zipfile)
+        click.echo('GTFS feed saved in %s' % os.path.join(outdir, zipfile))
     else:
         writer.write_unzipped(outdir)
         click.echo('GTFS feed saved in %s' % outdir)

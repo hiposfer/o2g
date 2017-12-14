@@ -6,7 +6,7 @@ import osmium as o
 
 from collections import namedtuple, defaultdict
 from timezonefinder import TimezoneFinder
-from gtfs_misc import map_osm_route_type_to_gtfs, GTFSRouteType
+from .gtfs_misc import map_osm_route_type_to_gtfs, GTFSRouteType
 
 
 class GTFSPreprocessor(o.SimpleHandler):

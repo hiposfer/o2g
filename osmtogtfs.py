@@ -53,7 +53,7 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     else:
         writer.write_unzipped(outdir)
         click.echo('GTFS feed saved in %s' % outdir)
-
+    logging.debug("Done in %d seconds.", (time.time() - start))
 
 if __name__ == '__main__':
     cli()

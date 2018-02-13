@@ -1,7 +1,6 @@
 """Tools to generate dummy GTFS feeds."""
 import datetime
 import logging
-from functools import lru_cache
 
 
 def populate_dummy_data(writer, processor):
@@ -25,7 +24,7 @@ def _create_dummy_trips_and_stoptimes(processor, calendar):
     for route_id, route in processor.routes.items():
         for cal in calendar:
         # For the sake of simplicity, we assume a fixed number of trips per service day.
-        # Even though in relaity there are less number of trips on weekends and holidays.
+        # Even though in reality there are less number of trips on weekends and holidays.
         # We assume trips begin from 5:00 AM and run untill 11:00 PM and there is one trip
         # every 20 minutes. Therefore in total we add 54 trips per route per service day.
         # 18 service hours per day * 3 trips per hour = 54
@@ -64,7 +63,6 @@ def _create_dummy_trip_stoptimes(trip, sequence, processor):
         arrival += delta
 
 
-@lru_cache()
 def _get_route_stops(route_id, processor):
     # Node: there are routes that are not present in route_stops,
     # the reason is, we have processed every node in the OSM data
@@ -72,7 +70,7 @@ def _get_route_stops(route_id, processor):
     # apparently not all of those stops belong to transport
     # relations. Remember that we have filtered relations in favor
     # of transport means (bus, tram, train). Therefore we have
-    # some mis-consistencies here.
+    # some inconsistencies here.
     # Moreover, it could simply be a bug in finding stops.
     # Even more, it could be that the route is streched among
     # multiple regions and we simply have not loaded that data.

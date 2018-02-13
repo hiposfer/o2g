@@ -22,6 +22,8 @@ def _create_dummy_trips_and_stoptimes(processor, calendar):
     trips = []
     stoptimes = []
     for route_id, route in processor.routes.items():
+        if len(processor.route_stops.get(route_id, [])) < 2:
+            continue
         for cal in calendar:
         # For the sake of simplicity, we assume a fixed number of trips per service day.
         # Even though in reality there are less number of trips on weekends and holidays.

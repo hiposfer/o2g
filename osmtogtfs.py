@@ -33,10 +33,15 @@ from _osmtogtfs.gtfs_dummy import populate_dummy_data
 def cli(osmfile, outdir, zipfile, dummy, loglevel):
     if loglevel:
         logging.basicConfig(level=loglevel)
+    logging.debug('Input: %s', osmfile)
+    logging.debug('Output: %s', outdir)
+    logging.debug('Zip?: %s', zipfile or False)
+    logging.debug('Dummy?: %s', dummy)
+
     processor = GTFSPreprocessor()
     start = time.time()
     processor.apply_file(osmfile, locations=True, idx='sparse_mem_array')
-    logging.debug("Preprocessing took %d seconds.", (time.time() - start))
+    logging.debug('Preprocessing took %d seconds.', (time.time() - start))
 
     writer = GTFSWriter()
     writer.add_agencies(processor.agencies.values())
@@ -53,7 +58,8 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     else:
         writer.write_unzipped(outdir)
         click.echo('GTFS feed saved in %s' % outdir)
-    logging.debug("Done in %d seconds.", (time.time() - start))
+
+    logging.debug('Done in %d seconds.', (time.time() - start))
 
 if __name__ == '__main__':
     cli()

@@ -105,9 +105,6 @@ class GTFSPreprocessor(o.SimpleHandler):
         if rel.tags.get('type') == 'route' and self._is_public_transport(rel.tags.get('route')):
             self.process_route(rel)
 
-        # if rel.tags.get('type') == 'route_master':
-        #    pass
-
     @staticmethod
     def _is_public_transport(route_type):
         """See wether the given route defines a public transport route."""
@@ -172,18 +169,16 @@ class GTFSPreprocessor(o.SimpleHandler):
         """Extract stops in a relation."""
         sequence_id = 0
         for member in relation.members:
-            if all([member.ref not in self.stops,
-                    self._is_stop(member),
-                    self._is_node_loaded(member.ref)]):
-                stop_id = self.nodes[member.ref].id
-                self.stops[stop_id] = \
-                    {'stop_id': stop_id,
-                     'stop_name': self.nodes[member.ref].tags.get('name') or\
-                        "Unnamed {} stop.".format(relation.tags.get('route')),
-                     'stop_lon': self.nodes[member.ref].lon,
-                     'stop_lat': self.nodes[member.ref].lat,
-                     'route_id': relation.id}
-                self.route_stops[relation.id].append(stop_id)
+            if self._is_stop(member) and self._is_node_loaded(member.ref):
+                if member.ref not in self.stops:
+                    self.stops[member.ref] = \
+                        {'stop_id': member.ref,
+                         'stop_name': self.nodes[member.ref].tags.get('name') or\
+                            "Unnamed {} stop.".format(relation.tags.get('route')),
+                         'stop_lon': self.nodes[member.ref].lon,
+                         'stop_lat': self.nodes[member.ref].lat,
+                         'route_id': relation.id}
+                self.route_stops[relation.id].append(member.ref)
                 sequence_id += 1
 
     def _is_stop(self, member):

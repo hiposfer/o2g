@@ -7,9 +7,9 @@ import time
 import logging
 import click
 
+from _osmtogtfs import gtfs_dummy
 from _osmtogtfs.osm_processor import GTFSPreprocessor
 from _osmtogtfs.gtfs_writer import GTFSWriter
-from _osmtogtfs.gtfs_dummy import populate_dummy_data
 
 
 @click.command()
@@ -50,7 +50,7 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     writer.add_shapes(processor.shapes)
 
     if dummy:
-        populate_dummy_data(writer, processor)
+        _populate_dummy_data(writer, processor)
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))
@@ -60,6 +60,15 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
         click.echo('GTFS feed saved in %s' % outdir)
 
     logging.debug('Done in %d seconds.', (time.time() - start))
+
+
+def _populate_dummy_data(writer, processor):
+    calendar = gtfs_dummy.create_dummy_calendar()
+    trips, stoptimes = gtfs_dummy.create_dummy_trips_and_stoptimes(processor, calendar)
+    writer.add_trips(trips)
+    writer.add_stop_times(stoptimes)
+    writer.add_calendar(calendar)
+
 
 if __name__ == '__main__':
     cli()

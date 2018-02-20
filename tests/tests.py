@@ -57,8 +57,9 @@ def writer(osm):
 def dummy(osm):
     dummy_calendar = gtfs_dummy.create_dummy_calendar()
     dummy_trips, dummy_stoptimes = \
-        gtfs_dummy.create_dummy_trips_and_stoptimes(osm,
-                                                    dummy_calendar)
+        gtfs_dummy.create_dummy_trips_and_stoptimes(osm.routes,
+            osm.route_stops,
+            dummy_calendar)
 
     return DummyData(dummy_calendar, dummy_stoptimes, dummy_trips)
 

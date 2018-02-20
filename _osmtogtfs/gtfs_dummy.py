@@ -10,11 +10,11 @@ def create_dummy_calendar():
              'friday': 1, 'saturday': 0, 'sunday': 0, 'start_date': 20170101, 'end_date': 20190101}]
 
 
-def create_dummy_trips_and_stoptimes(processor, calendar):
+def create_dummy_trips_and_stoptimes(routes, route_stops, calendar):
     trips = []
     stoptimes = []
-    for route_id, route in processor.routes.items():
-        if len(processor.route_stops.get(route_id, [])) < 2:
+    for route_id, route in routes.items():
+        if len(route_stops.get(route_id, [])) < 2:
             continue
         for cal in calendar:
         # For the sake of simplicity, we assume a fixed number of trips per service day.
@@ -35,14 +35,17 @@ def create_dummy_trips_and_stoptimes(processor, calendar):
                         'trip_headsign': '[Dummy]{}'.format(route['route_long_name']),
                         'shape_id': route_id}
                 trips.append(trip)
-                stoptimes.extend(_create_dummy_trip_stoptimes(trip, idx, processor))
+
+                stoptimes.extend(
+                    _create_dummy_trip_stoptimes(trip_id,
+                        route_stops.get(route_id, []),
+                        idx))
+
     return trips, stoptimes
 
 
-def _create_dummy_trip_stoptimes(trip, sequence, processor):
+def _create_dummy_trip_stoptimes(trip_id, stop_ids, sequence):
     """Create station stop times for each trip."""
-    # stops = find stops that belong to this route (trip)
-    # needs trip_id and stop_id
     delta = datetime.timedelta(minutes=20)
     offset = sequence*datetime.timedelta(minutes=20)
     waiting = datetime.timedelta(seconds=30)
@@ -51,9 +54,9 @@ def _create_dummy_trip_stoptimes(trip, sequence, processor):
 
     stop_sequence = 0
     arrival = first_service_time
-    for stop_id in processor.route_stops[trip['route_id']]:
+    for stop_id in stop_ids:
         departure = arrival + waiting
-        yield {'trip_id': trip['trip_id'],
+        yield {'trip_id': trip_id,
                'arrival_time': arrival.strftime('%H:%M:%S'),
                'departure_time': departure.strftime('%H:%M:%S'),
                'stop_id': stop_id,

@@ -3,22 +3,14 @@ import datetime
 import logging
 
 
-def populate_dummy_data(writer, processor):
-    calendar = _create_dummy_calendar()
-    trips, stoptimes = _create_dummy_trips_and_stoptimes(processor, calendar)
-    writer.add_trips(trips)
-    writer.add_stop_times(stoptimes)
-    writer.add_calendar(calendar)
-
-
-def _create_dummy_calendar():
+def create_dummy_calendar():
     return [{'service_id': 'WE', 'monday': 0, 'tuesday': 0, 'wednesday': 0, 'thursday': 0,
              'friday': 0, 'saturday': 1, 'sunday': 1, 'start_date': 20170101, 'end_date': 20190101},
             {'service_id': 'WD', 'monday': 1, 'tuesday': 1, 'wednesday': 1, 'thursday': 1,
              'friday': 1, 'saturday': 0, 'sunday': 0, 'start_date': 20170101, 'end_date': 20190101}]
 
 
-def _create_dummy_trips_and_stoptimes(processor, calendar):
+def create_dummy_trips_and_stoptimes(processor, calendar):
     trips = []
     stoptimes = []
     for route_id, route in processor.routes.items():

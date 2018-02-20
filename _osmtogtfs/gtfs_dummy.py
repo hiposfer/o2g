@@ -23,7 +23,12 @@ def create_dummy_trips_and_stoptimes(processor, calendar):
         # every 20 minutes. Therefore in total we add 54 trips per route per service day.
         # 18 service hours per day * 3 trips per hour = 54
             for idx in range(54):
-                trip_id = '{route_id}{sequence}'.format(route_id=route_id, sequence=idx+1)
+
+                trip_id = \
+                    '{route_id}{service_id}{sequence}'.format(route_id=route_id,
+                        service_id=cal['service_id'],
+                        sequence=idx+1)
+
                 trip = {'route_id': route_id,
                         'service_id': cal['service_id'],
                         'trip_id': trip_id,

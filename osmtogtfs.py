@@ -50,7 +50,9 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     writer.add_shapes(processor.shapes)
 
     if dummy:
-        _populate_dummy_data(writer, processor)
+        _populate_dummy_data(writer,
+            processor.routes,
+            processor.route_stops)
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))
@@ -62,9 +64,12 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     logging.debug('Done in %d seconds.', (time.time() - start))
 
 
-def _populate_dummy_data(writer, processor):
+def _populate_dummy_data(writer, routes, route_stops):
     calendar = gtfs_dummy.create_dummy_calendar()
-    trips, stoptimes = gtfs_dummy.create_dummy_trips_and_stoptimes(processor, calendar)
+    trips, stoptimes = \
+        gtfs_dummy.create_dummy_trips_and_stoptimes(routes,
+            route_stops,
+            calendar)
     writer.add_trips(trips)
     writer.add_stop_times(stoptimes)
     writer.add_calendar(calendar)

@@ -46,33 +46,12 @@ def _create_dummy_trip_stoptimes(trip, sequence, processor):
 
     stop_sequence = 0
     arrival = first_service_time
-    for stop in _get_route_stops(trip['route_id'], processor):
+    for stop_id in processor.route_stops[trip['route_id']]:
         departure = arrival + waiting
         yield {'trip_id': trip['trip_id'],
                'arrival_time': arrival.strftime('%H:%M:%S'),
                'departure_time': departure.strftime('%H:%M:%S'),
-               'stop_id': stop['stop_id'],
+               'stop_id': stop_id,
                'stop_sequence': stop_sequence}
         stop_sequence += 1
         arrival += delta
-
-
-def _get_route_stops(route_id, processor):
-    # Node: there are routes that are not present in route_stops,
-    # the reason is, we have processed every node in the OSM data
-    # to find stops, without filtering out anything. However,
-    # apparently not all of those stops belong to transport
-    # relations. Remember that we have filtered relations in favor
-    # of transport means (bus, tram, train). Therefore we have
-    # some inconsistencies here.
-    # Moreover, it could simply be a bug in finding stops.
-    # Even more, it could be that the route is streched among
-    # multiple regions and we simply have not loaded that data.
-    # For example, see relation 1686600807 which is an ICE train
-    # from Hamburg to Köln when processing Bremen OSM data.
-    if route_id not in processor.route_stops:
-        logging.debug('No stops information for route %s', route_id)
-        return
-    else:
-        for stop_id in processor.route_stops[route_id]:
-            yield processor.stops[stop_id]

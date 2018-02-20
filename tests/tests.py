@@ -11,7 +11,7 @@ from _osmtogtfs.gtfs_misc import GTFSRouteType
 
 
 # A lightweight data structor to keep preprocessing result for caching
-OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes'])
+OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes', 'route_stops'])
 
 
 def get_osm_data():
@@ -22,7 +22,7 @@ def get_osm_data():
     h.apply_file(filepath,
                  locations=True,
                  idx='sparse_mem_array')
-    return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes)
+    return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes, h.route_stops)
 
 
 @pytest.fixture

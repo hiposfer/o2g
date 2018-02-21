@@ -44,7 +44,7 @@ class GTFSPreprocessor(o.SimpleHandler):
 
         # map: agency_id -> agency
         self.agencies =\
-            {-1: {'agency_id': -1, 'agency_name': 'Unknown agency', 'agency_timezone': ''}}
+            {-1: {'agency_id': -1, 'agency_url': 'http://hiposfer.com', 'agency_name': 'Unknown agency', 'agency_timezone': 'Europe/Berlin'}}
         # map of maps: route_type -> map of route_id: route
         self._routes = defaultdict(lambda: {})
 

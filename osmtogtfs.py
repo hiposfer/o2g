@@ -44,16 +44,17 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     logging.debug('Preprocessing took %d seconds.', (time.time() - start))
 
     writer = GTFSWriter()
-    writer.add_agencies(processor.agencies.values())
-    writer.add_stops(processor.stops.values())
-    writer.add_routes(processor.routes.values())
-    writer.add_shapes(processor.shapes)
 
     if dummy:
         _populate_dummy_data(writer,
             processor.routes,
             processor.stops,
             processor.route_stops)
+        _patch_agencies(processor.agencies)
+
+    writer.add_agencies(processor.agencies.values())
+    writer.add_stops(processor.stops.values())
+    writer.add_routes(processor.routes.values())
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))
@@ -71,6 +72,14 @@ def _populate_dummy_data(writer, routes, stops, route_stops):
     writer.add_stop_times(dummy.stop_times)
     writer.add_calendar(dummy.calendar)
     writer.add_shapes(dummy.shapes)
+
+
+def _patch_agencies(agencies):
+    for agency in agencies.values():
+        if 'agency_url' not in agency or not agency['agency_url']:
+            agency['agency_url'] = 'http://hiposfer.com'
+        if 'agency_timezone' not in agency or not agency['agency_timezone']:
+            agency['agency_timezone'] = 'Europe/Berlin'
 
 
 if __name__ == '__main__':

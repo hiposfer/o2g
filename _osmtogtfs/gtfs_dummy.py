@@ -47,19 +47,33 @@ def create_dummy_trips_and_stoptimes(routes, route_stops, calendar):
 def _create_dummy_trip_stoptimes(trip_id, stop_ids, sequence):
     """Create station stop times for each trip."""
     delta = datetime.timedelta(minutes=20)
-    offset = sequence*datetime.timedelta(minutes=20)
+    offset = sequence*delta
     waiting = datetime.timedelta(seconds=30)
 
     first_service_time = datetime.datetime(2017, 1, 1, 5, 0, 0) + offset
 
     stop_sequence = 0
     arrival = first_service_time
+    last_departure_hour = (arrival + waiting).hour
+
     for stop_id in stop_ids:
+
         departure = arrival + waiting
+
+        if arrival.hour < last_departure_hour:
+            arrival_hour = arrival.hour + 24
+            departure_hour = departure.hour + 24
+            last_departure_hour = departure.hour + 24
+        else:
+            arrival_hour = arrival.hour
+            departure_hour = departure.hour
+            last_departure_hour = departure.hour
+
         yield {'trip_id': trip_id,
-               'arrival_time': arrival.strftime('%H:%M:%S'),
-               'departure_time': departure.strftime('%H:%M:%S'),
+               'arrival_time': '{:02}:{}'.format(arrival_hour, arrival.strftime('%M:%S')),
+               'departure_time': '{:02}:{}'.format(departure_hour, departure.strftime('%M:%S')),
                'stop_id': stop_id,
                'stop_sequence': stop_sequence}
+
         stop_sequence += 1
         arrival += delta

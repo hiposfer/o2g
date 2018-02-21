@@ -186,7 +186,7 @@ class GTFSPreprocessor(o.SimpleHandler):
         if self._is_new_version(relation):
             route_id = relation.id
             route = {'route_id': route_id,
-                     'route_short_name': relation.tags.get('name') or relation.tags.get('ref'),
+                     'route_short_name': relation.tags.get('name') or relation.tags.get('ref') or relation.id,
                      'route_long_name': self._create_route_long_name(relation),
                      'route_type': map_osm_route_type_to_gtfs(relation.tags.get('route')),
                      'route_url': 'https://www.openstreetmap.org/relation/{}'.format(relation.id),

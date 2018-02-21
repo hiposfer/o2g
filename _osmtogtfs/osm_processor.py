@@ -67,17 +67,6 @@ class GTFSPreprocessor(o.SimpleHandler):
         return {route_id: route for bulk in self._routes.values()
                 for route_id, route in bulk.items() if route['route_type'] in route_types}
 
-    @property
-    def shapes(self):
-        sequence_id = 0
-        for stop in self.stops.values():
-            # If you change shape_id, update the dummy generator too.
-            yield {'shape_id': stop['route_id'],
-                   'shape_pt_lat': stop['stop_lat'],
-                   'shape_pt_lon': stop['stop_lon'],
-                   'shape_pt_sequence': sequence_id}
-            sequence_id += 1
-
     def node(self, n):
         """Process each node."""
         try:

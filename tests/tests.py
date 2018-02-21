@@ -14,9 +14,6 @@ from _osmtogtfs import gtfs_dummy
 # A lightweight data structor to keep preprocessing result for caching
 OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes', 'route_stops'])
 
-# Represents dummy GTFS data
-DummyData = namedtuple('DummyData', ['calendar', 'stop_times', 'trips'])
-
 
 def get_osm_data():
     h = GTFSPreprocessor()
@@ -55,13 +52,10 @@ def writer(osm):
 
 @pytest.fixture
 def dummy(osm):
-    dummy_calendar = gtfs_dummy.create_dummy_calendar()
-    dummy_trips, dummy_stoptimes = \
-        gtfs_dummy.create_dummy_trips_and_stoptimes(osm.routes,
-            osm.route_stops,
-            dummy_calendar)
-
-    return DummyData(dummy_calendar, dummy_stoptimes, dummy_trips)
+    return \
+        gtfs_dummy.create_dummy_data(osm.routes,
+            osm.stops,
+            osm.route_stops)
 
 
 def test_write_zipped(writer):

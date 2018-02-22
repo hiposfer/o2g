@@ -54,7 +54,7 @@ def _create_dummy_trips(routes, stops, route_stops, calendar):
             for idx in range(54):
 
                 trip_id = \
-                    '{route_id}{service_id}{sequence}'.format(route_id=route_id,
+                    '{route_id}.{service_id}{sequence}'.format(route_id=route_id,
                         service_id=cal['service_id'],
                         sequence=idx+1)
 

@@ -6,7 +6,7 @@ import osmium as o
 
 from collections import namedtuple, defaultdict
 from timezonefinder import TimezoneFinder
-from .gtfs_misc import map_osm_route_type_to_gtfs, GTFSRouteType
+from .gtfs_misc import map_osm_route_type_to_gtfs, get_default_route_types
 
 
 class GTFSPreprocessor(o.SimpleHandler):
@@ -59,13 +59,12 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     @property
     def routes(self):
-        """Available routes."""
-        route_types = [GTFSRouteType.Bus.value,
-                       GTFSRouteType.Tram.value,
-                       GTFSRouteType.Subway.value,
-                       GTFSRouteType.Rail.value]
-        return {route_id: route for bulk in self._routes.values()
-                for route_id, route in bulk.items() if route['route_type'] in route_types}
+        """Map of route_id -> route"""
+        flat_dict = {}
+        for route_type in get_default_route_types():
+            if route_type in self._routes:
+                flat_dict.update(self._routes[route_type])
+        return flat_dict
 
     def node(self, n):
         """Process each node."""

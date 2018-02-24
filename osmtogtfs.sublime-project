@@ -1,9 +1,12 @@
 {
-	"folders":
-	[
-		{
-			"path": "."
-		}
-	],
-	"virtualenv": "/home/mehdi/.virtualenvs/osm"
+    "folders":
+    [
+        {
+            "path": "."
+        }
+    ],
+   "settings": {
+       "translate_tabs_to_spaces": true,
+   },
+    "virtualenv": "/home/mehdi/.virtualenvs/osm"
 }

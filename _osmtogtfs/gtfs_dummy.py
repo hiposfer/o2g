@@ -152,6 +152,6 @@ def _are_stop_nodes_available(trip_id, stops, trip_stop_ids):
         # its stops. Probably those information were not availabe in the OSM file used
         # to generate current feed.
         if stop_id not in stops:
-            logging.warning('Stop {} is required to build shape for trip {}.'.format(stop_id, trip_id))
+            logging.debug('Stop {} is required to build shape for trip {}.'.format(stop_id, trip_id))
             return False# No shapes for this trip.
     return True

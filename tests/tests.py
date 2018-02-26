@@ -116,14 +116,15 @@ def test_validation(dummy_zipfeed):
     # process of its own. Finally we parse the standard output and look
     # for errors. We ignore the warnings for now.
     if not os.path.exists('transitfeed'):
-        p = subprocess.check_call(
+        subprocess.check_call(
             ['git', 'clone', '-b', '1.2.16', '--single-branch', 'https://github.com/google/transitfeed'])
 
     assert os.path.exists('transitfeed/feedvalidator.py')
 
-    out, err = subprocess.Popen(['python2.7', 'transitfeed/feedvalidator.py', '-n', dummy_zipfeed],
+    p = subprocess.Popen(['python2.7', 'transitfeed/feedvalidator.py', '-n', dummy_zipfeed],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE)
+    out, err = p.communicate()
 
     assert 'error' not in out.decode('utf8')
     assert 'errors' not in out.decode('utf8')

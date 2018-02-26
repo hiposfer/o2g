@@ -29,6 +29,15 @@ def create_dummy_data(routes, stops, route_stops):
     return DummyData(calendar, shapes, stop_times, trips)
 
 
+def monkey_patch_agencies(agencies):
+    """Fill the fields that are necessary for passing transitfeed checks."""
+    for agency in agencies.values():
+        if 'agency_url' not in agency or not agency['agency_url']:
+            agency['agency_url'] = 'http://hiposfer.com'
+        if 'agency_timezone' not in agency or not agency['agency_timezone']:
+            agency['agency_timezone'] = 'Europe/Berlin'
+
+
 def _create_dummy_calendar():
     return [{'service_id': 'WE', 'monday': 0, 'tuesday': 0, 'wednesday': 0, 'thursday': 0,
              'friday': 0, 'saturday': 1, 'sunday': 1, 'start_date': 20170101, 'end_date': 20190101},

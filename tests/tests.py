@@ -66,11 +66,7 @@ def dummy_gtfs_writer(transit_data, dummy_transit_data):
     w = GTFSWriter()
 
     # Patch agencies to pass transitfeed check
-    for agency in transit_data.agencies.values():
-        if 'agency_url' not in agency or not agency['agency_url']:
-            agency['agency_url'] = 'http://hiposfer.com'
-        if 'agency_timezone' not in agency or not agency['agency_timezone']:
-            agency['agency_timezone'] = 'Europe/Berlin'
+    gtfs_dummy.monkey_patch_agencies(transit_data.agencies)
 
     w.add_agencies(transit_data.agencies.values())
     w.add_stops(transit_data.stops.values())

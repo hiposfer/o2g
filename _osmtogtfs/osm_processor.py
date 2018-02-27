@@ -6,7 +6,7 @@ import osmium as o
 
 from collections import namedtuple, defaultdict
 from timezonefinder import TimezoneFinder
-from .gtfs_misc import map_osm_route_type_to_gtfs, GTFSRouteType
+from .gtfs_misc import map_osm_route_type_to_gtfs, get_default_route_types
 
 
 class GTFSPreprocessor(o.SimpleHandler):
@@ -44,7 +44,10 @@ class GTFSPreprocessor(o.SimpleHandler):
 
         # map: agency_id -> agency
         self.agencies =\
-            {-1: {'agency_id': -1, 'agency_name': 'Unknown agency', 'agency_timezone': ''}}
+            {-1: {'agency_id': -1,
+                  'agency_url': 'http://hiposfer.com',
+                  'agency_name': 'Unknown agency',
+                  'agency_timezone': 'Europe/Berlin'}}
         # map of maps: route_type -> map of route_id: route
         self._routes = defaultdict(lambda: {})
 
@@ -59,24 +62,12 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     @property
     def routes(self):
-        """Available routes."""
-        route_types = [GTFSRouteType.Bus.value,
-                       GTFSRouteType.Tram.value,
-                       GTFSRouteType.Subway.value,
-                       GTFSRouteType.Rail.value]
-        return {route_id: route for bulk in self._routes.values()
-                for route_id, route in bulk.items() if route['route_type'] in route_types}
-
-    @property
-    def shapes(self):
-        sequence_id = 0
-        for stop in self.stops.values():
-            # If you change shape_id, update the dummy generator too.
-            yield {'shape_id': stop['route_id'],
-                   'shape_pt_lat': stop['stop_lat'],
-                   'shape_pt_lon': stop['stop_lon'],
-                   'shape_pt_sequence': sequence_id}
-            sequence_id += 1
+        """Map of route_id -> route"""
+        flat_dict = {}
+        for route_type in get_default_route_types():
+            if route_type in self._routes:
+                flat_dict.update(self._routes[route_type])
+        return flat_dict
 
     def node(self, n):
         """Process each node."""
@@ -197,7 +188,7 @@ class GTFSPreprocessor(o.SimpleHandler):
         if self._is_new_version(relation):
             route_id = relation.id
             route = {'route_id': route_id,
-                     'route_short_name': relation.tags.get('name') or relation.tags.get('ref'),
+                     'route_short_name': self._create_route_short_name(relation),
                      'route_long_name': self._create_route_long_name(relation),
                      'route_type': map_osm_route_type_to_gtfs(relation.tags.get('route')),
                      'route_url': 'https://www.openstreetmap.org/relation/{}'.format(relation.id),
@@ -211,9 +202,22 @@ class GTFSPreprocessor(o.SimpleHandler):
             relation.version > self._relation_versions[relation.id]
 
     @staticmethod
+    def _create_route_short_name(relation):
+        """Create a meaningful route short name."""
+        return relation.tags.get('ref') or ''
+
+    @staticmethod
     def _create_route_long_name(relation):
         """Create a meaningful route name."""
-        if not relation.tags.get('from') or not relation.tags.get('to'):
-            return ''
-        return "{0}-to-{1}".format(relation.tags.get('from'),
-                                   relation.tags.get('to'))
+        if relation.tags.get('from') and relation.tags.get('to'):
+            return "{0}-to-{1}".format(relation.tags.get('from'),
+                                       relation.tags.get('to'))
+        name = relation.tags.get('name') or\
+               relation.tags.get('alt_name') or\
+               "OSM Route No. {}".format(relation.id)
+        # Drop route_short_name from this one if it contains it
+        route_short_name = GTFSPreprocessor._create_route_short_name(relation)
+        if route_short_name and name.startswith(route_short_name):
+            # Drop it
+            return name[len(route_short_name):]
+        return name

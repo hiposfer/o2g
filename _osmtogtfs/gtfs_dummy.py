@@ -54,6 +54,7 @@ def _create_dummy_trips(routes, stops, route_stops, calendar):
         if len(route_stops.get(route_id, [])) < 2:
             continue
 
+        cal_idx = 0
         for cal in calendar:
             # For the sake of simplicity, we assume a fixed number of trips per service day.
             # Even though in reality there are less number of trips on weekends and holidays.
@@ -63,8 +64,8 @@ def _create_dummy_trips(routes, stops, route_stops, calendar):
             for idx in range(54):
 
                 trip_id = \
-                    '{route_id}.{service_id}{sequence}'.format(route_id=route_id,
-                        service_id=cal['service_id'],
+                    '{route_id}.{cal_idx}{sequence}'.format(route_id=route_id,
+                        cal_idx=cal_idx,
                         sequence=idx+1)
 
                 trip = {'route_id': route_id,
@@ -76,6 +77,8 @@ def _create_dummy_trips(routes, stops, route_stops, calendar):
                         # Used for generating stop times.
                         'sequence': idx}
                 trips.append(trip)
+            # Increase the calendar index, just for making the trip_id.
+            cal_idx += 1
 
     return trips
 

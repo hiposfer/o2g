@@ -2,13 +2,31 @@
 import datetime
 import logging
 
+from collections import namedtuple
 
-def populate_dummy_data(writer, processor):
+
+# Represents dummy GTFS data
+DummyData = namedtuple('DummyData', ['calendar', 'shapes', 'stop_times', 'trips'])
+
+
+def create_dummy_data(routes, stops, route_stops):
+    """Create `calendar`, `stop_times`, `trips` and `shapes`.
+
+    :return: DummyData namedtuple
+    """
     calendar = _create_dummy_calendar()
-    trips, stoptimes = _create_dummy_trips_and_stoptimes(processor, calendar)
-    writer.add_trips(trips)
-    writer.add_stop_times(stoptimes)
-    writer.add_calendar(calendar)
+
+    trips = \
+        _create_dummy_trips(routes,
+            stops,
+            route_stops,
+            calendar)
+
+    stop_times = _create_dummy_stoptimes(trips, route_stops)
+
+    shapes = create_shapes_and_update_trips(trips, stops, route_stops)
+
+    return DummyData(calendar, shapes, stop_times, trips)
 
 
 def _create_dummy_calendar():
@@ -18,69 +36,122 @@ def _create_dummy_calendar():
              'friday': 1, 'saturday': 0, 'sunday': 0, 'start_date': 20170101, 'end_date': 20190101}]
 
 
-def _create_dummy_trips_and_stoptimes(processor, calendar):
+def _create_dummy_trips(routes, stops, route_stops, calendar):
     trips = []
-    stoptimes = []
-    for route_id, route in processor.routes.items():
-        if len(processor.route_stops.get(route_id, [])) < 2:
+
+    for route_id, route in routes.items():
+
+        if len(route_stops.get(route_id, [])) < 2:
             continue
+
         for cal in calendar:
-        # For the sake of simplicity, we assume a fixed number of trips per service day.
-        # Even though in reality there are less number of trips on weekends and holidays.
-        # We assume trips begin from 5:00 AM and run untill 11:00 PM and there is one trip
-        # every 20 minutes. Therefore in total we add 54 trips per route per service day.
-        # 18 service hours per day * 3 trips per hour = 54
+            # For the sake of simplicity, we assume a fixed number of trips per service day.
+            # Even though in reality there are less number of trips on weekends and holidays.
+            # We assume trips begin from 5:00 AM and run untill 11:00 PM and there is one trip
+            # every 20 minutes. Therefore in total we add 54 trips per route per service day.
+            # 18 service hours per day * 3 trips per hour = 54
             for idx in range(54):
-                trip_id = '{route_id}{sequence}'.format(route_id=route_id, sequence=idx+1)
+
+                trip_id = \
+                    '{route_id}.{service_id}{sequence}'.format(route_id=route_id,
+                        service_id=cal['service_id'],
+                        sequence=idx+1)
+
                 trip = {'route_id': route_id,
                         'service_id': cal['service_id'],
                         'trip_id': trip_id,
                         'trip_headsign': '[Dummy]{}'.format(route['route_long_name']),
-                        'shape_id': route_id}
+                        # Leave shape_id empty. Fill it later for trips which have enough info.
+                        'shape_id': '',
+                        # Used for generating stop times.
+                        'sequence': idx}
                 trips.append(trip)
-                stoptimes.extend(_create_dummy_trip_stoptimes(trip, idx, processor))
-    return trips, stoptimes
+
+    return trips
 
 
-def _create_dummy_trip_stoptimes(trip, sequence, processor):
+def _create_dummy_stoptimes(trips, route_stops):
+    stoptimes = []
+
+    for trip in trips:
+        stoptimes.extend(
+            _create_dummy_trip_stoptimes(trip['trip_id'],
+                route_stops.get(trip['route_id'], []),
+                trip['sequence']))
+
+    return stoptimes
+
+
+def _create_dummy_trip_stoptimes(trip_id, stop_ids, sequence):
     """Create station stop times for each trip."""
-    # stops = find stops that belong to this route (trip)
-    # needs trip_id and stop_id
     delta = datetime.timedelta(minutes=20)
-    offset = sequence*datetime.timedelta(minutes=20)
+    offset = sequence*delta
     waiting = datetime.timedelta(seconds=30)
 
     first_service_time = datetime.datetime(2017, 1, 1, 5, 0, 0) + offset
 
     stop_sequence = 0
     arrival = first_service_time
-    for stop in _get_route_stops(trip['route_id'], processor):
+    last_departure_hour = (arrival + waiting).hour
+
+    for stop_id in stop_ids:
+
         departure = arrival + waiting
-        yield {'trip_id': trip['trip_id'],
-               'arrival_time': arrival.strftime('%H:%M:%S'),
-               'departure_time': departure.strftime('%H:%M:%S'),
-               'stop_id': stop['stop_id'],
+
+        if arrival.hour < last_departure_hour:
+            arrival_hour = arrival.hour + 24
+            departure_hour = departure.hour + 24
+            last_departure_hour = departure.hour + 24
+        else:
+            arrival_hour = arrival.hour
+            departure_hour = departure.hour
+            last_departure_hour = departure.hour
+
+        yield {'trip_id': trip_id,
+               'arrival_time': '{:02}:{}'.format(arrival_hour, arrival.strftime('%M:%S')),
+               'departure_time': '{:02}:{}'.format(departure_hour, departure.strftime('%M:%S')),
+               'stop_id': stop_id,
                'stop_sequence': stop_sequence}
+
         stop_sequence += 1
         arrival += delta
 
 
-def _get_route_stops(route_id, processor):
-    # Node: there are routes that are not present in route_stops,
-    # the reason is, we have processed every node in the OSM data
-    # to find stops, without filtering out anything. However,
-    # apparently not all of those stops belong to transport
-    # relations. Remember that we have filtered relations in favor
-    # of transport means (bus, tram, train). Therefore we have
-    # some inconsistencies here.
-    # Moreover, it could simply be a bug in finding stops.
-    # Even more, it could be that the route is streched among
-    # multiple regions and we simply have not loaded that data.
-    # For example, see relation 1686600807 which is an ICE train
-    # from Hamburg to Köln when processing Bremen OSM data.
-    if route_id not in processor.route_stops:
-        logging.debug('No stops information for route %s', route_id)
-        return
-    else:
-        for stop_id in processor.route_stops[route_id]:
-            yield processor.stops[stop_id]
+def create_shapes_and_update_trips(trips, stops, route_stops):
+    """Create a list of shape records for each trip."""
+    shapes = []
+    for trip in trips:
+        trip_id = trip['trip_id']
+        trip_stop_ids = route_stops[trip['route_id']]
+
+        # Check whether all necessary stop nodes are available
+        if _are_stop_nodes_available(trip_id, stops, trip_stop_ids):
+            # Now that we are sure the necessary information for each stop of the trip exists,
+            # we prooceed to creating shape records for this trip.
+            shape_id = '{}{}'.format(trip_id, trip['route_id'])
+            sequence_id = 0
+            for stop_id in trip_stop_ids:
+                stop = stops[stop_id]
+                shapes.append(
+                    {'shape_id': shape_id,
+                     'shape_pt_lat': stop['stop_lat'],
+                     'shape_pt_lon': stop['stop_lon'],
+                     'shape_pt_sequence': sequence_id})
+                sequence_id += 1
+
+            # Eventually update the trip to reflect the shape_id
+            trip['shape_id'] = shape_id
+
+    return shapes
+
+
+def _are_stop_nodes_available(trip_id, stops, trip_stop_ids):
+    for stop_id in trip_stop_ids:
+        # This means we are dealing with a route which not all of its stops are loaded.
+        # We can't create a shape for a route that we don't have lon and lat of all of
+        # its stops. Probably those information were not availabe in the OSM file used
+        # to generate current feed.
+        if stop_id not in stops:
+            logging.warning('Stop {} is required to build shape for trip {}.'.format(stop_id, trip_id))
+            return False# No shapes for this trip.
+    return True

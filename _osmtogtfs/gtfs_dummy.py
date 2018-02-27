@@ -29,6 +29,16 @@ def create_dummy_data(routes, stops, route_stops):
     return DummyData(calendar, shapes, stop_times, trips)
 
 
+def monkey_patch_agencies(agencies):
+    """Fill the fields that are necessary for passing transitfeed checks."""
+    for agency in agencies.values():
+        if 'agency_url' not in agency or not agency['agency_url']:
+            agency['agency_url'] = 'http://hiposfer.com'
+        #if 'agency_timezone' not in agency or not agency['agency_timezone']:
+        # Set everything to one time zone to get rid of transitfeeds error.
+        agency['agency_timezone'] = 'Europe/Berlin'
+
+
 def _create_dummy_calendar():
     return [{'service_id': 'WE', 'monday': 0, 'tuesday': 0, 'wednesday': 0, 'thursday': 0,
              'friday': 0, 'saturday': 1, 'sunday': 1, 'start_date': 20170101, 'end_date': 20190101},
@@ -44,6 +54,7 @@ def _create_dummy_trips(routes, stops, route_stops, calendar):
         if len(route_stops.get(route_id, [])) < 2:
             continue
 
+        cal_idx = 0
         for cal in calendar:
             # For the sake of simplicity, we assume a fixed number of trips per service day.
             # Even though in reality there are less number of trips on weekends and holidays.
@@ -53,8 +64,8 @@ def _create_dummy_trips(routes, stops, route_stops, calendar):
             for idx in range(54):
 
                 trip_id = \
-                    '{route_id}.{service_id}{sequence}'.format(route_id=route_id,
-                        service_id=cal['service_id'],
+                    '{route_id}.{cal_idx}{sequence}'.format(route_id=route_id,
+                        cal_idx=cal_idx,
                         sequence=idx+1)
 
                 trip = {'route_id': route_id,
@@ -66,6 +77,8 @@ def _create_dummy_trips(routes, stops, route_stops, calendar):
                         # Used for generating stop times.
                         'sequence': idx}
                 trips.append(trip)
+            # Increase the calendar index, just for making the trip_id.
+            cal_idx += 1
 
     return trips
 
@@ -152,6 +165,6 @@ def _are_stop_nodes_available(trip_id, stops, trip_stop_ids):
         # its stops. Probably those information were not availabe in the OSM file used
         # to generate current feed.
         if stop_id not in stops:
-            logging.warning('Stop {} is required to build shape for trip {}.'.format(stop_id, trip_id))
+            logging.debug('Stop {} is required to build shape for trip {}.'.format(stop_id, trip_id))
             return False# No shapes for this trip.
     return True

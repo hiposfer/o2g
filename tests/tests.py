@@ -1,10 +1,12 @@
 '''osmtogtfs tests.'''
 import os
 import tempfile
+import subprocess
+from collections import namedtuple
+
 import pytest
 import osmium as o
 
-from collections import namedtuple
 from _osmtogtfs.osm_processor import GTFSPreprocessor
 from _osmtogtfs.gtfs_writer import GTFSWriter
 from _osmtogtfs.gtfs_misc import GTFSRouteType
@@ -27,7 +29,7 @@ def get_osm_data():
 
 
 @pytest.fixture
-def osm(request):
+def transit_data(request):
     if not hasattr(request.config, 'cache'):
         return get_osm_data()
 
@@ -41,33 +43,86 @@ def osm(request):
 
 
 @pytest.fixture
-def writer(osm):
+def dummy_transit_data(transit_data):
+    return \
+        gtfs_dummy.create_dummy_data(transit_data.routes,
+            transit_data.stops,
+            transit_data.route_stops)
+
+
+@pytest.fixture
+def gtfs_writer(transit_data):
     w = GTFSWriter()
-    w.add_agencies(osm.agencies.values())
-    w.add_stops(osm.stops.values())
-    w.add_routes(osm.routes.values())
+
+    w.add_agencies(transit_data.agencies.values())
+    w.add_stops(transit_data.stops.values())
+    w.add_routes(transit_data.routes.values())
 
     return w
 
 
 @pytest.fixture
-def dummy(osm):
-    return \
-        gtfs_dummy.create_dummy_data(osm.routes,
-            osm.stops,
-            osm.route_stops)
+def dummy_gtfs_writer(transit_data, dummy_transit_data):
+    w = GTFSWriter()
+
+    # Patch agencies to pass transitfeed check
+    gtfs_dummy.monkey_patch_agencies(transit_data.agencies)
+
+    w.add_agencies(transit_data.agencies.values())
+    w.add_stops(transit_data.stops.values())
+    w.add_routes(transit_data.routes.values())
+
+    w.add_trips(dummy_transit_data.trips)
+    w.add_stop_times(dummy_transit_data.stop_times)
+    w.add_calendar(dummy_transit_data.calendar)
+    w.add_shapes(dummy_transit_data.shapes)
+
+    return w
 
 
-def test_write_zipped(writer):
+@pytest.fixture
+def dummy_zipfeed(dummy_gtfs_writer):
+    filename = '{}.zip'.format(tempfile.mktemp())
+    print('Writing GTFS feed to %s' % filename)
+    dummy_gtfs_writer.write_zipped(filename)
+
+    return filename
+
+
+def test_write_zipped(gtfs_writer):
     filename = tempfile.mktemp()
     print('Writing GTFS feed to %s' % filename)
-    writer.write_zipped(filename)
+    gtfs_writer.write_zipped(filename)
 
     assert os.path.exists(filename)
 
 
-def test_duplicate_trips(dummy):
+def test_duplicate_trips(dummy_transit_data):
     dups = []
-    for trip in dummy.trips:
+    for trip in dummy_transit_data.trips:
         assert trip['trip_id'] not in dups
         dups.append(trip['trip_id'])
+
+
+def test_validation(dummy_zipfeed):
+    """Run transitfeed over the generated feed."""
+    # transitfeed is a python2 application. So we need to run it outside
+    # python3 process. Moreover, it is not available in pip repostiory.
+    # Therefore we have to clone it from git and eventually run it in a
+    # process of its own. Finally we parse the standard output and look
+    # for errors. We ignore the warnings for now.
+    if not os.path.exists('transitfeed'):
+        subprocess.check_call(
+            ['git', 'clone', '-b', '1.2.16', '--single-branch', 'https://github.com/google/transitfeed'])
+
+    assert os.path.exists('transitfeed/feedvalidator.py')
+
+    p = subprocess.Popen(['python2.7', 'transitfeed/feedvalidator.py', '-n', dummy_zipfeed],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE)
+    out, err = p.communicate()
+
+    print("Google Transitfeed's output:\n{}".format(out.decode('utf8')))
+
+    assert 'error' not in out.decode('utf8')
+    assert 'errors' not in out.decode('utf8')

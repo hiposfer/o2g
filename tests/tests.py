@@ -8,10 +8,11 @@ from collections import namedtuple
 from _osmtogtfs.osm_processor import GTFSPreprocessor
 from _osmtogtfs.gtfs_writer import GTFSWriter
 from _osmtogtfs.gtfs_misc import GTFSRouteType
+from _osmtogtfs import gtfs_dummy
 
 
 # A lightweight data structor to keep preprocessing result for caching
-OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes'])
+OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes', 'route_stops'])
 
 
 def get_osm_data():
@@ -22,7 +23,7 @@ def get_osm_data():
     h.apply_file(filepath,
                  locations=True,
                  idx='sparse_mem_array')
-    return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes)
+    return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes, h.route_stops)
 
 
 @pytest.fixture
@@ -45,7 +46,16 @@ def writer(osm):
     w.add_agencies(osm.agencies.values())
     w.add_stops(osm.stops.values())
     w.add_routes(osm.routes.values())
+
     return w
+
+
+@pytest.fixture
+def dummy(osm):
+    return \
+        gtfs_dummy.create_dummy_data(osm.routes,
+            osm.stops,
+            osm.route_stops)
 
 
 def test_write_zipped(writer):
@@ -54,3 +64,10 @@ def test_write_zipped(writer):
     writer.write_zipped(filename)
 
     assert os.path.exists(filename)
+
+
+def test_duplicate_trips(dummy):
+    dups = []
+    for trip in dummy.trips:
+        assert trip['trip_id'] not in dups
+        dups.append(trip['trip_id'])

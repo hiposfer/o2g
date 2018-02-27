@@ -102,3 +102,6 @@ ENV/
 *.sublime-workspace
 data/
 *.zip
+
+.pytest_cache
+validation-results.html

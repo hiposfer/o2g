@@ -122,5 +122,7 @@ def test_validation(dummy_zipfeed):
         stderr=subprocess.PIPE)
     out, err = p.communicate()
 
+    print("Google Transitfeed's output:\n{}".format(out.decode('utf8')))
+
     assert 'error' not in out.decode('utf8')
     assert 'errors' not in out.decode('utf8')

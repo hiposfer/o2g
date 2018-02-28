@@ -2,29 +2,34 @@
 import datetime
 import logging
 
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 
 # Represents dummy GTFS data
 DummyData = namedtuple('DummyData', ['calendar', 'shapes', 'stop_times', 'trips'])
 
 
-def create_dummy_data(routes, stops, route_stops):
+def create_dummy_data(routes, stops):
     """Create `calendar`, `stop_times`, `trips` and `shapes`.
 
     :return: DummyData namedtuple
     """
+    # Build stops per route auxiliary map
+    stops_per_route = defaultdict(lambda: [])
+    for s in stops:
+        stops_per_route[s.route_id].append(s)
+
     calendar = _create_dummy_calendar()
 
     trips = \
         _create_dummy_trips(routes,
             stops,
-            route_stops,
+            stops_per_route,
             calendar)
 
-    stop_times = _create_dummy_stoptimes(trips, route_stops)
+    stop_times = _create_dummy_stoptimes(trips, stops_per_route)
 
-    shapes = create_shapes_and_update_trips(trips, stops, route_stops)
+    shapes = create_shapes_and_update_trips(trips, stops, stops_per_route)
 
     return DummyData(calendar, shapes, stop_times, trips)
 
@@ -46,12 +51,13 @@ def _create_dummy_calendar():
              'friday': 1, 'saturday': 0, 'sunday': 0, 'start_date': 20170101, 'end_date': 20190101}]
 
 
-def _create_dummy_trips(routes, stops, route_stops, calendar):
+def _create_dummy_trips(routes, stops, stops_per_route, calendar):
     trips = []
 
-    for route_id, route in routes.items():
+    for route in routes:
+        route_id = route.route_id
 
-        if len(route_stops.get(route_id, [])) < 2:
+        if len(stops_per_route.get(route_id, [])) < 2:
             continue
 
         cal_idx = 0
@@ -71,7 +77,7 @@ def _create_dummy_trips(routes, stops, route_stops, calendar):
                 trip = {'route_id': route_id,
                         'service_id': cal['service_id'],
                         'trip_id': trip_id,
-                        'trip_headsign': '[Dummy]{}'.format(route['route_long_name']),
+                        'trip_headsign': '[Dummy]{}'.format(route.route_long_name),
                         # Leave shape_id empty. Fill it later for trips which have enough info.
                         'shape_id': '',
                         # Used for generating stop times.
@@ -83,13 +89,13 @@ def _create_dummy_trips(routes, stops, route_stops, calendar):
     return trips
 
 
-def _create_dummy_stoptimes(trips, route_stops):
+def _create_dummy_stoptimes(trips, stops_per_route):
     stoptimes = []
 
     for trip in trips:
         stoptimes.extend(
             _create_dummy_trip_stoptimes(trip['trip_id'],
-                route_stops.get(trip['route_id'], []),
+                stops_per_route.get(trip['route_id'], []),
                 trip['sequence']))
 
     return stoptimes

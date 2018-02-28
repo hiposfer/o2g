@@ -9,6 +9,12 @@ from timezonefinder import TimezoneFinder
 from .gtfs_misc import map_osm_route_type_to_gtfs, get_default_route_types
 
 
+class OSMElement(enum.Enum):
+    Node = 'n'
+    Way = 'w'
+    Releation = 'r'
+
+
 class GTFSPreprocessor(o.SimpleHandler):
     """Extracts GTFS relevant transit data in order to construct a feed.
 
@@ -27,10 +33,7 @@ class GTFSPreprocessor(o.SimpleHandler):
     # OSM definitions with their essential attributes
     Node = namedtuple('Node', ['id', 'lon', 'lat', 'tags'])
 
-    class OSMElement(enum.Enum):
-        Node = 'n'
-        Way = 'w'
-        Releation = 'r'
+
 
     def __init__(self):
         super(GTFSPreprocessor, self).__init__()
@@ -98,7 +101,7 @@ class GTFSPreprocessor(o.SimpleHandler):
 
     @staticmethod
     def _is_public_transport(route_type):
-        """See wether the given route defines a public transport route."""
+        """See whether the given route defines a public transport route."""
         return route_type in ['bus', 'trolleybus', 'ferry', 'train', 'tram', 'light_trail']
 
     def process_route(self, relation):

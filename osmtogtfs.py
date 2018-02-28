@@ -11,6 +11,8 @@ from _osmtogtfs import gtfs_dummy
 from _osmtogtfs.osm_processor import GTFSPreprocessor
 from _osmtogtfs.gtfs_writer import GTFSWriter
 
+from _osmtogtfs.exporter import TransitDataExporter
+
 
 @click.command()
 @click.argument('osmfile', type=click.Path(exists=True, readable=True))
@@ -38,23 +40,26 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     logging.debug('Zip?: %s', zipfile or False)
     logging.debug('Dummy?: %s', dummy)
 
-    processor = GTFSPreprocessor()
+    #processor = GTFSPreprocessor()
     start = time.time()
-    processor.apply_file(osmfile, locations=True, idx='sparse_mem_array')
+    tde = TransitDataExporter(osmfile)
+    tde.process()
+    #processor.apply_file(osmfile, locations=True, idx='sparse_mem_array')
     logging.debug('Preprocessing took %d seconds.', (time.time() - start))
 
     writer = GTFSWriter()
 
+    #agencies = list(tde.agencies)
+
     if dummy:
         _populate_dummy_data(writer,
-            processor.routes,
-            processor.stops,
-            processor.route_stops)
-        gtfs_dummy.monkey_patch_agencies(processor.agencies)
+            tde.routes,
+            tde.stops)
+        #gtfs_dummy.monkey_patch_agencies(tde.agencies)
 
-    writer.add_agencies(processor.agencies.values())
-    writer.add_stops(processor.stops.values())
-    writer.add_routes(processor.routes.values())
+    writer.add_agencies(tde.agencies)
+    writer.add_stops(tde.stops)
+    writer.add_routes(tde.routes)
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))
@@ -66,8 +71,8 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     logging.debug('Done in %d seconds.', (time.time() - start))
 
 
-def _populate_dummy_data(writer, routes, stops, route_stops):
-    dummy = gtfs_dummy.create_dummy_data(routes, stops, route_stops)
+def _populate_dummy_data(writer, routes, stops):
+    dummy = gtfs_dummy.create_dummy_data(routes, stops)
     writer.add_trips(dummy.trips)
     writer.add_stop_times(dummy.stop_times)
     writer.add_calendar(dummy.calendar)

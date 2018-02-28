@@ -18,9 +18,13 @@ class GTFSWriter(object):
             self._csv_writers[name].writerow(csv_headers)
 
     def _add_records(self, name, records, sortkey=None):
-        if sortkey:
-            records = sorted(records, key=lambda x: x[sortkey])
-        for record in records:
+        #if sortkey:
+        #records = sorted(records, key=lambda x: x[0])
+        for r in records:
+            if not isinstance(r, dict):
+                record = r._asdict()
+            else:
+                record = r
             csv_record = OrderedDict.fromkeys(self.headers[name])
             # Update csv with keys present in headers. Skip anything else.
             csv_record.update({k: v for k, v in record.items() if k in self.headers[name]})

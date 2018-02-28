@@ -1,0 +1,35 @@
+"""Functionality to build a list of stops."""
+from _osmtogtfs.models import Stop
+
+
+def build_stops(relations, nodes):
+    for rel in relations.values():
+        for stop in extract_stops(rel, nodes):
+            if stop:
+                yield stop
+
+
+def extract_stops(relation, nodes):
+    """Extract stops in a relation."""
+    for member_id, member_role in relation.member_info:
+        if _is_stop(member_id, member_role, nodes):
+            if member_id in nodes:
+                yield Stop(member_id,
+                    nodes[member_id].tags.get('name') or\
+                    "Unnamed {} stop.".format(relation.tags.get('route')),
+                    nodes[member_id].lon if member_id in nodes else '',
+                    nodes[member_id].lat if member_id in nodes else '',
+                    relation.id)
+            else:
+                yield Stop(member_id,
+                    "Unloaded {} stop.".format(relation.tags.get('route')),
+                    '',
+                    '',
+                    relation.id)
+
+
+def _is_stop(member_id, member_role, nodes):
+    """Check wether the given member designates a public transport stop."""
+    return member_role == 'stop' or \
+        (member_id in nodes and
+         nodes[member_id].tags.get('public_transport') == 'stop_position')

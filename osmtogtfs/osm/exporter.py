@@ -1,10 +1,6 @@
-from _osmtogtfs.relation_handler import RelationHandler
-from _osmtogtfs.node_handler import NodeHandler
-from _osmtogtfs.way_handler import WayHandler
+from osmtogtfs.osm.handlers import RelationHandler, NodeHandler, WayHandler
 
-from _osmtogtfs.route_builder import build_routes
-from _osmtogtfs.stop_builder import build_stops
-from _osmtogtfs.agency_builder import build_agencies
+from osmtogtfs.osm.builders import build_routes, build_stops, build_agencies
 
 
 class TransitDataExporter(object):

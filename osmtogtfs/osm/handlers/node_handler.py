@@ -1,6 +1,6 @@
 import osmium as o
 
-from _osmtogtfs.models import Node
+from osmtogtfs.osm.models import Node
 
 
 class NodeHandler(o.SimpleHandler):

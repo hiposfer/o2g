@@ -1,5 +1,5 @@
 """Functionality to build a list of stops."""
-from _osmtogtfs.models import Stop
+from osmtogtfs.osm.models import Stop
 
 
 def build_stops(relations, nodes):

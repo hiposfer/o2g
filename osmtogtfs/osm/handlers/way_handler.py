@@ -1,6 +1,6 @@
 import osmium as o
 
-from _osmtogtfs.models import Way, Point
+from osmtogtfs.osm.models import Way, Point
 
 
 class WayHandler(o.SimpleHandler):

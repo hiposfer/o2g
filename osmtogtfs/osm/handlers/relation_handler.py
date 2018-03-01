@@ -1,8 +1,8 @@
 import osmium as o
 import hashlib
 
-from _osmtogtfs.models import Agency, Relation
-from _osmtogtfs.gtfs_misc import get_default_route_types
+from osmtogtfs.osm.models import Agency, Relation
+from osmtogtfs.gtfs.gtfs_misc import get_default_route_types
 
 
 class RelationHandler(o.SimpleHandler):

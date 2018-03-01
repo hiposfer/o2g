@@ -1,7 +1,7 @@
 """Functionality to build a list of agencies."""
 import hashlib
 
-from _osmtogtfs.models import Agency
+from osmtogtfs.osm.models import Agency
 
 
 def build_agencies(relations):

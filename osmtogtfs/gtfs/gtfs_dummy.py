@@ -1,8 +1,9 @@
 """Tools to generate dummy GTFS feeds."""
 import datetime
 import logging
-
 from collections import namedtuple, defaultdict
+
+from osmtogtfs.osm.models import Agency
 
 
 # Represents dummy GTFS data
@@ -33,15 +34,17 @@ def create_dummy_data(routes, stops):
 
     return DummyData(calendar, shapes, stop_times, trips)
 
+    
 
-def monkey_patch_agencies(agencies):
+def patch_agencies(agencies):
     """Fill the fields that are necessary for passing transitfeed checks."""
-    for agency in agencies.values():
-        if 'agency_url' not in agency or not agency['agency_url']:
-            agency['agency_url'] = 'http://hiposfer.com'
-        #if 'agency_timezone' not in agency or not agency['agency_timezone']:
-        # Set everything to one time zone to get rid of transitfeeds error.
-        agency['agency_timezone'] = 'Europe/Berlin'
+    for agency_id, agency_url, agency_name, agency_timezone in agencies:
+        if not agency_url:
+            agency_url = 'http://hiposfer.com'
+        if not agency_timezone:
+            # Set everything to one time zone to get rid of transitfeeds error.
+            agency_timezone = 'Europe/Berlin'
+        yield Agency(agency_id, agency_url, agency_name, agency_timezone)
 
 
 def _create_dummy_calendar():

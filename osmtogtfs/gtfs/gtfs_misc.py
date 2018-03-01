@@ -34,13 +34,3 @@ def map_osm_route_type_to_gtfs(route_type, default=-1):
     "Get GTFS equivalent code for the given route type."
     return OSM2GTFS_ROUTE_TYPE_MAP.get(route_type, default)
 
-
-def get_default_route_types():
-    """A list of default OSM route types.
-
-    Mainly train and bus types.
-    """
-    return ['bus', 'ex-bus',        # Bus
-            'tram', 'light_rail',   # Tram
-            'subway',               # Subway
-            'rail', 'railway']      # Rail

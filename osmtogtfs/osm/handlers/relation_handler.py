@@ -2,7 +2,6 @@ import osmium as o
 import hashlib
 
 from osmtogtfs.osm.models import Agency, Relation
-from osmtogtfs.gtfs.gtfs_misc import get_default_route_types
 
 
 class RelationHandler(o.SimpleHandler):
@@ -10,6 +9,17 @@ class RelationHandler(o.SimpleHandler):
         super(RelationHandler, self).__init__()
         self.relations = {}
         self.versions = {}
+
+    @property
+    def transit_route_types(self):
+        """A list of default OSM route types.
+
+        Mainly train and bus types.
+        """
+        return ['bus', 'ex-bus',        # Bus
+                'tram', 'light_rail',   # Tram
+                'subway',               # Subway
+                'rail', 'railway']      # Rail
 
     def relation(self, rel):
         """Process each relation."""
@@ -20,7 +30,7 @@ class RelationHandler(o.SimpleHandler):
             return
 
         route_tag = rel.tags.get('route')
-        if route_tag not in get_default_route_types():
+        if route_tag not in self.transit_route_types:
             return
 
         self.relations[rel.id] = \

@@ -44,16 +44,19 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     logging.debug('Preprocessing took %d seconds.', (time.time() - start))
 
     writer = GTFSWriter()
-
+    patched_agencies = None
     if dummy:
         dummy_data = gtfs_dummy.create_dummy_data(tde.routes, tde.stops)
         writer.add_trips(dummy_data.trips)
         writer.add_stop_times(dummy_data.stop_times)
         writer.add_calendar(dummy_data.calendar)
         writer.add_shapes(dummy_data.shapes)
-        #tde.agencies = gtfs_dummy.patch_agencies(tde.agencies)
+        patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
 
-    writer.add_agencies(tde.agencies)
+    if patched_agencies:
+        writer.add_agencies(patched_agencies)
+    else:
+        writer.add_agencies(tde.agencies)
     writer.add_stops(tde.stops)
     writer.add_routes(tde.routes)
 

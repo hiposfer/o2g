@@ -1,5 +1,6 @@
-'''osmtogtfs tests.'''
+"""osmtogtfs tests."""
 import os
+import pathlib
 import tempfile
 import subprocess
 from collections import namedtuple
@@ -7,56 +8,49 @@ from collections import namedtuple
 import pytest
 import osmium as o
 
-from _osmtogtfs.osm_processor import GTFSPreprocessor
-from _osmtogtfs.gtfs_writer import GTFSWriter
-from _osmtogtfs.gtfs_misc import GTFSRouteType
-from _osmtogtfs import gtfs_dummy
+from osmtogtfs.osm.exporter import TransitDataExporter
+from osmtogtfs.gtfs.gtfs_writer import GTFSWriter
+from osmtogtfs.gtfs.gtfs_misc import GTFSRouteType
+from osmtogtfs.gtfs import gtfs_dummy
 
 
-# A lightweight data structor to keep preprocessing result for caching
-OSMData = namedtuple('OSMData', ['nodes', 'ways', 'agencies', 'stops', 'routes', 'route_stops'])
-
-
-def get_osm_data():
-    h = GTFSPreprocessor()
-    filepath = os.path.join(os.path.dirname(__file__),
-                            os.path.pardir,
+def get_osm_processor():
+    root_dir = pathlib.Path(__file__).parents[2]
+    filepath = os.path.join(root_dir,
                             'resources', 'osm', 'bremen-latest.osm.pbf')
-    h.apply_file(filepath,
-                 locations=True,
-                 idx='sparse_mem_array')
-    return OSMData(h.nodes, h.ways, h.agencies, h.stops, h.routes, h.route_stops)
+    tde = TransitDataExporter(filepath)
+    tde.process()
+    return tde
 
 
 @pytest.fixture
 def transit_data(request):
-    if not hasattr(request.config, 'cache'):
-        return get_osm_data()
+    # if not hasattr(request.config, 'cache'):
+    #     return get_osm_data()
 
-    data = request.config.cache.get('osm', None)
-    if not data:
-        data = get_osm_data()
-        request.config.cache.set('osm', data)
-    else:
-        data = OSMData(*data)
-    return data
+    # data = request.config.cache.get('osm', None)
+    # if not data:
+    #     data = get_osm_data()
+    #     request.config.cache.set('osm', data)
+    # else:
+    #     data = OSMData(*data)
+    return get_osm_processor()
 
 
 @pytest.fixture
 def dummy_transit_data(transit_data):
     return \
         gtfs_dummy.create_dummy_data(transit_data.routes,
-            transit_data.stops,
-            transit_data.route_stops)
+            transit_data.stops)
 
 
 @pytest.fixture
 def gtfs_writer(transit_data):
     w = GTFSWriter()
 
-    w.add_agencies(transit_data.agencies.values())
-    w.add_stops(transit_data.stops.values())
-    w.add_routes(transit_data.routes.values())
+    w.add_agencies(transit_data.agencies)
+    w.add_stops(transit_data.stops)
+    w.add_routes(transit_data.routes)
 
     return w
 
@@ -66,11 +60,11 @@ def dummy_gtfs_writer(transit_data, dummy_transit_data):
     w = GTFSWriter()
 
     # Patch agencies to pass transitfeed check
-    gtfs_dummy.monkey_patch_agencies(transit_data.agencies)
+    patched_agencies = gtfs_dummy.patch_agencies(transit_data.agencies)
 
-    w.add_agencies(transit_data.agencies.values())
-    w.add_stops(transit_data.stops.values())
-    w.add_routes(transit_data.routes.values())
+    w.add_agencies(patched_agencies)
+    w.add_stops(transit_data.stops)
+    w.add_routes(transit_data.routes)
 
     w.add_trips(dummy_transit_data.trips)
     w.add_stop_times(dummy_transit_data.stop_times)
@@ -87,7 +81,6 @@ def dummy_zipfeed(dummy_gtfs_writer):
     dummy_gtfs_writer.write_zipped(filename)
 
     return filename
-
 
 def test_write_zipped(gtfs_writer):
     filename = tempfile.mktemp()
@@ -126,3 +119,26 @@ def test_validation(dummy_zipfeed):
 
     assert 'error' not in out.decode('utf8')
     assert 'errors' not in out.decode('utf8')
+
+
+    tde = TransitDataExporter(osmfile)
+    tde.process()
+    logging.debug('Preprocessing took %d seconds.', (time.time() - start))
+
+    writer = GTFSWriter()
+    patched_agencies = None
+    if dummy:
+        dummy_data = gtfs_dummy.create_dummy_data(list(tde.routes),
+                                                  list(tde.stops))
+        writer.add_trips(dummy_data.trips)
+        writer.add_stop_times(dummy_data.stop_times)
+        writer.add_calendar(dummy_data.calendar)
+        writer.add_shapes(dummy_data.shapes)
+        patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
+
+    if patched_agencies:
+        writer.add_agencies(patched_agencies)
+    else:
+        writer.add_agencies(tde.agencies)
+    writer.add_stops(tde.stops)
+    writer.add_routes(tde.routes)

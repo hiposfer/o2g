@@ -3,38 +3,23 @@ import os
 import pathlib
 import tempfile
 import subprocess
-from collections import namedtuple
 
 import pytest
 import osmium as o
 
 from osmtogtfs.osm.exporter import TransitDataExporter
 from osmtogtfs.gtfs.gtfs_writer import GTFSWriter
-from osmtogtfs.gtfs.gtfs_misc import GTFSRouteType
 from osmtogtfs.gtfs import gtfs_dummy
 
 
-def get_osm_processor():
+@pytest.fixture
+def transit_data(request):
     root_dir = pathlib.Path(__file__).parents[2]
     filepath = os.path.join(root_dir,
                             'resources', 'osm', 'bremen-latest.osm.pbf')
     tde = TransitDataExporter(filepath)
     tde.process()
     return tde
-
-
-@pytest.fixture
-def transit_data(request):
-    # if not hasattr(request.config, 'cache'):
-    #     return get_osm_data()
-
-    # data = request.config.cache.get('osm', None)
-    # if not data:
-    #     data = get_osm_data()
-    #     request.config.cache.set('osm', data)
-    # else:
-    #     data = OSMData(*data)
-    return get_osm_processor()
 
 
 @pytest.fixture
@@ -119,26 +104,3 @@ def test_validation(dummy_zipfeed):
 
     assert 'error' not in out.decode('utf8')
     assert 'errors' not in out.decode('utf8')
-
-
-    tde = TransitDataExporter(osmfile)
-    tde.process()
-    logging.debug('Preprocessing took %d seconds.', (time.time() - start))
-
-    writer = GTFSWriter()
-    patched_agencies = None
-    if dummy:
-        dummy_data = gtfs_dummy.create_dummy_data(list(tde.routes),
-                                                  list(tde.stops))
-        writer.add_trips(dummy_data.trips)
-        writer.add_stop_times(dummy_data.stop_times)
-        writer.add_calendar(dummy_data.calendar)
-        writer.add_shapes(dummy_data.shapes)
-        patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
-
-    if patched_agencies:
-        writer.add_agencies(patched_agencies)
-    else:
-        writer.add_agencies(tde.agencies)
-    writer.add_stops(tde.stops)
-    writer.add_routes(tde.routes)

@@ -75,7 +75,8 @@ We use the `pytest` package for testing. Install pytest and run the tests:
 In order to profile the code we use `cProfile`:
     
     # For the `osmtogtfs` script
-    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/bremen-latest.osm.pbf --outdir output/bremen --dummy> output/benchmark.txt
+    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/bremen-latest.osm.pbf --outdir output/bremen --dummy > output/benchmarks/bremen.txt
+    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/saarland-latest.osm.pbf --outdir output/saarland --dummy > output/benchmarks/saarland.txt
 
 You will find the result in [`output/benchmark.txt`](output/benchmark.txt).
 Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.

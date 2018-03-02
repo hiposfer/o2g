@@ -110,7 +110,7 @@ def _create_dummy_stoptimes(trips, stops_per_route):
     return stoptimes
 
 
-def _create_dummy_trip_stoptimes(trip_id, stop_ids, sequence):
+def _create_dummy_trip_stoptimes(trip_id, stops, sequence):
     """Create station stop times for each trip."""
     delta = datetime.timedelta(minutes=20)
     offset = sequence*delta
@@ -122,7 +122,7 @@ def _create_dummy_trip_stoptimes(trip_id, stop_ids, sequence):
     arrival = first_service_time
     last_departure_hour = (arrival + waiting).hour
 
-    for stop_id in stop_ids:
+    for stop in stops:
 
         departure = arrival + waiting
 
@@ -138,7 +138,7 @@ def _create_dummy_trip_stoptimes(trip_id, stop_ids, sequence):
         yield {'trip_id': trip_id,
                'arrival_time': '{:02}:{}'.format(arrival_hour, arrival.strftime('%M:%S')),
                'departure_time': '{:02}:{}'.format(departure_hour, departure.strftime('%M:%S')),
-               'stop_id': stop_id,
+               'stop_id': stop.stop_id,
                'stop_sequence': stop_sequence}
 
         stop_sequence += 1
@@ -179,7 +179,7 @@ def _are_stop_nodes_available(trip_id, stops, trip_stops):
         # We can't create a shape for a route that we don't have lon and lat of all of
         # its stops. Probably those information were not availabe in the OSM file used
         # to generate current feed.
-        if stop_id not in stops:
+        if stop_id not in stops or not stop.stop_lat or not stop.stop_lon:
             logging.debug('Stop {} is required to build shape for trip {}.'.format(stop_id, trip_id))
             return False# No shapes for this trip.
     return True

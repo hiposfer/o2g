@@ -46,7 +46,8 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     writer = GTFSWriter()
     patched_agencies = None
     if dummy:
-        dummy_data = gtfs_dummy.create_dummy_data(tde.routes, tde.stops)
+        dummy_data = gtfs_dummy.create_dummy_data(list(tde.routes),
+                                                  list(tde.stops))
         writer.add_trips(dummy_data.trips)
         writer.add_stop_times(dummy_data.stop_times)
         writer.add_calendar(dummy_data.calendar)

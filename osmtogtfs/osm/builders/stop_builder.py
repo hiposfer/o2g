@@ -23,12 +23,6 @@ def extract_stops(relation, nodes, visited_stops_ids):
                     nodes[member_id].lon if member_id in nodes else '',
                     nodes[member_id].lat if member_id in nodes else '',
                     relation.id)
-            else:
-                yield Stop(member_id,
-                    "Unloaded {} stop.".format(relation.tags.get('route')),
-                    '',
-                    '',
-                    relation.id)
 
 
 def _is_stop(member_id, member_role, nodes):

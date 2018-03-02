@@ -26,13 +26,14 @@ Alternatively you can clone the repo and install it:
     $ git clone https://github.com/hiposfer/osmtogtfs & cd osmtogtfs
     $ python setup.py install
 
-This will install `osmtogtfs` command on your system. You can also directly run the `osmtogtfs.py` script found
-in the source directory. Make sure to run it with python 3.
+This will install `osmtogtfs` command on your system. Alternatively, you can also run `osmtogtfs/cli.py`.
+
+Make sure to run these commands with python 3.
 
 ## Usage
 Run the tool over your OSM data source (or whatever osmium accepts):
 
-    python osmtogtfs.py <osmfile>
+    osmtogtfs <osmfile>
 
 After a while, depending on the file size, a file named `gtfs.zip` will be produced inside the working directory.
 Moreover, if you install the package, you will get an script called `osmtogtfs` in your python path:
@@ -43,6 +44,7 @@ Moreover, if you install the package, you will get an script called `osmtogtfs` 
     Options:
       --outdir PATH   Store output in this directory.
       --zipfile PATH  Save as Zip file if provided.
+      --loglevel      Set the logging level.
       --help          Show this message and exit.
 
 `--outdir` defaults to the working directory and if `--zipfile` is provided, the feed will be zipped and stored in
@@ -65,22 +67,17 @@ will be downloaded on first run.
 We use the `pytest` package for testing. Install pytest and run the tests:
 
     $ pip install pytest
-    $ pytest -s tests/tests.py
+    $ pytest
 
 `-s` disables capturing and shows us more output (such as print statements and log messages).
-
-### Pytest Caching
-In order to run tests faster we use caching. The result of OSM preprocessing will be cached and used
-for subsequent tests. In order to clear the cache run pytest with `--cache-clear` option. Alternatively
-you can delete `.cache` folder.
 
 ### Profiling
 In order to profile the code we use `cProfile`:
     
     # For the `osmtogtfs` script
-    $ python -m cProfile -s cumtime osmtogtfs.py resources/osm/bremen-latest.osm.pbf --outdir tests/out > tests/benchmark.txt
+    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/bremen-latest.osm.pbf --outdir output/bremen --dummy> output/benchmark.txt
 
-You will find results in [`tests/benchmark.txt`](tests/benchmark.txt).
+You will find the result in [`output/benchmark.txt`](output/benchmark.txt).
 Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.
 
 
@@ -143,6 +140,10 @@ However, there are some routes without operator tags. In such cases we use a dum
     cableCar: 	5
     gondola: 	6
     funicular: 	7
+
+
+### namedtuples as the preferred data structure
+In order to decrease the necessary memory, we use mostly namedtuples (which are basically tuples) to store data.
 
 
 ## Lincense

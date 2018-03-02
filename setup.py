@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 def readme():
     with open('README.md') as f:
@@ -14,7 +14,7 @@ setup(name='osmtogtfs',
       keywords=['osm', 'gtfs'],
       license='MIT',
       platforms='any',
-      packages=['osmtogtfs'],
+      packages=find_packages(),
       entry_points={
         'console_scripts': ['osmtogtfs=osmtogtfs.cli:cli']
       },

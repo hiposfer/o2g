@@ -10,7 +10,7 @@ class TransitDataExporter(object):
 
     @property
     def agencies(self):
-        return build_agencies(self.rh.relations)
+        return build_agencies(self.rh.relations, self.nh.nodes, self.wh.ways)
 
     @property
     def routes(self):

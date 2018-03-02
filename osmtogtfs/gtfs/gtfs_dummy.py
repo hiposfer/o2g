@@ -17,8 +17,10 @@ def create_dummy_data(routes, stops):
     """
     # Build stops per route auxiliary map
     stops_per_route = defaultdict(lambda: [])
+    stops_map = {}
     for s in stops:
         stops_per_route[s.route_id].append(s)
+        stops_map[s.stop_id] = s
 
     calendar = _create_dummy_calendar()
 
@@ -30,7 +32,7 @@ def create_dummy_data(routes, stops):
 
     stop_times = _create_dummy_stoptimes(trips, stops_per_route)
 
-    shapes = create_shapes_and_update_trips(trips, stops, stops_per_route)
+    shapes = create_shapes_and_update_trips(trips, stops_map, stops_per_route)
 
     return DummyData(calendar, shapes, stop_times, trips)
 
@@ -139,25 +141,24 @@ def _create_dummy_trip_stoptimes(trip_id, stop_ids, sequence):
         arrival += delta
 
 
-def create_shapes_and_update_trips(trips, stops, route_stops):
+def create_shapes_and_update_trips(trips, stops, stops_per_route):
     """Create a list of shape records for each trip."""
     shapes = []
     for trip in trips:
         trip_id = trip['trip_id']
-        trip_stop_ids = route_stops[trip['route_id']]
+        trip_stops = stops_per_route[trip['route_id']]
 
         # Check whether all necessary stop nodes are available
-        if _are_stop_nodes_available(trip_id, stops, trip_stop_ids):
+        if _are_stop_nodes_available(trip_id, stops, trip_stops):
             # Now that we are sure the necessary information for each stop of the trip exists,
             # we prooceed to creating shape records for this trip.
             shape_id = '{}{}'.format(trip_id, trip['route_id'])
             sequence_id = 0
-            for stop_id in trip_stop_ids:
-                stop = stops[stop_id]
+            for stop in trip_stops:
                 shapes.append(
                     {'shape_id': shape_id,
-                     'shape_pt_lat': stop['stop_lat'],
-                     'shape_pt_lon': stop['stop_lon'],
+                     'shape_pt_lat': stop.stop_lat,
+                     'shape_pt_lon': stop.stop_lon,
                      'shape_pt_sequence': sequence_id})
                 sequence_id += 1
 
@@ -167,8 +168,9 @@ def create_shapes_and_update_trips(trips, stops, route_stops):
     return shapes
 
 
-def _are_stop_nodes_available(trip_id, stops, trip_stop_ids):
-    for stop_id in trip_stop_ids:
+def _are_stop_nodes_available(trip_id, stops, trip_stops):
+    for stop in trip_stops:
+        stop_id = stop.stop_id
         # This means we are dealing with a route which not all of its stops are loaded.
         # We can't create a shape for a route that we don't have lon and lat of all of
         # its stops. Probably those information were not availabe in the OSM file used

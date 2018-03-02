@@ -40,6 +40,10 @@ def create_dummy_data(routes, stops):
 
 def patch_agencies(agencies):
     """Fill the fields that are necessary for passing transitfeed checks."""
+    # First return the unknown agency entry
+    yield Agency(-1, 'http://hiposfer.com', 'Unknown agency', 'Europe/Berlin')
+
+    # Then return the rest.
     for agency_id, agency_url, agency_name, agency_timezone in agencies:
         if not agency_url:
             agency_url = 'http://hiposfer.com'

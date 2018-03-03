@@ -17,7 +17,8 @@ def extract_stops(relation, nodes, visited_stops_ids):
             _is_stop(member_id, member_role, nodes):
             visited_stops_ids.add(member_id)
             if member_id in nodes:
-                yield Stop(member_id,
+                yield Stop(
+                    member_id,
                     nodes[member_id].tags.get('name') or\
                     "Unnamed {} stop.".format(relation.tags.get('route')),
                     nodes[member_id].lon if member_id in nodes else '',

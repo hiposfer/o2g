@@ -29,5 +29,3 @@ Stop = namedtuple('Stop', [
     'stop_lon',
     'stop_lat',
     'route_id'])
-
-

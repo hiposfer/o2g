@@ -5,7 +5,6 @@ import tempfile
 import subprocess
 
 import pytest
-import osmium as o
 
 from osmtogtfs.osm.exporter import TransitDataExporter
 from osmtogtfs.gtfs.gtfs_writer import GTFSWriter

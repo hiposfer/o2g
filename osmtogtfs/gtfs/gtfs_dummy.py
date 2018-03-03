@@ -25,8 +25,8 @@ def create_dummy_data(routes, stops):
     calendar = _create_dummy_calendar()
 
     trips = \
-        _create_dummy_trips(routes,
-            stops,
+        _create_dummy_trips(
+            routes,
             stops_per_route,
             calendar)
 
@@ -36,7 +36,6 @@ def create_dummy_data(routes, stops):
 
     return DummyData(calendar, shapes, stop_times, trips)
 
-    
 
 def patch_agencies(agencies):
     """Fill the fields that are necessary for passing transitfeed checks."""
@@ -60,7 +59,7 @@ def _create_dummy_calendar():
              'friday': 1, 'saturday': 0, 'sunday': 0, 'start_date': 20170101, 'end_date': 20190101}]
 
 
-def _create_dummy_trips(routes, stops, stops_per_route, calendar):
+def _create_dummy_trips(routes, stops_per_route, calendar):
     trips = []
 
     for route in routes:
@@ -69,8 +68,7 @@ def _create_dummy_trips(routes, stops, stops_per_route, calendar):
         if len(stops_per_route.get(route_id, [])) < 2:
             continue
 
-        cal_idx = 0
-        for cal in calendar:
+        for cal_idx, cal in enumerate(calendar):
             # For the sake of simplicity, we assume a fixed number of trips per service day.
             # Even though in reality there are less number of trips on weekends and holidays.
             # We assume trips begin from 5:00 AM and run untill 11:00 PM and there is one trip
@@ -79,7 +77,8 @@ def _create_dummy_trips(routes, stops, stops_per_route, calendar):
             for idx in range(54):
 
                 trip_id = \
-                    '{route_id}.{cal_idx}{sequence}'.format(route_id=route_id,
+                    '{route_id}.{cal_idx}{sequence}'.format(
+                        route_id=route_id,
                         cal_idx=cal_idx,
                         sequence=idx+1)
 
@@ -92,8 +91,6 @@ def _create_dummy_trips(routes, stops, stops_per_route, calendar):
                         # Used for generating stop times.
                         'sequence': idx}
                 trips.append(trip)
-            # Increase the calendar index, just for making the trip_id.
-            cal_idx += 1
 
     return trips
 
@@ -103,7 +100,8 @@ def _create_dummy_stoptimes(trips, stops_per_route):
 
     for trip in trips:
         stoptimes.extend(
-            _create_dummy_trip_stoptimes(trip['trip_id'],
+            _create_dummy_trip_stoptimes(
+                trip['trip_id'],
                 stops_per_route.get(trip['route_id'], []),
                 trip['sequence']))
 
@@ -118,11 +116,10 @@ def _create_dummy_trip_stoptimes(trip_id, stops, sequence):
 
     first_service_time = datetime.datetime(2017, 1, 1, 5, 0, 0) + offset
 
-    stop_sequence = 0
     arrival = first_service_time
     last_departure_hour = (arrival + waiting).hour
 
-    for stop in stops:
+    for stop_sequence, stop in enumerate(stops):
 
         departure = arrival + waiting
 
@@ -141,7 +138,6 @@ def _create_dummy_trip_stoptimes(trip_id, stops, sequence):
                'stop_id': stop.stop_id,
                'stop_sequence': stop_sequence}
 
-        stop_sequence += 1
         arrival += delta
 
 
@@ -157,15 +153,12 @@ def create_shapes_and_update_trips(trips, stops, stops_per_route):
             # Now that we are sure the necessary information for each stop of the trip exists,
             # we prooceed to creating shape records for this trip.
             shape_id = '{}{}'.format(trip_id, trip['route_id'])
-            sequence_id = 0
-            for stop in trip_stops:
+            for sequence_id, stop in enumerate(trip_stops):
                 shapes.append(
                     {'shape_id': shape_id,
                      'shape_pt_lat': stop.stop_lat,
                      'shape_pt_lon': stop.stop_lon,
                      'shape_pt_sequence': sequence_id})
-                sequence_id += 1
-
             # Eventually update the trip to reflect the shape_id
             trip['shape_id'] = shape_id
 
@@ -180,6 +173,6 @@ def _are_stop_nodes_available(trip_id, stops, trip_stops):
         # its stops. Probably those information were not availabe in the OSM file used
         # to generate current feed.
         if stop_id not in stops or not stop.stop_lat or not stop.stop_lon:
-            logging.debug('Stop {} is required to build shape for trip {}.'.format(stop_id, trip_id))
+            logging.debug('Stop %s is required to build shape for trip %s.', stop_id, trip_id)
             return False# No shapes for this trip.
     return True

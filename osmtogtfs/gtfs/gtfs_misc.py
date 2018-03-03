@@ -33,4 +33,3 @@ OSM2GTFS_ROUTE_TYPE_MAP = {
 def map_osm_route_type_to_gtfs(route_type, default=-1):
     "Get GTFS equivalent code for the given route type."
     return OSM2GTFS_ROUTE_TYPE_MAP.get(route_type, default)
-

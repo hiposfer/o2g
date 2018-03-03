@@ -10,24 +10,25 @@ def build_stops(relations, nodes):
                 yield stop
 
 
-def extract_stops(relation, nodes, visited_stops_ids):
+def extract_stops(relation, nodes, visited_stop_ids):
     """Extract stops in a relation."""
     for member_id, member_role in relation.member_info:
-        if member_id not in visited_stops_ids and \
+
+        if member_id not in visited_stop_ids and \
+            member_id in nodes and \
             _is_stop(member_id, member_role, nodes):
-            visited_stops_ids.add(member_id)
-            if member_id in nodes:
-                yield Stop(
-                    member_id,
-                    nodes[member_id].tags.get('name') or\
-                    "Unnamed {} stop.".format(relation.tags.get('route')),
-                    nodes[member_id].lon if member_id in nodes else '',
-                    nodes[member_id].lat if member_id in nodes else '',
-                    relation.id)
+
+            visited_stop_ids.add(member_id)
+            yield Stop(
+                member_id,
+                nodes[member_id].tags.get('name') or\
+                "Unnamed {} stop.".format(relation.tags.get('route')),
+                nodes[member_id].lon if member_id in nodes else '',
+                nodes[member_id].lat if member_id in nodes else '',
+                relation.id)
 
 
 def _is_stop(member_id, member_role, nodes):
     """Check wether the given member designates a public transport stop."""
     return member_role == 'stop' or \
-        (member_id in nodes and
-         nodes[member_id].tags.get('public_transport') == 'stop_position')
+        (nodes[member_id].tags.get('public_transport') == 'stop_position')

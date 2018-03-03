@@ -41,6 +41,7 @@ class RelationHandler(o.SimpleHandler):
                 'ref': rel.tags.get('ref'),
                 'from': rel.tags.get('from'),
                 'to': rel.tags.get('to'),
+                'name': rel.tags.get('name'),
                 'alt_name': rel.tags.get('alt_name')},
                 [(member.ref, member.role) for member in rel.members])
 

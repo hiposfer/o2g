@@ -16,7 +16,7 @@ def build_route(relation):
     """Extract information of one route."""
     short_name = create_route_short_name(relation)
     return Route(relation.id,
-                 create_route_short_name(relation),
+                 short_name,
                  create_route_long_name(relation, short_name),
                  map_osm_route_type_to_gtfs(relation.tags.get('route')),
                  'https://www.openstreetmap.org/relation/{}'.format(relation.id),

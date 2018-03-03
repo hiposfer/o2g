@@ -57,6 +57,5 @@ def _get_first_coordinate(relation, nodes, ways):
     return 0, 0
 
 def _get_first_way_coordinate(way_id, ways):
-    if way_id in ways:
-        # Pick the first node
-        return ways[way_id].points[0]
+    # Pick the first node
+    return ways[way_id].points[0]

@@ -15,9 +15,8 @@ from osmtogtfs.gtfs import gtfs_dummy
 @pytest.fixture
 def transit_data(request):
     root_dir = pathlib.Path(__file__).parents[2]
-    filepath = os.path.join(root_dir,
-                            'resources', 'osm', 'bremen-latest.osm.pbf')
-    tde = TransitDataExporter(filepath)
+    filepath = root_dir.joinpath('resources', 'osm', 'bremen-latest.osm.pbf')
+    tde = TransitDataExporter(str(filepath))
     tde.process()
     return tde
 

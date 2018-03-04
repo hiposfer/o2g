@@ -1,0 +1,4 @@
+*.pbf filter=lfs diff=lfs merge=lfs -text
+*.osm filter=lfs diff=lfs merge=lfs -text
+output/saarland filter=lfs diff=lfs merge=lfs -text
+output/bremen filter=lfs diff=lfs merge=lfs -text

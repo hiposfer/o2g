@@ -7,9 +7,9 @@ import time
 import logging
 import click
 
-from _osmtogtfs import gtfs_dummy
-from _osmtogtfs.osm_processor import GTFSPreprocessor
-from _osmtogtfs.gtfs_writer import GTFSWriter
+from osmtogtfs.gtfs import gtfs_dummy
+from osmtogtfs.gtfs.gtfs_writer import GTFSWriter
+from osmtogtfs.osm.exporter import TransitDataExporter
 
 
 @click.command()
@@ -38,23 +38,28 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     logging.debug('Zip?: %s', zipfile or False)
     logging.debug('Dummy?: %s', dummy)
 
-    processor = GTFSPreprocessor()
     start = time.time()
-    processor.apply_file(osmfile, locations=True, idx='sparse_mem_array')
+    tde = TransitDataExporter(osmfile)
+    tde.process()
     logging.debug('Preprocessing took %d seconds.', (time.time() - start))
 
     writer = GTFSWriter()
-
+    patched_agencies = None
     if dummy:
-        _populate_dummy_data(writer,
-            processor.routes,
-            processor.stops,
-            processor.route_stops)
-        gtfs_dummy.monkey_patch_agencies(processor.agencies)
+        dummy_data = gtfs_dummy.create_dummy_data(list(tde.routes),
+                                                  list(tde.stops))
+        writer.add_trips(dummy_data.trips)
+        writer.add_stop_times(dummy_data.stop_times)
+        writer.add_calendar(dummy_data.calendar)
+        writer.add_shapes(dummy_data.shapes)
+        patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
 
-    writer.add_agencies(processor.agencies.values())
-    writer.add_stops(processor.stops.values())
-    writer.add_routes(processor.routes.values())
+    if patched_agencies:
+        writer.add_agencies(patched_agencies)
+    else:
+        writer.add_agencies(tde.agencies)
+    writer.add_stops(tde.stops)
+    writer.add_routes(tde.routes)
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))
@@ -64,14 +69,6 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
         click.echo('GTFS feed saved in %s' % outdir)
 
     logging.debug('Done in %d seconds.', (time.time() - start))
-
-
-def _populate_dummy_data(writer, routes, stops, route_stops):
-    dummy = gtfs_dummy.create_dummy_data(routes, stops, route_stops)
-    writer.add_trips(dummy.trips)
-    writer.add_stop_times(dummy.stop_times)
-    writer.add_calendar(dummy.calendar)
-    writer.add_shapes(dummy.shapes)
 
 
 if __name__ == '__main__':

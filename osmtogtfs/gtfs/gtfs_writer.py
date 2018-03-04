@@ -20,7 +20,11 @@ class GTFSWriter(object):
     def _add_records(self, name, records, sortkey=None):
         if sortkey:
             records = sorted(records, key=lambda x: x[sortkey])
-        for record in records:
+        for rec in records:
+            if not isinstance(rec, dict):
+                record = rec._asdict()
+            else:
+                record = rec
             csv_record = OrderedDict.fromkeys(self.headers[name])
             # Update csv with keys present in headers. Skip anything else.
             csv_record.update({k: v for k, v in record.items() if k in self.headers[name]})
@@ -60,7 +64,7 @@ class GTFSWriter(object):
         self._add_records('stops', stops)
 
     def add_routes(self, routes):
-        self._add_records('routes', routes, sortkey='route_id')
+        self._add_records('routes', routes, sortkey=0)
 
     def add_calendar(self, weekly_schedules):
         self._add_records('calendar', weekly_schedules)

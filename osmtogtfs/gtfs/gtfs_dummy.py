@@ -7,7 +7,7 @@ from osmtogtfs.osm.models import Agency
 
 
 # Represents dummy GTFS data
-DummyData = namedtuple('DummyData', ['calendar', 'shapes', 'stop_times', 'trips'])
+DummyData = namedtuple('DummyData', ['calendar', 'stop_times', 'trips'])
 
 
 def create_dummy_data(routes, stops):
@@ -32,9 +32,7 @@ def create_dummy_data(routes, stops):
 
     stop_times = _create_dummy_stoptimes(trips, stops_per_route)
 
-    shapes = create_shapes_and_update_trips(trips, stops_map, stops_per_route)
-
-    return DummyData(calendar, shapes, stop_times, trips)
+    return DummyData(calendar, stop_times, trips)
 
 
 def patch_agencies(agencies):
@@ -86,8 +84,8 @@ def _create_dummy_trips(routes, stops_per_route, calendar):
                         'service_id': cal['service_id'],
                         'trip_id': trip_id,
                         'trip_headsign': '[Dummy]{}'.format(route.route_long_name),
-                        # Leave shape_id empty. Fill it later for trips which have enough info.
-                        'shape_id': '',
+                        # Use route_id, i.e. relation_id as shape_id
+                        'shape_id': route_id,
                         # Used for generating stop times.
                         'sequence': idx}
                 trips.append(trip)
@@ -139,54 +137,3 @@ def _create_dummy_trip_stoptimes(trip_id, stops, sequence):
                'stop_sequence': stop_sequence}
 
         arrival += delta
-
-
-def create_shapes_and_update_trips(trips, stops, stops_per_route):
-    """Create a list of shape records for each trip."""
-    shapes = []
-    processed_routes = {}
-
-    for trip in trips:
-
-        # In order to avoid duplicate shapes we assume one shape per route.
-        # This is fine, since we are generating dummy trips and we don't
-        # have any information about trips in OSM anyways.
-        # Note: each shape is defined by many records in shapes.txt file.
-        # Those records share the same shape_id.
-        if trip['route_id'] in processed_routes:
-            trip['shape_id'] = processed_routes[trip['route_id']]
-        else:
-
-            trip_id = trip['trip_id']
-            trip_stops = stops_per_route[trip['route_id']]
-
-            # Check whether all necessary stop nodes are available
-            if _are_stop_nodes_available(trip_id, stops, trip_stops):
-                # Now that we are sure the necessary information for each stop of the trip exists,
-                # we prooceed to creating shape records for this trip.
-                shape_id = '{}{}'.format(trip_id, trip['route_id'])
-                for sequence_id, stop in enumerate(trip_stops):
-                    shapes.append(
-                        {'shape_id': shape_id,
-                         'shape_pt_lat': stop.stop_lat,
-                         'shape_pt_lon': stop.stop_lon,
-                         'shape_pt_sequence': sequence_id})
-
-                # Eventually update the trip to reflect the shape_id
-                trip['shape_id'] = shape_id
-                processed_routes[trip['route_id']] = shape_id
-
-    return shapes
-
-
-def _are_stop_nodes_available(trip_id, stops, trip_stops):
-    for stop in trip_stops:
-        stop_id = stop.stop_id
-        # This means we are dealing with a route which not all of its stops are loaded.
-        # We can't create a shape for a route that we don't have lon and lat of all of
-        # its stops. Probably those information were not availabe in the OSM file used
-        # to generate current feed.
-        if stop_id not in stops or not stop.stop_lat or not stop.stop_lon:
-            logging.debug('Stop %s is required to build shape for trip %s.', stop_id, trip_id)
-            return False# No shapes for this trip.
-    return True

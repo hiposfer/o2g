@@ -144,23 +144,37 @@ def _create_dummy_trip_stoptimes(trip_id, stops, sequence):
 def create_shapes_and_update_trips(trips, stops, stops_per_route):
     """Create a list of shape records for each trip."""
     shapes = []
-    for trip in trips:
-        trip_id = trip['trip_id']
-        trip_stops = stops_per_route[trip['route_id']]
+    processed_routes = {}
 
-        # Check whether all necessary stop nodes are available
-        if _are_stop_nodes_available(trip_id, stops, trip_stops):
-            # Now that we are sure the necessary information for each stop of the trip exists,
-            # we prooceed to creating shape records for this trip.
-            shape_id = '{}{}'.format(trip_id, trip['route_id'])
-            for sequence_id, stop in enumerate(trip_stops):
-                shapes.append(
-                    {'shape_id': shape_id,
-                     'shape_pt_lat': stop.stop_lat,
-                     'shape_pt_lon': stop.stop_lon,
-                     'shape_pt_sequence': sequence_id})
-            # Eventually update the trip to reflect the shape_id
-            trip['shape_id'] = shape_id
+    for trip in trips:
+
+        # In order to avoid duplicate shapes we assume one shape per route.
+        # This is fine, since we are generating dummy trips and we don't
+        # have any information about trips in OSM anyways.
+        # Note: each shape is defined by many records in shapes.txt file.
+        # Those records share the same shape_id.
+        if trip['route_id'] in processed_routes:
+            trip['shape_id'] = processed_routes[trip['route_id']]
+        else:
+
+            trip_id = trip['trip_id']
+            trip_stops = stops_per_route[trip['route_id']]
+
+            # Check whether all necessary stop nodes are available
+            if _are_stop_nodes_available(trip_id, stops, trip_stops):
+                # Now that we are sure the necessary information for each stop of the trip exists,
+                # we prooceed to creating shape records for this trip.
+                shape_id = '{}{}'.format(trip_id, trip['route_id'])
+                for sequence_id, stop in enumerate(trip_stops):
+                    shapes.append(
+                        {'shape_id': shape_id,
+                         'shape_pt_lat': stop.stop_lat,
+                         'shape_pt_lon': stop.stop_lon,
+                         'shape_pt_sequence': sequence_id})
+
+                # Eventually update the trip to reflect the shape_id
+                trip['shape_id'] = shape_id
+                processed_routes[trip['route_id']] = shape_id
 
     return shapes
 

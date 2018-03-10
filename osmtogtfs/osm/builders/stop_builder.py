@@ -30,5 +30,5 @@ def extract_stops(relation, nodes, visited_stop_ids):
 
 def _is_stop(member_id, member_role, nodes):
     """Check wether the given member designates a public transport stop."""
-    return member_role == 'stop' or \
+    return (member_role in ('stop', 'platform')) or \
         (nodes[member_id].tags.get('public_transport') == 'stop_position')

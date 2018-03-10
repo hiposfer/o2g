@@ -1,0 +1,3 @@
+pushd demo
+pipenv install
+popd

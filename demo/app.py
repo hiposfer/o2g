@@ -13,7 +13,7 @@ from osmtogtfs.osm.exporter import TransitDataExporter
 
 
 app = Flask(__name__)
-
+application = app
 
 @app.route('/')
 def index():

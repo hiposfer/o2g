@@ -16,7 +16,8 @@ setup(name='osmtogtfs',
       platforms='any',
       packages=find_packages(),
       entry_points={
-        'console_scripts': ['osmtogtfs=osmtogtfs.cli:cli']
+        'console_scripts': ['osmtogtfs=osmtogtfs.cli:cli',
+                            'o2g=osmtogtfs.cli:cli']
       },
       include_package_data=True,
       zip_safe=False,

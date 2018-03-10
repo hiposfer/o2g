@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>GTFS Exporter | Hiposfer </title>
+    <style>
+
+html, body {
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
+}
+
+body {
+  text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 auto;
+    max-width: 800px;
+
+}
+
+main {
+  flex: auto;
+}
+
+header, footer {
+    flex: none;
+    min-height: 10vw;
+}
+
+#formTitle {
+  font-size: 4em;
+}
+
+input#url {
+  width: 100%;
+}
+    </style>
+  </head>
+
+  <body>
+
+    <header>
+    </header>
+
+    <main>
+
+      <h1 id="formTitle">Turn OpenStreeMap data into GTFS</h1>
+      <form>
+
+        <div>
+          <input id="url" type="url" name="url" placeholder=".pbf or .osm">
+        </div>
+        <br>
+        <div>
+          <input id="dummy" type="checkbox" name="dummy">
+          <label for="dummy">Dummy</label>
+          <button type="submit" class="button">Go!</button>
+        </div>
+
+      </form>
+
+    </main>
+
+    <footer>
+      <small>Hiposer 2018</small>
+    </footer>
+
+  </body>
+
+</html>

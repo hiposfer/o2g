@@ -29,3 +29,9 @@ Stop = namedtuple('Stop', [
     'stop_lon',
     'stop_lat',
     'route_id'])
+
+Shape = namedtuple('Shape', [
+    'shape_id',
+    'shape_pt_lat',
+    'shape_pt_lon',
+    'shape_pt_sequence'])

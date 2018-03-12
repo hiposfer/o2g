@@ -24,9 +24,6 @@ def index():
     if not validators.url(url):
         return "Not a valid URL."
 
-    if not (url.endswith('.osm.pbf') or url.endswith('.osm.bz2')):
-        return "URL must end in .osm.pbf or .osm.bz2"
-
     filename = dl_osm(url)
     zipfile = create_zipfeed(filename, bool(request.args.get('dummy')))
 

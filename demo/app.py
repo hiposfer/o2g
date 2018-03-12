@@ -40,7 +40,7 @@ def index():
 
 
 def dl_osm(url):
-    filename = tempfile.mktemp(suffix=pathlib.Path(url).suffix)
+    filename = tempfile.mktemp(suffix=pathlib.Path(url).name)
     local_filename, headers = urllib.request.urlretrieve(url, filename=filename)
     print(local_filename, headers)
     return local_filename

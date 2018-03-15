@@ -51,7 +51,6 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
         writer.add_trips(dummy_data.trips)
         writer.add_stop_times(dummy_data.stop_times)
         writer.add_calendar(dummy_data.calendar)
-        writer.add_shapes(dummy_data.shapes)
         patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
 
     if patched_agencies:
@@ -60,6 +59,7 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
         writer.add_agencies(tde.agencies)
     writer.add_stops(tde.stops)
     writer.add_routes(tde.routes)
+    writer.add_shapes(tde.shapes)
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))

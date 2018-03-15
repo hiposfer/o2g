@@ -1,5 +1,6 @@
 from osmtogtfs.osm.handlers import RelationHandler, NodeHandler, WayHandler
-from osmtogtfs.osm.builders import build_routes, build_stops, build_agencies
+from osmtogtfs.osm.builders import build_routes, build_stops, build_agencies,\
+    build_shapes
 
 
 class TransitDataExporter(object):
@@ -7,6 +8,7 @@ class TransitDataExporter(object):
         self.filename = filename
         self.rh = None
         self.nh = None
+        self.wh = None
 
     @property
     def agencies(self):
@@ -20,6 +22,10 @@ class TransitDataExporter(object):
     def stops(self):
         return build_stops(self.rh.relations, self.nh.nodes)
 
+    @property
+    def shapes(self):
+        return build_shapes(self.rh.relations, self.nh.nodes, self.wh.ways)
+
     def process(self):
         """Process the files and collect necessary data."""
 
@@ -30,7 +36,7 @@ class TransitDataExporter(object):
         # Collect ids of interest
         ids = {}
         for rel in self.rh.relations.values():
-            for nid, nrole in rel.member_info:
+            for nid, _ in rel.member_info:
                 ids[nid] = None
 
         # Extract nodes

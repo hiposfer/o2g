@@ -48,11 +48,11 @@ def dummy_gtfs_writer(transit_data, dummy_transit_data):
     w.add_agencies(patched_agencies)
     w.add_stops(transit_data.stops)
     w.add_routes(transit_data.routes)
+    w.add_shapes(transit_data.shapes)
 
     w.add_trips(dummy_transit_data.trips)
     w.add_stop_times(dummy_transit_data.stop_times)
     w.add_calendar(dummy_transit_data.calendar)
-    w.add_shapes(dummy_transit_data.shapes)
 
     return w
 
@@ -102,3 +102,9 @@ def test_validation(dummy_zipfeed):
 
     assert 'error' not in out.decode('utf8')
     assert 'errors' not in out.decode('utf8')
+
+
+def test_shape_id_in_trips(transit_data, dummy_transit_data):
+    shape_ids = [shape.shape_id for shape in transit_data.shapes]
+    for trip in dummy_transit_data.trips:
+        assert trip['shape_id'] in shape_ids

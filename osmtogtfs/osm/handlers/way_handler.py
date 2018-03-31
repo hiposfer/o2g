@@ -1,3 +1,4 @@
+import logging
 import osmium as o
 
 from osmtogtfs.osm.models import Way, Point
@@ -14,6 +15,11 @@ class WayHandler(o.SimpleHandler):
         if w.id not in self.way_ids:
             return
 
-        self.ways[w.id] =\
-            Way(w.id,
-                [Point(n.location.lon, n.location.lat) for n in w.nodes])
+        way_points = []
+        for n in w.nodes:
+            try:
+                way_points.append(Point(n.location.lon, n.location.lat))
+            except o.InvalidLocationError:
+                logging.debug('InvalidLocationError at way %s node %s', w.id, n.ref)
+
+        self.ways[w.id] = Way(w.id, way_points)

@@ -1,12 +1,16 @@
 {
-    "folders":
-    [
-        {
-            "path": "."
-        }
-    ],
-   "settings": {
-       "translate_tabs_to_spaces": true,
-   },
-    "virtualenv": "/home/mehdi/.virtualenvs/osm"
+	"folders":
+	[
+		{
+			"path": "."
+		},
+		{
+			"path": "/home/mehdi/Projects/hiposfer/osmtogtfs-web"
+		}
+	],
+	"settings":
+	{
+		"translate_tabs_to_spaces": true
+	},
+	"virtualenv": "/home/mehdi/.local/share/virtualenvs/osmtogtfs-rzPS7c8s"
 }

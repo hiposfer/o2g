@@ -1,6 +1,5 @@
 """Tools to generate dummy GTFS feeds."""
 import datetime
-import logging
 from collections import namedtuple, defaultdict
 
 from osmtogtfs.osm.models import Agency
@@ -51,10 +50,14 @@ def patch_agencies(agencies):
 
 
 def _create_dummy_calendar():
-    return [{'service_id': 'WE', 'monday': 0, 'tuesday': 0, 'wednesday': 0, 'thursday': 0,
-             'friday': 0, 'saturday': 1, 'sunday': 1, 'start_date': 20170101, 'end_date': 20190101},
-            {'service_id': 'WD', 'monday': 1, 'tuesday': 1, 'wednesday': 1, 'thursday': 1,
-             'friday': 1, 'saturday': 0, 'sunday': 0, 'start_date': 20170101, 'end_date': 20190101}]
+    return [{'service_id': 'WE', 'monday': 0, 'tuesday': 0, 'wednesday': 0,
+             'thursday': 0,
+             'friday': 0, 'saturday': 1, 'sunday': 1, 'start_date': 20170101,
+             'end_date': 20190101},
+            {'service_id': 'WD', 'monday': 1, 'tuesday': 1, 'wednesday': 1,
+             'thursday': 1,
+             'friday': 1, 'saturday': 0, 'sunday': 0, 'start_date': 20170101,
+             'end_date': 20190101}]
 
 
 def _create_dummy_trips(routes, stops_per_route, calendar):
@@ -75,15 +78,16 @@ def _create_dummy_trips(routes, stops_per_route, calendar):
             for idx in range(54):
 
                 trip_id = \
-                    '{route_id}.{cal_idx}{sequence}'.format(
-                        route_id=route_id,
+                    '{sequence}{cal_idx}.{route_id}'.format(
+                        sequence=idx+1,
                         cal_idx=cal_idx,
-                        sequence=idx+1)
+                        route_id=route_id)
 
                 trip = {'route_id': route_id,
                         'service_id': cal['service_id'],
                         'trip_id': trip_id,
-                        'trip_headsign': '[Dummy]{}'.format(route.route_long_name),
+                        'trip_headsign':
+                            '[Dummy]{}'.format(route.route_long_name),
                         # Use route_id, i.e. relation_id as shape_id
                         'shape_id': route_id,
                         # Used for generating stop times.
@@ -131,8 +135,12 @@ def _create_dummy_trip_stoptimes(trip_id, stops, sequence):
             last_departure_hour = departure.hour
 
         yield {'trip_id': trip_id,
-               'arrival_time': '{:02}:{}'.format(arrival_hour, arrival.strftime('%M:%S')),
-               'departure_time': '{:02}:{}'.format(departure_hour, departure.strftime('%M:%S')),
+               'arrival_time': '{:02}:{}'.format(
+                    arrival_hour,
+                    arrival.strftime('%M:%S')),
+               'departure_time': '{:02}:{}'.format(
+                    departure_hour,
+                    departure.strftime('%M:%S')),
                'stop_id': stop.stop_id,
                'stop_sequence': stop_sequence}
 

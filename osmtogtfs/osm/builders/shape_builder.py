@@ -39,6 +39,7 @@ def build_shape(relation, nodes, ways):
         #         sequence_index += 1
 
         else:
-            logging.warning('Relation [%s] member [%s] not available.', relation.id, member_id)
+            logging.warning('Relation [%s] member [%s] not available.',
+                            relation.id, member_id)
 
         yield shape

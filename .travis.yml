@@ -19,10 +19,7 @@ deploy:
     on:
       tags: true
   - provider: script
-    script:
-      - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
-      - docker build -t registry.heroku.com/o2g/web .
-      - docker push registry.heroku.com/o2g/web
+    script: bash scripts/deploy.sh
     on:
       branch: master
 addons:

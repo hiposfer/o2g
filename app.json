@@ -1,8 +1,6 @@
 {
   "name": "osmtogtfs",
-  "scripts": {
-    "postdeploy": "./demo/install"
-  },
+  "stack": "container",
   "env": {},
   "formation": {},
   "addons": [],

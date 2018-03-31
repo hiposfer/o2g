@@ -1,4 +1,5 @@
 """osmtogtfs web app"""
+import os
 import pathlib
 import tempfile
 import urllib.parse
@@ -75,4 +76,4 @@ def create_zipfeed(filename, dummy=False):
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', 3000, debug=True)
+    app.run('0.0.0.0', os.getenv('PORT', 3000), debug=True)

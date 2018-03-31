@@ -24,9 +24,9 @@ Afterwards install the script from pypi:
 Alternatively you can clone the repo and install it:
 
     $ git clone https://github.com/hiposfer/osmtogtfs & cd osmtogtfs
-    $ python setup.py install
+    $ python3 setup.py install
 
-This will install `osmtogtfs` command on your system. Alternatively, you can also run `osmtogtfs/cli.py`.
+This will install `osmtogtfs` command and its alias `o2g` on your system. Alternatively, you can run `osmtogtfs/cli.py`.
 
 Make sure to run these commands with python 3.
 
@@ -50,6 +50,17 @@ Moreover, if you install the package, you will get an script called `osmtogtfs` 
 `--outdir` defaults to the working directory and if `--zipfile` is provided, the feed will be zipped and stored in
 the _outdir_ with the given name, otherwise feed will be stored as plain text in multiple files.
 
+### Web Demo
+There is a small web app inside `demo` folder. It accepts a URL to a osmium supported file. It will then convert it
+to a zipped GTFS feed. You will need `pipenv` command to install and run it:
+
+    $ cd demo
+    $ pip install pipenv
+    $ pipenv install
+    $ python3 app.py
+
+Browse to [http://localhost:3000](http://localhost:3000) afterwards to use it.
+
 ### With Docker
 If osmium is not available in your package manager, it could be troublesome to install it manually. So here
 is an executable docker image that could be used directly. The only cavet here is passing input file to the
@@ -60,14 +71,28 @@ is located inside `/path/to/osm` directory:
 
     $ docker run -v /path/to/osm/:/data hiposfer/osmtogtfs /data/bremen-latest.osm.pbf
 
-The above command will write the output files inside `/path/to/osm` directory. The `osmtogtfs` docker image
-will be downloaded on first run.
+The above command will write the output files inside `/path/to/osm` directory. The `osmtogtfs` docker image will be downloaded on first run.
 
-## Tests
-We use the `pytest` package for testing. Install pytest and run the tests:
+## Development
+We use `pipenv` to manage dependencies and virtualenvs. Install and activate it before anything:
+
+    $ cd osmtogtfs
+    $ pip install pipenv
+    $ pipenv install
+    $ pipenv shell
+
+The last command will give us a shell within the newly created virtualenv.
+
+In order to update the `requirements.txt` we simply use `pipenv`:
+
+    $ pipenv run pip freeze > requirements.txt
+
+### Tests
+We use the `pytest` package for testing. If you have followed above instructions, `pytest` should be
+already installed. Otherwise install pytest and run the tests:
 
     $ pip install pytest
-    $ pytest
+    $ pytest -s
 
 `-s` disables capturing and shows us more output (such as print statements and log messages).
 
@@ -80,7 +105,6 @@ In order to profile the code we use `cProfile`:
 
 You will find the result in [`output/benchmark.txt`](output/benchmark.txt).
 Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.
-
 
 ### Dummy Feed Information
 Not all of GTFS necessary data are available in OSM files. In order to fill the missing fields with

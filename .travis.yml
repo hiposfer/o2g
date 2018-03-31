@@ -31,7 +31,7 @@ addons:
     - libosmium-dev
     - libboost-python-dev
 
-after_success:
-  - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
-  - docker build -t registry.heroku.com/o2g/web .
-  - docker push registry.heroku.com/o2g/web
+#after_success:
+#  - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
+#  - docker build -t registry.heroku.com/o2g/web .
+#  - docker push registry.heroku.com/o2g/web

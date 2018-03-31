@@ -10,12 +10,14 @@ RUN \
   apt-get update && \
   apt-get install --yes python3-pyosmium python3-pip && \
   pip3 install -r requirements.txt && \
+  pip3 install flask validators && \
   python3 setup.py install && \
   apt-get remove --yes python3-pip && \
-  apt-get install --yes python3-setuptools && \
+  apt-get install --yes python3-setuptools python3-six && \
   apt-get autoremove --yes --purge && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /app
 
-
-ENTRYPOINT ["osmtogtfs", "--outdir", "/data"]
+COPY demo /app
+CMD ["python3", "app.py"]
+EXPOSE 3000

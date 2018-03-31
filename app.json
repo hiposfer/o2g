@@ -1,0 +1,12 @@
+{
+  "name": "osmtogtfs",
+  "stack": "container",
+  "env": {},
+  "formation": {},
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}

@@ -20,11 +20,18 @@ deploy:
       tags: true
   - provider: script
     script:
-      - bash -c 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin registry.heroku.com'
-      - docker tag o2g registry.heroku.com/o2g/web
+      - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
+      - docker build -t registry.heroku.com/o2g/web .
       - docker push registry.heroku.com/o2g/web
+    on:
+      branch: master
 addons:
   apt:
     packages:
     - libosmium-dev
     - libboost-python-dev
+
+after_success:
+  - docker login -u _ -p "$HEROKU_TOKEN"  registry.heroku.com
+  - docker build -t registry.heroku.com/o2g/web .
+  - docker push registry.heroku.com/o2g/web

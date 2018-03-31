@@ -1,12 +1,12 @@
 """osmtogtfs web app"""
 import pathlib
 import tempfile
-import urllib.parse, urllib.request
+import urllib.parse
+import urllib.request
 
 import validators
-from flask import Flask, request, abort, send_file, render_template
+from flask import Flask, request, send_file, render_template
 
-import osmtogtfs
 from osmtogtfs.gtfs import gtfs_dummy
 from osmtogtfs.gtfs.gtfs_writer import GTFSWriter
 from osmtogtfs.osm.exporter import TransitDataExporter
@@ -14,6 +14,7 @@ from osmtogtfs.osm.exporter import TransitDataExporter
 
 app = Flask(__name__)
 application = app
+
 
 @app.route('/')
 def index():
@@ -38,7 +39,8 @@ def index():
 
 def dl_osm(url):
     filename = tempfile.mktemp(suffix=pathlib.Path(url).name)
-    local_filename, headers = urllib.request.urlretrieve(url, filename=filename)
+    local_filename, headers =\
+        urllib.request.urlretrieve(url, filename=filename)
     print(local_filename, headers)
     return local_filename
 

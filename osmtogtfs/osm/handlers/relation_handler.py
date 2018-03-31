@@ -1,7 +1,6 @@
 import osmium as o
-import hashlib
 
-from osmtogtfs.osm.models import Agency, Relation
+from osmtogtfs.osm.models import Relation
 
 
 class RelationHandler(o.SimpleHandler):
@@ -46,7 +45,6 @@ class RelationHandler(o.SimpleHandler):
                 [(member.ref, member.role) for member in rel.members])
 
         self.versions[rel.id] = rel.version
-
 
     def is_new_version(self, relation):
         return relation.id not in self.versions or \

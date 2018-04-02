@@ -14,7 +14,8 @@ class GTFSWriter(object):
 
         for name, csv_headers in self.headers.items():
             self._buffers[name] = io.StringIO()
-            self._csv_writers[name] = csv.writer(self._buffers[name], lineterminator='\n')
+            self._csv_writers[name] =\
+                csv.writer(self._buffers[name], lineterminator='\n')
             self._csv_writers[name].writerow(csv_headers)
 
     def _add_records(self, name, records, sortkey=None):
@@ -27,7 +28,8 @@ class GTFSWriter(object):
                 record = rec
             csv_record = OrderedDict.fromkeys(self.headers[name])
             # Update csv with keys present in headers. Skip anything else.
-            csv_record.update({k: v for k, v in record.items() if k in self.headers[name]})
+            csv_record.update(
+                {k: v for k, v in record.items() if k in self.headers[name]})
             self._csv_writers[name].writerow([v for v in csv_record.values()])
 
     @property
@@ -35,8 +37,9 @@ class GTFSWriter(object):
         """Map of filename to headers for every GTFS file.
 
         Only headers present in this map will be considered."""
-        return {'agency': ['agency_id', 'agency_name', 'agency_url', 'agency_timezone',
-                           'agency_lang', 'agency_phone', 'agency_fare_url', 'agency_email'],
+        return {'agency': ['agency_id', 'agency_name', 'agency_url',
+                           'agency_timezone', 'agency_lang', 'agency_phone',
+                           'agency_fare_url', 'agency_email'],
 
                 'stops': ['stop_id', 'stop_code', 'stop_name', 'stop_desc',
                           'stop_lat', 'stop_lon', 'zone_id', 'stop_url',
@@ -47,15 +50,20 @@ class GTFSWriter(object):
                            'route_long_name', 'route_desc', 'route_type',
                            'route_url', 'route_color', 'route_text_color'],
 
-                'trips': ['route_id', 'service_id', 'trip_id', 'trip_headsign', 'shape_id'],
+                'trips': ['route_id', 'service_id', 'trip_id', 'trip_headsign',
+                          'shape_id'],
 
-                'calendar': ['service_id', 'monday', 'tuesday', 'wednesday', 'thursday',
-                             'friday', 'saturday', 'sunday', 'start_date', 'end_date'],
+                'calendar': ['service_id', 'monday', 'tuesday', 'wednesday',
+                             'thursday',
+                             'friday', 'saturday', 'sunday', 'start_date',
+                             'end_date'],
 
-                'stop_times': ['trip_id', 'arrival_time', 'departure_time', 'stop_id',
+                'stop_times': ['trip_id', 'arrival_time', 'departure_time',
+                               'stop_id',
                                'stop_sequence'],
 
-                'shapes': ['shape_id', 'shape_pt_lat', 'shape_pt_lon', 'shape_pt_sequence']}
+                'shapes': ['shape_id', 'shape_pt_lat', 'shape_pt_lon',
+                           'shape_pt_sequence']}
 
     def add_agencies(self, agencies):
         self._add_records('agency', agencies)
@@ -83,10 +91,13 @@ class GTFSWriter(object):
         with zipfile.ZipFile(filepath, mode='w') as zfile:
             for name, buffer in self._buffers.items():
                 encoded_values = io.BytesIO(buffer.getvalue().encode('utf-8'))
-                zfile.writestr('{}.txt'.format(name), encoded_values.getbuffer())
+                zfile.writestr('{}.txt'.format(name),
+                               encoded_values.getbuffer())
 
     def write_unzipped(self, path):
         """Write GTFS text files in the given path."""
         for name, buffer in self._buffers.items():
-            with open(os.path.join(path, '{}.txt'.format(name)), 'w', encoding='utf-8') as file:
+            with open(os.path.join(path,
+                                   '{}.txt'.format(name)),
+                      'w', encoding='utf-8') as file:
                 file.write(buffer.getvalue())

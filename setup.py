@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
 
+
 def readme():
     with open('README.md') as f:
         return f.read()
+
 
 setup(name='osmtogtfs',
       version='0.2.0',
@@ -30,5 +32,4 @@ setup(name='osmtogtfs',
                    'Natural Language :: English',
                    'Programming Language :: Python :: 3.4',
                    'Programming Language :: Python :: 3.5',
-                   'Programming Language :: Python :: 3.6']
-     )
+                   'Programming Language :: Python :: 3.6'])

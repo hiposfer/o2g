@@ -24,7 +24,7 @@ def transit_data(request):
 def dummy_transit_data(transit_data):
     return \
         gtfs_dummy.create_dummy_data(transit_data.routes,
-            transit_data.stops)
+                                     transit_data.stops)
 
 
 @pytest.fixture
@@ -65,6 +65,7 @@ def dummy_zipfeed(dummy_gtfs_writer):
 
     return filename
 
+
 def test_write_zipped(gtfs_writer):
     filename = tempfile.mktemp()
     print('Writing GTFS feed to %s' % filename)
@@ -89,13 +90,15 @@ def test_validation(dummy_zipfeed):
     # for errors. We ignore the warnings for now.
     if not os.path.exists('transitfeed'):
         subprocess.check_call(
-            ['git', 'clone', '-b', '1.2.16', '--single-branch', 'https://github.com/google/transitfeed'])
+            ['git', 'clone', '-b', '1.2.16', '--single-branch',
+             'https://github.com/google/transitfeed'])
 
     assert os.path.exists('transitfeed/feedvalidator.py')
 
-    p = subprocess.Popen(['python2.7', 'transitfeed/feedvalidator.py', '-n', dummy_zipfeed],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE)
+    p = subprocess.Popen(['python2.7', 'transitfeed/feedvalidator.py', '-n',
+                         dummy_zipfeed],
+                         stdout=subprocess.PIPE,
+                         stderr=subprocess.PIPE)
     out, err = p.communicate()
 
     print("Google Transitfeed's output:\n{}".format(out.decode('utf8')))

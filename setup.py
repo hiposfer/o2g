@@ -17,11 +17,11 @@ setup(name='osmtogtfs',
       license='MIT',
       platforms='any',
       packages=find_packages(),
+      package_data={'': ['*.txt']},
       entry_points={
         'console_scripts': ['osmtogtfs=osmtogtfs.cli:cli',
                             'o2g=osmtogtfs.cli:cli']
       },
-      include_package_data=True,
       zip_safe=False,
       test_suite='pytest',
       install_requires=['osmium', 'timezonefinder', 'click', 'setuptools'],

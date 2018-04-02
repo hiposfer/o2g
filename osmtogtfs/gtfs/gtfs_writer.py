@@ -2,6 +2,7 @@
 import os
 import io
 import csv
+import shutil
 import zipfile
 from collections import OrderedDict
 
@@ -93,6 +94,9 @@ class GTFSWriter(object):
                 encoded_values = io.BytesIO(buffer.getvalue().encode('utf-8'))
                 zfile.writestr('{}.txt'.format(name),
                                encoded_values.getbuffer())
+            zfile.write(os.path.join(os.path.dirname(__file__),
+                                     os.path.pardir,
+                                     'ODbL-1.0.txt'), arcname='LICENSE')
 
     def write_unzipped(self, path):
         """Write GTFS text files in the given path."""
@@ -101,3 +105,8 @@ class GTFSWriter(object):
                                    '{}.txt'.format(name)),
                       'w', encoding='utf-8') as file:
                 file.write(buffer.getvalue())
+        license =\
+            os.path.join(os.path.dirname(__file__),
+                         os.path.pardir,
+                         'ODbL-1.0.txt')
+        shutil.copy(license, os.path.join(path, 'LICENSE'))

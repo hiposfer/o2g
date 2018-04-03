@@ -30,6 +30,7 @@ from osmtogtfs.osm.exporter import TransitDataExporter
               default='ERROR',
               type=click.Choice(['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']),
               help="Set the logging level")
+@click.version_option(None, '-v', '--version')
 def cli(osmfile, outdir, zipfile, dummy, loglevel):
     if loglevel:
         logging.basicConfig(level=loglevel)

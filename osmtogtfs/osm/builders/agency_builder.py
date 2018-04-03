@@ -47,6 +47,7 @@ def _guess_timezone(relation, nodes, ways):
         logging.debug('No timezone found for (%s, %s)', lon, lat)
     return timezone
 
+
 def _get_first_coordinate(relation, nodes, ways):
     for member_id, member_role in relation.member_info:
         if member_id in nodes:
@@ -55,6 +56,7 @@ def _get_first_coordinate(relation, nodes, ways):
             return _get_first_way_coordinate(member_id, ways)
     logging.debug('No node found for relation %s', relation.id)
     return 0, 0
+
 
 def _get_first_way_coordinate(way_id, ways):
     # Pick the first node

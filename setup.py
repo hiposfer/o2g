@@ -1,8 +1,10 @@
 from setuptools import setup, find_packages
 
+
 def readme():
     with open('README.md') as f:
         return f.read()
+
 
 setup(name='osmtogtfs',
       version='0.2.0',
@@ -15,11 +17,11 @@ setup(name='osmtogtfs',
       license='MIT',
       platforms='any',
       packages=find_packages(),
+      package_data={'': ['*.txt']},
       entry_points={
         'console_scripts': ['osmtogtfs=osmtogtfs.cli:cli',
                             'o2g=osmtogtfs.cli:cli']
       },
-      include_package_data=True,
       zip_safe=False,
       test_suite='pytest',
       install_requires=['osmium', 'timezonefinder', 'click', 'setuptools'],
@@ -30,5 +32,4 @@ setup(name='osmtogtfs',
                    'Natural Language :: English',
                    'Programming Language :: Python :: 3.4',
                    'Programming Language :: Python :: 3.5',
-                   'Programming Language :: Python :: 3.6']
-     )
+                   'Programming Language :: Python :: 3.6'])

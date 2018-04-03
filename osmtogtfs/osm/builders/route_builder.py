@@ -15,13 +15,15 @@ def build_routes(relations):
 def build_route(relation):
     """Extract information of one route."""
     short_name = create_route_short_name(relation)
-    return Route(relation.id,
-                 short_name,
-                 create_route_long_name(relation, short_name),
-                 map_osm_route_type_to_gtfs(relation.tags.get('route')),
-                 'https://www.openstreetmap.org/relation/{}'.format(relation.id),
-                 relation.tags.get('color'),
-                 get_agency_id(relation))
+    color = relation.tags.get('color')
+    return\
+        Route(relation.id,
+              short_name,
+              create_route_long_name(relation, short_name),
+              map_osm_route_type_to_gtfs(relation.tags.get('route')),
+              'https://www.openstreetmap.org/relation/{}'.format(relation.id),
+              color.strip('#') if color else '',
+              get_agency_id(relation))
 
 
 def create_route_short_name(relation):
@@ -35,8 +37,9 @@ def create_route_long_name(relation, short_name):
         return "{0}-to-{1}".format(relation.tags.get('from'),
                                    relation.tags.get('to'))
     name = relation.tags.get('name') or\
-           relation.tags.get('alt_name') or\
-           "OSM Route No. {}".format(relation.id)
+        relation.tags.get('alt_name') or\
+        "OSM Route No. {}".format(relation.id)
+
     # Drop route_short_name from this one if it contains it
     if short_name and name.startswith(short_name):
         # Drop it

@@ -58,7 +58,6 @@ def create_zipfeed(filename, dummy=False):
         writer.add_trips(dummy_data.trips)
         writer.add_stop_times(dummy_data.stop_times)
         writer.add_calendar(dummy_data.calendar)
-        writer.add_shapes(dummy_data.shapes)
         patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
 
     if patched_agencies:
@@ -67,6 +66,7 @@ def create_zipfeed(filename, dummy=False):
         writer.add_agencies(tde.agencies)
     writer.add_stops(tde.stops)
     writer.add_routes(tde.routes)
+    writer.add_shapes(tde.shapes)
 
     zipfile = '{}.zip'.format(filename)
     print('Writing GTFS feed to %s' % zipfile)

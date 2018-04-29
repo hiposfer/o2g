@@ -39,6 +39,10 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     logging.debug('Zip?: %s', zipfile or False)
     logging.debug('Dummy?: %s', dummy)
 
+    main(osmfile, outdir, zipfile, dummy)
+
+
+def main(osmfile, outdir, zipfile, dummy):
     start = time.time()
     tde = TransitDataExporter(osmfile)
     tde.process()

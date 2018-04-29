@@ -8,9 +8,7 @@ import urllib.request
 import validators
 from flask import Flask, request, send_file, render_template
 
-from osmtogtfs.gtfs import gtfs_dummy
-from osmtogtfs.gtfs.gtfs_writer import GTFSWriter
-from osmtogtfs.osm.exporter import TransitDataExporter
+from osmtogtfs.cli import main
 
 
 app = Flask(__name__)
@@ -47,31 +45,9 @@ def dl_osm(url):
 
 
 def create_zipfeed(filename, dummy=False):
-    tde = TransitDataExporter(filename)
-    tde.process()
-
-    writer = GTFSWriter()
-    patched_agencies = None
-    if dummy:
-        dummy_data = gtfs_dummy.create_dummy_data(list(tde.routes),
-                                                  list(tde.stops))
-        writer.add_trips(dummy_data.trips)
-        writer.add_stop_times(dummy_data.stop_times)
-        writer.add_calendar(dummy_data.calendar)
-        patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
-
-    if patched_agencies:
-        writer.add_agencies(patched_agencies)
-    else:
-        writer.add_agencies(tde.agencies)
-    writer.add_stops(tde.stops)
-    writer.add_routes(tde.routes)
-    writer.add_shapes(tde.shapes)
-
     zipfile = '{}.zip'.format(filename)
     print('Writing GTFS feed to %s' % zipfile)
-    writer.write_zipped(zipfile)
-
+    main(filename, '.', zipfile, dummy)
     return zipfile
 
 

@@ -39,6 +39,10 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
     logging.debug('Zip?: %s', zipfile or False)
     logging.debug('Dummy?: %s', dummy)
 
+    main(osmfile, outdir, zipfile, dummy)
+
+
+def main(osmfile, outdir, zipfile, dummy):
     start = time.time()
     tde = TransitDataExporter(osmfile)
     tde.process()
@@ -70,6 +74,35 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
         click.echo('GTFS feed saved in %s' % outdir)
 
     logging.debug('Done in %d seconds.', (time.time() - start))
+
+
+def create_zipfeed(filename, dummy):
+    tde = TransitDataExporter(filename)
+    tde.process()
+
+    writer = GTFSWriter()
+    patched_agencies = None
+    if dummy:
+        dummy_data = gtfs_dummy.create_dummy_data(list(tde.routes),
+                                                  list(tde.stops))
+        writer.add_trips(dummy_data.trips)
+        writer.add_stop_times(dummy_data.stop_times)
+        writer.add_calendar(dummy_data.calendar)
+        patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
+
+    if patched_agencies:
+        writer.add_agencies(patched_agencies)
+    else:
+        writer.add_agencies(tde.agencies)
+    writer.add_stops(tde.stops)
+    writer.add_routes(tde.routes)
+    writer.add_shapes(tde.shapes)
+
+    zipfile = '{}.zip'.format(filename)
+    print('Writing GTFS feed to %s' % zipfile)
+    writer.write_zipped(zipfile)
+
+    return zipfile
 
 
 if __name__ == '__main__':

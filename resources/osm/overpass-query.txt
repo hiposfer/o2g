@@ -1,6 +1,7 @@
 
 [out:xml][timeout:180];
 // get the specific search area
+// replace "Niederrad" with your search area name
 {{geocodeArea:Niederrad}}->.searchArea;
 
 // get all nodes, ways and relations in the area

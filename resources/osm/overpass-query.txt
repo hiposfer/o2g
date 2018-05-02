@@ -1,0 +1,19 @@
+
+[out:xml][timeout:180];
+// get the specific search area
+// replace "Niederrad" with your desired search Area name
+{{geocodeArea:Niederrad}}->.searchArea;
+
+// get all nodes, ways and relations in the area
+(
+  node(area.searchArea);
+  way(area.searchArea);
+  relation(area.searchArea);
+);
+
+// print ways
+out body;
+// find nodes of ways
+>;
+// print nodes
+out body qt;

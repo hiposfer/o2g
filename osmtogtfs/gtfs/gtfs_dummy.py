@@ -118,12 +118,14 @@ def _create_dummy_trip_stoptimes(trip_id, stops, first_service_time):
     """Create station stop times for each trip."""
     waiting = datetime.timedelta(seconds=30)
     arrival = first_service_time
+    last_departure = first_service_time
     last_departure_hour = (arrival + waiting).hour
     last_stop = None
 
     for stop_sequence, stop in enumerate(stops):
 
-        arrival += get_time_to_stop(last_stop, stop)
+        # Avoid time travels
+        arrival = last_departure + get_time_from_last_stop(last_stop, stop)
         departure = arrival + waiting
 
         if arrival.hour < last_departure_hour:
@@ -146,9 +148,10 @@ def _create_dummy_trip_stoptimes(trip_id, stops, first_service_time):
                'stop_sequence': stop_sequence}
 
         last_stop = stop
+        last_departure = departure
 
 
-def get_time_to_stop(src_stop, dst_stop):
+def get_time_from_last_stop(src_stop, dst_stop):
     if not src_stop:
         return datetime.timedelta()
 
@@ -160,7 +163,9 @@ def get_time_to_stop(src_stop, dst_stop):
                   src_stop.stop_lat,
                   dst_stop.stop_lon,
                   dst_stop.stop_lat)
-    return datetime.timedelta(hours=distance_km/average_speed_kmh)
+    return \
+        datetime.timedelta(
+            hours=distance_km/average_speed_kmh)
 
 
 # https://stackoverflow.com/a/4913653

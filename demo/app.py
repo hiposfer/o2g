@@ -6,7 +6,8 @@ import urllib.parse
 import urllib.request
 
 import validators
-from flask import Flask, request, send_file, render_template
+from flask import Flask, request, send_file, render_template, flash
+from werkzeug.utils import secure_filename
 
 from osmtogtfs.cli import main
 
@@ -14,26 +15,42 @@ from osmtogtfs.cli import main
 app = Flask(__name__)
 application = app
 
+app.config['UPLOAD_FOLDER'] = '/tmp'
+app.config['SECRET_KEY'] = 'super secret string'
 
-@app.route('/')
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    url = request.args.get('url')
-    if not url:
+    if request.method != 'POST':
         return render_template('index.html')
 
-    if not validators.url(url):
-        return "Not a valid URL."
+    uploaded_filepath = \
+        save_file(request.files['file']) if 'file' in request.files else None
+    url = request.form.get('url')
 
-    filename = dl_osm(url)
-    zipfile = create_zipfeed(filename, bool(request.args.get('dummy')))
+    if not url and not uploaded_filepath:
+        flash('Provide a URL or upload a file.')
+        return render_template('index.html')
 
-    print(zipfile)
-    print(pathlib.Path(zipfile).name)
+    if not uploaded_filepath and not validators.url(url):
+        flash('Not a valid URL.')
+        return render_template('index.html')
+
+    filename = uploaded_filepath or dl_osm(url)
+    zipfile = create_zipfeed(filename, bool(request.form.get('dummy')))
 
     return send_file(
         zipfile,
         attachment_filename=pathlib.Path(zipfile).name,
         as_attachment=True)
+
+
+def save_file(file):
+    if file:
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+        return filepath
 
 
 def dl_osm(url):

@@ -1,5 +1,6 @@
 """Tools to generate dummy GTFS feeds."""
 import datetime
+from math import radians, cos, sin, asin, sqrt
 from collections import namedtuple, defaultdict
 
 from osmtogtfs.osm.models import Agency
@@ -79,7 +80,7 @@ def _create_dummy_trips(routes, stops_per_route, calendar):
 
                 trip_id = \
                     '{sequence}{cal_idx}.{route_id}'.format(
-                        sequence=idx+1,
+                        sequence=idx + 1,
                         cal_idx=cal_idx,
                         route_id=route_id)
 
@@ -99,32 +100,35 @@ def _create_dummy_trips(routes, stops_per_route, calendar):
 
 def _create_dummy_stoptimes(trips, stops_per_route):
     stoptimes = []
-
     for trip in trips:
+        # One service every 20 minutes from the base station
+        first_service_time = \
+            datetime.datetime(2017, 1, 1, 5, 0, 0) + \
+            datetime.timedelta(minutes=20) * trip['sequence']
         stoptimes.extend(
             _create_dummy_trip_stoptimes(
                 trip['trip_id'],
                 stops_per_route.get(trip['route_id'], []),
-                trip['sequence']))
+                first_service_time))
 
     return stoptimes
 
 
-def _create_dummy_trip_stoptimes(trip_id, stops, sequence):
+def _create_dummy_trip_stoptimes(trip_id, stops, first_service_time):
     """Create station stop times for each trip."""
-    delta = datetime.timedelta(minutes=20)
-    offset = sequence*delta
     waiting = datetime.timedelta(seconds=30)
-
-    first_service_time = datetime.datetime(2017, 1, 1, 5, 0, 0) + offset
-
     arrival = first_service_time
+    last_departure = first_service_time
     last_departure_hour = (arrival + waiting).hour
+    last_stop = None
 
     for stop_sequence, stop in enumerate(stops):
 
+        # Avoid time travels
+        arrival = last_departure + get_time_from_last_stop(last_stop, stop)
         departure = arrival + waiting
 
+        # Cover the case when the arrival time falls into the next day
         if arrival.hour < last_departure_hour:
             arrival_hour = arrival.hour + 24
             departure_hour = departure.hour + 24
@@ -134,14 +138,56 @@ def _create_dummy_trip_stoptimes(trip_id, stops, sequence):
             departure_hour = departure.hour
             last_departure_hour = departure.hour
 
+        # Cover the case when adding waiting time to the arrival time
+        # falls into the next day
+        if departure.hour < arrival.hour:
+            departure_hour = departure.hour + 24
+            last_departure_hour = departure.hour + 24
+
         yield {'trip_id': trip_id,
                'arrival_time': '{:02}:{}'.format(
-                    arrival_hour,
-                    arrival.strftime('%M:%S')),
+                   arrival_hour,
+                   arrival.strftime('%M:%S')),
                'departure_time': '{:02}:{}'.format(
-                    departure_hour,
-                    departure.strftime('%M:%S')),
+                   departure_hour,
+                   departure.strftime('%M:%S')),
                'stop_id': stop.stop_id,
                'stop_sequence': stop_sequence}
 
-        arrival += delta
+        last_stop = stop
+        last_departure = departure
+
+
+def get_time_from_last_stop(src_stop, dst_stop):
+    if not src_stop:
+        return datetime.timedelta()
+
+    # Average public transport speed
+    average_speed_kmh = 20
+
+    distance_km = \
+        haversine(src_stop.stop_lon,
+                  src_stop.stop_lat,
+                  dst_stop.stop_lon,
+                  dst_stop.stop_lat)
+    return \
+        datetime.timedelta(
+            hours=distance_km/average_speed_kmh)
+
+
+# https://stackoverflow.com/a/4913653
+def haversine(lon1, lat1, lon2, lat2):
+    """
+    Calculate the great circle distance between two
+    points on the earth (specified in decimal degrees)
+    """
+    # convert decimal degrees to radians
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+
+    # haversine formula
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
+    c = 2 * asin(sqrt(a))
+    r = 6371  # Radius of earth in kilometers. Use 3956 for miles
+    return c * r

@@ -7,9 +7,10 @@ def readme():
 
 
 setup(name='osmtogtfs',
-      version='0.3.2',
+      version='0.3.3',
       description='Extracts partial GTFS feed from OSM data.',
       long_description=readme(),
+      long_description_content_type='text/markdown',
       author='Mehdi Sadeghi',
       author_email='mehdi@mehdix.org',
       url='https://github.com/hiposfer/osmtogtfs',

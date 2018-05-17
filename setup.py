@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='osmtogtfs',
-      version='0.3.1',
+      version='0.3.2',
       description='Extracts partial GTFS feed from OSM data.',
       long_description=readme(),
       author='Mehdi Sadeghi',

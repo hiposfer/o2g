@@ -63,15 +63,11 @@ Browse to [http://localhost:3000](http://localhost:3000) afterwards to use it.
 
 ### With Docker
 If osmium is not available in your package manager, it could be troublesome to install it manually. So here
-is an executable docker image that could be used directly. The only cavet here is passing input file to the
-docker container and also getting the results back. The containerized script will write its output to `/data`
-by default. The only step necessary is to mount the folder containing the input OSM file to `/data` inside 
-the container. The following command shows this, note that my input file is called `bremen-latest.osm.pbf` and
-is located inside `/path/to/osm` directory:
+is a docker image that could be used directly:
 
-    $ docker run -v /path/to/osm/:/data hiposfer/osmtogtfs /data/bremen-latest.osm.pbf
+    $ docker run -it -p 3000:3000 hiposfer/osmtogtfs
 
-The above command will write the output files inside `/path/to/osm` directory. The `osmtogtfs` docker image will be downloaded on first run.
+Then browse to [http://localhost:3000](http://localhost:3000).
 
 ## Development
 We use `pipenv` to manage dependencies and virtualenvs. Install and activate it before anything:

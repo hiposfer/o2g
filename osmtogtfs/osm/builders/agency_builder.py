@@ -31,12 +31,14 @@ def build_agency(relation, nodes):
     #    authority then it would be sufficient to only tag those that are not with an operator
     #    tag.
     op = relation.tags.get('operator')
+    agency_url = relation.tags.get('url') or relation.tags.get('contact_website')
+
     if not op:
         return
 
     agency_id = int(hashlib.sha256(op.encode('utf8')).hexdigest(), 16) % 10**8
 
-    return Agency(agency_id, '', op, '')
+    return Agency(agency_id, agency_url, op, '')
 
 
 def _guess_timezone(relation, nodes, ways):

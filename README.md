@@ -61,6 +61,12 @@ to a zipped GTFS feed. You will need `pipenv` command to install and run it:
 
 Browse to [http://localhost:3000](http://localhost:3000) afterwards to use it.
 
+This demo is also running at [http://o2g.hiposfer.com](http://o2g.hiposfer.com). It is possible to directly download a zipped GTFS feed for a given OSM URL too:
+
+    http 'http://o2g.hiposfer.com/o2g?url=http://download.geofabrik.de/europe/liechtenstein-latest.osm.bz2' > gtfs.zip
+
+The above command uses the [HTTPie](https://httpie.org/) tool.
+
 ### With Docker
 If osmium is not available in your package manager, it could be troublesome to install it manually. So here
 is a docker image that could be used directly:

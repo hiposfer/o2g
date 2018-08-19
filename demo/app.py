@@ -6,7 +6,7 @@ import urllib.parse
 import urllib.request
 
 import validators
-from flask import Flask, request, send_file, render_template, flash
+from flask import Flask, request, send_file, render_template, flash, abort
 from werkzeug.utils import secure_filename
 
 from osmtogtfs.cli import main
@@ -26,6 +26,7 @@ def index():
 
     uploaded_filepath = \
         save_file(request.files['file']) if 'file' in request.files else None
+
     url = request.form.get('url')
 
     if not url and not uploaded_filepath:
@@ -43,6 +44,20 @@ def index():
         zipfile,
         attachment_filename=pathlib.Path(zipfile).name,
         as_attachment=True)
+
+
+@app.route('/o2g', methods=['GET'])
+def o2g():
+    if not request.args.get('url') or not validators.url(request.args.get('url')):
+        abort(400)
+
+    zipfile = create_zipfeed(
+        dl_osm(request.args.get('url')),
+        bool(request.args.get('dummy')))
+
+    return send_file(
+        zipfile,
+        mimetype='application/zip')
 
 
 def save_file(file):

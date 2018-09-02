@@ -7,9 +7,10 @@ name = "pypi"
 
 [packages]
 
-flask = "*"
+flask = ">=1.0"
 osmtogtfs = "*"
 validators = "*"
+requests = "*"
 
 
 [dev-packages]

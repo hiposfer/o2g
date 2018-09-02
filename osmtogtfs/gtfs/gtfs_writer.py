@@ -12,6 +12,7 @@ class GTFSWriter(object):
     def __init__(self):
         self._buffers = {}
         self._csv_writers = {}
+        self._files = {}
 
         for name, csv_headers in self.headers.items():
             self._buffers[name] = io.StringIO()
@@ -87,6 +88,9 @@ class GTFSWriter(object):
     def add_shapes(self, shapes):
         self._add_records('shapes', shapes)
 
+    def add_file(self, name, path):
+        self._files[name] = path
+
     def write_zipped(self, filepath):
         """Write the GTFS feed in the given file."""
         with zipfile.ZipFile(filepath, mode='w') as zfile:
@@ -94,19 +98,15 @@ class GTFSWriter(object):
                 encoded_values = io.BytesIO(buffer.getvalue().encode('utf-8'))
                 zfile.writestr('{}.txt'.format(name),
                                encoded_values.getbuffer())
-            zfile.write(os.path.join(os.path.dirname(__file__),
-                                     os.path.pardir,
-                                     'ODbL-1.0.txt'), arcname='LICENSE')
+            for name, path in self._files.items():
+                zfile.write(path, arcname=name)
 
-    def write_unzipped(self, path):
+    def write_unzipped(self, destination):
         """Write GTFS text files in the given path."""
         for name, buffer in self._buffers.items():
-            with open(os.path.join(path,
+            with open(os.path.join(destination,
                                    '{}.txt'.format(name)),
                       'w', encoding='utf-8') as file:
                 file.write(buffer.getvalue())
-        license =\
-            os.path.join(os.path.dirname(__file__),
-                         os.path.pardir,
-                         'ODbL-1.0.txt')
-        shutil.copy(license, os.path.join(path, 'LICENSE'))
+        for name, path in self._files.items():
+            shutil.copy(path, os.path.join(destination, name))

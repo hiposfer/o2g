@@ -32,7 +32,7 @@ from osmtogtfs.osm.exporter import TransitDataExporter
               default=False,
               help='Whether to fill the missing parts with dummy data.')
 @click.option('--loglevel',
-              default='ERROR',
+              default='WARNING',
               type=click.Choice(['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']),
               help="Set the logging level")
 @click.version_option(None, '-v', '--version')

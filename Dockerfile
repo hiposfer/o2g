@@ -9,8 +9,9 @@ COPY . /app
 RUN \
   apt-get update && \
   apt-get install --yes python3-pyosmium python3-pip && \
+  pip3 install -I pyopenssl && \
   pip3 install -r requirements.txt && \
-  pip3 install flask validators && \
+  pip3 install flask validators requests && \
   python3 setup.py install && \
   apt-get remove --yes python3-pip && \
   apt-get install --yes python3-setuptools python3-six && \

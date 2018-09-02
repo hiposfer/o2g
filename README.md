@@ -67,6 +67,15 @@ This demo is also running at [http://o2g.hiposfer.com](http://o2g.hiposfer.com).
 
 The above command uses the [HTTPie](https://httpie.org/) tool.
 
+### Web Api with Overpass Query
+It is alos possible to download the necessary OSM data from overpass-api.de. Passing an area name or a bbox to the web API will trigger this feature:
+
+    http 'http://o2g.hiposfer.com/o2g?area=Freiburg&bbox=47.9485,7.7066,48.1161,8.0049' > gtfs.zip
+
+As before, it is possible to get a patched and valid GTFS feed by passing the dummy flag:
+
+   http 'http://o2g.hiposfer.com/o2g?area=Freiburg&dummy=True > gtfs.zip
+
 ### With Docker
 If osmium is not available in your package manager, it could be troublesome to install it manually. So here
 is a docker image that could be used directly:

@@ -4,7 +4,12 @@ Extracts partial GTFS data from OSM file.
 """
 import os
 import time
+import tempfile
 import logging
+from logging import FileHandler
+from contextlib import contextmanager
+from pathlib import Path
+
 import click
 
 from osmtogtfs.gtfs import gtfs_dummy
@@ -44,27 +49,32 @@ def cli(osmfile, outdir, zipfile, dummy, loglevel):
 
 def main(osmfile, outdir, zipfile, dummy):
     start = time.time()
-    tde = TransitDataExporter(osmfile)
-    tde.process()
-    logging.debug('Preprocessing took %d seconds.', (time.time() - start))
 
-    writer = GTFSWriter()
-    patched_agencies = None
-    if dummy:
-        dummy_data = gtfs_dummy.create_dummy_data(list(tde.routes),
-                                                  list(tde.stops))
-        writer.add_trips(dummy_data.trips)
-        writer.add_stop_times(dummy_data.stop_times)
-        writer.add_calendar(dummy_data.calendar)
-        patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
+    with capture_logs() as logfile:
+        tde = TransitDataExporter(osmfile)
+        tde.process()
+        logging.debug('Preprocessing took %d seconds.', (time.time() - start))
 
-    if patched_agencies:
-        writer.add_agencies(patched_agencies)
-    else:
-        writer.add_agencies(tde.agencies)
-    writer.add_stops(tde.stops)
-    writer.add_routes(tde.routes)
-    writer.add_shapes(tde.shapes)
+        writer = GTFSWriter()
+        patched_agencies = None
+        if dummy:
+            dummy_data = gtfs_dummy.create_dummy_data(list(tde.routes),
+                                                    list(tde.stops))
+            writer.add_trips(dummy_data.trips)
+            writer.add_stop_times(dummy_data.stop_times)
+            writer.add_calendar(dummy_data.calendar)
+            patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
+
+        if patched_agencies:
+            writer.add_agencies(patched_agencies)
+        else:
+            writer.add_agencies(tde.agencies)
+        writer.add_stops(tde.stops)
+        writer.add_routes(tde.routes)
+        writer.add_shapes(tde.shapes)
+
+        writer.add_file('LICENSE', Path(__file__).parents[0] / 'ODbL-1.0.txt')
+        writer.add_file('logs.txt', logfile)
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))
@@ -74,6 +84,17 @@ def main(osmfile, outdir, zipfile, dummy):
         click.echo('GTFS feed saved in %s' % outdir)
 
     logging.debug('Done in %d seconds.', (time.time() - start))
+
+
+@contextmanager
+def capture_logs():
+    logfile = tempfile.mktemp()
+    handler = FileHandler(logfile, mode='w')
+    logging.getLogger().addHandler(handler)
+    try:
+        yield logfile
+    finally:
+        logging.getLogger().removeHandler(handler)
 
 
 if __name__ == '__main__':

@@ -11,6 +11,14 @@ class NodeHandler(o.SimpleHandler):
         self.node_ids = node_ids
         self.nodes = {}
 
+    @property
+    def missing_node_ids(self):
+        """Get a list of nodes not found in OSM data."""
+        present_node_ids = self.nodes.keys()
+        for nid in self.node_ids:
+            if nid not in present_node_ids:
+                yield nid
+
     def node(self, n):
         """Process each node."""
         if n.id not in self.node_ids:

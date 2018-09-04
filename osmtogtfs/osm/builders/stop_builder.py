@@ -12,7 +12,7 @@ def build_stops(relations, nodes):
 
 def extract_stops(relation, nodes, visited_stop_ids):
     """Extract stops in a relation."""
-    for member_id, member_role in relation.member_info:
+    for member_type, member_id, member_role in relation.member_info:
 
         if member_id not in visited_stop_ids and \
             member_id in nodes and\

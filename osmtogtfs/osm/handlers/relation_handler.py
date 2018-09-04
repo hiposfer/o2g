@@ -44,7 +44,7 @@ class RelationHandler(o.SimpleHandler):
                 'alt_name': rel.tags.get('alt_name'),
                 'url': rel.tags.get('url'),
                 'contact_website': rel.tags.get('contact:website')},
-                [(member.ref, member.role) for member in rel.members])
+                [(member.type, member.ref, member.role) for member in rel.members])
 
         self.versions[rel.id] = rel.version
 

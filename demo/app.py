@@ -38,7 +38,7 @@ def index():
         flash('Not a valid URL.')
         return render_template('index.html')
 
-    filename = uploaded_filepath or dl_osm(url)
+    filename = uploaded_filepath or dl_osm_from_url(url)
     zipfile = create_zipfeed(filename, bool(request.form.get('dummy')))
 
     return send_file(

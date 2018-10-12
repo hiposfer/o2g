@@ -1,13 +1,12 @@
 """Functionality to build a list of agencies."""
-import logging
 import hashlib
 
-from timezonefinder import TimezoneFinder
+# from timezonefinder import TimezoneFinder
 
 from osmtogtfs.osm.models import Agency
 
 
-TZ_FINDER = TimezoneFinder()
+# TZ_FINDER = TimezoneFinder()
 
 
 def build_agencies(relations, nodes, ways):
@@ -41,25 +40,25 @@ def build_agency(relation, nodes):
     return Agency(agency_id, agency_url, op, '')
 
 
-def _guess_timezone(relation, nodes, ways):
-    """Guess timezone of the relation by looking at it's nodes."""
-    lon, lat = _get_first_coordinate(relation, nodes, ways)
-    timezone = TZ_FINDER.timezone_at(lng=lon, lat=lat)
-    if not timezone:
-        logging.debug('No timezone found for (%s, %s)', lon, lat)
-    return timezone
+# def _guess_timezone(relation, nodes, ways):
+#     """Guess timezone of the relation by looking at it's nodes."""
+#     lon, lat = _get_first_coordinate(relation, nodes, ways)
+#     timezone = TZ_FINDER.timezone_at(lng=lon, lat=lat)
+#     if not timezone:
+#         logging.debug('No timezone found for (%s, %s)', lon, lat)
+#     return timezone
 
 
-def _get_first_coordinate(relation, nodes, ways):
-    for member_id, member_role in relation.member_info:
-        if member_id in nodes:
-            return nodes[member_id].lon, nodes[member_id].lat
-        elif member_id in ways:
-            return _get_first_way_coordinate(member_id, ways)
-    logging.debug('No node found for relation %s', relation.id)
-    return 0, 0
+# def _get_first_coordinate(relation, nodes, ways):
+#     for member_id, member_role in relation.member_info:
+#         if member_id in nodes:
+#             return nodes[member_id].lon, nodes[member_id].lat
+#         elif member_id in ways:
+#             return _get_first_way_coordinate(member_id, ways)
+#     logging.debug('No node found for relation %s', relation.id)
+#     return 0, 0
 
 
-def _get_first_way_coordinate(way_id, ways):
-    # Pick the first node
-    return ways[way_id].points[0]
+# def _get_first_way_coordinate(way_id, ways):
+#     # Pick the first node
+#     return ways[way_id].points[0]

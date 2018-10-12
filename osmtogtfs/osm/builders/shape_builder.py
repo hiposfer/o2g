@@ -38,5 +38,5 @@ def build_shape(relation, nodes, ways):
         #         sequence_index += 1
 
         else:
-            logging.warn('[no data] rel %s type %s ref %s.',
-                          relation.id, member_type, member_id)
+            logging.warning('[no data] rel %s type %s ref %s.',
+                            relation.id, member_type, member_id)

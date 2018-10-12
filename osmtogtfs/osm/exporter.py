@@ -47,12 +47,12 @@ class TransitDataExporter(object):
         count = 0
         for idx, missing_node_id in enumerate(self.nh.missing_node_ids):
             count += 1
-            logging.warn(
+            logging.warning(
                 '[no data] stop node: rel %s ref %s.',
                 reverse_map[missing_node_id], missing_node_id)
 
         if count:
-            logging.warn(
+            logging.warning(
                 '%d nodes that appear in relations are missing.',
                 count)
         else:

@@ -7,7 +7,8 @@ from osmtogtfs.osm.models import Agency
 
 
 # Represents dummy GTFS data
-DummyData = namedtuple('DummyData', ['calendar', 'stop_times', 'trips'])
+DummyData = namedtuple('DummyData',
+                       ['calendar', 'stop_times', 'trips', 'frequencies'])
 
 
 def create_dummy_data(routes, stops):
@@ -30,9 +31,13 @@ def create_dummy_data(routes, stops):
             stops_per_route,
             calendar)
 
-    stop_times = _create_dummy_stoptimes(trips, stops_per_route)
+    first_service_time = datetime.datetime(2017, 1, 1, 5, 0, 0)
+    stop_times = _create_dummy_stoptimes(
+        trips, stops_per_route, first_service_time)
+    frequencies = _create_dummy_frequencies(
+        trips, stop_times, first_service_time)
 
-    return DummyData(calendar, stop_times, trips)
+    return DummyData(calendar, stop_times, trips, frequencies)
 
 
 def patch_agencies(agencies):
@@ -98,18 +103,18 @@ def _create_dummy_trips(routes, stops_per_route, calendar):
     return trips
 
 
-def _create_dummy_stoptimes(trips, stops_per_route):
+def _create_dummy_stoptimes(trips, stops_per_route, first_service_time):
     stoptimes = []
     for trip in trips:
         # One service every 20 minutes from the base station
-        first_service_time = \
-            datetime.datetime(2017, 1, 1, 5, 0, 0) + \
+        trip_start_time = \
+            first_service_time + \
             datetime.timedelta(minutes=20) * trip['sequence']
         stoptimes.extend(
             _create_dummy_trip_stoptimes(
                 trip['trip_id'],
                 stops_per_route.get(trip['route_id'], []),
-                first_service_time))
+                trip_start_time))
 
     return stoptimes
 
@@ -191,3 +196,42 @@ def haversine(lon1, lat1, lon2, lat2):
     c = 2 * asin(sqrt(a))
     r = 6371  # Radius of earth in kilometers. Use 3956 for miles
     return c * r
+
+
+def _create_dummy_frequencies(trips, stop_times, first_service_time):
+    """Create station stop frequencies."""
+    waiting = datetime.timedelta(seconds=30)
+    arrival = first_service_time
+    last_departure = first_service_time
+    last_departure_hour = (arrival + waiting).hour
+    last_stop = None
+
+    # Avoid time travels
+    arrival = last_departure + get_time_from_last_stop(last_stop, stop)
+    departure = arrival + waiting
+
+    # Cover the case when the arrival time falls into the next day
+    if arrival.hour < last_departure_hour:
+        arrival_hour = arrival.hour + 24
+        departure_hour = departure.hour + 24
+        last_departure_hour = departure.hour + 24
+    else:
+        arrival_hour = arrival.hour
+        departure_hour = departure.hour
+        last_departure_hour = departure.hour
+
+    # Cover the case when adding waiting time to the arrival time
+    # falls into the next day
+    if departure.hour < arrival.hour:
+        departure_hour = departure.hour + 24
+        last_departure_hour = departure.hour + 24
+
+    for trip in trips:
+        yield {'trip_id': trip['trip_id'],
+               'start_time': '{:02}:{}'.format(
+                   arrival_hour,
+                   arrival.strftime('%M:%S')),
+               'end_time': '{:02}:{}'.format(
+                   departure_hour,
+                   departure.strftime('%M:%S')),
+               'headway_secs': '1200'}

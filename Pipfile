@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 osmium = "*"
-timezonefinder = "*"
 click = "*"
 
 [dev-packages]

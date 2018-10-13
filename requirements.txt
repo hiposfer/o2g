@@ -1,4 +1,2 @@
-click==6.7
-numpy==1.14.2
-osmium==2.13.0
-timezonefinder==2.1.2
+click
+osmium

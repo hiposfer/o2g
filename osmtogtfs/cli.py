@@ -31,9 +31,13 @@ from osmtogtfs.osm.exporter import TransitDataExporter
 @click.option('--dummy/--no-dummy',
               default=False,
               help='Whether to fill the missing parts with dummy data.')
+# @click.option('--with-frequencies',
+#               is_flag=True,
+#               help='Generate frequencies.')
 @click.option('--loglevel',
               default='WARNING',
-              type=click.Choice(['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']),
+              type=click.Choice(['DEBUG', 'INFO', 'WARNING', 'ERROR',
+                                 'CRITICAL']),
               help="Set the logging level")
 @click.version_option(None, '-v', '--version')
 def cli(osmfile, outdir, zipfile, dummy, loglevel):
@@ -59,10 +63,11 @@ def main(osmfile, outdir, zipfile, dummy):
         patched_agencies = None
         if dummy:
             dummy_data = gtfs_dummy.create_dummy_data(list(tde.routes),
-                                                    list(tde.stops))
+                                                      list(tde.stops))
             writer.add_trips(dummy_data.trips)
             writer.add_stop_times(dummy_data.stop_times)
             writer.add_calendar(dummy_data.calendar)
+            writer.add_frequencies(dummy_data.frequencies)
             patched_agencies = gtfs_dummy.patch_agencies(tde.agencies)
 
         if patched_agencies:

@@ -39,33 +39,37 @@ class GTFSWriter(object):
         """Map of filename to headers for every GTFS file.
 
         Only headers present in this map will be considered."""
-        return {'agency': ['agency_id', 'agency_name', 'agency_url',
-                           'agency_timezone', 'agency_lang', 'agency_phone',
-                           'agency_fare_url', 'agency_email'],
+        return {
+            'agency': ['agency_id', 'agency_name', 'agency_url',
+                       'agency_timezone', 'agency_lang', 'agency_phone',
+                       'agency_fare_url', 'agency_email'],
 
-                'stops': ['stop_id', 'stop_code', 'stop_name', 'stop_desc',
-                          'stop_lat', 'stop_lon', 'zone_id', 'stop_url',
-                          'location_type', 'parent_station', 'stop_timezone',
-                          'wheelchair_boarding'],
+            'stops': ['stop_id', 'stop_code', 'stop_name', 'stop_desc',
+                      'stop_lat', 'stop_lon', 'zone_id', 'stop_url',
+                      'location_type', 'parent_station', 'stop_timezone',
+                      'wheelchair_boarding'],
 
-                'routes': ['route_id', 'agency_id', 'route_short_name',
-                           'route_long_name', 'route_desc', 'route_type',
-                           'route_url', 'route_color', 'route_text_color'],
+            'routes': ['route_id', 'agency_id', 'route_short_name',
+                       'route_long_name', 'route_desc', 'route_type',
+                       'route_url', 'route_color', 'route_text_color'],
 
-                'trips': ['route_id', 'service_id', 'trip_id', 'trip_headsign',
-                          'shape_id'],
+            'trips': ['route_id', 'service_id', 'trip_id', 'trip_headsign',
+                      'shape_id'],
 
-                'calendar': ['service_id', 'monday', 'tuesday', 'wednesday',
-                             'thursday',
-                             'friday', 'saturday', 'sunday', 'start_date',
-                             'end_date'],
+            'calendar': ['service_id', 'monday', 'tuesday', 'wednesday',
+                         'thursday',
+                         'friday', 'saturday', 'sunday', 'start_date',
+                         'end_date'],
 
-                'stop_times': ['trip_id', 'arrival_time', 'departure_time',
-                               'stop_id',
-                               'stop_sequence'],
+            'stop_times': ['trip_id', 'arrival_time', 'departure_time',
+                           'stop_id',
+                           'stop_sequence'],
 
-                'shapes': ['shape_id', 'shape_pt_lat', 'shape_pt_lon',
-                           'shape_pt_sequence']}
+            'shapes': ['shape_id', 'shape_pt_lat', 'shape_pt_lon',
+                       'shape_pt_sequence'],
+
+            'frequencies': ['trip_id', 'start_time', 'end_time',
+                            'headway_secs']}
 
     def add_agencies(self, agencies):
         self._add_records('agency', agencies)
@@ -87,6 +91,9 @@ class GTFSWriter(object):
 
     def add_shapes(self, shapes):
         self._add_records('shapes', shapes)
+
+    def add_frequencies(self, frequencies):
+        self._add_records('frequencies', frequencies)
 
     def add_file(self, name, path):
         self._files[name] = path

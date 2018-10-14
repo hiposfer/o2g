@@ -1,0 +1,29 @@
+[build-system]
+requires = ['flit']
+build-backend = 'flit.buildapi'
+
+[tool.flit.metadata]
+module = 'osmtogtfs'
+author = 'Mehdi Sadeghi'
+author-email = 'mehdi@mehdix.rog'
+home-page = 'https://github.com/hiposfer/osmtogtfs'
+requires-python = '>=3.5'
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3',
+]
+description-file = 'README.md'
+keywords = ['osm', 'gtfs', 'public transport']
+requires = ['osmium']
+
+[tool.flit.metadata.requires-extra]
+test = [
+    'pytest',
+    'pytest-cov'
+]
+doc = ['sphinx']
+
+[tool.flit.scripts]
+o2g = 'osmtogtfs.cli:cli'

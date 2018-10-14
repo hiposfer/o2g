@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "aa470bf6b2677661e418b9e6e9fb1e2e049a0b0c1cba57d73cf3bceb5fbcfd98"
+            "sha256": "845bd76be4b85a5d1377c07a5c785bfd422822cd0ee928d0b7626a77f278b716"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -14,14 +14,6 @@
         ]
     },
     "default": {
-        "click": {
-            "hashes": [
-                "sha256:2335065e6395b9e67ca716de5f7526736bfa6ceead690adf616d925bdc622b13",
-                "sha256:5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
-            ],
-            "index": "pypi",
-            "version": "==7.0"
-        },
         "osmium": {
             "hashes": [
                 "sha256:1da881ca783946936e901dc32d0a3c1765c8d75904a66350852abb792246d3fd",

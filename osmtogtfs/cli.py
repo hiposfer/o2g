@@ -65,7 +65,7 @@ def cli():
                         help='fill the missing parts with dummy data')
     parser.add_argument('--loglevel',
                         default='WARNING',
-                        help='set the logging level')
+                        help='DEBUG, INFO, WARNING, ERROR or CRITICAL')
     parser.add_argument('--version',
                         action='version',
                         version='%(prog)s ' + __version__,

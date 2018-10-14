@@ -8,7 +8,6 @@ COPY osmtogtfs /build/osmtogtfs/
 COPY setup.py README.md /build/
 RUN python3 setup.py install
 RUN find /usr/lib/ -name libboost_* -not -name libboost_python* -delete
-RUN pip install click
 RUN find /usr/lib/python3.6 -type f -name "*.pyc" -delete
 RUN find /usr/lib/ -name "__pycache__" -type d -delete
 
@@ -20,7 +19,7 @@ COPY --from=0 /usr/lib/libboost_python3.so* \
 COPY --from=0 /usr/lib/python3.6/site-packages/ /usr/lib/python3.6/site-packages/
 COPY --from=0 /usr/bin/o2g /usr/bin/o2g
 
-RUN pip --no-cache-dir install --no-compile flask validators requests click
+RUN pip --no-cache-dir install --no-compile flask validators requests
 
 ENV LC_ALL=C.UTF-8
 WORKDIR /app

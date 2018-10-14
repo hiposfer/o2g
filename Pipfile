@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 osmium = "*"
-click = "*"
 
 [dev-packages]
 pytest = "*"

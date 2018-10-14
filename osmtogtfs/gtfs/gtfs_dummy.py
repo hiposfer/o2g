@@ -75,12 +75,8 @@ def _create_dummy_trips(routes, stops_per_route, calendar):
             continue
 
         for cal_idx, cal in enumerate(calendar):
-            # For the sake of simplicity, we assume a fixed number of trips per service day.
-            # Even though in reality there are less number of trips on weekends and holidays.
-            # We assume trips begin from 5:00 AM and run untill 11:00 PM and there is one trip
-            # every 20 minutes. Therefore in total we add 54 trips per route per service day.
-            # 18 service hours per day * 3 trips per hour = 54
-            for idx in range(54):
+            # For the sake of simplicity, we assume 3 trips per service day.
+            for idx in range(3):
 
                 trip_id = \
                     '{sequence}{cal_idx}.{route_id}'.format(

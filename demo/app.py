@@ -5,53 +5,48 @@ import tempfile
 import urllib.parse
 import urllib.request
 
+
+from bottle import run, template, request, static_file, abort, default_app
+
 import requests
 import validators
-from flask import Flask, request, send_file, render_template, flash, abort
-from werkzeug.utils import secure_filename
 
 from osmtogtfs.cli import main
 
 
-app = Flask(__name__)
-application = app
-
-app.config['UPLOAD_FOLDER'] = '/tmp'
-app.config['SECRET_KEY'] = 'super secret string'
+UPLOAD_DIR = '/tmp'
+app = default_app()
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.get('/')
 def index():
-    if request.method != 'POST':
-        return render_template('index.html')
+    return template('index.html', messages=[])
 
+
+@app.post('/')
+def do_index():
     uploaded_filepath = \
         save_file(request.files['file']) if 'file' in request.files else None
 
-    url = request.form.get('url')
+    url = request.forms.get('url')
 
     if not url and not uploaded_filepath:
-        flash('Provide a URL or upload a file.')
-        return render_template('index.html')
+        return template('index.html', messages=['Provide a URL or upload a file.'])
 
     if not uploaded_filepath and not validators.url(url):
-        flash('Not a valid URL.')
-        return render_template('index.html')
+        return template('index.html', messages=['Not a valid URL.'])
 
     filename = uploaded_filepath or dl_osm_from_url(url)
-    zipfile = create_zipfeed(filename, bool(request.form.get('dummy')))
+    zipfile = create_zipfeed(filename, bool(request.forms.get('dummy')))
 
-    return send_file(
-        zipfile,
-        attachment_filename=pathlib.Path(zipfile).name,
-        as_attachment=True)
+    return static_file(os.path.split(zipfile)[-1], root=UPLOAD_DIR, download=True)
 
 
 def save_file(file):
     if file:
-        filename = secure_filename(file.filename)
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(filepath)
+        filename = file.filename
+        filepath = os.path.join(UPLOAD_DIR, filename)
+        file.save(filepath, overwrite=True)
         return filepath
 
 
@@ -62,7 +57,7 @@ def create_zipfeed(filename, dummy=False):
     return zipfile
 
 
-@app.route('/o2g', methods=['GET'])
+@app.get('/o2g', methods=['GET'])
 def o2g():
     area = request.args.get('area')
     bbox = request.args.get('bbox')
@@ -79,9 +74,11 @@ def o2g():
         filepath,
         bool(request.args.get('dummy')))
 
-    return send_file(
-        zipfile,
-        mimetype='application/zip')
+    return static_file(
+        os.path.split(zipfile)[-1],
+        root=UPLOAD_DIR,
+        #mimetype='application/zip',
+        download=True)
 
 
 def dl_osm_from_overpass(area, bbox):
@@ -132,29 +129,6 @@ def build_overpass_query(area, bbox):
     return template.format(bbox=bbox_fmt, area=area_fmt, area_limit=area_limit_fmt)
 
 
-# def dl_bbox(south, west, north, east):
-#     bbox_query = """
-#     """
-#     return requests.post("http://overpass-api.de/api/interpreter")
-
-
-# def dl_area(name):
-#     area_query = """
-#     [bbox:47.9485, 7.7066, 48.1161, 8.0049];
-#     area["name"="Freiburg"];
-#     (
-#       rel
-#         [!"deleted"]
-#         ["type"="route"]
-#         ["route"~"tram|subway|bus|ex-bus|light_rail|rail|railway"]
-#         (area._);
-#     );
-#     (._; >;);
-#     out;
-#     """
-#     pass
-
-
 def dl_osm_from_url(url):
     filename = tempfile.mktemp(suffix=pathlib.Path(url).name)
     local_filename, headers =\
@@ -164,4 +138,4 @@ def dl_osm_from_url(url):
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', int(os.getenv('PORT', 3000)), debug=True)
+    run(host='0.0.0.0', port=int(os.getenv('PORT', 3000)), debug=True)

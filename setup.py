@@ -1,5 +1,7 @@
 from setuptools import setup, find_packages
 
+from osmtogtfs import __version__
+
 
 def readme():
     with open('README.md') as f:
@@ -7,7 +9,7 @@ def readme():
 
 
 setup(name='osmtogtfs',
-      version='0.3.3',
+      version=__version__,
       description='Extracts partial GTFS feed from OSM data.',
       long_description=readme(),
       long_description_content_type='text/markdown',
@@ -25,7 +27,7 @@ setup(name='osmtogtfs',
       },
       zip_safe=False,
       test_suite='pytest',
-      install_requires=['osmium', 'setuptools', 'click'],
+      install_requires=['osmium'],
       classifiers=['Development Status :: 4 - Beta',
                    'Environment :: Console',
                    'Intended Audience :: End Users/Desktop',

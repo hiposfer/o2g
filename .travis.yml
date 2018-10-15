@@ -21,10 +21,6 @@ deploy:
     tags: true
     python: 3.6
     branch: master
-# - provider: script
-#   script: bash scripts/deploy.sh
-#   on:
-#     branch: master
 addons:
   apt:
     packages:

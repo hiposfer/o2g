@@ -15,15 +15,11 @@ classifiers = [
     'Programming Language :: Python :: 3',
 ]
 description-file = 'README.md'
-keywords = ['osm', 'gtfs', 'public transport']
+keywords = 'osm gtfs'
 requires = ['osmium']
 
 [tool.flit.metadata.requires-extra]
-test = [
-    'pytest',
-    'pytest-cov'
-]
-doc = ['sphinx']
+test = ['pytest']
 
 [tool.flit.scripts]
 o2g = 'osmtogtfs.cli:cli'

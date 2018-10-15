@@ -23,7 +23,7 @@ RUN pip --no-cache-dir install --no-compile bottle
 
 ENV LC_ALL=C.UTF-8
 WORKDIR /app
-COPY demo .
+COPY web/app.py web/index.html /app/
 CMD ["python", "app.py"]
 EXPOSE 3000
 

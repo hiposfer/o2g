@@ -19,12 +19,11 @@ COPY --from=0 /usr/lib/libboost_python3.so* \
 COPY --from=0 /usr/lib/python3.6/site-packages/ /usr/lib/python3.6/site-packages/
 COPY --from=0 /usr/bin/o2g /usr/bin/o2g
 
-RUN pip --no-cache-dir install --no-compile flask validators requests
+RUN pip --no-cache-dir install --no-compile bottle
 
 ENV LC_ALL=C.UTF-8
 WORKDIR /app
-COPY demo/app.py .
-COPY demo/templates /app/templates
+COPY web/app.py web/index.html /app/
 CMD ["python", "app.py"]
 EXPOSE 3000
 

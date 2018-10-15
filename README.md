@@ -51,17 +51,16 @@ Moreover, if you install the package, you will get an script called `osmtogtfs` 
 the _outdir_ with the given name, otherwise feed will be stored as plain text in multiple files.
 
 ### Web Demo
-There is a small web app inside `demo` folder. It accepts a URL to a osmium supported file. It will then convert it
+There is a small web app inside `web` folder. It accepts a URL to a osmium supported file. It will then convert it
 to a zipped GTFS feed. You will need `pipenv` command to install and run it:
 
-    $ cd demo
-    $ pip install pipenv
+    $ cd web
     $ pipenv install
     $ python3 app.py
 
-Browse to [http://localhost:3000](http://localhost:3000) afterwards to use it.
+Browse to [http://localhost:3000](http://localhost:3000) afterwards.
 
-This demo is also running at [http://o2g.hiposfer.com](http://o2g.hiposfer.com). It is possible to directly download a zipped GTFS feed for a given OSM URL too:
+This web app is also running at [http://o2g.hiposfer.com](http://o2g.hiposfer.com). It is possible to directly download a zipped GTFS feed for a given OSM URL too:
 
     http 'http://o2g.hiposfer.com/o2g?url=http://download.geofabrik.de/europe/liechtenstein-latest.osm.bz2' > gtfs.zip
 
@@ -182,5 +181,5 @@ However, there are some routes without operator tags. In such cases we use a dum
 In order to decrease the necessary memory, we use mostly namedtuples (which are basically tuples) to store data.
 
 
-## Lincense
+## License
 MIT

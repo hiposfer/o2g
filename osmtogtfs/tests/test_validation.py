@@ -61,7 +61,9 @@ def dummy_gtfs_writer(transit_data, dummy_transit_data):
 def dummy_zipfeed(dummy_gtfs_writer):
     filename = '{}.zip'.format(tempfile.mktemp())
     print('Writing GTFS feed to %s' % filename)
-    dummy_gtfs_writer.write_zipped(filename)
+    # Skip compression since transitfeed is a python2 program and
+    # does not support lzma compression algorithm.
+    dummy_gtfs_writer.write_zipped(filename, compress=False)
 
     return filename
 

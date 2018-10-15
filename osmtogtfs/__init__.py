@@ -1,10 +1,7 @@
 """
-Extracts partial GTFS feed from OSM data.
-
-OpenStreeMaps data contain information about bus, tram, train and other public
-transport means. This information is not enought for providing a complete
-routing service, most importantly because it lacks timing data. However, it
-still contains routes, stop positions and some other useful data.
+osmtogtfs is a tool to extract public transport information from OpenStreetMap
+data. osmtogtfs comes with a client tool called o2g.
 """
 
-__version__ = "0.4.0"
+__version__ = "0.4.1"
+

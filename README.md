@@ -182,5 +182,5 @@ However, there are some routes without operator tags. In such cases we use a dum
 In order to decrease the necessary memory, we use mostly namedtuples (which are basically tuples) to store data.
 
 
-## Lincense
+## License
 MIT

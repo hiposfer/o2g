@@ -5,8 +5,9 @@ RUN pip install osmium
 
 WORKDIR /build
 COPY osmtogtfs /build/osmtogtfs/
-COPY setup.py README.md /build/
-RUN python3 setup.py install
+COPY pyproject.toml README.md /build/
+ENV FLIT_ROOT_INSTALL 1
+RUN pip install --user flit && ~/.local/bin/flit install --deps none
 RUN find /usr/lib/ -name libboost_* -not -name libboost_python* -delete
 RUN find /usr/lib/python3.6 -type f -name "*.pyc" -delete
 RUN find /usr/lib/ -name "__pycache__" -type d -delete

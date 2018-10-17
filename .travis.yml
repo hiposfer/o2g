@@ -7,9 +7,9 @@ before_install:
 - pushd /usr/lib/x86_64-linux-gnu/ && sudo ln -s libboost_python-py34.so libboost_python3.so
   && popd
 install:
-- pip install -r requirements.txt
+- pip install flit
 - pip install pytest
-- python setup.py install
+- flit install
 script: pytest
 deploy:
 - provider: pypi

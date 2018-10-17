@@ -98,10 +98,9 @@ class GTFSWriter(object):
     def add_file(self, name, path):
         self._files[name] = path
 
-    def write_zipped(self, filepath, compress=True):
+    def write_zipped(self, filepath):
         """Write the GTFS feed in the given file."""
-        compression = zipfile.ZIP_LZMA if compress else zipfile.ZIP_STORED
-        with zipfile.ZipFile(filepath, mode='w', compression=compression) as zfile:
+        with zipfile.ZipFile(filepath, mode='w', compression=zipfile.ZIP_DEFLATED) as zfile:
             for name, buffer in self._buffers.items():
                 encoded_values = io.BytesIO(buffer.getvalue().encode('utf-8'))
                 zfile.writestr('{}.txt'.format(name),

@@ -37,7 +37,10 @@ def do_index():
         dl_filename, dl_filepath = dl_osm_from_url(url)
 
     filename = os.path.split(filepath)[-1] if filepath else dl_filename
-    return send_feed(filepath or dl_filepath, filename + '.gtfs.zip')
+    return send_feed(
+        filepath or dl_filepath,
+        filename + '.gtfs.zip',
+        dummy=bool(request.forms.get('dummy')))
 
 
 def is_valid_url(url):
@@ -52,8 +55,8 @@ def save_file(file):
         return filepath
 
 
-def send_feed(filepath, filename=None):
-    zipfile = create_zipfeed(filepath, bool(request.forms.get('dummy')))
+def send_feed(filepath, filename=None, dummy=False):
+    zipfile = create_zipfeed(filepath, dummy)
     if not filename:
         filename = os.path.split(zipfile)[-1]
 
@@ -86,7 +89,10 @@ def o2g():
     else:
         abort(400)
 
-    return send_feed(filepath, filename + '.gtfs.zip')
+    return send_feed(
+        filepath,
+        filename + '.gtfs.zip',
+        dummy=bool(request.params.get('dummy')))
 
 
 def dl_osm_from_overpass(area, bbox):

@@ -17,11 +17,11 @@ not validate if you check it, because it is of course partial. Nevertheless, it 
 This tool uses osmium which is a C++ library built using boost, so one should install that first.
 The best way would be using the package manager of your OS and installing [pyosmium](https://github.com/osmcode/pyosmium).
 
-Afterwards install the script from pypi:
+Afterwards install the script from PyPI:
 
     $ pip install osmtogtfs
 
-Alternatively you can clone the repo and install it (with [flit](https://flit.readthedocs.io/en/latest/)):
+Or install it from source (with [flit](https://flit.readthedocs.io/en/latest/)):
 
     $ git clone https://github.com/hiposfer/osmtogtfs && cd osmtogtfs
     $ flit install
@@ -66,16 +66,16 @@ Browse to [http://localhost:3000](http://localhost:3000) afterwards.
 
 This web app is also running at [http://o2g.hiposfer.com](http://o2g.hiposfer.com). It is possible to directly download a zipped GTFS feed for a given OSM URL too:
 
-    $ wget 'http://o2g.hiposfer.com/o2g?url=http://download.geofabrik.de/europe/liechtenstein-latest.osm.bz2'
+    $ wget 'http://o2g.hiposfer.com/o2g?url=http://download.geofabrik.de/europe/liechtenstein-latest.osm.bz2' -O gtfs.zip
 
 ### Web Api with Overpass Query
 It is alos possible to download the necessary OSM data from overpass-api.de. Passing an area name or a bbox to the web API will trigger this feature:
 
-    $ wget 'http://o2g.hiposfer.com/o2g?area=Freiburg&bbox=47.9485,7.7066,48.1161,8.0049'
+    $ wget 'http://o2g.hiposfer.com/o2g?area=Freiburg&bbox=47.9485,7.7066,48.1161,8.0049' -O gtfs.zip
 
 As before, it is possible to get a patched and valid GTFS feed by passing the dummy flag:
 
-    $ wget 'http://o2g.hiposfer.com/o2g?area=Freiburg&dummy=True > gtfs.zip
+    $ wget 'http://o2g.hiposfer.com/o2g?area=Freiburg&dummy=True -O gtfs.zip
 
 ### With Docker
 If osmium is not available in your package manager, it could be troublesome to install it manually. So here

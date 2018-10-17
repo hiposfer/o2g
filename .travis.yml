@@ -8,7 +8,6 @@ before_install:
   && popd
 install:
 - pip install flit
-- pip install pytest
 - flit install
 script: pytest
 deploy:

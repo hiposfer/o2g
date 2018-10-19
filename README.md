@@ -63,6 +63,7 @@ to a zipped GTFS feed.
     $ python app.py
 
 Browse to [http://localhost:3000](http://localhost:3000) afterwards.
+Alternatively running `flit install --extras web` will install web dependencies.
 
 This web app is also running at [http://o2g.hiposfer.com](http://o2g.hiposfer.com). It is possible to directly download a zipped GTFS feed for a given OSM URL too:
 

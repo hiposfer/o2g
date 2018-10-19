@@ -89,7 +89,7 @@ Then browse to [http://localhost:3000](http://localhost:3000).
 ### Tests
 We use the `pytest` package for testing:
 
-    $ pip install pytest
+    $ pip install pytest (or by running `flit install`)
     $ pytest -s
 
 `-s` disables capturing and shows us more output (such as print statements and log messages).
@@ -98,7 +98,7 @@ We use the `pytest` package for testing:
 In order to profile the code we use `cProfile`:
     
     # For the `osmtogtfs` script
-    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/saarland-latest.osm.pbf --outdir output/saarland --dummy > output/benchmarks/saarland.txt
+    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/freiburg.osm.pbf --outdir output/freiburg --dummy > output/benchmarks/freiburg.txt
 
 You will find the result in [`output/benchmark.txt`](output/benchmark.txt).
 Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.

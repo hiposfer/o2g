@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hiposfer/o2g.svg?branch=master)](https://travis-ci.org/hiposfer/o2g) [![pypi](https://img.shields.io/pypi/v/o2g.svg)](https://pypi.python.org/pypi/o2g)
 
-A simple tool to extract public transport data from OpenStreetMap.
+A simple tool to extract GTFS feed from OpenStreetMap.
 
 OpenStreeMaps data contain information about bus, tram, train and other public transport means.
 This information is not enought for providing a complete routing service, most importantly because

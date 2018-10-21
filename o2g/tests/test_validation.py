@@ -1,4 +1,3 @@
-"""osmtogtfs tests."""
 import os
 import pathlib
 import tempfile
@@ -6,9 +5,9 @@ import subprocess
 
 import pytest
 
-from osmtogtfs.osm.exporter import TransitDataExporter
-from osmtogtfs.gtfs.gtfs_writer import GTFSWriter
-from osmtogtfs.gtfs import gtfs_dummy
+from o2g.osm.exporter import TransitDataExporter
+from o2g.gtfs.gtfs_writer import GTFSWriter
+from o2g.gtfs import gtfs_dummy
 
 
 @pytest.fixture

@@ -8,7 +8,7 @@ from urllib.request import urlopen
 
 from bottle import run, template, request, static_file, abort, default_app
 
-from osmtogtfs.cli import main
+from o2g.cli import main
 
 
 UPLOAD_DIR = '/tmp'

@@ -12,10 +12,10 @@ from pathlib import Path
 
 import argparse
 
-from osmtogtfs import __version__
-from osmtogtfs.gtfs import gtfs_dummy
-from osmtogtfs.gtfs.gtfs_writer import GTFSWriter
-from osmtogtfs.osm.exporter import TransitDataExporter
+from o2g import __version__
+from o2g.gtfs import gtfs_dummy
+from o2g.gtfs.gtfs_writer import GTFSWriter
+from o2g.osm.exporter import TransitDataExporter
 
 
 class readable_dir(argparse.Action):

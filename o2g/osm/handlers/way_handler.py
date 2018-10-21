@@ -1,7 +1,7 @@
 import logging
 import osmium as o
 
-from osmtogtfs.osm.models import Way, Point
+from o2g.osm.models import Way, Point
 
 
 class WayHandler(o.SimpleHandler):

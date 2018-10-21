@@ -17,63 +17,66 @@ not validate if you check it, because it is of course partial. Nevertheless, it 
 This tool uses osmium which is a C++ library built using boost, so one should install that first.
 The best way would be using the package manager of your OS and installing [pyosmium](https://github.com/osmcode/pyosmium).
 
-Afterwards install the script from pypi:
+Afterwards install the script from PyPI:
 
     $ pip install osmtogtfs
 
-Alternatively you can clone the repo and install it:
+Or install it from source (with [flit](https://flit.readthedocs.io/en/latest/)):
 
-    $ git clone https://github.com/hiposfer/osmtogtfs & cd osmtogtfs
-    $ python3 setup.py install
+    $ git clone https://github.com/hiposfer/osmtogtfs && cd osmtogtfs
+    $ flit install
 
-This will install `osmtogtfs` command and its alias `o2g` on your system. Alternatively, you can run `osmtogtfs/cli.py`.
+This will install `osmtogtfs` package along with `o2g`, its cli tool, on your system.
 
 Make sure to run these commands with python 3.
 
 ## Usage
 Run the tool over your OSM data source (or whatever osmium accepts):
 
-    osmtogtfs <osmfile>
+    $ o2g --help
+    usage: o2g [-h] [--outdir OUTDIR] [--zipfile] [--dummy] [--loglevel LOGLEVEL]
+               [--version]
+               OSMFILE
 
-After a while, depending on the file size, a file named `gtfs.zip` will be produced inside the working directory.
-Moreover, if you install the package, you will get an script called `osmtogtfs` in your python path:
+    Export GTFS feed from OpenStreetMap data.
 
-    $ osmtogtfs --help
-    Usage: osmtogtfs [OPTIONS] INPUT
+    positional arguments:
+      OSMFILE              an OSM data file supported by osmium
 
-    Options:
-      --outdir PATH   Store output in this directory.
-      --zipfile PATH  Save as Zip file if provided.
-      --loglevel      Set the logging level.
-      --help          Show this message and exit.
+    optional arguments:
+      -h, --help           show this help message and exit
+      --outdir OUTDIR      output directory (default: .)
+      --zipfile            save to zipfile (default: False)
+      --dummy              fill the missing parts with dummy data (default: False)
+      --loglevel LOGLEVEL  set the logging level (default: WARNING)
+      --version            Show the version and exit
 
 `--outdir` defaults to the working directory and if `--zipfile` is provided, the feed will be zipped and stored in
 the _outdir_ with the given name, otherwise feed will be stored as plain text in multiple files.
 
 ### Web Demo
 There is a small web app inside `web` folder. It accepts a URL to a osmium supported file. It will then convert it
-to a zipped GTFS feed. You will need `pipenv` command to install and run it:
+to a zipped GTFS feed.
 
     $ cd web
-    $ pipenv install
-    $ python3 app.py
+    $ pip install bottle osmtogtfs
+    $ python app.py
 
 Browse to [http://localhost:3000](http://localhost:3000) afterwards.
+Alternatively running `flit install --extras web` will install web dependencies.
 
 This web app is also running at [http://o2g.hiposfer.com](http://o2g.hiposfer.com). It is possible to directly download a zipped GTFS feed for a given OSM URL too:
 
-    http 'http://o2g.hiposfer.com/o2g?url=http://download.geofabrik.de/europe/liechtenstein-latest.osm.bz2' > gtfs.zip
-
-The above command uses the [HTTPie](https://httpie.org/) tool.
+    $ wget 'http://o2g.hiposfer.com/o2g?url=http://download.geofabrik.de/europe/liechtenstein-latest.osm.bz2' -O gtfs.zip
 
 ### Web Api with Overpass Query
 It is alos possible to download the necessary OSM data from overpass-api.de. Passing an area name or a bbox to the web API will trigger this feature:
 
-    http 'http://o2g.hiposfer.com/o2g?area=Freiburg&bbox=47.9485,7.7066,48.1161,8.0049' > gtfs.zip
+    $ wget 'http://o2g.hiposfer.com/o2g?area=Freiburg&bbox=47.9485,7.7066,48.1161,8.0049' -O gtfs.zip
 
 As before, it is possible to get a patched and valid GTFS feed by passing the dummy flag:
 
-   http 'http://o2g.hiposfer.com/o2g?area=Freiburg&dummy=True > gtfs.zip
+    $ wget 'http://o2g.hiposfer.com/o2g?area=Freiburg&dummy=True -O gtfs.zip
 
 ### With Docker
 If osmium is not available in your package manager, it could be troublesome to install it manually. So here
@@ -83,25 +86,10 @@ is a docker image that could be used directly:
 
 Then browse to [http://localhost:3000](http://localhost:3000).
 
-## Development
-We use `pipenv` to manage dependencies and virtualenvs. Install and activate it before anything:
-
-    $ cd osmtogtfs
-    $ pip install pipenv
-    $ pipenv install
-    $ pipenv shell
-
-The last command will give us a shell within the newly created virtualenv.
-
-In order to update the `requirements.txt` we simply use `pipenv`:
-
-    $ pipenv run pip freeze > requirements.txt
-
 ### Tests
-We use the `pytest` package for testing. If you have followed above instructions, `pytest` should be
-already installed. Otherwise install pytest and run the tests:
+We use the `pytest` package for testing:
 
-    $ pip install pytest
+    $ pip install pytest (or by running `flit install`)
     $ pytest -s
 
 `-s` disables capturing and shows us more output (such as print statements and log messages).
@@ -110,16 +98,15 @@ already installed. Otherwise install pytest and run the tests:
 In order to profile the code we use `cProfile`:
     
     # For the `osmtogtfs` script
-    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/bremen-latest.osm.pbf --outdir output/bremen --dummy > output/benchmarks/bremen.txt
-    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/saarland-latest.osm.pbf --outdir output/saarland --dummy > output/benchmarks/saarland.txt
+    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/freiburg.osm.pbf --outdir output/freiburg --dummy > output/benchmarks/freiburg.txt
 
 You will find the result in [`output/benchmark.txt`](output/benchmark.txt).
 Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.
 
 ### Dummy Feed Information
 Not all of GTFS necessary data are available in OSM files. In order to fill the missing fields with
-some dummy data use `--dummy` CLI option. This will produce `trips.txt`, `stop_times.txt` and `calendar`
-feeds. These files will contain dummy data of course.
+some dummy data use `--dummy` CLI option. This will produce `trips.txt`, `stop_times.txt`, `calendar`
+and `frequencies.txt` feeds. These files will contain dummy data of course.
 
 ## Implementation Notes
 In this section we describe important aspects of the implementation in order to help understand how the program works.

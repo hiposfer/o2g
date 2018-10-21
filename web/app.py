@@ -128,8 +128,13 @@ def build_overpass_query(area, bbox):
         ["route"~"tram|subway|bus|ex-bus|light_rail|rail|railway"]
         {area_limit};
     );
-    (._; >;);
-    out;
+    out body;
+
+    way(r){area_limit};
+    out body;
+
+    node(w){area_limit};
+    out body;
     """
     bbox_fmt = ''
     area_fmt = ''
@@ -137,11 +142,11 @@ def build_overpass_query(area, bbox):
 
     if bbox:
         south, west, north, east = bbox.split(',')
-        bbox_fmt ='[bbox:{},{},{},{}];'.format(south, west, north, east)
+        bbox_fmt = '[bbox:{},{},{},{}];'.format(south, west, north, east)
 
     if area:
-        area_fmt ='area["name"="{}"];'.format(area)
-        area_limit_fmt ='(area._)'
+        area_fmt = 'area["name"="{}"]->.searchArea;'.format(area)
+        area_limit_fmt = '(area.searchArea)'
 
     return template.format(bbox=bbox_fmt, area=area_fmt, area_limit=area_limit_fmt)
 

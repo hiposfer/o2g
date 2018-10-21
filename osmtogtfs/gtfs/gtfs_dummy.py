@@ -31,9 +31,7 @@ def create_dummy_data(routes, stops):
             stops_per_route,
             calendar)
 
-    first_service_time = datetime.datetime(2017, 1, 1, 5, 0, 0)
-    stop_times = _create_dummy_stoptimes(
-        trips, stops_per_route, first_service_time)
+    stop_times = _create_dummy_stoptimes(trips, stops_per_route)
     frequencies = _create_dummy_frequencies(trips)
 
     return DummyData(calendar, stop_times, trips, frequencies)
@@ -98,18 +96,18 @@ def _create_dummy_trips(routes, stops_per_route, calendar):
     return trips
 
 
-def _create_dummy_stoptimes(trips, stops_per_route, first_service_time):
+def _create_dummy_stoptimes(trips, stops_per_route):
     stoptimes = []
     for trip in trips:
         # One service every 20 minutes from the base station
-        trip_start_time = \
-            first_service_time + \
+        first_service_time = \
+            datetime.datetime(2017, 1, 1, 5, 0, 0) + \
             datetime.timedelta(minutes=20) * trip['sequence']
         stoptimes.extend(
             _create_dummy_trip_stoptimes(
                 trip['trip_id'],
                 stops_per_route.get(trip['route_id'], []),
-                trip_start_time))
+                first_service_time))
 
     return stoptimes
 
@@ -122,6 +120,8 @@ def _create_dummy_trip_stoptimes(trip_id, stops, first_service_time):
     last_departure_hour = (arrival + waiting).hour
     last_stop = None
 
+    departure_hour = None
+    arrival_hour = None
     for stop_sequence, stop in enumerate(stops):
 
         # Avoid time travels
@@ -130,9 +130,10 @@ def _create_dummy_trip_stoptimes(trip_id, stops, first_service_time):
 
         # Cover the case when the arrival time falls into the next day
         if arrival.hour < last_departure_hour:
-            arrival_hour = arrival.hour + 24
-            departure_hour = departure.hour + 24
-            last_departure_hour = departure.hour + 24
+            diff = last_departure_hour
+            arrival_hour = arrival.hour + diff
+            departure_hour = departure.hour + diff
+            last_departure_hour = departure.hour + diff
         else:
             arrival_hour = arrival.hour
             departure_hour = departure.hour
@@ -141,8 +142,9 @@ def _create_dummy_trip_stoptimes(trip_id, stops, first_service_time):
         # Cover the case when adding waiting time to the arrival time
         # falls into the next day
         if departure.hour < arrival.hour:
-            departure_hour = departure.hour + 24
-            last_departure_hour = departure.hour + 24
+            diff = last_departure_hour
+            departure_hour = departure.hour + diff
+            last_departure_hour = departure.hour + diff
 
         yield {'trip_id': trip_id,
                'arrival_time': '{:02}:{}'.format(

@@ -108,3 +108,4 @@ validation-results.html
 
 transitfeed
 .DS_Store
+.direnv

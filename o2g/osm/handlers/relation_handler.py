@@ -1,6 +1,6 @@
 import osmium as o
 
-from osmtogtfs.osm.models import Relation
+from o2g.osm.models import Relation
 
 
 class RelationHandler(o.SimpleHandler):

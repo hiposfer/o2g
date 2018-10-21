@@ -1,8 +1,8 @@
-# osmtogtfs
+# o2g
 
-[![Build Status](https://travis-ci.org/hiposfer/osmtogtfs.svg?branch=master)](https://travis-ci.org/hiposfer/osmtogtfs) [![pypi](https://img.shields.io/pypi/v/osmtogtfs.svg)](https://pypi.python.org/pypi/osmtogtfs)
+[![Build Status](https://travis-ci.org/hiposfer/o2g.svg?branch=master)](https://travis-ci.org/hiposfer/o2g) [![pypi](https://img.shields.io/pypi/v/o2g.svg)](https://pypi.python.org/pypi/o2g)
 
-Extracts partial GTFS feed from OSM data.
+A simple tool to extract public transport data from OpenStreetMap.
 
 OpenStreeMaps data contain information about bus, tram, train and other public transport means.
 This information is not enought for providing a complete routing service, most importantly because
@@ -19,14 +19,14 @@ The best way would be using the package manager of your OS and installing [pyosm
 
 Afterwards install the script from PyPI:
 
-    $ pip install osmtogtfs
+    $ pip install o2g
 
 Or install it from source (with [flit](https://flit.readthedocs.io/en/latest/)):
 
-    $ git clone https://github.com/hiposfer/osmtogtfs && cd osmtogtfs
+    $ git clone https://github.com/hiposfer/o2g && cd o2g
     $ flit install
 
-This will install `osmtogtfs` package along with `o2g`, its cli tool, on your system.
+This will install `o2g` package along with `o2g`, its cli tool, on your system.
 
 Make sure to run these commands with python 3.
 
@@ -59,7 +59,7 @@ There is a small web app inside `web` folder. It accepts a URL to a osmium suppo
 to a zipped GTFS feed.
 
     $ cd web
-    $ pip install bottle osmtogtfs
+    $ pip install bottle o2g
     $ python app.py
 
 Browse to [http://localhost:3000](http://localhost:3000) afterwards.
@@ -82,7 +82,7 @@ As before, it is possible to get a patched and valid GTFS feed by passing the du
 If osmium is not available in your package manager, it could be troublesome to install it manually. So here
 is a docker image that could be used directly:
 
-    $ docker run -it -p 3000:3000 hiposfer/osmtogtfs
+    $ docker run -it -p 3000:3000 hiposfer/o2g
 
 Then browse to [http://localhost:3000](http://localhost:3000).
 
@@ -97,8 +97,8 @@ We use the `pytest` package for testing:
 ### Profiling
 In order to profile the code we use `cProfile`:
     
-    # For the `osmtogtfs` script
-    $ python -m cProfile -s cumtime osmtogtfs/cli.py resources/osm/freiburg.osm.pbf --outdir output/freiburg --dummy > output/benchmarks/freiburg.txt
+    # For the `o2g` script
+    $ python -m cProfile -s cumtime o2g/cli.py resources/osm/freiburg.osm.pbf --outdir output/freiburg --dummy > output/benchmarks/freiburg.txt
 
 You will find the result in [`output/benchmark.txt`](output/benchmark.txt).
 Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.

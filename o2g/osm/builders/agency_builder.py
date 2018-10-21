@@ -3,7 +3,7 @@ import hashlib
 
 # from timezonefinder import TimezoneFinder
 
-from osmtogtfs.osm.models import Agency
+from o2g.osm.models import Agency
 
 
 # TZ_FINDER = TimezoneFinder()

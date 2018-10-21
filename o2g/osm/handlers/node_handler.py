@@ -2,7 +2,7 @@ import logging
 
 import osmium as o
 
-from osmtogtfs.osm.models import Node
+from o2g.osm.models import Node
 
 
 class NodeHandler(o.SimpleHandler):

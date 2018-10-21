@@ -1,7 +1,7 @@
 import logging
 
-from osmtogtfs.osm.handlers import RelationHandler, NodeHandler, WayHandler
-from osmtogtfs.osm.builders import build_routes, build_stops, build_agencies,\
+from o2g.osm.handlers import RelationHandler, NodeHandler, WayHandler
+from o2g.osm.builders import build_routes, build_stops, build_agencies,\
     build_shapes
 
 

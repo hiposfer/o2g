@@ -1,4 +1,4 @@
-"""osmtogtfs web app"""
+"""o2g web interface"""
 import os
 import pathlib
 import tempfile

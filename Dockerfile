@@ -4,7 +4,7 @@ RUN apk add expat-dev python3-dev boost-dev zlib-dev bzip2-dev g++ boost-python3
 RUN pip install osmium
 
 WORKDIR /build
-COPY o2g /build/osmtogtfs/
+COPY o2g /build/o2g/
 COPY pyproject.toml README.md /build/
 ENV FLIT_ROOT_INSTALL 1
 RUN pip install --user flit && ~/.local/bin/flit install --deps none

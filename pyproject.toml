@@ -23,4 +23,4 @@ test = ['pytest']
 web = ['bottle']
 
 [tool.flit.scripts]
-o2g = 'osmtogtfs.cli:cli'
+o2g = 'o2g.cli:cli'

@@ -3,7 +3,7 @@ import datetime
 from math import radians, cos, sin, asin, sqrt
 from collections import namedtuple, defaultdict
 
-from osmtogtfs.osm.models import Agency
+from o2g.osm.models import Agency
 
 
 # Represents dummy GTFS data

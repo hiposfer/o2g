@@ -1,8 +1,8 @@
 """Functionality to build a list of routes."""
 import hashlib
 
-from osmtogtfs.osm.models import Route
-from osmtogtfs.gtfs.gtfs_misc import map_osm_route_type_to_gtfs
+from o2g.osm.models import Route
+from o2g.gtfs.gtfs_misc import map_osm_route_type_to_gtfs
 
 
 def build_routes(relations):

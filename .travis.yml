@@ -22,6 +22,7 @@ deploy:
     tags: true
     python: 3.6
     branch: master
+    condition: $TRAVIS_BRANCH =~ ^master$
 addons:
   apt:
     packages:

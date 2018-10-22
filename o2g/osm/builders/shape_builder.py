@@ -1,7 +1,7 @@
 """Functionality to build a list of shapes."""
 import logging
 
-from osmtogtfs.osm.models import Shape
+from o2g.osm.models import Shape
 
 
 def build_shapes(relations, nodes, ways):

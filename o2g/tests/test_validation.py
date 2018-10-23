@@ -83,7 +83,7 @@ def test_duplicate_trips(dummy_transit_data):
 def test_validation(dummy_zipfeed):
     """Run transitfeed over the generated feed."""
     # transitfeed is a python2 application. So we need to run it outside
-    # python3 process. Moreover, it is not available in pip repostiory.
+    # python3 process. Moreover, it is not available in pip repository.
     # Therefore we have to clone it from git and eventually run it in a
     # process of its own. Finally we parse the standard output and look
     # for errors. We ignore the warnings for now.

@@ -98,9 +98,9 @@ We use the `pytest` package for testing:
 In order to profile the code we use `cProfile`:
     
     # For the `o2g` script
-    $ python -m cProfile -s cumtime o2g/cli.py resources/osm/freiburg.osm.pbf --outdir output/freiburg --dummy > output/benchmarks/freiburg.txt
+    $ python -m cProfile -s cumtime o2g/cli.py resources/osm/freiburg.osm.bz2 --outdir resources/out/freiburg --dummy > resources/out/benchmarks/freiburg.txt
 
-You will find the result in [`output/benchmark.txt`](output/benchmark.txt).
+You will find the result in [`resources/out/benchmark.txt`](resources/out/benchmark.txt).
 Theses results are produced on an Archlinux machine with an Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz CPU with 16GB RAM.
 
 ### Dummy Feed Information

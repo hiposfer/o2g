@@ -1,7 +1,7 @@
 __pycache__/
 *.py[cod]
 dist/
-*.sublime-workspace
+*.sublime-*
 .pytest_cache
 validation-results.html
 transitfeed

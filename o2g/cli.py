@@ -16,6 +16,7 @@ from o2g import __version__
 from o2g.gtfs import gtfs_dummy
 from o2g.gtfs.gtfs_writer import GTFSWriter
 from o2g.osm.exporter import TransitDataExporter
+from o2g.web import dl_osm_from_overpass
 
 
 class readable_dir(argparse.Action):
@@ -53,34 +54,52 @@ def cli():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         description='Export GTFS feed from OpenStreetMap data.')
     parser.add_argument('osmfile', metavar='OSMFILE', action=readable_file,
+                        nargs='?',
+                        default=argparse.SUPPRESS,
                         help='an OSM data file supported by osmium')
+    parser.add_argument('--area',
+                        help='an OSM area name, e.g. Freiburg')
+    parser.add_argument('--bbox',
+                        help='a boundary box, e.g. 47.9485,7.7066,48.1161,8.0049')
     parser.add_argument('--outdir', action=readable_dir,
                         default='.',
                         help='output directory')
-    parser.add_argument('--zipfile', action='store_true',
-                        default=False,
+    parser.add_argument('--zipfile',
                         help='save to zipfile')
     parser.add_argument('--dummy', action='store_true',
                         default=False,
                         help='fill the missing parts with dummy data')
     parser.add_argument('--loglevel',
                         default='WARNING',
-                        help='DEBUG, INFO, WARNING, ERROR or CRITICAL')
+                        choices=['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'],
+                        help='the logging level')
     parser.add_argument('--version',
                         action='version',
                         version='%(prog)s ' + __version__,
-                        help='Show the version and exit')
+                        help='show the version and exit')
 
     args = parser.parse_args()
+    if not args.area and not args.bbox and not hasattr(args, 'osmfile'):
+        parser.print_usage()
+        parser.exit("o2g: error: one of these args are required: OSMFILE, bbox or area.")
 
     if args.loglevel:
         logging.basicConfig(level=args.loglevel)
-    logging.debug('Input: %s', args.osmfile)
+    if hasattr(args, 'osmfile'):
+        logging.debug('Input: %s', args.osmfile)
+    logging.debug('Area: %s', args.area)
+    logging.debug('Boundary box: %s', args.bbox)
     logging.debug('Output: %s', args.outdir)
     logging.debug('Zip?: %s', args.zipfile or False)
     logging.debug('Dummy?: %s', args.dummy)
 
-    main(args.osmfile, args.outdir, args.zipfile, args.dummy)
+    if args.area or args.bbox:
+        filename, filepath = dl_osm_from_overpass(args.area, args.bbox)
+        osmfile = filepath
+    else:
+        osmfile = args.osmfile
+
+    main(osmfile, args.outdir, args.zipfile, args.dummy)
 
 
 def main(osmfile, outdir, zipfile, dummy):

@@ -34,25 +34,41 @@ Make sure to run these commands with python 3.
 Run the tool over your OSM data source (or whatever osmium accepts):
 
     $ o2g --help
-    usage: o2g [-h] [--outdir OUTDIR] [--zipfile] [--dummy] [--loglevel LOGLEVEL]
-               [--version]
-               OSMFILE
+    usage: o2g [-h] [--area AREA] [--bbox BBOX] [--outdir OUTDIR]
+               [--zipfile ZIPFILE] [--dummy]
+               [--loglevel {DEBUG,INFO,WARNING,ERROR,CRITICAL}] [--version]
+               [OSMFILE]
 
     Export GTFS feed from OpenStreetMap data.
 
     positional arguments:
-      OSMFILE              an OSM data file supported by osmium
+      OSMFILE               an OSM data file supported by osmium
 
     optional arguments:
-      -h, --help           show this help message and exit
-      --outdir OUTDIR      output directory (default: .)
-      --zipfile            save to zipfile (default: False)
-      --dummy              fill the missing parts with dummy data (default: False)
-      --loglevel LOGLEVEL  set the logging level (default: WARNING)
-      --version            Show the version and exit
+      -h, --help            show this help message and exit
+      --area AREA           an OSM area name, e.g. Freiburg (default: None)
+      --bbox BBOX           a boundary box, e.g. 47.9485,7.7066,48.1161,8.0049
+                            (default: None)
+      --outdir OUTDIR       output directory (default: .)
+      --zipfile ZIPFILE     save to zipfile (default: None)
+      --dummy               fill the missing parts with dummy data (default:
+                            False)
+      --loglevel {DEBUG,INFO,WARNING,ERROR,CRITICAL}
+                            the logging level (default: WARNING)
+      --version             show the version and exit
 
 `--outdir` defaults to the working directory and if `--zipfile` is provided, the feed will be zipped and stored in
 the _outdir_ with the given name, otherwise feed will be stored as plain text in multiple files.
+
+### Area and Boundary Box
+One can pass an area name or a bbox to `o2g` and it will download the necessary data
+from [Overpass API](https://overpass-api.de/). Area should be an OSM area name and
+bbox should be an OSM boundary box including south, west, north, east separated with
+comma. Example:
+
+    $ o2g --area Freiburg
+    $ o2g --bbox 47.9485,7.7066,48.1161,8.0049
+    $ o2g --area Freiburg --bbox 47.9485,7.7066,48.1161,8.0049
 
 ### Web Demo
 There is a small web app inside `web` folder. It accepts a URL to a osmium supported file. It will then convert it

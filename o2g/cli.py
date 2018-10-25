@@ -115,10 +115,10 @@ def main(osmfile, outdir, zipfile, dummy):
 
     if zipfile:
         writer.write_zipped(os.path.join(outdir, zipfile))
-        print('GTFS feed saved in %s' % os.path.join(outdir, zipfile))
+        logging.info('GTFS feed saved in %s' % os.path.join(outdir, zipfile))
     else:
         writer.write_unzipped(outdir)
-        print('GTFS feed saved in %s' % outdir)
+        logging.info('GTFS feed saved in %s' % outdir)
 
     logging.debug('Done in %d seconds.', (time.time() - start))
 

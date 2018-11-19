@@ -1,4 +1,6 @@
 """Functionality to build a list of stops."""
+import logging
+
 from o2g.osm.models import Stop
 
 
@@ -25,10 +27,25 @@ def extract_stops(relation, nodes, visited_stop_ids):
                 "Unnamed {} stop.".format(relation.tags.get('route')),
                 nodes[member_id].lon if member_id in nodes else '',
                 nodes[member_id].lat if member_id in nodes else '',
-                relation.id)
+                relation.id,
+                _map_wheelchair(nodes[member_id].tags.get('wheelchair')))
 
 
 def _is_stop(member_id, member_role, nodes):
     """Check wether the given member designates a public transport stop."""
     return (member_role in ('stop', 'platform')) or \
         (nodes[member_id].tags.get('public_transport') == 'stop_position')
+
+
+def _map_wheelchair(osm_value):
+    if not osm_value:
+        return 0
+    elif osm_value == 'limited':
+        return 1
+    elif osm_value == 'yes':
+        return 1
+    elif osm_value == 'no':
+        return 2
+    else:
+        logging.warn('Unknown OSM wheelchair value %s', osm_value)
+        return 0

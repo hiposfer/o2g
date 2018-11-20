@@ -29,8 +29,6 @@ class NodeHandler(o.SimpleHandler):
               Node(n.id,
                    n.location.lon,
                    n.location.lat,
-                   # Instead of {t.k:t.v for t in n.tags} we only pick the tags that we need,
-                   # because this way it is way faster. See Profiling in README.
-                   {'name': n.tags.get('name'), 'public_transport': n.tags.get('public_transport')})
+                   {t.k: t.v for t in n.tags})
         except o.InvalidLocationError:
             logging.debug('InvalidLocationError at node %s', n.id)

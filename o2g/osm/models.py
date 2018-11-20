@@ -28,7 +28,8 @@ Stop = namedtuple('Stop', [
     'stop_name',
     'stop_lon',
     'stop_lat',
-    'route_id'])
+    'route_id',
+    'wheelchair_boarding'])
 
 Shape = namedtuple('Shape', [
     'shape_id',

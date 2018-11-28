@@ -28,7 +28,9 @@ def extract_stops(relation, nodes, visited_stop_ids):
                 nodes[member_id].lon if member_id in nodes else '',
                 nodes[member_id].lat if member_id in nodes else '',
                 relation.id,
-                _map_wheelchair(nodes[member_id].tags.get('wheelchair')))
+                _map_wheelchair(nodes[member_id].tags.get('wheelchair')),
+                '',  # location_type
+                '')  # parent_station
 
 
 def _is_stop(member_id, member_role, nodes):

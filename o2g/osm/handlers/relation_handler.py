@@ -22,18 +22,25 @@ class RelationHandler(o.SimpleHandler):
 
     def relation(self, rel):
         """Process each relation."""
+        rel_type = rel.tags.get('type')
         if any([rel.deleted,
                 not rel.visible,
                 not self.is_new_version(rel),
-                rel.tags.get('type') != 'route']):
+                rel_type not in ['route', 'public_transport']]):
             return
 
         route_tag = rel.tags.get('route')
-        if route_tag not in self.transit_route_types:
+        if rel_type == 'route' and route_tag not in self.transit_route_types:
+            return
+
+        public_transport = rel.tags.get('public_transport')
+        if rel_type == 'public_transport' and public_transport != 'stop_area':
             return
 
         self.relations[rel.id] = \
             Relation(rel.id, {
+                'type': rel_type,
+                'public_transport': public_transport,
                 'route': route_tag,
                 'operator': rel.tags.get('operator'),
                 'color': rel.tags.get('color'),

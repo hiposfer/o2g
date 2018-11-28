@@ -5,7 +5,7 @@ build-backend = 'flit.buildapi'
 [tool.flit.metadata]
 module = 'o2g'
 author = 'Mehdi Sadeghi'
-author-email = 'mehdi@mehdix.rog'
+author-email = 'mehdi@mehdix.org'
 home-page = 'https://github.com/hiposfer/o2g'
 requires-python = '>=3.5'
 classifiers = [

@@ -74,7 +74,7 @@ class TransitDataExporter(object):
 
                 if mtype in ['n', 'node']:
                     node_ids.add(ref)
-                    if role in ['stop', 'platform']:
+                    if role in ['stop', 'halt', 'platform']:
                         stop_node_ids.add(ref)
 
                 elif mtype in ['w', 'way']:

@@ -28,7 +28,7 @@ Stop = namedtuple('Stop', [
     'stop_name',
     'stop_lon',
     'stop_lat',
-    'route_id',
+    'route_id',  # TODO: remove route_id. A stop could belong to many routes.
     'wheelchair_boarding',
     'location_type',
     'parent_station'])

@@ -5,30 +5,12 @@ route_id,service_id,trip_id,trip_headsign,shape_id
 35886,WD,11.35886,[Dummy],35886
 35886,WD,21.35886,[Dummy],35886
 35886,WD,31.35886,[Dummy],35886
-51487,WE,10.51487,[Dummy]Buslinie 7216,51487
-51487,WE,20.51487,[Dummy]Buslinie 7216,51487
-51487,WE,30.51487,[Dummy]Buslinie 7216,51487
-51487,WD,11.51487,[Dummy]Buslinie 7216,51487
-51487,WD,21.51487,[Dummy]Buslinie 7216,51487
-51487,WD,31.51487,[Dummy]Buslinie 7216,51487
-68224,WE,10.68224,[Dummy],68224
-68224,WE,20.68224,[Dummy],68224
-68224,WE,30.68224,[Dummy],68224
-68224,WD,11.68224,[Dummy],68224
-68224,WD,21.68224,[Dummy],68224
-68224,WD,31.68224,[Dummy],68224
 68320,WE,10.68320,[Dummy].1,68320
 68320,WE,20.68320,[Dummy].1,68320
 68320,WE,30.68320,[Dummy].1,68320
 68320,WD,11.68320,[Dummy].1,68320
 68320,WD,21.68320,[Dummy].1,68320
 68320,WD,31.68320,[Dummy].1,68320
-68558,WE,10.68558,[Dummy]Buslinie 7215,68558
-68558,WE,20.68558,[Dummy]Buslinie 7215,68558
-68558,WE,30.68558,[Dummy]Buslinie 7215,68558
-68558,WD,11.68558,[Dummy]Buslinie 7215,68558
-68558,WD,21.68558,[Dummy]Buslinie 7215,68558
-68558,WD,31.68558,[Dummy]Buslinie 7215,68558
 68648,WE,10.68648,[Dummy],68648
 68648,WE,20.68648,[Dummy],68648
 68648,WE,30.68648,[Dummy],68648
@@ -53,12 +35,6 @@ route_id,service_id,trip_id,trip_headsign,shape_id
 69347,WD,11.69347,[Dummy]ElsassRegio-Linie Freiburg-Colmar,69347
 69347,WD,21.69347,[Dummy]ElsassRegio-Linie Freiburg-Colmar,69347
 69347,WD,31.69347,[Dummy]ElsassRegio-Linie Freiburg-Colmar,69347
-69672,WE,10.69672,[Dummy],69672
-69672,WE,20.69672,[Dummy],69672
-69672,WE,30.69672,[Dummy],69672
-69672,WD,11.69672,[Dummy],69672
-69672,WD,21.69672,[Dummy],69672
-69672,WD,31.69672,[Dummy],69672
 69742,WE,10.69742,[Dummy]OSM Route No. 69742,69742
 69742,WE,20.69742,[Dummy]OSM Route No. 69742,69742
 69742,WE,30.69742,[Dummy]OSM Route No. 69742,69742
@@ -83,150 +59,18 @@ route_id,service_id,trip_id,trip_headsign,shape_id
 69916,WD,11.69916,[Dummy]OSM Route No. 69916,69916
 69916,WD,21.69916,[Dummy]OSM Route No. 69916,69916
 69916,WD,31.69916,[Dummy]OSM Route No. 69916,69916
-69936,WE,10.69936,[Dummy]Buslinie 31 Freiburg - Tuniberg - Breisach,69936
-69936,WE,20.69936,[Dummy]Buslinie 31 Freiburg - Tuniberg - Breisach,69936
-69936,WE,30.69936,[Dummy]Buslinie 31 Freiburg - Tuniberg - Breisach,69936
-69936,WD,11.69936,[Dummy]Buslinie 31 Freiburg - Tuniberg - Breisach,69936
-69936,WD,21.69936,[Dummy]Buslinie 31 Freiburg - Tuniberg - Breisach,69936
-69936,WD,31.69936,[Dummy]Buslinie 31 Freiburg - Tuniberg - Breisach,69936
-69937,WE,10.69937,[Dummy]OSM Route No. 69937,69937
-69937,WE,20.69937,[Dummy]OSM Route No. 69937,69937
-69937,WE,30.69937,[Dummy]OSM Route No. 69937,69937
-69937,WD,11.69937,[Dummy]OSM Route No. 69937,69937
-69937,WD,21.69937,[Dummy]OSM Route No. 69937,69937
-69937,WD,31.69937,[Dummy]OSM Route No. 69937,69937
-69998,WE,10.69998,[Dummy]Hauptbahnhof-to-Richard-Strauss-Straße,69998
-69998,WE,20.69998,[Dummy]Hauptbahnhof-to-Richard-Strauss-Straße,69998
-69998,WE,30.69998,[Dummy]Hauptbahnhof-to-Richard-Strauss-Straße,69998
-69998,WD,11.69998,[Dummy]Hauptbahnhof-to-Richard-Strauss-Straße,69998
-69998,WD,21.69998,[Dummy]Hauptbahnhof-to-Richard-Strauss-Straße,69998
-69998,WD,31.69998,[Dummy]Hauptbahnhof-to-Richard-Strauss-Straße,69998
-70035,WE,10.70035,"[Dummy]Bergasse, Freiburg im Breisgau-to-Gundelfinger Straße, Freiburg im Breisgau",70035
-70035,WE,20.70035,"[Dummy]Bergasse, Freiburg im Breisgau-to-Gundelfinger Straße, Freiburg im Breisgau",70035
-70035,WE,30.70035,"[Dummy]Bergasse, Freiburg im Breisgau-to-Gundelfinger Straße, Freiburg im Breisgau",70035
-70035,WD,11.70035,"[Dummy]Bergasse, Freiburg im Breisgau-to-Gundelfinger Straße, Freiburg im Breisgau",70035
-70035,WD,21.70035,"[Dummy]Bergasse, Freiburg im Breisgau-to-Gundelfinger Straße, Freiburg im Breisgau",70035
-70035,WD,31.70035,"[Dummy]Bergasse, Freiburg im Breisgau-to-Gundelfinger Straße, Freiburg im Breisgau",70035
-70036,WE,10.70036,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Gundelfingen Bahnhof",70036
-70036,WE,20.70036,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Gundelfingen Bahnhof",70036
-70036,WE,30.70036,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Gundelfingen Bahnhof",70036
-70036,WD,11.70036,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Gundelfingen Bahnhof",70036
-70036,WD,21.70036,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Gundelfingen Bahnhof",70036
-70036,WD,31.70036,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Gundelfingen Bahnhof",70036
-70042,WE,10.70042,[Dummy]OSM Route No. 70042,70042
-70042,WE,20.70042,[Dummy]OSM Route No. 70042,70042
-70042,WE,30.70042,[Dummy]OSM Route No. 70042,70042
-70042,WD,11.70042,[Dummy]OSM Route No. 70042,70042
-70042,WD,21.70042,[Dummy]OSM Route No. 70042,70042
-70042,WD,31.70042,[Dummy]OSM Route No. 70042,70042
-70045,WE,10.70045,[Dummy]OSM Route No. 70045,70045
-70045,WE,20.70045,[Dummy]OSM Route No. 70045,70045
-70045,WE,30.70045,[Dummy]OSM Route No. 70045,70045
-70045,WD,11.70045,[Dummy]OSM Route No. 70045,70045
-70045,WD,21.70045,[Dummy]OSM Route No. 70045,70045
-70045,WD,31.70045,[Dummy]OSM Route No. 70045,70045
-70052,WE,10.70052,[Dummy]OSM Route No. 70052,70052
-70052,WE,20.70052,[Dummy]OSM Route No. 70052,70052
-70052,WE,30.70052,[Dummy]OSM Route No. 70052,70052
-70052,WD,11.70052,[Dummy]OSM Route No. 70052,70052
-70052,WD,21.70052,[Dummy]OSM Route No. 70052,70052
-70052,WD,31.70052,[Dummy]OSM Route No. 70052,70052
-70369,WE,10.70369,[Dummy]ElsassRegio-Linie Freiburg-Colmar,70369
-70369,WE,20.70369,[Dummy]ElsassRegio-Linie Freiburg-Colmar,70369
-70369,WE,30.70369,[Dummy]ElsassRegio-Linie Freiburg-Colmar,70369
-70369,WD,11.70369,[Dummy]ElsassRegio-Linie Freiburg-Colmar,70369
-70369,WD,21.70369,[Dummy]ElsassRegio-Linie Freiburg-Colmar,70369
-70369,WD,31.70369,[Dummy]ElsassRegio-Linie Freiburg-Colmar,70369
 71150,WE,10.71150,[Dummy]OSM Route No. 71150,71150
 71150,WE,20.71150,[Dummy]OSM Route No. 71150,71150
 71150,WE,30.71150,[Dummy]OSM Route No. 71150,71150
 71150,WD,11.71150,[Dummy]OSM Route No. 71150,71150
 71150,WD,21.71150,[Dummy]OSM Route No. 71150,71150
 71150,WD,31.71150,[Dummy]OSM Route No. 71150,71150
-71919,WE,10.71919,[Dummy],71919
-71919,WE,20.71919,[Dummy],71919
-71919,WE,30.71919,[Dummy],71919
-71919,WD,11.71919,[Dummy],71919
-71919,WD,21.71919,[Dummy],71919
-71919,WD,31.71919,[Dummy],71919
-72507,WE,10.72507,[Dummy]OSM Route No. 72507,72507
-72507,WE,20.72507,[Dummy]OSM Route No. 72507,72507
-72507,WE,30.72507,[Dummy]OSM Route No. 72507,72507
-72507,WD,11.72507,[Dummy]OSM Route No. 72507,72507
-72507,WD,21.72507,[Dummy]OSM Route No. 72507,72507
-72507,WD,31.72507,[Dummy]OSM Route No. 72507,72507
-72535,WE,10.72535,[Dummy]OSM Route No. 72535,72535
-72535,WE,20.72535,[Dummy]OSM Route No. 72535,72535
-72535,WE,30.72535,[Dummy]OSM Route No. 72535,72535
-72535,WD,11.72535,[Dummy]OSM Route No. 72535,72535
-72535,WD,21.72535,[Dummy]OSM Route No. 72535,72535
-72535,WD,31.72535,[Dummy]OSM Route No. 72535,72535
 74932,WE,10.74932,[Dummy],74932
 74932,WE,20.74932,[Dummy],74932
 74932,WE,30.74932,[Dummy],74932
 74932,WD,11.74932,[Dummy],74932
 74932,WD,21.74932,[Dummy],74932
 74932,WD,31.74932,[Dummy],74932
-77721,WE,10.77721,[Dummy]OSM Route No. 77721,77721
-77721,WE,20.77721,[Dummy]OSM Route No. 77721,77721
-77721,WE,30.77721,[Dummy]OSM Route No. 77721,77721
-77721,WD,11.77721,[Dummy]OSM Route No. 77721,77721
-77721,WD,21.77721,[Dummy]OSM Route No. 77721,77721
-77721,WD,31.77721,[Dummy]OSM Route No. 77721,77721
-120458,WE,10.120458,[Dummy]OSM Route No. 120458,120458
-120458,WE,20.120458,[Dummy]OSM Route No. 120458,120458
-120458,WE,30.120458,[Dummy]OSM Route No. 120458,120458
-120458,WD,11.120458,[Dummy]OSM Route No. 120458,120458
-120458,WD,21.120458,[Dummy]OSM Route No. 120458,120458
-120458,WD,31.120458,[Dummy]OSM Route No. 120458,120458
-171590,WE,10.171590,[Dummy]OSM Route No. 171590,171590
-171590,WE,20.171590,[Dummy]OSM Route No. 171590,171590
-171590,WE,30.171590,[Dummy]OSM Route No. 171590,171590
-171590,WD,11.171590,[Dummy]OSM Route No. 171590,171590
-171590,WD,21.171590,[Dummy]OSM Route No. 171590,171590
-171590,WD,31.171590,[Dummy]OSM Route No. 171590,171590
-318785,WE,10.318785,[Dummy]OSM Route No. 318785,318785
-318785,WE,20.318785,[Dummy]OSM Route No. 318785,318785
-318785,WE,30.318785,[Dummy]OSM Route No. 318785,318785
-318785,WD,11.318785,[Dummy]OSM Route No. 318785,318785
-318785,WD,21.318785,[Dummy]OSM Route No. 318785,318785
-318785,WD,31.318785,[Dummy]OSM Route No. 318785,318785
-421622,WE,10.421622,[Dummy]OSM Route No. 421622,421622
-421622,WE,20.421622,[Dummy]OSM Route No. 421622,421622
-421622,WE,30.421622,[Dummy]OSM Route No. 421622,421622
-421622,WD,11.421622,[Dummy]OSM Route No. 421622,421622
-421622,WD,21.421622,[Dummy]OSM Route No. 421622,421622
-421622,WD,31.421622,[Dummy]OSM Route No. 421622,421622
-422973,WE,10.422973,[Dummy]OSM Route No. 422973,422973
-422973,WE,20.422973,[Dummy]OSM Route No. 422973,422973
-422973,WE,30.422973,[Dummy]OSM Route No. 422973,422973
-422973,WD,11.422973,[Dummy]OSM Route No. 422973,422973
-422973,WD,21.422973,[Dummy]OSM Route No. 422973,422973
-422973,WD,31.422973,[Dummy]OSM Route No. 422973,422973
-556304,WE,10.556304,"[Dummy]Lassbergstraße, Freiburg im Breisgau-to-Löwen, Freiburg im Breisgau",556304
-556304,WE,20.556304,"[Dummy]Lassbergstraße, Freiburg im Breisgau-to-Löwen, Freiburg im Breisgau",556304
-556304,WE,30.556304,"[Dummy]Lassbergstraße, Freiburg im Breisgau-to-Löwen, Freiburg im Breisgau",556304
-556304,WD,11.556304,"[Dummy]Lassbergstraße, Freiburg im Breisgau-to-Löwen, Freiburg im Breisgau",556304
-556304,WD,21.556304,"[Dummy]Lassbergstraße, Freiburg im Breisgau-to-Löwen, Freiburg im Breisgau",556304
-556304,WD,31.556304,"[Dummy]Lassbergstraße, Freiburg im Breisgau-to-Löwen, Freiburg im Breisgau",556304
-659834,WE,10.659834,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Berggasse. Freiburg im Breisgau",659834
-659834,WE,20.659834,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Berggasse. Freiburg im Breisgau",659834
-659834,WE,30.659834,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Berggasse. Freiburg im Breisgau",659834
-659834,WD,11.659834,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Berggasse. Freiburg im Breisgau",659834
-659834,WD,21.659834,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Berggasse. Freiburg im Breisgau",659834
-659834,WD,31.659834,"[Dummy]Gundelfinger Straße, Freiburg im Breisgau-to-Berggasse. Freiburg im Breisgau",659834
-1079463,WE,10.1079463,[Dummy]Moosweiher-to-Lassbergstraße,1079463
-1079463,WE,20.1079463,[Dummy]Moosweiher-to-Lassbergstraße,1079463
-1079463,WE,30.1079463,[Dummy]Moosweiher-to-Lassbergstraße,1079463
-1079463,WD,11.1079463,[Dummy]Moosweiher-to-Lassbergstraße,1079463
-1079463,WD,21.1079463,[Dummy]Moosweiher-to-Lassbergstraße,1079463
-1079463,WD,31.1079463,[Dummy]Moosweiher-to-Lassbergstraße,1079463
-1079464,WE,10.1079464,[Dummy]Lassbergstraße-to-Moosweiher,1079464
-1079464,WE,20.1079464,[Dummy]Lassbergstraße-to-Moosweiher,1079464
-1079464,WE,30.1079464,[Dummy]Lassbergstraße-to-Moosweiher,1079464
-1079464,WD,11.1079464,[Dummy]Lassbergstraße-to-Moosweiher,1079464
-1079464,WD,21.1079464,[Dummy]Lassbergstraße-to-Moosweiher,1079464
-1079464,WD,31.1079464,[Dummy]Lassbergstraße-to-Moosweiher,1079464
 1080375,WE,10.1080375,[Dummy]Hornusstraße-to-Dorfstraße,1080375
 1080375,WE,20.1080375,[Dummy]Hornusstraße-to-Dorfstraße,1080375
 1080375,WE,30.1080375,[Dummy]Hornusstraße-to-Dorfstraße,1080375
@@ -239,18 +83,6 @@ route_id,service_id,trip_id,trip_headsign,shape_id
 1080376,WD,11.1080376,[Dummy]Dorfstraße-to-Hornusstraße,1080376
 1080376,WD,21.1080376,[Dummy]Dorfstraße-to-Hornusstraße,1080376
 1080376,WD,31.1080376,[Dummy]Dorfstraße-to-Hornusstraße,1080376
-1104119,WE,10.1104119,[Dummy]Innsbrucker Straße-to-Munzinger Straße,1104119
-1104119,WE,20.1104119,[Dummy]Innsbrucker Straße-to-Munzinger Straße,1104119
-1104119,WE,30.1104119,[Dummy]Innsbrucker Straße-to-Munzinger Straße,1104119
-1104119,WD,11.1104119,[Dummy]Innsbrucker Straße-to-Munzinger Straße,1104119
-1104119,WD,21.1104119,[Dummy]Innsbrucker Straße-to-Munzinger Straße,1104119
-1104119,WD,31.1104119,[Dummy]Innsbrucker Straße-to-Munzinger Straße,1104119
-1104120,WE,10.1104120,[Dummy]Munzinger Straße-to-Innsbrucker Straße,1104120
-1104120,WE,20.1104120,[Dummy]Munzinger Straße-to-Innsbrucker Straße,1104120
-1104120,WE,30.1104120,[Dummy]Munzinger Straße-to-Innsbrucker Straße,1104120
-1104120,WD,11.1104120,[Dummy]Munzinger Straße-to-Innsbrucker Straße,1104120
-1104120,WD,21.1104120,[Dummy]Munzinger Straße-to-Innsbrucker Straße,1104120
-1104120,WD,31.1104120,[Dummy]Munzinger Straße-to-Innsbrucker Straße,1104120
 1108847,WE,10.1108847,[Dummy]Hornusstraße-to-Bollerstaudenstraße,1108847
 1108847,WE,20.1108847,[Dummy]Hornusstraße-to-Bollerstaudenstraße,1108847
 1108847,WE,30.1108847,[Dummy]Hornusstraße-to-Bollerstaudenstraße,1108847
@@ -275,42 +107,12 @@ route_id,service_id,trip_id,trip_headsign,shape_id
 1197649,WD,11.1197649,[Dummy]Paduaallee-to-Gundelfinger Straße,1197649
 1197649,WD,21.1197649,[Dummy]Paduaallee-to-Gundelfinger Straße,1197649
 1197649,WD,31.1197649,[Dummy]Paduaallee-to-Gundelfinger Straße,1197649
-1560703,WE,10.1560703,[Dummy]OSM Route No. 1560703,1560703
-1560703,WE,20.1560703,[Dummy]OSM Route No. 1560703,1560703
-1560703,WE,30.1560703,[Dummy]OSM Route No. 1560703,1560703
-1560703,WD,11.1560703,[Dummy]OSM Route No. 1560703,1560703
-1560703,WD,21.1560703,[Dummy]OSM Route No. 1560703,1560703
-1560703,WD,31.1560703,[Dummy]OSM Route No. 1560703,1560703
-1602986,WE,10.1602986,[Dummy]Schneeburgstraße-to-Scherrerplatz,1602986
-1602986,WE,20.1602986,[Dummy]Schneeburgstraße-to-Scherrerplatz,1602986
-1602986,WE,30.1602986,[Dummy]Schneeburgstraße-to-Scherrerplatz,1602986
-1602986,WD,11.1602986,[Dummy]Schneeburgstraße-to-Scherrerplatz,1602986
-1602986,WD,21.1602986,[Dummy]Schneeburgstraße-to-Scherrerplatz,1602986
-1602986,WD,31.1602986,[Dummy]Schneeburgstraße-to-Scherrerplatz,1602986
-1608136,WE,10.1608136,[Dummy]Pressehaus-to-Munzinger-Straße,1608136
-1608136,WE,20.1608136,[Dummy]Pressehaus-to-Munzinger-Straße,1608136
-1608136,WE,30.1608136,[Dummy]Pressehaus-to-Munzinger-Straße,1608136
-1608136,WD,11.1608136,[Dummy]Pressehaus-to-Munzinger-Straße,1608136
-1608136,WD,21.1608136,[Dummy]Pressehaus-to-Munzinger-Straße,1608136
-1608136,WD,31.1608136,[Dummy]Pressehaus-to-Munzinger-Straße,1608136
-1608137,WE,10.1608137,[Dummy]Munzinger-Straße-to-Hauptbahnhof,1608137
-1608137,WE,20.1608137,[Dummy]Munzinger-Straße-to-Hauptbahnhof,1608137
-1608137,WE,30.1608137,[Dummy]Munzinger-Straße-to-Hauptbahnhof,1608137
-1608137,WD,11.1608137,[Dummy]Munzinger-Straße-to-Hauptbahnhof,1608137
-1608137,WD,21.1608137,[Dummy]Munzinger-Straße-to-Hauptbahnhof,1608137
-1608137,WD,31.1608137,[Dummy]Munzinger-Straße-to-Hauptbahnhof,1608137
 1866696,WE,10.1866696,[Dummy]OSM Route No. 1866696,1866696
 1866696,WE,20.1866696,[Dummy]OSM Route No. 1866696,1866696
 1866696,WE,30.1866696,[Dummy]OSM Route No. 1866696,1866696
 1866696,WD,11.1866696,[Dummy]OSM Route No. 1866696,1866696
 1866696,WD,21.1866696,[Dummy]OSM Route No. 1866696,1866696
 1866696,WD,31.1866696,[Dummy]OSM Route No. 1866696,1866696
-2440920,WE,10.2440920,[Dummy]Schulbus Schallstadt-Mengen,2440920
-2440920,WE,20.2440920,[Dummy]Schulbus Schallstadt-Mengen,2440920
-2440920,WE,30.2440920,[Dummy]Schulbus Schallstadt-Mengen,2440920
-2440920,WD,11.2440920,[Dummy]Schulbus Schallstadt-Mengen,2440920
-2440920,WD,21.2440920,[Dummy]Schulbus Schallstadt-Mengen,2440920
-2440920,WD,31.2440920,[Dummy]Schulbus Schallstadt-Mengen,2440920
 2442549,WE,10.2442549,[Dummy],2442549
 2442549,WE,20.2442549,[Dummy],2442549
 2442549,WE,30.2442549,[Dummy],2442549
@@ -341,36 +143,12 @@ route_id,service_id,trip_id,trip_headsign,shape_id
 3199939,WD,11.3199939,"[Dummy]Munzinger Straße, Freiburg-to-Bahnhof, Breisach",3199939
 3199939,WD,21.3199939,"[Dummy]Munzinger Straße, Freiburg-to-Bahnhof, Breisach",3199939
 3199939,WD,31.3199939,"[Dummy]Munzinger Straße, Freiburg-to-Bahnhof, Breisach",3199939
-3247370,WE,10.3247370,[Dummy]KEIDEL Mineralthermalbad-to-Munzinger Straße,3247370
-3247370,WE,20.3247370,[Dummy]KEIDEL Mineralthermalbad-to-Munzinger Straße,3247370
-3247370,WE,30.3247370,[Dummy]KEIDEL Mineralthermalbad-to-Munzinger Straße,3247370
-3247370,WD,11.3247370,[Dummy]KEIDEL Mineralthermalbad-to-Munzinger Straße,3247370
-3247370,WD,21.3247370,[Dummy]KEIDEL Mineralthermalbad-to-Munzinger Straße,3247370
-3247370,WD,31.3247370,[Dummy]KEIDEL Mineralthermalbad-to-Munzinger Straße,3247370
-3250566,WE,10.3250566,[Dummy]Munzinger Straße-to-KEIDEL Mineralthermalbad,3250566
-3250566,WE,20.3250566,[Dummy]Munzinger Straße-to-KEIDEL Mineralthermalbad,3250566
-3250566,WE,30.3250566,[Dummy]Munzinger Straße-to-KEIDEL Mineralthermalbad,3250566
-3250566,WD,11.3250566,[Dummy]Munzinger Straße-to-KEIDEL Mineralthermalbad,3250566
-3250566,WD,21.3250566,[Dummy]Munzinger Straße-to-KEIDEL Mineralthermalbad,3250566
-3250566,WD,31.3250566,[Dummy]Munzinger Straße-to-KEIDEL Mineralthermalbad,3250566
 3385101,WE,10.3385101,[Dummy]OSM Route No. 3385101,3385101
 3385101,WE,20.3385101,[Dummy]OSM Route No. 3385101,3385101
 3385101,WE,30.3385101,[Dummy]OSM Route No. 3385101,3385101
 3385101,WD,11.3385101,[Dummy]OSM Route No. 3385101,3385101
 3385101,WD,21.3385101,[Dummy]OSM Route No. 3385101,3385101
 3385101,WD,31.3385101,[Dummy]OSM Route No. 3385101,3385101
-3385699,WE,10.3385699,[Dummy]OSM Route No. 3385699,3385699
-3385699,WE,20.3385699,[Dummy]OSM Route No. 3385699,3385699
-3385699,WE,30.3385699,[Dummy]OSM Route No. 3385699,3385699
-3385699,WD,11.3385699,[Dummy]OSM Route No. 3385699,3385699
-3385699,WD,21.3385699,[Dummy]OSM Route No. 3385699,3385699
-3385699,WD,31.3385699,[Dummy]OSM Route No. 3385699,3385699
-3392264,WE,10.3392264,[Dummy]OSM Route No. 3392264,3392264
-3392264,WE,20.3392264,[Dummy]OSM Route No. 3392264,3392264
-3392264,WE,30.3392264,[Dummy]OSM Route No. 3392264,3392264
-3392264,WD,11.3392264,[Dummy]OSM Route No. 3392264,3392264
-3392264,WD,21.3392264,[Dummy]OSM Route No. 3392264,3392264
-3392264,WD,31.3392264,[Dummy]OSM Route No. 3392264,3392264
 3737189,WE,10.3737189,[Dummy]Bollerstaudenstraße-to-Gundelfinger Straße,3737189
 3737189,WE,20.3737189,[Dummy]Bollerstaudenstraße-to-Gundelfinger Straße,3737189
 3737189,WE,30.3737189,[Dummy]Bollerstaudenstraße-to-Gundelfinger Straße,3737189
@@ -389,18 +167,6 @@ route_id,service_id,trip_id,trip_headsign,shape_id
 5563137,WD,11.5563137,[Dummy]Buslinie 295 Freiburg - Vogtsburg,5563137
 5563137,WD,21.5563137,[Dummy]Buslinie 295 Freiburg - Vogtsburg,5563137
 5563137,WD,31.5563137,[Dummy]Buslinie 295 Freiburg - Vogtsburg,5563137
-5567835,WE,10.5567835,[Dummy]Regiobus Breisach - Bad Krozingen,5567835
-5567835,WE,20.5567835,[Dummy]Regiobus Breisach - Bad Krozingen,5567835
-5567835,WE,30.5567835,[Dummy]Regiobus Breisach - Bad Krozingen,5567835
-5567835,WD,11.5567835,[Dummy]Regiobus Breisach - Bad Krozingen,5567835
-5567835,WD,21.5567835,[Dummy]Regiobus Breisach - Bad Krozingen,5567835
-5567835,WD,31.5567835,[Dummy]Regiobus Breisach - Bad Krozingen,5567835
-5732268,WE,10.5732268,[Dummy]OSM Route No. 5732268,5732268
-5732268,WE,20.5732268,[Dummy]OSM Route No. 5732268,5732268
-5732268,WE,30.5732268,[Dummy]OSM Route No. 5732268,5732268
-5732268,WD,11.5732268,[Dummy]OSM Route No. 5732268,5732268
-5732268,WD,21.5732268,[Dummy]OSM Route No. 5732268,5732268
-5732268,WD,31.5732268,[Dummy]OSM Route No. 5732268,5732268
 6092717,WE,10.6092717,[Dummy]Technische Fakultät-to-Gundelfinger Straße,6092717
 6092717,WE,20.6092717,[Dummy]Technische Fakultät-to-Gundelfinger Straße,6092717
 6092717,WE,30.6092717,[Dummy]Technische Fakultät-to-Gundelfinger Straße,6092717
@@ -413,57 +179,9 @@ route_id,service_id,trip_id,trip_headsign,shape_id
 6092718,WD,11.6092718,[Dummy]Gundelfinger Straße-to-Am Lindenwäldle,6092718
 6092718,WD,21.6092718,[Dummy]Gundelfinger Straße-to-Am Lindenwäldle,6092718
 6092718,WD,31.6092718,[Dummy]Gundelfinger Straße-to-Am Lindenwäldle,6092718
-6634155,WE,10.6634155,[Dummy]Gundelfingen Bahnhof-to-Munzinger-Straße,6634155
-6634155,WE,20.6634155,[Dummy]Gundelfingen Bahnhof-to-Munzinger-Straße,6634155
-6634155,WE,30.6634155,[Dummy]Gundelfingen Bahnhof-to-Munzinger-Straße,6634155
-6634155,WD,11.6634155,[Dummy]Gundelfingen Bahnhof-to-Munzinger-Straße,6634155
-6634155,WD,21.6634155,[Dummy]Gundelfingen Bahnhof-to-Munzinger-Straße,6634155
-6634155,WD,31.6634155,[Dummy]Gundelfingen Bahnhof-to-Munzinger-Straße,6634155
-7188637,WE,10.7188637,[Dummy]Konstanz Döbeleplatz-to-Amsterdam Sloterdijk,7188637
-7188637,WE,20.7188637,[Dummy]Konstanz Döbeleplatz-to-Amsterdam Sloterdijk,7188637
-7188637,WE,30.7188637,[Dummy]Konstanz Döbeleplatz-to-Amsterdam Sloterdijk,7188637
-7188637,WD,11.7188637,[Dummy]Konstanz Döbeleplatz-to-Amsterdam Sloterdijk,7188637
-7188637,WD,21.7188637,[Dummy]Konstanz Döbeleplatz-to-Amsterdam Sloterdijk,7188637
-7188637,WD,31.7188637,[Dummy]Konstanz Döbeleplatz-to-Amsterdam Sloterdijk,7188637
-7188638,WE,10.7188638,[Dummy]Amsterdam Sloterdijk-to-Konstanz Döbeleplatz,7188638
-7188638,WE,20.7188638,[Dummy]Amsterdam Sloterdijk-to-Konstanz Döbeleplatz,7188638
-7188638,WE,30.7188638,[Dummy]Amsterdam Sloterdijk-to-Konstanz Döbeleplatz,7188638
-7188638,WD,11.7188638,[Dummy]Amsterdam Sloterdijk-to-Konstanz Döbeleplatz,7188638
-7188638,WD,21.7188638,[Dummy]Amsterdam Sloterdijk-to-Konstanz Döbeleplatz,7188638
-7188638,WD,31.7188638,[Dummy]Amsterdam Sloterdijk-to-Konstanz Döbeleplatz,7188638
-8045973,WE,10.8045973,[Dummy]SEV A,8045973
-8045973,WE,20.8045973,[Dummy]SEV A,8045973
-8045973,WE,30.8045973,[Dummy]SEV A,8045973
-8045973,WD,11.8045973,[Dummy]SEV A,8045973
-8045973,WD,21.8045973,[Dummy]SEV A,8045973
-8045973,WD,31.8045973,[Dummy]SEV A,8045973
-8047518,WE,10.8047518,[Dummy]SEV A,8047518
-8047518,WE,20.8047518,[Dummy]SEV A,8047518
-8047518,WE,30.8047518,[Dummy]SEV A,8047518
-8047518,WD,11.8047518,[Dummy]SEV A,8047518
-8047518,WD,21.8047518,[Dummy]SEV A,8047518
-8047518,WD,31.8047518,[Dummy]SEV A,8047518
-8047642,WE,10.8047642,[Dummy]SEV B,8047642
-8047642,WE,20.8047642,[Dummy]SEV B,8047642
-8047642,WE,30.8047642,[Dummy]SEV B,8047642
-8047642,WD,11.8047642,[Dummy]SEV B,8047642
-8047642,WD,21.8047642,[Dummy]SEV B,8047642
-8047642,WD,31.8047642,[Dummy]SEV B,8047642
-8047715,WE,10.8047715,[Dummy]SEV B,8047715
-8047715,WE,20.8047715,[Dummy]SEV B,8047715
-8047715,WE,30.8047715,[Dummy]SEV B,8047715
-8047715,WD,11.8047715,[Dummy]SEV B,8047715
-8047715,WD,21.8047715,[Dummy]SEV B,8047715
-8047715,WD,31.8047715,[Dummy]SEV B,8047715
-8047798,WE,10.8047798,[Dummy]SEV C,8047798
-8047798,WE,20.8047798,[Dummy]SEV C,8047798
-8047798,WE,30.8047798,[Dummy]SEV C,8047798
-8047798,WD,11.8047798,[Dummy]SEV C,8047798
-8047798,WD,21.8047798,[Dummy]SEV C,8047798
-8047798,WD,31.8047798,[Dummy]SEV C,8047798
-8047806,WE,10.8047806,[Dummy]SEV D,8047806
-8047806,WE,20.8047806,[Dummy]SEV D,8047806
-8047806,WE,30.8047806,[Dummy]SEV D,8047806
-8047806,WD,11.8047806,[Dummy]SEV D,8047806
-8047806,WD,21.8047806,[Dummy]SEV D,8047806
-8047806,WD,31.8047806,[Dummy]SEV D,8047806
+8047736,WE,10.8047736,[Dummy]SEV B Tagesrandlage,8047736
+8047736,WE,20.8047736,[Dummy]SEV B Tagesrandlage,8047736
+8047736,WE,30.8047736,[Dummy]SEV B Tagesrandlage,8047736
+8047736,WD,11.8047736,[Dummy]SEV B Tagesrandlage,8047736
+8047736,WD,21.8047736,[Dummy]SEV B Tagesrandlage,8047736
+8047736,WD,31.8047736,[Dummy]SEV B Tagesrandlage,8047736

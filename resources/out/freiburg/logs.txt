@@ -1,8 +1,0 @@
-[Rel: 35886]: super-relations are not supported yet. ref: 903630
-[Rel: 1079463]: super-relations are not supported yet. ref: 3271919
-[Rel: 2442549]: super-relations are not supported yet. ref: 903630
-Unknown OSM wheelchair value no;yes
-Unknown OSM wheelchair value no;yes
-[no data] rel 35886 type r ref 903630.
-[no data] rel 1079463 type r ref 3271919.
-[no data] rel 2442549 type r ref 903630.

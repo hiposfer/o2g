@@ -38,5 +38,11 @@ def build_shape(relation, nodes, ways):
         #         sequence_index += 1
 
         else:
-            logging.warning('[no data] rel %s type %s ref %s.',
-                            relation.id, member_type, member_id)
+            if member_type == 'n':
+                member_osm_type = 'node'
+            elif member_type == 'w':
+                member_osm_type = 'way'
+            else:
+                member_osm_type = member_type
+            logging.warning('[no data] https://osm.org/relation/%s missing https://osm.org/%s/%s.',
+                            relation.id, member_osm_type, member_id)

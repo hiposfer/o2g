@@ -48,7 +48,7 @@ class TransitDataExporter(object):
         for idx, missing_node_id in enumerate(self.nh.missing_node_ids):
             count += 1
             logging.warning(
-                '[no data] stop node: rel %s ref %s.',
+                '[no data] missing stop node. rel: https://osm.org/relation/%s node: https://osm.org/node/%s.',
                 reverse_map[missing_node_id], missing_node_id)
 
         if count:

@@ -48,12 +48,13 @@ def build_parent_stop(relation, nodes):
             station_node = some_node
 
     if not station_node and not some_node:
-        logging.debug('No parent node found: https://www.openstreetmap.org/relation/%s' % relation.id)
+        logging.debug('No parent node found: https://osm.org/relation/%s' % relation.id)
         return
 
     if not station_node:
-        logging.warning('stop_area without station: https://www.openstreetmap.org/relation/%s' % relation.id)
-        logging.warning('Using a random node from the stop_area as reference.')
+        logging.warning(
+            'stop_area without station: https://osm.org/relation/%s.'\
+            ' Using node https://osm.org/node/%s instead.' % (relation.id, some_node.id))
         station_node = some_node
 
     return Stop(

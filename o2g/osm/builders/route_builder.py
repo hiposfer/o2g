@@ -25,7 +25,7 @@ def build_route(relation):
               short_name,
               create_route_long_name(relation, short_name),
               map_osm_route_type_to_gtfs(relation.tags.get('route')),
-              'https://www.openstreetmap.org/relation/{}'.format(relation.id),
+              'https://osm.org/relation/{}'.format(relation.id),
               color.strip('#') if color else '',
               get_agency_id(relation))
 

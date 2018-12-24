@@ -48,7 +48,6 @@ def build_parent_stop(relation, nodes):
             station_node = some_node
 
     if not station_node and not some_node:
-        print('No parent node found: https://www.openstreetmap.org/relation/%s' % relation.id)
         return
 
     if not station_node:

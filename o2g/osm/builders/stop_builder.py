@@ -8,7 +8,7 @@ def build_stops(relations, nodes):
     visited_stops_ids = set()
     stop_to_station_map = {}
 
-    # First process all stop_areas
+    # First gsocess all stop_areas
     for rel in relations.values():
         if rel.tags.get('public_transport') != 'stop_area':
             continue
@@ -48,6 +48,7 @@ def build_parent_stop(relation, nodes):
             station_node = some_node
 
     if not station_node and not some_node:
+        logging.debug('No parent node found: https://www.openstreetmap.org/relation/%s' % relation.id)
         return
 
     if not station_node:

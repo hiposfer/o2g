@@ -51,8 +51,8 @@ def build_parent_stop(relation, nodes):
         return
 
     if not station_node:
-        print('stop_area without station: https://www.openstreetmap.org/relation/%s' % relation.id)
-        print('Using a random node from the stop_area as reference.')
+        logging.warn('stop_area without station: https://www.openstreetmap.org/relation/%s' % relation.id)
+        logging.warn('Using a random node from the stop_area as reference.')
         station_node = some_node
 
     return Stop(

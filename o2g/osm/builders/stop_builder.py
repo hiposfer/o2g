@@ -52,8 +52,8 @@ def build_parent_stop(relation, nodes):
         return
 
     if not station_node:
-        logging.warn('stop_area without station: https://www.openstreetmap.org/relation/%s' % relation.id)
-        logging.warn('Using a random node from the stop_area as reference.')
+        logging.warning('stop_area without station: https://www.openstreetmap.org/relation/%s' % relation.id)
+        logging.warning('Using a random node from the stop_area as reference.')
         station_node = some_node
 
     return Stop(
@@ -101,5 +101,5 @@ def _map_wheelchair(osm_value):
     elif osm_value == 'no':
         return 2
     else:
-        logging.warn('Unknown OSM wheelchair value %s', osm_value)
+        logging.warning('Unknown OSM wheelchair value %s', osm_value)
         return 0

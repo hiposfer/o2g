@@ -20,6 +20,8 @@ def create_dummy_data(routes, stops):
     stops_per_route = defaultdict(lambda: [])
     stops_map = {}
     for s in stops:
+        if not s.route_id:
+            continue
         stops_per_route[s.route_id].append(s)
         stops_map[s.stop_id] = s
 

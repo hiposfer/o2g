@@ -38,6 +38,11 @@ def build_overpass_query(area, bbox):
         ["type"="route"]
         ["route"~"tram|subway|bus|ex-bus|light_rail|rail|railway"]
         {area_limit};
+      rel
+        [!"deleted"]
+        ["type"="public_transport"]
+        ["public_transport"="stop_area"]
+        {area_limit};
     );
     out body;
 

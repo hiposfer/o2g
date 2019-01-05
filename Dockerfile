@@ -1,7 +1,7 @@
 FROM frolvlad/alpine-python3
 RUN apk update
 RUN apk add expat-dev python3-dev boost-dev zlib-dev bzip2-dev g++ boost-python3
-RUN pip install osmium
+RUN pip install -Iv osmium==2.14.3
 
 WORKDIR /build
 COPY o2g /build/o2g/

@@ -14,6 +14,10 @@ def build_routes(relations):
 
 def build_route(relation):
     """Extract information of one route."""
+    if relation.tags.get('type') != 'route':
+        # Build route only for relations of type `route`
+        return
+
     short_name = create_route_short_name(relation)
     color = relation.tags.get('color')
     return\

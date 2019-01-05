@@ -1,8 +1,1611 @@
 [Rel: 35886]: super-relations are not supported yet. ref: 903630
 [Rel: 1079463]: super-relations are not supported yet. ref: 3271919
 [Rel: 2442549]: super-relations are not supported yet. ref: 903630
+[Rel: 3271923]: super-relations are not supported yet. ref: 3271919
+[Rel: 6311483]: super-relations are not supported yet. ref: 3140220
+[Rel: 6311483]: super-relations are not supported yet. ref: 3140219
+[Rel: 6311483]: super-relations are not supported yet. ref: 3140221
+[Rel: 6311483]: super-relations are not supported yet. ref: 3140222
+[no data] missing stop node. rel: https://osm.org/relation/7159183 node: https://osm.org/node/430055424.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/4820156420.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/433045516.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/302874637.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/302874640.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/302874641.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/4623310869.
+[no data] missing stop node. rel: https://osm.org/relation/7159183 node: https://osm.org/node/3549208614.
+[no data] missing stop node. rel: https://osm.org/relation/7159183 node: https://osm.org/node/3549208616.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/2919678012.
+[no data] missing stop node. rel: https://osm.org/relation/6075589 node: https://osm.org/node/2805612605.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400973889.
+[no data] missing stop node. rel: https://osm.org/relation/6075592 node: https://osm.org/node/2805612609.
+[no data] missing stop node. rel: https://osm.org/relation/6075594 node: https://osm.org/node/2805612611.
+[no data] missing stop node. rel: https://osm.org/relation/6075596 node: https://osm.org/node/2805612610.
+[no data] missing stop node. rel: https://osm.org/relation/6075597 node: https://osm.org/node/2805612612.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833429575.
+[no data] missing stop node. rel: https://osm.org/relation/68648 node: https://osm.org/node/433070156.
+[no data] missing stop node. rel: https://osm.org/relation/7159183 node: https://osm.org/node/3549208654.
+[no data] missing stop node. rel: https://osm.org/relation/68648 node: https://osm.org/node/433070163.
+[no data] missing stop node. rel: https://osm.org/relation/7159170 node: https://osm.org/node/2463105110.
+[no data] missing stop node. rel: https://osm.org/relation/7159172 node: https://osm.org/node/2463105115.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833429609.
+[no data] missing stop node. rel: https://osm.org/relation/3199938 node: https://osm.org/node/628072554.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/2340331627.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833429618.
+[no data] missing stop node. rel: https://osm.org/relation/6075587 node: https://osm.org/node/301817972.
+[no data] missing stop node. rel: https://osm.org/relation/6065320 node: https://osm.org/node/4068917366.
+[no data] missing stop node. rel: https://osm.org/relation/6065320 node: https://osm.org/node/4068917365.
+[no data] missing stop node. rel: https://osm.org/relation/1602333 node: https://osm.org/node/333799556.
+[no data] missing stop node. rel: https://osm.org/relation/6271116 node: https://osm.org/node/4216160394.
+[no data] missing stop node. rel: https://osm.org/relation/6271116 node: https://osm.org/node/4216160395.
+[no data] missing stop node. rel: https://osm.org/relation/69270 node: https://osm.org/node/2755616913.
+[no data] missing stop node. rel: https://osm.org/relation/3271923 node: https://osm.org/node/2496897172.
+[no data] missing stop node. rel: https://osm.org/relation/3271923 node: https://osm.org/node/2496897173.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/432554132.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/257400980.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/1014079650.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/432554149.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/302104742.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/432554151.
+[no data] missing stop node. rel: https://osm.org/relation/6634158 node: https://osm.org/node/432554153.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/5111480490.
+[no data] missing stop node. rel: https://osm.org/relation/6634158 node: https://osm.org/node/432554157.
+[no data] missing stop node. rel: https://osm.org/relation/1602333 node: https://osm.org/node/333799599.
+[no data] missing stop node. rel: https://osm.org/relation/6092725 node: https://osm.org/node/3883237552.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/432554164.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/459931846.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833429709.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/817062112.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833429744.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/2129633542.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925974798.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925974799.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833429785.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833429789.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/4092207389.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/459923743.
+[no data] missing stop node. rel: https://osm.org/relation/3262958 node: https://osm.org/node/1375363368.
+[no data] missing stop node. rel: https://osm.org/relation/3262958 node: https://osm.org/node/1375363373.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/295518510.
+[no data] missing stop node. rel: https://osm.org/relation/2442549 node: https://osm.org/node/295518511.
+[no data] missing stop node. rel: https://osm.org/relation/5567835 node: https://osm.org/node/295518512.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/3923796284.
+[no data] missing stop node. rel: https://osm.org/relation/69937 node: https://osm.org/node/427049288.
+[no data] missing stop node. rel: https://osm.org/relation/69937 node: https://osm.org/node/427049291.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833429837.
+[no data] missing stop node. rel: https://osm.org/relation/7159183 node: https://osm.org/node/3549208910.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/817062227.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/360980826.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/2178507105.
+[no data] missing stop node. rel: https://osm.org/relation/3199938 node: https://osm.org/node/2453717354.
+[no data] missing stop node. rel: https://osm.org/relation/69916 node: https://osm.org/node/459923853.
+[no data] missing stop node. rel: https://osm.org/relation/6062541 node: https://osm.org/node/1842979230.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/300515744.
+[no data] missing stop node. rel: https://osm.org/relation/6073150 node: https://osm.org/node/4073800097.
+[no data] missing stop node. rel: https://osm.org/relation/6073153 node: https://osm.org/node/4073800098.
+[no data] missing stop node. rel: https://osm.org/relation/6079196 node: https://osm.org/node/30253478.
+[no data] missing stop node. rel: https://osm.org/relation/7159172 node: https://osm.org/node/339018146.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/560611753.
+[no data] missing stop node. rel: https://osm.org/relation/7159172 node: https://osm.org/node/339018155.
+[no data] missing stop node. rel: https://osm.org/relation/7159172 node: https://osm.org/node/339018159.
+[no data] missing stop node. rel: https://osm.org/relation/7159172 node: https://osm.org/node/339018162.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38347192.
+[no data] missing stop node. rel: https://osm.org/relation/7159172 node: https://osm.org/node/339018169.
+[no data] missing stop node. rel: https://osm.org/relation/7159169 node: https://osm.org/node/339018171.
+[no data] missing stop node. rel: https://osm.org/relation/6092725 node: https://osm.org/node/2458550716.
+[no data] missing stop node. rel: https://osm.org/relation/6075595 node: https://osm.org/node/674947517.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/4794655170.
+[no data] missing stop node. rel: https://osm.org/relation/7188637 node: https://osm.org/node/4794655171.
+[no data] missing stop node. rel: https://osm.org/relation/7159170 node: https://osm.org/node/4794655169.
+[no data] missing stop node. rel: https://osm.org/relation/7159171 node: https://osm.org/node/4794655173.
+[no data] missing stop node. rel: https://osm.org/relation/7159173 node: https://osm.org/node/4794655174.
+[no data] missing stop node. rel: https://osm.org/relation/6080786 node: https://osm.org/node/317948359.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/411582921.
+[no data] missing stop node. rel: https://osm.org/relation/7159172 node: https://osm.org/node/4794655172.
+[no data] missing stop node. rel: https://osm.org/relation/35886 node: https://osm.org/node/302088678.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/2925019627.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/392446457.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/302096893.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/361161227.
+[no data] missing stop node. rel: https://osm.org/relation/6079853 node: https://osm.org/node/332112396.
+[no data] missing stop node. rel: https://osm.org/relation/3250566 node: https://osm.org/node/301851159.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/2330305087.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/2330305088.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925975140.
+[no data] missing stop node. rel: https://osm.org/relation/3018847 node: https://osm.org/node/6046917225.
+[no data] missing stop node. rel: https://osm.org/relation/6062554 node: https://osm.org/node/666780266.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925975150.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925975151.
+[no data] missing stop node. rel: https://osm.org/relation/6062553 node: https://osm.org/node/4053533294.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925975157.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925975161.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925975166.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925975170.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925975179.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369558181.
+[no data] missing stop node. rel: https://osm.org/relation/70035 node: https://osm.org/node/260924093.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432595645.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432595647.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432595648.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432595649.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432595650.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432595653.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369558224.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369558229.
+[no data] missing stop node. rel: https://osm.org/relation/68558 node: https://osm.org/node/497492696.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/445809369.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/445809368.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/694600413.
+[no data] missing stop node. rel: https://osm.org/relation/69937 node: https://osm.org/node/427090655.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369558240.
+[no data] missing stop node. rel: https://osm.org/relation/69937 node: https://osm.org/node/427090656.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38347490.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/925975263.
+[no data] missing stop node. rel: https://osm.org/relation/69916 node: https://osm.org/node/459924197.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/1591067367.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369558250.
+[no data] missing stop node. rel: https://osm.org/relation/5567835 node: https://osm.org/node/302875372.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369558264.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/424231672.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/424231676.
+[no data] missing stop node. rel: https://osm.org/relation/6062554 node: https://osm.org/node/409821966.
+[no data] missing stop node. rel: https://osm.org/relation/6080786 node: https://osm.org/node/317948687.
+[no data] missing stop node. rel: https://osm.org/relation/6071514 node: https://osm.org/node/30229289.
+[no data] missing stop node. rel: https://osm.org/relation/3262958 node: https://osm.org/node/626869033.
+[no data] missing stop node. rel: https://osm.org/relation/68558 node: https://osm.org/node/497492797.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432595776.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/4000588632.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441729894.
+[no data] missing stop node. rel: https://osm.org/relation/72507 node: https://osm.org/node/334627697.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/304391053.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/398836628.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/454411159.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38347677.
+[no data] missing stop node. rel: https://osm.org/relation/173118 node: https://osm.org/node/441295786.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399164341.
+[no data] missing stop node. rel: https://osm.org/relation/72507 node: https://osm.org/node/334627769.
+[no data] missing stop node. rel: https://osm.org/relation/72507 node: https://osm.org/node/334627783.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399164367.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/433038291.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/334693338.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/335799260.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/334693345.
+[no data] missing stop node. rel: https://osm.org/relation/6065251 node: https://osm.org/node/3492759636.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399164415.
+[no data] missing stop node. rel: https://osm.org/relation/72507 node: https://osm.org/node/334627844.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/392872966.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/392872967.
+[no data] missing stop node. rel: https://osm.org/relation/69270 node: https://osm.org/node/3189441547.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/305447950.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/946979858.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399164454.
+[no data] missing stop node. rel: https://osm.org/relation/3262957 node: https://osm.org/node/607978542.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/258974771.
+[no data] missing stop node. rel: https://osm.org/relation/74928 node: https://osm.org/node/302105653.
+[no data] missing stop node. rel: https://osm.org/relation/74928 node: https://osm.org/node/302105654.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399139896.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/302105657.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/1930519607.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399139899.
+[no data] missing stop node. rel: https://osm.org/relation/556304 node: https://osm.org/node/441730104.
+[no data] missing stop node. rel: https://osm.org/relation/3169076 node: https://osm.org/node/322135101.
+[no data] missing stop node. rel: https://osm.org/relation/1608140 node: https://osm.org/node/322135100.
+[no data] missing stop node. rel: https://osm.org/relation/1608140 node: https://osm.org/node/322135095.
+[no data] missing stop node. rel: https://osm.org/relation/1608138 node: https://osm.org/node/322135096.
+[no data] missing stop node. rel: https://osm.org/relation/1608138 node: https://osm.org/node/322135098.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/3595052104.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/459924553.
+[no data] missing stop node. rel: https://osm.org/relation/3392264 node: https://osm.org/node/301663320.
+[no data] missing stop node. rel: https://osm.org/relation/3392264 node: https://osm.org/node/301663321.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/301663322.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/301663324.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/1328399465.
+[no data] missing stop node. rel: https://osm.org/relation/6079855 node: https://osm.org/node/4078150765.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399139956.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432596094.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432596095.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38347907.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/307922059.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/305448076.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/305448077.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/305448098.
+[no data] missing stop node. rel: https://osm.org/relation/72507 node: https://osm.org/node/334628020.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/292406454.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/1036584118.
+[no data] missing stop node. rel: https://osm.org/relation/3247370 node: https://osm.org/node/419349695.
+[no data] missing stop node. rel: https://osm.org/relation/6548879 node: https://osm.org/node/338961602.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/305448141.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/305448143.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38347985.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/305448148.
+[no data] missing stop node. rel: https://osm.org/relation/3250566 node: https://osm.org/node/419349729.
+[no data] missing stop node. rel: https://osm.org/relation/72507 node: https://osm.org/node/334628074.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/2567595270.
+[no data] missing stop node. rel: https://osm.org/relation/120458 node: https://osm.org/node/2567595271.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/2567595272.
+[no data] missing stop node. rel: https://osm.org/relation/120458 node: https://osm.org/node/2567595273.
+[no data] missing stop node. rel: https://osm.org/relation/3199938 node: https://osm.org/node/430056711.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/430056710.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/618333454.
+[no data] missing stop node. rel: https://osm.org/relation/3169261 node: https://osm.org/node/359564573.
+[no data] missing stop node. rel: https://osm.org/relation/6079855 node: https://osm.org/node/3751298359.
+[no data] missing stop node. rel: https://osm.org/relation/6079855 node: https://osm.org/node/3751298360.
+[no data] missing stop node. rel: https://osm.org/relation/6065321 node: https://osm.org/node/2961990969.
+[no data] missing stop node. rel: https://osm.org/relation/6073151 node: https://osm.org/node/2961990970.
+[no data] missing stop node. rel: https://osm.org/relation/6073151 node: https://osm.org/node/2961990971.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/847021373.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/847021382.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/333194579.
+[no data] missing stop node. rel: https://osm.org/relation/69916 node: https://osm.org/node/459998566.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433055081.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/438445421.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/438445422.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433055088.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/4268057968.
+[no data] missing stop node. rel: https://osm.org/relation/69916 node: https://osm.org/node/459924865.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38348167.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441730458.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/429327773.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/429327775.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640040.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38348201.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640042.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640043.
+[no data] missing stop node. rel: https://osm.org/relation/69270 node: https://osm.org/node/2567603627.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640045.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640046.
+[no data] missing stop node. rel: https://osm.org/relation/69270 node: https://osm.org/node/2567603628.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640048.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433055151.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367666611.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640051.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640056.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640058.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726640059.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/333194703.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/428975568.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/1376847350.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/1376847355.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/1376847358.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/1376847361.
+[no data] missing stop node. rel: https://osm.org/relation/3169261 node: https://osm.org/node/359564812.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/459998738.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369559073.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369559076.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369559079.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367666728.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369559090.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369559093.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684669.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684670.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684671.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684672.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684673.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684674.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684675.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684676.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684677.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663684678.
+[no data] missing stop node. rel: https://osm.org/relation/70035 node: https://osm.org/node/433014357.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/369559132.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/433014367.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367666786.
+[no data] missing stop node. rel: https://osm.org/relation/35886 node: https://osm.org/node/300598888.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/369559147.
+[no data] missing stop node. rel: https://osm.org/relation/6634158 node: https://osm.org/node/433014380.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457041518.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/583575151.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/369559155.
+[no data] missing stop node. rel: https://osm.org/relation/8047736 node: https://osm.org/node/369559163.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/428975746.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/432547460.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/428975748.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/432547462.
+[no data] missing stop node. rel: https://osm.org/relation/69916 node: https://osm.org/node/459925131.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432596620.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432596621.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38348437.
+[no data] missing stop node. rel: https://osm.org/relation/659834 node: https://osm.org/node/433047191.
+[no data] missing stop node. rel: https://osm.org/relation/70035 node: https://osm.org/node/433047192.
+[no data] missing stop node. rel: https://osm.org/relation/70035 node: https://osm.org/node/433047194.
+[no data] missing stop node. rel: https://osm.org/relation/659834 node: https://osm.org/node/433047195.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367666844.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441730746.
+[no data] missing stop node. rel: https://osm.org/relation/6075601 node: https://osm.org/node/2753382075.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367666878.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432596670.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432596671.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/564020927.
+[no data] missing stop node. rel: https://osm.org/relation/7188545 node: https://osm.org/node/302646980.
+[no data] missing stop node. rel: https://osm.org/relation/7188545 node: https://osm.org/node/302646982.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/680126156.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367666900.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/322135783.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/322135784.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/322135786.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626501366.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367666945.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/369559297.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/260114182.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/369559314.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/260114229.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/2089314105.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626722623.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626722631.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/433030984.
+[no data] missing stop node. rel: https://osm.org/relation/6634158 node: https://osm.org/node/433030988.
+[no data] missing stop node. rel: https://osm.org/relation/1602333 node: https://osm.org/node/1302021971.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441730911.
+[no data] missing stop node. rel: https://osm.org/relation/7175199 node: https://osm.org/node/431941474.
+[no data] missing stop node. rel: https://osm.org/relation/5703346 node: https://osm.org/node/2443904874.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/260114286.
+[no data] missing stop node. rel: https://osm.org/relation/3046208 node: https://osm.org/node/304351114.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441730955.
+[no data] missing stop node. rel: https://osm.org/relation/2442549 node: https://osm.org/node/301852557.
+[no data] missing stop node. rel: https://osm.org/relation/2442549 node: https://osm.org/node/301852560.
+[no data] missing stop node. rel: https://osm.org/relation/69916 node: https://osm.org/node/459925393.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457041818.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/452618160.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420849597.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/298625022.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/628000787.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/628000797.
+[no data] missing stop node. rel: https://osm.org/relation/6073150 node: https://osm.org/node/1562044449.
+[no data] missing stop node. rel: https://osm.org/relation/6075603 node: https://osm.org/node/335390753.
+[no data] missing stop node. rel: https://osm.org/relation/3392264 node: https://osm.org/node/430811172.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441731109.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/430811176.
+[no data] missing stop node. rel: https://osm.org/relation/6075594 node: https://osm.org/node/335390760.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/560367658.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/2165524527.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/2165524528.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/2165524529.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/2165524530.
+[no data] missing stop node. rel: https://osm.org/relation/6606238 node: https://osm.org/node/2165524537.
+[no data] missing stop node. rel: https://osm.org/relation/6606238 node: https://osm.org/node/2165524538.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/2165524539.
+[no data] missing stop node. rel: https://osm.org/relation/318785 node: https://osm.org/node/2165524540.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/2165524547.
+[no data] missing stop node. rel: https://osm.org/relation/6065251 node: https://osm.org/node/3492759618.
+[no data] missing stop node. rel: https://osm.org/relation/6065251 node: https://osm.org/node/3492759619.
+[no data] missing stop node. rel: https://osm.org/relation/6065251 node: https://osm.org/node/3492759625.
+[no data] missing stop node. rel: https://osm.org/relation/6065251 node: https://osm.org/node/3492759626.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/352970829.
+[no data] missing stop node. rel: https://osm.org/relation/6065251 node: https://osm.org/node/3492759629.
+[no data] missing stop node. rel: https://osm.org/relation/6065251 node: https://osm.org/node/3492759628.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/2165524561.
+[no data] missing stop node. rel: https://osm.org/relation/3298825 node: https://osm.org/node/2165524564.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/2165524570.
+[no data] missing stop node. rel: https://osm.org/relation/6065251 node: https://osm.org/node/3492759637.
+[no data] missing stop node. rel: https://osm.org/relation/6079442 node: https://osm.org/node/3196102758.
+[no data] missing stop node. rel: https://osm.org/relation/68558 node: https://osm.org/node/3196356723.
+[no data] missing stop node. rel: https://osm.org/relation/556304 node: https://osm.org/node/441731194.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/352970890.
+[no data] missing stop node. rel: https://osm.org/relation/6075598 node: https://osm.org/node/2960140443.
+[no data] missing stop node. rel: https://osm.org/relation/6075598 node: https://osm.org/node/2960140444.
+[no data] missing stop node. rel: https://osm.org/relation/6075602 node: https://osm.org/node/2960140445.
+[no data] missing stop node. rel: https://osm.org/relation/6075602 node: https://osm.org/node/2960140446.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441731240.
+[no data] missing stop node. rel: https://osm.org/relation/70035 node: https://osm.org/node/430811308.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/430811311.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/391530680.
+[no data] missing stop node. rel: https://osm.org/relation/6634158 node: https://osm.org/node/430811321.
+[no data] missing stop node. rel: https://osm.org/relation/69937 node: https://osm.org/node/433072341.
+[no data] missing stop node. rel: https://osm.org/relation/556304 node: https://osm.org/node/441731317.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626501883.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/360909108.
+[no data] missing stop node. rel: https://osm.org/relation/6788791 node: https://osm.org/node/268953910.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/360909111.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457025864.
+[no data] missing stop node. rel: https://osm.org/relation/3018847 node: https://osm.org/node/2868414792.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/353069399.
+[no data] missing stop node. rel: https://osm.org/relation/6634158 node: https://osm.org/node/293497180.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/373762425.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441731454.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/373762430.
+[no data] missing stop node. rel: https://osm.org/relation/6074788 node: https://osm.org/node/4075145608.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367667593.
+[no data] missing stop node. rel: https://osm.org/relation/6074789 node: https://osm.org/node/4075145611.
+[no data] missing stop node. rel: https://osm.org/relation/6074790 node: https://osm.org/node/4075145624.
+[no data] missing stop node. rel: https://osm.org/relation/6074790 node: https://osm.org/node/4075145625.
+[no data] missing stop node. rel: https://osm.org/relation/6074790 node: https://osm.org/node/4075145626.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441731500.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366692786.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457050548.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366692796.
+[no data] missing stop node. rel: https://osm.org/relation/35886 node: https://osm.org/node/412649940.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441731546.
+[no data] missing stop node. rel: https://osm.org/relation/6075589 node: https://osm.org/node/4075678172.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/291834333.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/301664733.
+[no data] missing stop node. rel: https://osm.org/relation/6075592 node: https://osm.org/node/4075678173.
+[no data] missing stop node. rel: https://osm.org/relation/6075590 node: https://osm.org/node/4075678176.
+[no data] missing stop node. rel: https://osm.org/relation/6075587 node: https://osm.org/node/4075678178.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/722356715.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626502126.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/301664754.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/301664755.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/304835065.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/304835067.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/722356740.
+[no data] missing stop node. rel: https://osm.org/relation/556304 node: https://osm.org/node/441731600.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420850197.
+[no data] missing stop node. rel: https://osm.org/relation/171590 node: https://osm.org/node/440732192.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/441731677.
+[no data] missing stop node. rel: https://osm.org/relation/3392264 node: https://osm.org/node/433007199.
+[no data] missing stop node. rel: https://osm.org/relation/6074790 node: https://osm.org/node/1298467427.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/431942246.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/433007206.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996072.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996074.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996075.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996076.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/3997772398.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/3997772399.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996081.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996084.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996085.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/583576183.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/354658936.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996090.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996092.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996094.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996095.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996097.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996100.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996101.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996102.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366996103.
+[no data] missing stop node. rel: https://osm.org/relation/6062548 node: https://osm.org/node/2519526046.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624934.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624935.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624938.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624942.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624944.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624945.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624947.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624952.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624955.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624957.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726624959.
+[no data] missing stop node. rel: https://osm.org/relation/5703347 node: https://osm.org/node/303123149.
+[no data] missing stop node. rel: https://osm.org/relation/5703346 node: https://osm.org/node/303123151.
+[no data] missing stop node. rel: https://osm.org/relation/6092725 node: https://osm.org/node/3799010019.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/1024641766.
+[no data] missing stop node. rel: https://osm.org/relation/6062544 node: https://osm.org/node/1301154537.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/324954868.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/324954871.
+[no data] missing stop node. rel: https://osm.org/relation/6075587 node: https://osm.org/node/1516645113.
+[no data] missing stop node. rel: https://osm.org/relation/6062544 node: https://osm.org/node/1301154554.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/304835332.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/304835334.
+[no data] missing stop node. rel: https://osm.org/relation/68558 node: https://osm.org/node/312429343.
+[no data] missing stop node. rel: https://osm.org/relation/7159173 node: https://osm.org/node/679144233.
+[no data] missing stop node. rel: https://osm.org/relation/173118 node: https://osm.org/node/766954309.
+[no data] missing stop node. rel: https://osm.org/relation/69914 node: https://osm.org/node/628050758.
+[no data] missing stop node. rel: https://osm.org/relation/69914 node: https://osm.org/node/628050764.
+[no data] missing stop node. rel: https://osm.org/relation/6075593 node: https://osm.org/node/3146419021.
+[no data] missing stop node. rel: https://osm.org/relation/7159183 node: https://osm.org/node/1950362457.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/612109150.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726649711.
+[no data] missing stop node. rel: https://osm.org/relation/35886 node: https://osm.org/node/300591992.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726649737.
+[no data] missing stop node. rel: https://osm.org/relation/3392264 node: https://osm.org/node/366521232.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726649775.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726649777.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726649780.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726649781.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726649782.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726649784.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432597948.
+[no data] missing stop node. rel: https://osm.org/relation/1602986 node: https://osm.org/node/432597950.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/2439089105.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/394939354.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/394939355.
+[no data] missing stop node. rel: https://osm.org/relation/6071513 node: https://osm.org/node/297077728.
+[no data] missing stop node. rel: https://osm.org/relation/6071513 node: https://osm.org/node/297077729.
+[no data] missing stop node. rel: https://osm.org/relation/6071514 node: https://osm.org/node/297077730.
+[no data] missing stop node. rel: https://osm.org/relation/6071512 node: https://osm.org/node/297077732.
+[no data] missing stop node. rel: https://osm.org/relation/6065382 node: https://osm.org/node/297077733.
+[no data] missing stop node. rel: https://osm.org/relation/6065322 node: https://osm.org/node/297077735.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432597991.
+[no data] missing stop node. rel: https://osm.org/relation/6065322 node: https://osm.org/node/297077737.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432597992.
+[no data] missing stop node. rel: https://osm.org/relation/1079463 node: https://osm.org/node/679144424.
+[no data] missing stop node. rel: https://osm.org/relation/70035 node: https://osm.org/node/300411905.
+[no data] missing stop node. rel: https://osm.org/relation/6092719 node: https://osm.org/node/4087163919.
+[no data] missing stop node. rel: https://osm.org/relation/6092718 node: https://osm.org/node/4087163920.
+[no data] missing stop node. rel: https://osm.org/relation/6080546 node: https://osm.org/node/333188115.
+[no data] missing stop node. rel: https://osm.org/relation/6092722 node: https://osm.org/node/4087163923.
+[no data] missing stop node. rel: https://osm.org/relation/6062556 node: https://osm.org/node/2473028629.
+[no data] missing stop node. rel: https://osm.org/relation/6092723 node: https://osm.org/node/4087163924.
+[no data] missing stop node. rel: https://osm.org/relation/6092724 node: https://osm.org/node/4087163925.
+[no data] missing stop node. rel: https://osm.org/relation/6062556 node: https://osm.org/node/2473028632.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/710839336.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/293522476.
+[no data] missing stop node. rel: https://osm.org/relation/3737189 node: https://osm.org/node/679144505.
+[no data] missing stop node. rel: https://osm.org/relation/3737190 node: https://osm.org/node/679144506.
+[no data] missing stop node. rel: https://osm.org/relation/3230356 node: https://osm.org/node/679144514.
+[no data] missing stop node. rel: https://osm.org/relation/5567835 node: https://osm.org/node/302091331.
+[no data] missing stop node. rel: https://osm.org/relation/5567835 node: https://osm.org/node/302091332.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/582593622.
+[no data] missing stop node. rel: https://osm.org/relation/6062561 node: https://osm.org/node/660196451.
+[no data] missing stop node. rel: https://osm.org/relation/6062561 node: https://osm.org/node/660196455.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/582593644.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/612109431.
+[no data] missing stop node. rel: https://osm.org/relation/3298825 node: https://osm.org/node/4725533824.
+[no data] missing stop node. rel: https://osm.org/relation/1079464 node: https://osm.org/node/679144581.
+[no data] missing stop node. rel: https://osm.org/relation/6062554 node: https://osm.org/node/409824400.
+[no data] missing stop node. rel: https://osm.org/relation/1079464 node: https://osm.org/node/1292291233.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457051299.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/429329576.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/429329579.
+[no data] missing stop node. rel: https://osm.org/relation/3237882 node: https://osm.org/node/2423106750.
+[no data] missing stop node. rel: https://osm.org/relation/74928 node: https://osm.org/node/456436942.
+[no data] missing stop node. rel: https://osm.org/relation/1608137 node: https://osm.org/node/2427358416.
+[no data] missing stop node. rel: https://osm.org/relation/6122575 node: https://osm.org/node/628051157.
+[no data] missing stop node. rel: https://osm.org/relation/74928 node: https://osm.org/node/304827612.
+[no data] missing stop node. rel: https://osm.org/relation/74928 node: https://osm.org/node/304827613.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457051383.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457026811.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/428928253.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/628051197.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/628051206.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/628051216.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/440683799.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/303672599.
+[no data] missing stop node. rel: https://osm.org/relation/6075604 node: https://osm.org/node/335400219.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/628051230.
+[no data] missing stop node. rel: https://osm.org/relation/3247370 node: https://osm.org/node/432549150.
+[no data] missing stop node. rel: https://osm.org/relation/6179897 node: https://osm.org/node/4156386598.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/628051259.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/391458110.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/391458111.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/628051278.
+[no data] missing stop node. rel: https://osm.org/relation/3046208 node: https://osm.org/node/6030839119.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/391458129.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/391458130.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/6040399189.
+[no data] missing stop node. rel: https://osm.org/relation/3237879 node: https://osm.org/node/2424417631.
+[no data] missing stop node. rel: https://osm.org/relation/5703347 node: https://osm.org/node/432590178.
+[no data] missing stop node. rel: https://osm.org/relation/5703346 node: https://osm.org/node/432590179.
+[no data] missing stop node. rel: https://osm.org/relation/70369 node: https://osm.org/node/626363749.
+[no data] missing stop node. rel: https://osm.org/relation/659834 node: https://osm.org/node/541011314.
+[no data] missing stop node. rel: https://osm.org/relation/5703347 node: https://osm.org/node/432590195.
+[no data] missing stop node. rel: https://osm.org/relation/5703346 node: https://osm.org/node/432590196.
+[no data] missing stop node. rel: https://osm.org/relation/70369 node: https://osm.org/node/626363764.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/3806915977.
+[no data] missing stop node. rel: https://osm.org/relation/6075601 node: https://osm.org/node/335392159.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658836896.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658836909.
+[no data] missing stop node. rel: https://osm.org/relation/6079197 node: https://osm.org/node/295931319.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658836920.
+[no data] missing stop node. rel: https://osm.org/relation/6079195 node: https://osm.org/node/295931324.
+[no data] missing stop node. rel: https://osm.org/relation/35886 node: https://osm.org/node/300592573.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/440675773.
+[no data] missing stop node. rel: https://osm.org/relation/6079198 node: https://osm.org/node/295931326.
+[no data] missing stop node. rel: https://osm.org/relation/6067475 node: https://osm.org/node/295931331.
+[no data] missing stop node. rel: https://osm.org/relation/6071515 node: https://osm.org/node/295931333.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658836940.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658836948.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658836957.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/301665774.
+[no data] missing stop node. rel: https://osm.org/relation/6634158 node: https://osm.org/node/301665775.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/301665776.
+[no data] missing stop node. rel: https://osm.org/relation/3169075 node: https://osm.org/node/1302056433.
+[no data] missing stop node. rel: https://osm.org/relation/318785 node: https://osm.org/node/432999918.
+[no data] missing stop node. rel: https://osm.org/relation/6606849 node: https://osm.org/node/3483840048.
+[no data] missing stop node. rel: https://osm.org/relation/5703346 node: https://osm.org/node/1301343793.
+[no data] missing stop node. rel: https://osm.org/relation/6606849 node: https://osm.org/node/3483840049.
+[no data] missing stop node. rel: https://osm.org/relation/3169076 node: https://osm.org/node/1301343805.
+[no data] missing stop node. rel: https://osm.org/relation/1602333 node: https://osm.org/node/1301343820.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/322670171.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/307826273.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/322670178.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/741166692.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/322670186.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/741166699.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/322670188.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/322670189.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/322670196.
+[no data] missing stop node. rel: https://osm.org/relation/69998 node: https://osm.org/node/302886544.
+[no data] missing stop node. rel: https://osm.org/relation/6311483 node: https://osm.org/node/21769883.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658837158.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658837159.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/2461167280.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/283373274.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/283373275.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/283373278.
+[no data] missing stop node. rel: https://osm.org/relation/7175199 node: https://osm.org/node/283373279.
+[no data] missing stop node. rel: https://osm.org/relation/1079463 node: https://osm.org/node/2486357728.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/1391554271.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/1391554274.
+[no data] missing stop node. rel: https://osm.org/relation/7175207 node: https://osm.org/node/283373280.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/325275366.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/325275367.
+[no data] missing stop node. rel: https://osm.org/relation/1608138 node: https://osm.org/node/311619324.
+[no data] missing stop node. rel: https://osm.org/relation/1608140 node: https://osm.org/node/311619329.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/303582983.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/303582985.
+[no data] missing stop node. rel: https://osm.org/relation/68558 node: https://osm.org/node/303582990.
+[no data] missing stop node. rel: https://osm.org/relation/2442549 node: https://osm.org/node/299798296.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420851489.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/459927339.
+[no data] missing stop node. rel: https://osm.org/relation/5567835 node: https://osm.org/node/2486546222.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/2418585391.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/3199307571.
+[no data] missing stop node. rel: https://osm.org/relation/6075600 node: https://osm.org/node/3306196824.
+[no data] missing stop node. rel: https://osm.org/relation/3199938 node: https://osm.org/node/417558361.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/643403615.
+[no data] missing stop node. rel: https://osm.org/relation/74932 node: https://osm.org/node/417558369.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/643403618.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/643403620.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/431050601.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/643403626.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658837363.
+[no data] missing stop node. rel: https://osm.org/relation/3237879 node: https://osm.org/node/4809297782.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/658837372.
+[no data] missing stop node. rel: https://osm.org/relation/72535 node: https://osm.org/node/643395461.
+[no data] missing stop node. rel: https://osm.org/relation/72535 node: https://osm.org/node/643395466.
+[no data] missing stop node. rel: https://osm.org/relation/70036 node: https://osm.org/node/3881512844.
+[no data] missing stop node. rel: https://osm.org/relation/389300 node: https://osm.org/node/4789448632.
+[no data] missing stop node. rel: https://osm.org/relation/389300 node: https://osm.org/node/4789448633.
+[no data] missing stop node. rel: https://osm.org/relation/389300 node: https://osm.org/node/4789448634.
+[no data] missing stop node. rel: https://osm.org/relation/389300 node: https://osm.org/node/4789448635.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/643395516.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/643395524.
+[no data] missing stop node. rel: https://osm.org/relation/1197649 node: https://osm.org/node/2458447823.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/183062493.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/3647606749.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/467480544.
+[no data] missing stop node. rel: https://osm.org/relation/6071511 node: https://osm.org/node/3110096876.
+[no data] missing stop node. rel: https://osm.org/relation/6071511 node: https://osm.org/node/3110096877.
+[no data] missing stop node. rel: https://osm.org/relation/70369 node: https://osm.org/node/398839790.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/433033200.
+[no data] missing stop node. rel: https://osm.org/relation/7202177 node: https://osm.org/node/1548701683.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/4572950526.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/658837505.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/658837506.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726609937.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726609939.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726609941.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726609944.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726609950.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726609956.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726609963.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/439701559.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/467480633.
+[no data] missing stop node. rel: https://osm.org/relation/6062554 node: https://osm.org/node/409825340.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/467480645.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/467480646.
+[no data] missing stop node. rel: https://osm.org/relation/659834 node: https://osm.org/node/305967173.
+[no data] missing stop node. rel: https://osm.org/relation/7175207 node: https://osm.org/node/431951966.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1404096622.
+[no data] missing stop node. rel: https://osm.org/relation/6062560 node: https://osm.org/node/2524450927.
+[no data] missing stop node. rel: https://osm.org/relation/74928 node: https://osm.org/node/456437881.
+[no data] missing stop node. rel: https://osm.org/relation/1608140 node: https://osm.org/node/303190153.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/291770515.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/291770518.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/291770520.
+[no data] missing stop node. rel: https://osm.org/relation/6092720 node: https://osm.org/node/2474053784.
+[no data] missing stop node. rel: https://osm.org/relation/6067475 node: https://osm.org/node/250728608.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/5217030309.
+[no data] missing stop node. rel: https://osm.org/relation/173118 node: https://osm.org/node/441274536.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/467480745.
+[no data] missing stop node. rel: https://osm.org/relation/1560703 node: https://osm.org/node/1573859498.
+[no data] missing stop node. rel: https://osm.org/relation/69916 node: https://osm.org/node/384880822.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/332624056.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/1489367224.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/622022842.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/622022843.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/622022840.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/622022841.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/622022846.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/301863103.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/302108863.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/302108865.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/622022847.
+[no data] missing stop node. rel: https://osm.org/relation/6079445 node: https://osm.org/node/3196104891.
+[no data] missing stop node. rel: https://osm.org/relation/6079854 node: https://osm.org/node/3196104892.
+[no data] missing stop node. rel: https://osm.org/relation/3262958 node: https://osm.org/node/283111629.
+[no data] missing stop node. rel: https://osm.org/relation/318785 node: https://osm.org/node/614248657.
+[no data] missing stop node. rel: https://osm.org/relation/318785 node: https://osm.org/node/614248662.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/391540962.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/391540963.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/391540964.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/391540965.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/429248742.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/429248744.
+[no data] missing stop node. rel: https://osm.org/relation/69937 node: https://osm.org/node/1556787437.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/429248749.
+[no data] missing stop node. rel: https://osm.org/relation/173118 node: https://osm.org/node/441274623.
+[no data] missing stop node. rel: https://osm.org/relation/6080545 node: https://osm.org/node/4019523842.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/334631188.
+[no data] missing stop node. rel: https://osm.org/relation/318785 node: https://osm.org/node/614248725.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/614248728.
+[no data] missing stop node. rel: https://osm.org/relation/6634252 node: https://osm.org/node/301666589.
+[no data] missing stop node. rel: https://osm.org/relation/6634252 node: https://osm.org/node/301666590.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/301666603.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/301666604.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/334631252.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/4814139733.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420852056.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/663662955.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/663662956.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457044369.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/322908564.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/626487700.
+[no data] missing stop node. rel: https://osm.org/relation/6080546 node: https://osm.org/node/3866874262.
+[no data] missing stop node. rel: https://osm.org/relation/69937 node: https://osm.org/node/1556787609.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/659845533.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/626487710.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/302641577.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626495928.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/510808507.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/671052237.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/385118678.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457044442.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/626487787.
+[no data] missing stop node. rel: https://osm.org/relation/6079446 node: https://osm.org/node/4077941227.
+[no data] missing stop node. rel: https://osm.org/relation/6311483 node: https://osm.org/node/3188855277.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/264475120.
+[no data] missing stop node. rel: https://osm.org/relation/6079447 node: https://osm.org/node/4077941234.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/796750328.
+[no data] missing stop node. rel: https://osm.org/relation/6079447 node: https://osm.org/node/4077941242.
+[no data] missing stop node. rel: https://osm.org/relation/3392264 node: https://osm.org/node/1973621246.
+[no data] missing stop node. rel: https://osm.org/relation/1560703 node: https://osm.org/node/1573859844.
+[no data] missing stop node. rel: https://osm.org/relation/6079444 node: https://osm.org/node/4077941254.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/626487816.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/612110858.
+[no data] missing stop node. rel: https://osm.org/relation/6072984 node: https://osm.org/node/520278539.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/4090884626.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/4090884627.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/1591480867.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/510808612.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/614765092.
+[no data] missing stop node. rel: https://osm.org/relation/6065382 node: https://osm.org/node/30249513.
+[no data] missing stop node. rel: https://osm.org/relation/6074788 node: https://osm.org/node/2153353777.
+[no data] missing stop node. rel: https://osm.org/relation/6074788 node: https://osm.org/node/2153353778.
+[no data] missing stop node. rel: https://osm.org/relation/3262957 node: https://osm.org/node/291852860.
+[no data] missing stop node. rel: https://osm.org/relation/6075592 node: https://osm.org/node/292082240.
+[no data] missing stop node. rel: https://osm.org/relation/6075604 node: https://osm.org/node/292082242.
+[no data] missing stop node. rel: https://osm.org/relation/6075590 node: https://osm.org/node/292082244.
+[no data] missing stop node. rel: https://osm.org/relation/6075590 node: https://osm.org/node/292082248.
+[no data] missing stop node. rel: https://osm.org/relation/6075596 node: https://osm.org/node/292082252.
+[no data] missing stop node. rel: https://osm.org/relation/68558 node: https://osm.org/node/303436376.
+[no data] missing stop node. rel: https://osm.org/relation/3247370 node: https://osm.org/node/2434691696.
+[no data] missing stop node. rel: https://osm.org/relation/72535 node: https://osm.org/node/622154359.
+[no data] missing stop node. rel: https://osm.org/relation/72535 node: https://osm.org/node/622154360.
+[no data] missing stop node. rel: https://osm.org/relation/72535 node: https://osm.org/node/622154361.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/614765184.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/510808716.
+[no data] missing stop node. rel: https://osm.org/relation/6062560 node: https://osm.org/node/612962963.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/510808749.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367981233.
+[no data] missing stop node. rel: https://osm.org/relation/7188547 node: https://osm.org/node/4816679602.
+[no data] missing stop node. rel: https://osm.org/relation/7188547 node: https://osm.org/node/4816679601.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/429249221.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/429249228.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/369087185.
+[no data] missing stop node. rel: https://osm.org/relation/6073154 node: https://osm.org/node/3780596434.
+[no data] missing stop node. rel: https://osm.org/relation/5703347 node: https://osm.org/node/301667036.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/391533277.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/391533278.
+[no data] missing stop node. rel: https://osm.org/relation/5703346 node: https://osm.org/node/301667037.
+[no data] missing stop node. rel: https://osm.org/relation/5703346 node: https://osm.org/node/301667039.
+[no data] missing stop node. rel: https://osm.org/relation/5703347 node: https://osm.org/node/301667038.
+[no data] missing stop node. rel: https://osm.org/relation/7202177 node: https://osm.org/node/1548702435.
+[no data] missing stop node. rel: https://osm.org/relation/72535 node: https://osm.org/node/622154468.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/384881381.
+[no data] missing stop node. rel: https://osm.org/relation/72535 node: https://osm.org/node/622154469.
+[no data] missing stop node. rel: https://osm.org/relation/72535 node: https://osm.org/node/622154471.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/612111093.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/831058697.
+[no data] missing stop node. rel: https://osm.org/relation/6079210 node: https://osm.org/node/303805198.
+[no data] missing stop node. rel: https://osm.org/relation/6079210 node: https://osm.org/node/303805199.
+[no data] missing stop node. rel: https://osm.org/relation/6075588 node: https://osm.org/node/303805201.
+[no data] missing stop node. rel: https://osm.org/relation/6075588 node: https://osm.org/node/303805203.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/831058709.
+[no data] missing stop node. rel: https://osm.org/relation/1877863 node: https://osm.org/node/1529582361.
+[no data] missing stop node. rel: https://osm.org/relation/1877863 node: https://osm.org/node/1529582365.
+[no data] missing stop node. rel: https://osm.org/relation/6062554 node: https://osm.org/node/288428837.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/796750636.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/305918770.
+[no data] missing stop node. rel: https://osm.org/relation/7189504 node: https://osm.org/node/4817261365.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626496318.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/300602190.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/300602193.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/300602195.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/4820005733.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/671052647.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/432591725.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/431051631.
+[no data] missing stop node. rel: https://osm.org/relation/69937 node: https://osm.org/node/802542448.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/432591731.
+[no data] missing stop node. rel: https://osm.org/relation/6096236 node: https://osm.org/node/4090278789.
+[no data] missing stop node. rel: https://osm.org/relation/6096236 node: https://osm.org/node/4090278790.
+[no data] missing stop node. rel: https://osm.org/relation/6096237 node: https://osm.org/node/4090278791.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/2940949397.
+[no data] missing stop node. rel: https://osm.org/relation/72507 node: https://osm.org/node/621196193.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457053092.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/3219141547.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/291902389.
+[no data] missing stop node. rel: https://osm.org/relation/5703347 node: https://osm.org/node/1322382278.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/1621586901.
+[no data] missing stop node. rel: https://osm.org/relation/6075589 node: https://osm.org/node/426832883.
+[no data] missing stop node. rel: https://osm.org/relation/5703347 node: https://osm.org/node/1322382326.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/354685976.
+[no data] missing stop node. rel: https://osm.org/relation/74928 node: https://osm.org/node/456422430.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/442897442.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726602832.
+[no data] missing stop node. rel: https://osm.org/relation/6080545 node: https://osm.org/node/3180516433.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726602836.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726602838.
+[no data] missing stop node. rel: https://osm.org/relation/6072985 node: https://osm.org/node/302109841.
+[no data] missing stop node. rel: https://osm.org/relation/6072985 node: https://osm.org/node/302109842.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626488471.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/333124760.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626488480.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/376951976.
+[no data] missing stop node. rel: https://osm.org/relation/7159186 node: https://osm.org/node/333706411.
+[no data] missing stop node. rel: https://osm.org/relation/6080549 node: https://osm.org/node/1520342212.
+[no data] missing stop node. rel: https://osm.org/relation/7159186 node: https://osm.org/node/333706439.
+[no data] missing stop node. rel: https://osm.org/relation/6075591 node: https://osm.org/node/544429261.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/188961998.
+[no data] missing stop node. rel: https://osm.org/relation/6122575 node: https://osm.org/node/438498512.
+[no data] missing stop node. rel: https://osm.org/relation/7159186 node: https://osm.org/node/333706456.
+[no data] missing stop node. rel: https://osm.org/relation/6062541 node: https://osm.org/node/4065850590.
+[no data] missing stop node. rel: https://osm.org/relation/3230356 node: https://osm.org/node/4065850591.
+[no data] missing stop node. rel: https://osm.org/relation/3230356 node: https://osm.org/node/4065850592.
+[no data] missing stop node. rel: https://osm.org/relation/6062542 node: https://osm.org/node/4065850594.
+[no data] missing stop node. rel: https://osm.org/relation/6062543 node: https://osm.org/node/4065850595.
+[no data] missing stop node. rel: https://osm.org/relation/6062544 node: https://osm.org/node/4065850596.
+[no data] missing stop node. rel: https://osm.org/relation/6062546 node: https://osm.org/node/4065850598.
+[no data] missing stop node. rel: https://osm.org/relation/6062547 node: https://osm.org/node/4065850599.
+[no data] missing stop node. rel: https://osm.org/relation/6062548 node: https://osm.org/node/4065850600.
+[no data] missing stop node. rel: https://osm.org/relation/6062549 node: https://osm.org/node/4065850601.
+[no data] missing stop node. rel: https://osm.org/relation/6062550 node: https://osm.org/node/4065850602.
+[no data] missing stop node. rel: https://osm.org/relation/6062551 node: https://osm.org/node/4065850603.
+[no data] missing stop node. rel: https://osm.org/relation/6062552 node: https://osm.org/node/4065850604.
+[no data] missing stop node. rel: https://osm.org/relation/3237879 node: https://osm.org/node/4065850605.
+[no data] missing stop node. rel: https://osm.org/relation/6062554 node: https://osm.org/node/4065850606.
+[no data] missing stop node. rel: https://osm.org/relation/6062554 node: https://osm.org/node/4065850607.
+[no data] missing stop node. rel: https://osm.org/relation/6062555 node: https://osm.org/node/4065850608.
+[no data] missing stop node. rel: https://osm.org/relation/6062556 node: https://osm.org/node/4065850609.
+[no data] missing stop node. rel: https://osm.org/relation/3237880 node: https://osm.org/node/4065850612.
+[no data] missing stop node. rel: https://osm.org/relation/173118 node: https://osm.org/node/429323516.
+[no data] missing stop node. rel: https://osm.org/relation/6062558 node: https://osm.org/node/4065850627.
+[no data] missing stop node. rel: https://osm.org/relation/69270 node: https://osm.org/node/410875140.
+[no data] missing stop node. rel: https://osm.org/relation/1602334 node: https://osm.org/node/269022468.
+[no data] missing stop node. rel: https://osm.org/relation/3237881 node: https://osm.org/node/2478216453.
+[no data] missing stop node. rel: https://osm.org/relation/3237881 node: https://osm.org/node/4065850631.
+[no data] missing stop node. rel: https://osm.org/relation/3263522 node: https://osm.org/node/439809285.
+[no data] missing stop node. rel: https://osm.org/relation/6062559 node: https://osm.org/node/4065850628.
+[no data] missing stop node. rel: https://osm.org/relation/6062560 node: https://osm.org/node/4065850629.
+[no data] missing stop node. rel: https://osm.org/relation/6062561 node: https://osm.org/node/4065850630.
+[no data] missing stop node. rel: https://osm.org/relation/6062564 node: https://osm.org/node/4065850635.
+[no data] missing stop node. rel: https://osm.org/relation/3237882 node: https://osm.org/node/2478216462.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/429249817.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/429249818.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/429249819.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/429249820.
+[no data] missing stop node. rel: https://osm.org/relation/6655130 node: https://osm.org/node/4454004001.
+[no data] missing stop node. rel: https://osm.org/relation/6655130 node: https://osm.org/node/4454004002.
+[no data] missing stop node. rel: https://osm.org/relation/1602334 node: https://osm.org/node/690287908.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/340112685.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400971067.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400971068.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457045313.
+[no data] missing stop node. rel: https://osm.org/relation/6071515 node: https://osm.org/node/336401749.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/1490072930.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/663688546.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457053576.
+[no data] missing stop node. rel: https://osm.org/relation/173118 node: https://osm.org/node/441275817.
+[no data] missing stop node. rel: https://osm.org/relation/3046208 node: https://osm.org/node/4573697487.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457045456.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/29586941.
+[no data] missing stop node. rel: https://osm.org/relation/6080548 node: https://osm.org/node/332264959.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/259823106.
+[no data] missing stop node. rel: https://osm.org/relation/6080787 node: https://osm.org/node/348132871.
+[no data] missing stop node. rel: https://osm.org/relation/171590 node: https://osm.org/node/468399656.
+[no data] missing stop node. rel: https://osm.org/relation/6073153 node: https://osm.org/node/296449577.
+[no data] missing stop node. rel: https://osm.org/relation/6073153 node: https://osm.org/node/296449580.
+[no data] missing stop node. rel: https://osm.org/relation/6311483 node: https://osm.org/node/2374719025.
+[no data] missing stop node. rel: https://osm.org/relation/6311483 node: https://osm.org/node/2374719026.
+[no data] missing stop node. rel: https://osm.org/relation/6311483 node: https://osm.org/node/2374719027.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/442086964.
+[no data] missing stop node. rel: https://osm.org/relation/6311483 node: https://osm.org/node/2374719028.
+[no data] missing stop node. rel: https://osm.org/relation/7159186 node: https://osm.org/node/333706807.
+[no data] missing stop node. rel: https://osm.org/relation/2442549 node: https://osm.org/node/690288216.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420828792.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420828796.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420828799.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420828803.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/1954330246.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420828807.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420828808.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/1465595529.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/693540490.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/4092204688.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/2465994394.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656097.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656099.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656100.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656103.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656104.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656105.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656107.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656108.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/440358574.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656112.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/5885466293.
+[no data] missing stop node. rel: https://osm.org/relation/6062558 node: https://osm.org/node/4416288444.
+[no data] missing stop node. rel: https://osm.org/relation/6062558 node: https://osm.org/node/4416288445.
+[no data] missing stop node. rel: https://osm.org/relation/6606848 node: https://osm.org/node/4416288446.
+[no data] missing stop node. rel: https://osm.org/relation/7167781 node: https://osm.org/node/322139839.
+[no data] missing stop node. rel: https://osm.org/relation/7167781 node: https://osm.org/node/322139840.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626497228.
+[no data] missing stop node. rel: https://osm.org/relation/3169261 node: https://osm.org/node/301979341.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/3810858719.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/420828896.
+[no data] missing stop node. rel: https://osm.org/relation/3262958 node: https://osm.org/node/367884009.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/379877107.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/340113139.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/367687451.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/440833828.
+[no data] missing stop node. rel: https://osm.org/relation/3262957 node: https://osm.org/node/3194951463.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/304035642.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/304035649.
+[no data] missing stop node. rel: https://osm.org/relation/6080549 node: https://osm.org/node/300439366.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/340236103.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/1334359881.
+[no data] missing stop node. rel: https://osm.org/relation/6080548 node: https://osm.org/node/300439370.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/398825290.
+[no data] missing stop node. rel: https://osm.org/relation/6080548 node: https://osm.org/node/300439372.
+[no data] missing stop node. rel: https://osm.org/relation/8533000 node: https://osm.org/node/433026897.
+[no data] missing stop node. rel: https://osm.org/relation/6634158 node: https://osm.org/node/433026905.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/600872794.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/600872795.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/600872796.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/600872798.
+[no data] missing stop node. rel: https://osm.org/relation/3567082 node: https://osm.org/node/433026912.
+[no data] missing stop node. rel: https://osm.org/relation/70036 node: https://osm.org/node/433026929.
+[no data] missing stop node. rel: https://osm.org/relation/70035 node: https://osm.org/node/433026940.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/429332354.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/429332360.
+[no data] missing stop node. rel: https://osm.org/relation/6079854 node: https://osm.org/node/336115596.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/429332375.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/340113304.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/429332378.
+[no data] missing stop node. rel: https://osm.org/relation/6075589 node: https://osm.org/node/294279077.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/309147560.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656372.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400971700.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/445552566.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/445552572.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/298383301.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/298383302.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/627996625.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/1577039832.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/257398752.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663656420.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/799193060.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/627996647.
+[no data] missing stop node. rel: https://osm.org/relation/2458115 node: https://osm.org/node/643389418.
+[no data] missing stop node. rel: https://osm.org/relation/7188546 node: https://osm.org/node/708728851.
+[no data] missing stop node. rel: https://osm.org/relation/6090415 node: https://osm.org/node/4085528600.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/2387564582.
+[no data] missing stop node. rel: https://osm.org/relation/6073150 node: https://osm.org/node/2777348136.
+[no data] missing stop node. rel: https://osm.org/relation/6073154 node: https://osm.org/node/296433724.
+[no data] missing stop node. rel: https://osm.org/relation/70035 node: https://osm.org/node/433002564.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/710899787.
+[no data] missing stop node. rel: https://osm.org/relation/659834 node: https://osm.org/node/433002571.
+[no data] missing stop node. rel: https://osm.org/relation/6075597 node: https://osm.org/node/663050319.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1489713234.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1489713235.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1489713236.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1489713237.
+[no data] missing stop node. rel: https://osm.org/relation/3169075 node: https://osm.org/node/4459231322.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/710899816.
+[no data] missing stop node. rel: https://osm.org/relation/6075595 node: https://osm.org/node/303806578.
+[no data] missing stop node. rel: https://osm.org/relation/6075593 node: https://osm.org/node/303806581.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1067604104.
+[no data] missing stop node. rel: https://osm.org/relation/6075605 node: https://osm.org/node/302135448.
+[no data] missing stop node. rel: https://osm.org/relation/68558 node: https://osm.org/node/510810271.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626497695.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/430053537.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626497700.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/307828901.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/459487415.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/817363149.
+[no data] missing stop node. rel: https://osm.org/relation/69998 node: https://osm.org/node/2164201697.
+[no data] missing stop node. rel: https://osm.org/relation/7189504 node: https://osm.org/node/2164201702.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/2038036716.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/4813846772.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/2164201720.
+[no data] missing stop node. rel: https://osm.org/relation/68320 node: https://osm.org/node/2164201727.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433060097.
+[no data] missing stop node. rel: https://osm.org/relation/6062564 node: https://osm.org/node/440736003.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433060103.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433060109.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/183900434.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433060113.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/183900441.
+[no data] missing stop node. rel: https://osm.org/relation/6080546 node: https://osm.org/node/2164201756.
+[no data] missing stop node. rel: https://osm.org/relation/6634158 node: https://osm.org/node/2418637102.
+[no data] missing stop node. rel: https://osm.org/relation/68558 node: https://osm.org/node/510810418.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433060159.
+[no data] missing stop node. rel: https://osm.org/relation/6065321 node: https://osm.org/node/296368473.
+[no data] missing stop node. rel: https://osm.org/relation/5567835 node: https://osm.org/node/338393452.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/304200060.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/304200061.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/304200062.
+[no data] missing stop node. rel: https://osm.org/relation/6079196 node: https://osm.org/node/4077779332.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457038214.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/390494615.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/614242772.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/432544214.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/614242775.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/432544239.
+[no data] missing stop node. rel: https://osm.org/relation/2458059 node: https://osm.org/node/643389965.
+[no data] missing stop node. rel: https://osm.org/relation/6634252 node: https://osm.org/node/4436941328.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/260971025.
+[no data] missing stop node. rel: https://osm.org/relation/6634252 node: https://osm.org/node/4436941329.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/847018572.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/354646605.
+[no data] missing stop node. rel: https://osm.org/relation/7175200 node: https://osm.org/node/423311954.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/1579784802.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/4518091364.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/4518091365.
+[no data] missing stop node. rel: https://osm.org/relation/3199938 node: https://osm.org/node/919689834.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/187071087.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/919689841.
+[no data] missing stop node. rel: https://osm.org/relation/6075600 node: https://osm.org/node/288127599.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/181328504.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/919689849.
+[no data] missing stop node. rel: https://osm.org/relation/70329 node: https://osm.org/node/468327035.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/2129066636.
+[no data] missing stop node. rel: https://osm.org/relation/6633933 node: https://osm.org/node/420846246.
+[no data] missing stop node. rel: https://osm.org/relation/1079463 node: https://osm.org/node/804412073.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/809892537.
+[no data] missing stop node. rel: https://osm.org/relation/8047736 node: https://osm.org/node/454408895.
+[no data] missing stop node. rel: https://osm.org/relation/1079464 node: https://osm.org/node/804412097.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/1843657415.
+[no data] missing stop node. rel: https://osm.org/relation/6079445 node: https://osm.org/node/336116431.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833419990.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833419991.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833419992.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833419993.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433068785.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433068790.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433068797.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433068801.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433068808.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/304831244.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433068814.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433068822.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/322140955.
+[no data] missing stop node. rel: https://osm.org/relation/6079442 node: https://osm.org/node/336116524.
+[no data] missing stop node. rel: https://osm.org/relation/6092725 node: https://osm.org/node/1016372025.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/333765434.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/333765438.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457046848.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/432593739.
+[no data] missing stop node. rel: https://osm.org/relation/7188546 node: https://osm.org/node/383720268.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/432593742.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/1524382544.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/4046084958.
+[no data] missing stop node. rel: https://osm.org/relation/8047736 node: https://osm.org/node/4046084959.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/809884525.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/809884546.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/583572354.
+[no data] missing stop node. rel: https://osm.org/relation/6075599 node: https://osm.org/node/304044930.
+[no data] missing stop node. rel: https://osm.org/relation/6062558 node: https://osm.org/node/2104220.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/318512058.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/318512059.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/318512062.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/1524382660.
+[no data] missing stop node. rel: https://osm.org/relation/1560703 node: https://osm.org/node/334625735.
+[no data] missing stop node. rel: https://osm.org/relation/6633933 node: https://osm.org/node/420846539.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/693509110.
+[no data] missing stop node. rel: https://osm.org/relation/6073152 node: https://osm.org/node/452615160.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833420280.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/833420281.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/318512130.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/318512131.
+[no data] missing stop node. rel: https://osm.org/relation/5703346 node: https://osm.org/node/302873602.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/302873603.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/693509126.
+[no data] missing stop node. rel: https://osm.org/relation/6074789 node: https://osm.org/node/533625858.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/693509135.
+[no data] missing stop node. rel: https://osm.org/relation/7175200 node: https://osm.org/node/423312401.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/693509148.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/693509150.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/693509151.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/693509153.
+[no data] missing stop node. rel: https://osm.org/relation/70043 node: https://osm.org/node/693509154.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662182.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662185.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662188.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/3821075500.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662191.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662192.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662194.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662196.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400956473.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662203.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662204.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662205.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662207.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662208.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/726662209.
+[no data] missing stop node. rel: https://osm.org/relation/72507 node: https://osm.org/node/643390533.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/392445004.
+[no data] missing stop node. rel: https://osm.org/relation/1560703 node: https://osm.org/node/334625878.
+[no data] missing stop node. rel: https://osm.org/relation/1560703 node: https://osm.org/node/334625882.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399146083.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/2727124071.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/459930728.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/2727124073.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399146090.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/302103697.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/302103698.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/302103706.
+[no data] missing stop node. rel: https://osm.org/relation/71919 node: https://osm.org/node/302103707.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/2502089901.
+[no data] missing stop node. rel: https://osm.org/relation/3237882 node: https://osm.org/node/299072708.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/2520890565.
+[no data] missing stop node. rel: https://osm.org/relation/3237881 node: https://osm.org/node/621214918.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/428973256.
+[no data] missing stop node. rel: https://osm.org/relation/6548879 node: https://osm.org/node/299072713.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/626359498.
+[no data] missing stop node. rel: https://osm.org/relation/6092725 node: https://osm.org/node/302873797.
+[no data] missing stop node. rel: https://osm.org/relation/3237882 node: https://osm.org/node/299072710.
+[no data] missing stop node. rel: https://osm.org/relation/3237881 node: https://osm.org/node/621214925.
+[no data] missing stop node. rel: https://osm.org/relation/2458059 node: https://osm.org/node/538057934.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/2566167759.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/2566167758.
+[no data] missing stop node. rel: https://osm.org/relation/3046208 node: https://osm.org/node/1698692306.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/428973271.
+[no data] missing stop node. rel: https://osm.org/relation/422973 node: https://osm.org/node/626359511.
+[no data] missing stop node. rel: https://osm.org/relation/70369 node: https://osm.org/node/398843095.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/428973272.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/336092381.
+[no data] missing stop node. rel: https://osm.org/relation/6079443 node: https://osm.org/node/3110059242.
+[no data] missing stop node. rel: https://osm.org/relation/6079443 node: https://osm.org/node/3110059241.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/2448194803.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/3344424195.
+[no data] missing stop node. rel: https://osm.org/relation/7188638 node: https://osm.org/node/4663753997.
+[no data] missing stop node. rel: https://osm.org/relation/3432304 node: https://osm.org/node/354696485.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/371834152.
+[no data] missing stop node. rel: https://osm.org/relation/120458 node: https://osm.org/node/371834155.
+[no data] missing stop node. rel: https://osm.org/relation/6092720 node: https://osm.org/node/621215022.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/371834159.
+[no data] missing stop node. rel: https://osm.org/relation/421622 node: https://osm.org/node/626498865.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/371834164.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/432536895.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/371834176.
+[no data] missing stop node. rel: https://osm.org/relation/69998 node: https://osm.org/node/301227330.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/371834181.
+[no data] missing stop node. rel: https://osm.org/relation/69998 node: https://osm.org/node/301227333.
+[no data] missing stop node. rel: https://osm.org/relation/69998 node: https://osm.org/node/301227336.
+[no data] missing stop node. rel: https://osm.org/relation/69998 node: https://osm.org/node/301227338.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/371834188.
+[no data] missing stop node. rel: https://osm.org/relation/69998 node: https://osm.org/node/301227343.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/371834192.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/391552339.
+[no data] missing stop node. rel: https://osm.org/relation/3298825 node: https://osm.org/node/301227348.
+[no data] missing stop node. rel: https://osm.org/relation/5732268 node: https://osm.org/node/371834198.
+[no data] missing stop node. rel: https://osm.org/relation/77721 node: https://osm.org/node/391552345.
+[no data] missing stop node. rel: https://osm.org/relation/3046208 node: https://osm.org/node/2301042061.
+[no data] missing stop node. rel: https://osm.org/relation/1608137 node: https://osm.org/node/301850020.
+[no data] missing stop node. rel: https://osm.org/relation/3385101 node: https://osm.org/node/307830183.
+[no data] missing stop node. rel: https://osm.org/relation/70042 node: https://osm.org/node/697302442.
+[no data] missing stop node. rel: https://osm.org/relation/6067794 node: https://osm.org/node/1950367146.
+[no data] missing stop node. rel: https://osm.org/relation/6062558 node: https://osm.org/node/4475280832.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/299302342.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1493630414.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1493630415.
+[no data] missing stop node. rel: https://osm.org/relation/74932 node: https://osm.org/node/628080083.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366706133.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457039318.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187414.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366706136.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366706138.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366706142.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366706144.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366706146.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/303439331.
+[no data] missing stop node. rel: https://osm.org/relation/7159183 node: https://osm.org/node/899735011.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/303439333.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366706150.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/303439335.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187426.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/303439337.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/366706154.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187433.
+[no data] missing stop node. rel: https://osm.org/relation/70052 node: https://osm.org/node/2513853930.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/628080112.
+[no data] missing stop node. rel: https://osm.org/relation/3199939 node: https://osm.org/node/628080118.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/303439351.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/291741176.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/303439354.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/291741180.
+[no data] missing stop node. rel: https://osm.org/relation/74932 node: https://osm.org/node/628080127.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/369081878.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/291741207.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/431939103.
+[no data] missing stop node. rel: https://osm.org/relation/68558 node: https://osm.org/node/381935139.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/663674407.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/663674408.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/663674409.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/663674410.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/929947196.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/628080193.
+[no data] missing stop node. rel: https://osm.org/relation/3385699 node: https://osm.org/node/294141509.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/628080200.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187533.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187541.
+[no data] missing stop node. rel: https://osm.org/relation/6071514 node: https://osm.org/node/4072423004.
+[no data] missing stop node. rel: https://osm.org/relation/77647 node: https://osm.org/node/628055647.
+[no data] missing stop node. rel: https://osm.org/relation/6071514 node: https://osm.org/node/4072423008.
+[no data] missing stop node. rel: https://osm.org/relation/69936 node: https://osm.org/node/628055656.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400973417.
+[no data] missing stop node. rel: https://osm.org/relation/6071516 node: https://osm.org/node/4072423023.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1489469054.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/1489469055.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187596.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187604.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/663707294.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187623.
+[no data] missing stop node. rel: https://osm.org/relation/70369 node: https://osm.org/node/847011507.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187641.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/360980155.
+[no data] missing stop node. rel: https://osm.org/relation/1560703 node: https://osm.org/node/334626491.
+[no data] missing stop node. rel: https://osm.org/relation/70035 node: https://osm.org/node/433045181.
+[no data] missing stop node. rel: https://osm.org/relation/6073152 node: https://osm.org/node/452615870.
+[no data] missing stop node. rel: https://osm.org/relation/6080787 node: https://osm.org/node/3199254207.
+[no data] missing stop node. rel: https://osm.org/relation/7175199 node: https://osm.org/node/3199254204.
+[no data] missing stop node. rel: https://osm.org/relation/7175199 node: https://osm.org/node/3199254205.
+[no data] missing stop node. rel: https://osm.org/relation/7159186 node: https://osm.org/node/432561859.
+[no data] missing stop node. rel: https://osm.org/relation/74928 node: https://osm.org/node/370933447.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187656.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400957132.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400957133.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400957134.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400957135.
+[no data] missing stop node. rel: https://osm.org/relation/8047747 node: https://osm.org/node/2409971408.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/399187669.
+[no data] missing stop node. rel: https://osm.org/relation/6067796 node: https://osm.org/node/334626521.
+[no data] missing stop node. rel: https://osm.org/relation/6067796 node: https://osm.org/node/334626532.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/946978533.
+[no data] missing stop node. rel: https://osm.org/relation/3046208 node: https://osm.org/node/558841583.
+[no data] missing stop node. rel: https://osm.org/relation/6072985 node: https://osm.org/node/4073676539.
+[no data] missing stop node. rel: https://osm.org/relation/6072985 node: https://osm.org/node/4073676540.
+[no data] missing stop node. rel: https://osm.org/relation/6071516 node: https://osm.org/node/3209862948.
+[no data] missing stop node. rel: https://osm.org/relation/68648 node: https://osm.org/node/461143877.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432594765.
+[no data] missing stop node. rel: https://osm.org/relation/69742 node: https://osm.org/node/432594766.
+[no data] missing stop node. rel: https://osm.org/relation/6075592 node: https://osm.org/node/335396713.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38330227.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/369082229.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/38330232.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/432529287.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/432529289.
+[no data] missing stop node. rel: https://osm.org/relation/71150 node: https://osm.org/node/432529290.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/432529291.
+[no data] missing stop node. rel: https://osm.org/relation/5563137 node: https://osm.org/node/432529293.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/663682974.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/420675487.
+[no data] missing stop node. rel: https://osm.org/relation/70045 node: https://osm.org/node/663682975.
+[no data] missing stop node. rel: https://osm.org/relation/69915 node: https://osm.org/node/459923367.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/304299958.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/304299960.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/400957370.
+[no data] missing stop node. rel: https://osm.org/relation/1560703 node: https://osm.org/node/334626756.
+[no data] missing stop node. rel: https://osm.org/relation/2458059 node: https://osm.org/node/334626761.
+[no data] missing stop node. rel: https://osm.org/relation/69754 node: https://osm.org/node/433061860.
+[no data] missing stop node. rel: https://osm.org/relation/69751 node: https://osm.org/node/433061863.
+[no data] missing stop node. rel: https://osm.org/relation/170986 node: https://osm.org/node/393396203.
+[no data] missing stop node. rel: https://osm.org/relation/69672 node: https://osm.org/node/457039853.
+[no data] missing stop node. rel: https://osm.org/relation/6606238 node: https://osm.org/node/3896934393.
+[no data] missing stop node. rel: https://osm.org/relation/51487 node: https://osm.org/node/313581565.
+1304 nodes that appear in relations are missing.
+stop_area without station: https://osm.org/relation/389300. Using node https://osm.org/node/301851157 instead.
+stop_area without station: https://osm.org/relation/389301. Using node https://osm.org/node/621214744 instead.
+stop_area without station: https://osm.org/relation/389303. Using node https://osm.org/node/322140949 instead.
+stop_area without station: https://osm.org/relation/1602333. Using node https://osm.org/node/1302021968 instead.
+stop_area without station: https://osm.org/relation/1602334. Using node https://osm.org/node/268953222 instead.
+stop_area without station: https://osm.org/relation/1877863. Using node https://osm.org/node/746954932 instead.
+stop_area without station: https://osm.org/relation/3166126. Using node https://osm.org/node/621214816 instead.
+stop_area without station: https://osm.org/relation/3166127. Using node https://osm.org/node/621214804 instead.
+stop_area without station: https://osm.org/relation/3169075. Using node https://osm.org/node/301852563 instead.
+stop_area without station: https://osm.org/relation/3169076. Using node https://osm.org/node/1301343801 instead.
+stop_area without station: https://osm.org/relation/3169261. Using node https://osm.org/node/1301343802 instead.
+stop_area without station: https://osm.org/relation/3169262. Using node https://osm.org/node/2434691695 instead.
+stop_area without station: https://osm.org/relation/3181909. Using node https://osm.org/node/1301343826 instead.
+stop_area without station: https://osm.org/relation/3230356. Using node https://osm.org/node/679144512 instead.
+stop_area without station: https://osm.org/relation/3237879. Using node https://osm.org/node/2229521800 instead.
+stop_area without station: https://osm.org/relation/3237880. Using node https://osm.org/node/434133256 instead.
+stop_area without station: https://osm.org/relation/3237881. Using node https://osm.org/node/432597708 instead.
+stop_area without station: https://osm.org/relation/3237882. Using node https://osm.org/node/25150344 instead.
+stop_area without station: https://osm.org/relation/3262957. Using node https://osm.org/node/261964244 instead.
+stop_area without station: https://osm.org/relation/3262958. Using node https://osm.org/node/283111576 instead.
+stop_area without station: https://osm.org/relation/3263522. Using node https://osm.org/node/668862540 instead.
+stop_area without station: https://osm.org/relation/3271923. Using node https://osm.org/node/507039988 instead.
+stop_area without station: https://osm.org/relation/3298825. Using node https://osm.org/node/2513515806 instead.
+stop_area without station: https://osm.org/relation/6062541. Using node https://osm.org/node/2711058760 instead.
+stop_area without station: https://osm.org/relation/6062542. Using node https://osm.org/node/4044520494 instead.
+stop_area without station: https://osm.org/relation/6062543. Using node https://osm.org/node/621214909 instead.
+stop_area without station: https://osm.org/relation/6062544. Using node https://osm.org/node/31405591 instead.
+stop_area without station: https://osm.org/relation/6062546. Using node https://osm.org/node/660196473 instead.
+stop_area without station: https://osm.org/relation/6062547. Using node https://osm.org/node/267786626 instead.
+stop_area without station: https://osm.org/relation/6062548. Using node https://osm.org/node/1842971190 instead.
+stop_area without station: https://osm.org/relation/6062549. Using node https://osm.org/node/2340331637 instead.
+stop_area without station: https://osm.org/relation/6062550. Using node https://osm.org/node/264870414 instead.
+stop_area without station: https://osm.org/relation/6062551. Using node https://osm.org/node/679144228 instead.
+stop_area without station: https://osm.org/relation/6062552. Using node https://osm.org/node/660196527 instead.
+stop_area without station: https://osm.org/relation/6062553. Using node https://osm.org/node/21965264 instead.
+stop_area without station: https://osm.org/relation/6062554. Using node https://osm.org/node/288428714 instead.
+stop_area without station: https://osm.org/relation/6062555. Using node https://osm.org/node/3115855347 instead.
+stop_area without station: https://osm.org/relation/6062556. Using node https://osm.org/node/612962879 instead.
+stop_area without station: https://osm.org/relation/6062557. Using node https://osm.org/node/679788524 instead.
+stop_area without station: https://osm.org/relation/6062558. Using node https://osm.org/node/668862330 instead.
+stop_area without station: https://osm.org/relation/6062559. Using node https://osm.org/node/251576366 instead.
+stop_area without station: https://osm.org/relation/6062560. Using node https://osm.org/node/251602572 instead.
+stop_area without station: https://osm.org/relation/6062561. Using node https://osm.org/node/2926060012 instead.
+stop_area without station: https://osm.org/relation/6062562. Using node https://osm.org/node/248594127 instead.
 Unknown OSM wheelchair value no;yes
+stop_area without station: https://osm.org/relation/6062563. Using node https://osm.org/node/31683731 instead.
+stop_area without station: https://osm.org/relation/6062564. Using node https://osm.org/node/440736498 instead.
+stop_area without station: https://osm.org/relation/6065251. Using node https://osm.org/node/2443003405 instead.
+stop_area without station: https://osm.org/relation/6065320. Using node https://osm.org/node/4068917371 instead.
+stop_area without station: https://osm.org/relation/6065321. Using node https://osm.org/node/30229312 instead.
+stop_area without station: https://osm.org/relation/6065322. Using node https://osm.org/node/4068917367 instead.
+stop_area without station: https://osm.org/relation/6065382. Using node https://osm.org/node/4068955753 instead.
+stop_area without station: https://osm.org/relation/6067475. Using node https://osm.org/node/4070175736 instead.
+stop_area without station: https://osm.org/relation/6067794. Using node https://osm.org/node/4070333389 instead.
+stop_area without station: https://osm.org/relation/6067795. Using node https://osm.org/node/334625333 instead.
+stop_area without station: https://osm.org/relation/6067796. Using node https://osm.org/node/4070333513 instead.
+stop_area without station: https://osm.org/relation/6071511. Using node https://osm.org/node/4072422996 instead.
+stop_area without station: https://osm.org/relation/6071512. Using node https://osm.org/node/4072422997 instead.
+stop_area without station: https://osm.org/relation/6071513. Using node https://osm.org/node/4072422999 instead.
+stop_area without station: https://osm.org/relation/6071514. Using node https://osm.org/node/4072423001 instead.
+stop_area without station: https://osm.org/relation/6071515. Using node https://osm.org/node/4072423002 instead.
+stop_area without station: https://osm.org/relation/6072984. Using node https://osm.org/node/4073676534 instead.
+stop_area without station: https://osm.org/relation/6072985. Using node https://osm.org/node/4073676535 instead.
+stop_area without station: https://osm.org/relation/6073150. Using node https://osm.org/node/4073800094 instead.
+stop_area without station: https://osm.org/relation/6073151. Using node https://osm.org/node/338499729 instead.
+stop_area without station: https://osm.org/relation/6073152. Using node https://osm.org/node/4073800095 instead.
+stop_area without station: https://osm.org/relation/6073153. Using node https://osm.org/node/4073800106 instead.
+stop_area without station: https://osm.org/relation/6073154. Using node https://osm.org/node/4073800107 instead.
+stop_area without station: https://osm.org/relation/6074788. Using node https://osm.org/node/24581582 instead.
+stop_area without station: https://osm.org/relation/6075587. Using node https://osm.org/node/427513298 instead.
+stop_area without station: https://osm.org/relation/6075588. Using node https://osm.org/node/4075678159 instead.
+stop_area without station: https://osm.org/relation/6075589. Using node https://osm.org/node/4075678161 instead.
+stop_area without station: https://osm.org/relation/6075590. Using node https://osm.org/node/4075678162 instead.
+stop_area without station: https://osm.org/relation/6075591. Using node https://osm.org/node/4075678164 instead.
+stop_area without station: https://osm.org/relation/6075592. Using node https://osm.org/node/4075678165 instead.
+stop_area without station: https://osm.org/relation/6075593. Using node https://osm.org/node/4075678167 instead.
+stop_area without station: https://osm.org/relation/6075594. Using node https://osm.org/node/4075678169 instead.
+stop_area without station: https://osm.org/relation/6075595. Using node https://osm.org/node/4075678171 instead.
+stop_area without station: https://osm.org/relation/6075596. Using node https://osm.org/node/4075678179 instead.
+stop_area without station: https://osm.org/relation/6075597. Using node https://osm.org/node/2383599732 instead.
+stop_area without station: https://osm.org/relation/6075598. Using node https://osm.org/node/297933072 instead.
+stop_area without station: https://osm.org/relation/6075599. Using node https://osm.org/node/4075678180 instead.
+stop_area without station: https://osm.org/relation/6075600. Using node https://osm.org/node/3632432417 instead.
+stop_area without station: https://osm.org/relation/6075601. Using node https://osm.org/node/4075678181 instead.
+stop_area without station: https://osm.org/relation/6075602. Using node https://osm.org/node/295706324 instead.
+stop_area without station: https://osm.org/relation/6075603. Using node https://osm.org/node/652859163 instead.
+stop_area without station: https://osm.org/relation/6075604. Using node https://osm.org/node/2440653309 instead.
+stop_area without station: https://osm.org/relation/6075605. Using node https://osm.org/node/4075678182 instead.
+stop_area without station: https://osm.org/relation/6079195. Using node https://osm.org/node/295931323 instead.
+stop_area without station: https://osm.org/relation/6079196. Using node https://osm.org/node/295931321 instead.
+stop_area without station: https://osm.org/relation/6079197. Using node https://osm.org/node/3109037829 instead.
+stop_area without station: https://osm.org/relation/6079198. Using node https://osm.org/node/4077779361 instead.
+stop_area without station: https://osm.org/relation/6079199. Using node https://osm.org/node/4077779362 instead.
+stop_area without station: https://osm.org/relation/6079210. Using node https://osm.org/node/1939424213 instead.
+stop_area without station: https://osm.org/relation/6079442. Using node https://osm.org/node/4077941217 instead.
+stop_area without station: https://osm.org/relation/6079443. Using node https://osm.org/node/4077941219 instead.
+stop_area without station: https://osm.org/relation/6079444. Using node https://osm.org/node/332112381 instead.
+stop_area without station: https://osm.org/relation/6079445. Using node https://osm.org/node/4077941267 instead.
+stop_area without station: https://osm.org/relation/6079446. Using node https://osm.org/node/332112376 instead.
+stop_area without station: https://osm.org/relation/6079447. Using node https://osm.org/node/332112377 instead.
+stop_area without station: https://osm.org/relation/6079853. Using node https://osm.org/node/3116791782 instead.
+stop_area without station: https://osm.org/relation/6079854. Using node https://osm.org/node/4078150784 instead.
+stop_area without station: https://osm.org/relation/6079855. Using node https://osm.org/node/4078150786 instead.
+stop_area without station: https://osm.org/relation/6079856. Using node https://osm.org/node/300115828 instead.
+stop_area without station: https://osm.org/relation/6080545. Using node https://osm.org/node/4078588262 instead.
+stop_area without station: https://osm.org/relation/6080546. Using node https://osm.org/node/333187534 instead.
+stop_area without station: https://osm.org/relation/6080547. Using node https://osm.org/node/300115836 instead.
+stop_area without station: https://osm.org/relation/6080548. Using node https://osm.org/node/1520341562 instead.
+stop_area without station: https://osm.org/relation/6080549. Using node https://osm.org/node/1520342361 instead.
+stop_area without station: https://osm.org/relation/6080786. Using node https://osm.org/node/4078669863 instead.
+stop_area without station: https://osm.org/relation/6080787. Using node https://osm.org/node/4078669865 instead.
+stop_area without station: https://osm.org/relation/6090415. Using node https://osm.org/node/3115855348 instead.
+stop_area without station: https://osm.org/relation/6092719. Using node https://osm.org/node/3137144829 instead.
+stop_area without station: https://osm.org/relation/6092720. Using node https://osm.org/node/322822072 instead.
+stop_area without station: https://osm.org/relation/6092721. Using node https://osm.org/node/4982498448 instead.
+stop_area without station: https://osm.org/relation/6092722. Using node https://osm.org/node/334207496 instead.
+stop_area without station: https://osm.org/relation/6092723. Using node https://osm.org/node/3137144831 instead.
+stop_area without station: https://osm.org/relation/6092724. Using node https://osm.org/node/300039798 instead.
+stop_area without station: https://osm.org/relation/6092725. Using node https://osm.org/node/335712122 instead.
+stop_area without station: https://osm.org/relation/6092726. Using node https://osm.org/node/299619837 instead.
+stop_area without station: https://osm.org/relation/6096237. Using node https://osm.org/node/4090278792 instead.
+stop_area without station: https://osm.org/relation/6122575. Using node https://osm.org/node/2418582831 instead.
+stop_area without station: https://osm.org/relation/6179897. Using node https://osm.org/node/432596295 instead.
+stop_area without station: https://osm.org/relation/6271116. Using node https://osm.org/node/301853530 instead.
+stop_area without station: https://osm.org/relation/6311483. Using node https://osm.org/node/2374719029 instead.
+stop_area without station: https://osm.org/relation/6548879. Using node https://osm.org/node/2426182757 instead.
+stop_area without station: https://osm.org/relation/6606238. Using node https://osm.org/node/3896934392 instead.
+stop_area without station: https://osm.org/relation/6606848. Using node https://osm.org/node/4416288447 instead.
+stop_area without station: https://osm.org/relation/6606849. Using node https://osm.org/node/4416288441 instead.
+stop_area without station: https://osm.org/relation/6633933. Using node https://osm.org/node/4436660825 instead.
+stop_area without station: https://osm.org/relation/6634252. Using node https://osm.org/node/4436941327 instead.
+stop_area without station: https://osm.org/relation/6655130. Using node https://osm.org/node/1765490241 instead.
+stop_area without station: https://osm.org/relation/6788791. Using node https://osm.org/node/690288051 instead.
+stop_area without station: https://osm.org/relation/7159169. Using node https://osm.org/node/293811706 instead.
+stop_area without station: https://osm.org/relation/7159170. Using node https://osm.org/node/293811702 instead.
+stop_area without station: https://osm.org/relation/7159171. Using node https://osm.org/node/293811693 instead.
+stop_area without station: https://osm.org/relation/7159172. Using node https://osm.org/node/293811701 instead.
+stop_area without station: https://osm.org/relation/7159173. Using node https://osm.org/node/339018313 instead.
+stop_area without station: https://osm.org/relation/7159183. Using node https://osm.org/node/3549208688 instead.
+stop_area without station: https://osm.org/relation/7159186. Using node https://osm.org/node/4794712799 instead.
+stop_area without station: https://osm.org/relation/7167781. Using node https://osm.org/node/1074361271 instead.
+stop_area without station: https://osm.org/relation/7175199. Using node https://osm.org/node/4809260927 instead.
+stop_area without station: https://osm.org/relation/7175200. Using node https://osm.org/node/4809260929 instead.
+stop_area without station: https://osm.org/relation/7175207. Using node https://osm.org/node/2270406270 instead.
+stop_area without station: https://osm.org/relation/7188545. Using node https://osm.org/node/4816679599 instead.
+stop_area without station: https://osm.org/relation/7188546. Using node https://osm.org/node/708728849 instead.
+stop_area without station: https://osm.org/relation/7188547. Using node https://osm.org/node/383721073 instead.
+stop_area without station: https://osm.org/relation/7189504. Using node https://osm.org/node/295264463 instead.
+stop_area without station: https://osm.org/relation/7202177. Using node https://osm.org/node/2165524545 instead.
+stop_area without station: https://osm.org/relation/389300. Using node https://osm.org/node/301851157 instead.
+stop_area without station: https://osm.org/relation/389301. Using node https://osm.org/node/621214744 instead.
+stop_area without station: https://osm.org/relation/389303. Using node https://osm.org/node/322140949 instead.
+stop_area without station: https://osm.org/relation/1602333. Using node https://osm.org/node/1302021968 instead.
+stop_area without station: https://osm.org/relation/1602334. Using node https://osm.org/node/268953222 instead.
+stop_area without station: https://osm.org/relation/1877863. Using node https://osm.org/node/746954932 instead.
+stop_area without station: https://osm.org/relation/3166126. Using node https://osm.org/node/621214816 instead.
+stop_area without station: https://osm.org/relation/3166127. Using node https://osm.org/node/621214804 instead.
+stop_area without station: https://osm.org/relation/3169075. Using node https://osm.org/node/301852563 instead.
+stop_area without station: https://osm.org/relation/3169076. Using node https://osm.org/node/1301343801 instead.
+stop_area without station: https://osm.org/relation/3169261. Using node https://osm.org/node/1301343802 instead.
+stop_area without station: https://osm.org/relation/3169262. Using node https://osm.org/node/2434691695 instead.
+stop_area without station: https://osm.org/relation/3181909. Using node https://osm.org/node/1301343826 instead.
+stop_area without station: https://osm.org/relation/3230356. Using node https://osm.org/node/679144512 instead.
+stop_area without station: https://osm.org/relation/3237879. Using node https://osm.org/node/2229521800 instead.
+stop_area without station: https://osm.org/relation/3237880. Using node https://osm.org/node/434133256 instead.
+stop_area without station: https://osm.org/relation/3237881. Using node https://osm.org/node/432597708 instead.
+stop_area without station: https://osm.org/relation/3237882. Using node https://osm.org/node/25150344 instead.
+stop_area without station: https://osm.org/relation/3262957. Using node https://osm.org/node/261964244 instead.
+stop_area without station: https://osm.org/relation/3262958. Using node https://osm.org/node/283111576 instead.
+stop_area without station: https://osm.org/relation/3263522. Using node https://osm.org/node/668862540 instead.
+stop_area without station: https://osm.org/relation/3271923. Using node https://osm.org/node/507039988 instead.
+stop_area without station: https://osm.org/relation/3298825. Using node https://osm.org/node/2513515806 instead.
+stop_area without station: https://osm.org/relation/6062541. Using node https://osm.org/node/2711058760 instead.
+stop_area without station: https://osm.org/relation/6062542. Using node https://osm.org/node/4044520494 instead.
+stop_area without station: https://osm.org/relation/6062543. Using node https://osm.org/node/621214909 instead.
+stop_area without station: https://osm.org/relation/6062544. Using node https://osm.org/node/31405591 instead.
+stop_area without station: https://osm.org/relation/6062546. Using node https://osm.org/node/660196473 instead.
+stop_area without station: https://osm.org/relation/6062547. Using node https://osm.org/node/267786626 instead.
+stop_area without station: https://osm.org/relation/6062548. Using node https://osm.org/node/1842971190 instead.
+stop_area without station: https://osm.org/relation/6062549. Using node https://osm.org/node/2340331637 instead.
+stop_area without station: https://osm.org/relation/6062550. Using node https://osm.org/node/264870414 instead.
+stop_area without station: https://osm.org/relation/6062551. Using node https://osm.org/node/679144228 instead.
+stop_area without station: https://osm.org/relation/6062552. Using node https://osm.org/node/660196527 instead.
+stop_area without station: https://osm.org/relation/6062553. Using node https://osm.org/node/21965264 instead.
+stop_area without station: https://osm.org/relation/6062554. Using node https://osm.org/node/288428714 instead.
+stop_area without station: https://osm.org/relation/6062555. Using node https://osm.org/node/3115855347 instead.
+stop_area without station: https://osm.org/relation/6062556. Using node https://osm.org/node/612962879 instead.
+stop_area without station: https://osm.org/relation/6062557. Using node https://osm.org/node/679788524 instead.
+stop_area without station: https://osm.org/relation/6062558. Using node https://osm.org/node/668862330 instead.
+stop_area without station: https://osm.org/relation/6062559. Using node https://osm.org/node/251576366 instead.
+stop_area without station: https://osm.org/relation/6062560. Using node https://osm.org/node/251602572 instead.
+stop_area without station: https://osm.org/relation/6062561. Using node https://osm.org/node/2926060012 instead.
+stop_area without station: https://osm.org/relation/6062562. Using node https://osm.org/node/248594127 instead.
 Unknown OSM wheelchair value no;yes
-[no data] rel 35886 type r ref 903630.
-[no data] rel 1079463 type r ref 3271919.
-[no data] rel 2442549 type r ref 903630.
+stop_area without station: https://osm.org/relation/6062563. Using node https://osm.org/node/31683731 instead.
+stop_area without station: https://osm.org/relation/6062564. Using node https://osm.org/node/440736498 instead.
+stop_area without station: https://osm.org/relation/6065251. Using node https://osm.org/node/2443003405 instead.
+stop_area without station: https://osm.org/relation/6065320. Using node https://osm.org/node/4068917371 instead.
+stop_area without station: https://osm.org/relation/6065321. Using node https://osm.org/node/30229312 instead.
+stop_area without station: https://osm.org/relation/6065322. Using node https://osm.org/node/4068917367 instead.
+stop_area without station: https://osm.org/relation/6065382. Using node https://osm.org/node/4068955753 instead.
+stop_area without station: https://osm.org/relation/6067475. Using node https://osm.org/node/4070175736 instead.
+stop_area without station: https://osm.org/relation/6067794. Using node https://osm.org/node/4070333389 instead.
+stop_area without station: https://osm.org/relation/6067795. Using node https://osm.org/node/334625333 instead.
+stop_area without station: https://osm.org/relation/6067796. Using node https://osm.org/node/4070333513 instead.
+stop_area without station: https://osm.org/relation/6071511. Using node https://osm.org/node/4072422996 instead.
+stop_area without station: https://osm.org/relation/6071512. Using node https://osm.org/node/4072422997 instead.
+stop_area without station: https://osm.org/relation/6071513. Using node https://osm.org/node/4072422999 instead.
+stop_area without station: https://osm.org/relation/6071514. Using node https://osm.org/node/4072423001 instead.
+stop_area without station: https://osm.org/relation/6071515. Using node https://osm.org/node/4072423002 instead.
+stop_area without station: https://osm.org/relation/6072984. Using node https://osm.org/node/4073676534 instead.
+stop_area without station: https://osm.org/relation/6072985. Using node https://osm.org/node/4073676535 instead.
+stop_area without station: https://osm.org/relation/6073150. Using node https://osm.org/node/4073800094 instead.
+stop_area without station: https://osm.org/relation/6073151. Using node https://osm.org/node/338499729 instead.
+stop_area without station: https://osm.org/relation/6073152. Using node https://osm.org/node/4073800095 instead.
+stop_area without station: https://osm.org/relation/6073153. Using node https://osm.org/node/4073800106 instead.
+stop_area without station: https://osm.org/relation/6073154. Using node https://osm.org/node/4073800107 instead.
+stop_area without station: https://osm.org/relation/6074788. Using node https://osm.org/node/24581582 instead.
+stop_area without station: https://osm.org/relation/6075587. Using node https://osm.org/node/427513298 instead.
+stop_area without station: https://osm.org/relation/6075588. Using node https://osm.org/node/4075678159 instead.
+stop_area without station: https://osm.org/relation/6075589. Using node https://osm.org/node/4075678161 instead.
+stop_area without station: https://osm.org/relation/6075590. Using node https://osm.org/node/4075678162 instead.
+stop_area without station: https://osm.org/relation/6075591. Using node https://osm.org/node/4075678164 instead.
+stop_area without station: https://osm.org/relation/6075592. Using node https://osm.org/node/4075678165 instead.
+stop_area without station: https://osm.org/relation/6075593. Using node https://osm.org/node/4075678167 instead.
+stop_area without station: https://osm.org/relation/6075594. Using node https://osm.org/node/4075678169 instead.
+stop_area without station: https://osm.org/relation/6075595. Using node https://osm.org/node/4075678171 instead.
+stop_area without station: https://osm.org/relation/6075596. Using node https://osm.org/node/4075678179 instead.
+stop_area without station: https://osm.org/relation/6075597. Using node https://osm.org/node/2383599732 instead.
+stop_area without station: https://osm.org/relation/6075598. Using node https://osm.org/node/297933072 instead.
+stop_area without station: https://osm.org/relation/6075599. Using node https://osm.org/node/4075678180 instead.
+stop_area without station: https://osm.org/relation/6075600. Using node https://osm.org/node/3632432417 instead.
+stop_area without station: https://osm.org/relation/6075601. Using node https://osm.org/node/4075678181 instead.
+stop_area without station: https://osm.org/relation/6075602. Using node https://osm.org/node/295706324 instead.
+stop_area without station: https://osm.org/relation/6075603. Using node https://osm.org/node/652859163 instead.
+stop_area without station: https://osm.org/relation/6075604. Using node https://osm.org/node/2440653309 instead.
+stop_area without station: https://osm.org/relation/6075605. Using node https://osm.org/node/4075678182 instead.
+stop_area without station: https://osm.org/relation/6079195. Using node https://osm.org/node/295931323 instead.
+stop_area without station: https://osm.org/relation/6079196. Using node https://osm.org/node/295931321 instead.
+stop_area without station: https://osm.org/relation/6079197. Using node https://osm.org/node/3109037829 instead.
+stop_area without station: https://osm.org/relation/6079198. Using node https://osm.org/node/4077779361 instead.
+stop_area without station: https://osm.org/relation/6079199. Using node https://osm.org/node/4077779362 instead.
+stop_area without station: https://osm.org/relation/6079210. Using node https://osm.org/node/1939424213 instead.
+stop_area without station: https://osm.org/relation/6079442. Using node https://osm.org/node/4077941217 instead.
+stop_area without station: https://osm.org/relation/6079443. Using node https://osm.org/node/4077941219 instead.
+stop_area without station: https://osm.org/relation/6079444. Using node https://osm.org/node/332112381 instead.
+stop_area without station: https://osm.org/relation/6079445. Using node https://osm.org/node/4077941267 instead.
+stop_area without station: https://osm.org/relation/6079446. Using node https://osm.org/node/332112376 instead.
+stop_area without station: https://osm.org/relation/6079447. Using node https://osm.org/node/332112377 instead.
+stop_area without station: https://osm.org/relation/6079853. Using node https://osm.org/node/3116791782 instead.
+stop_area without station: https://osm.org/relation/6079854. Using node https://osm.org/node/4078150784 instead.
+stop_area without station: https://osm.org/relation/6079855. Using node https://osm.org/node/4078150786 instead.
+stop_area without station: https://osm.org/relation/6079856. Using node https://osm.org/node/300115828 instead.
+stop_area without station: https://osm.org/relation/6080545. Using node https://osm.org/node/4078588262 instead.
+stop_area without station: https://osm.org/relation/6080546. Using node https://osm.org/node/333187534 instead.
+stop_area without station: https://osm.org/relation/6080547. Using node https://osm.org/node/300115836 instead.
+stop_area without station: https://osm.org/relation/6080548. Using node https://osm.org/node/1520341562 instead.
+stop_area without station: https://osm.org/relation/6080549. Using node https://osm.org/node/1520342361 instead.
+stop_area without station: https://osm.org/relation/6080786. Using node https://osm.org/node/4078669863 instead.
+stop_area without station: https://osm.org/relation/6080787. Using node https://osm.org/node/4078669865 instead.
+stop_area without station: https://osm.org/relation/6090415. Using node https://osm.org/node/3115855348 instead.
+stop_area without station: https://osm.org/relation/6092719. Using node https://osm.org/node/3137144829 instead.
+stop_area without station: https://osm.org/relation/6092720. Using node https://osm.org/node/322822072 instead.
+stop_area without station: https://osm.org/relation/6092721. Using node https://osm.org/node/4982498448 instead.
+stop_area without station: https://osm.org/relation/6092722. Using node https://osm.org/node/334207496 instead.
+stop_area without station: https://osm.org/relation/6092723. Using node https://osm.org/node/3137144831 instead.
+stop_area without station: https://osm.org/relation/6092724. Using node https://osm.org/node/300039798 instead.
+stop_area without station: https://osm.org/relation/6092725. Using node https://osm.org/node/335712122 instead.
+stop_area without station: https://osm.org/relation/6092726. Using node https://osm.org/node/299619837 instead.
+stop_area without station: https://osm.org/relation/6096237. Using node https://osm.org/node/4090278792 instead.
+stop_area without station: https://osm.org/relation/6122575. Using node https://osm.org/node/2418582831 instead.
+stop_area without station: https://osm.org/relation/6179897. Using node https://osm.org/node/432596295 instead.
+stop_area without station: https://osm.org/relation/6271116. Using node https://osm.org/node/301853530 instead.
+stop_area without station: https://osm.org/relation/6311483. Using node https://osm.org/node/2374719029 instead.
+stop_area without station: https://osm.org/relation/6548879. Using node https://osm.org/node/2426182757 instead.
+stop_area without station: https://osm.org/relation/6606238. Using node https://osm.org/node/3896934392 instead.
+stop_area without station: https://osm.org/relation/6606848. Using node https://osm.org/node/4416288447 instead.
+stop_area without station: https://osm.org/relation/6606849. Using node https://osm.org/node/4416288441 instead.
+stop_area without station: https://osm.org/relation/6633933. Using node https://osm.org/node/4436660825 instead.
+stop_area without station: https://osm.org/relation/6634252. Using node https://osm.org/node/4436941327 instead.
+stop_area without station: https://osm.org/relation/6655130. Using node https://osm.org/node/1765490241 instead.
+stop_area without station: https://osm.org/relation/6788791. Using node https://osm.org/node/690288051 instead.
+stop_area without station: https://osm.org/relation/7159169. Using node https://osm.org/node/293811706 instead.
+stop_area without station: https://osm.org/relation/7159170. Using node https://osm.org/node/293811702 instead.
+stop_area without station: https://osm.org/relation/7159171. Using node https://osm.org/node/293811693 instead.
+stop_area without station: https://osm.org/relation/7159172. Using node https://osm.org/node/293811701 instead.
+stop_area without station: https://osm.org/relation/7159173. Using node https://osm.org/node/339018313 instead.
+stop_area without station: https://osm.org/relation/7159183. Using node https://osm.org/node/3549208688 instead.
+stop_area without station: https://osm.org/relation/7159186. Using node https://osm.org/node/4794712799 instead.
+stop_area without station: https://osm.org/relation/7167781. Using node https://osm.org/node/1074361271 instead.
+stop_area without station: https://osm.org/relation/7175199. Using node https://osm.org/node/4809260927 instead.
+stop_area without station: https://osm.org/relation/7175200. Using node https://osm.org/node/4809260929 instead.
+stop_area without station: https://osm.org/relation/7175207. Using node https://osm.org/node/2270406270 instead.
+stop_area without station: https://osm.org/relation/7188545. Using node https://osm.org/node/4816679599 instead.
+stop_area without station: https://osm.org/relation/7188546. Using node https://osm.org/node/708728849 instead.
+stop_area without station: https://osm.org/relation/7188547. Using node https://osm.org/node/383721073 instead.
+stop_area without station: https://osm.org/relation/7189504. Using node https://osm.org/node/295264463 instead.
+stop_area without station: https://osm.org/relation/7202177. Using node https://osm.org/node/2165524545 instead.

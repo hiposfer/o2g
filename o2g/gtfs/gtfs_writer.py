@@ -69,7 +69,12 @@ class GTFSWriter(object):
                        'shape_pt_sequence'],
 
             'frequencies': ['trip_id', 'start_time', 'end_time',
-                            'headway_secs']}
+                            'headway_secs'],
+
+            'feedinfo': ['feed_publisher_name', 'feed_publisher_url',
+                         'feed_lang', 'feed_start_date', 'feed_end_date',
+                         'feed_version', 'feed_contact_email',
+                         'feed_contact_url']}
 
     def add_agencies(self, agencies):
         self._add_records('agency', agencies)
@@ -94,6 +99,9 @@ class GTFSWriter(object):
 
     def add_frequencies(self, frequencies):
         self._add_records('frequencies', frequencies)
+
+    def add_feedinfo(self, info):
+        self._add_records('feedinfo', [info])
 
     def add_file(self, name, path):
         self._files[name] = path

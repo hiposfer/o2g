@@ -65,7 +65,7 @@ def cli():
                         default='.',
                         help='output directory')
     parser.add_argument('--zipfile',
-                        help='save to zipfile')
+                        help='output zip file name')
     parser.add_argument('--dummy', action='store_true',
                         default=False,
                         help='fill the missing parts with dummy data')

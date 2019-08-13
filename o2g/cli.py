@@ -24,7 +24,7 @@ class readable_dir(argparse.Action):
         if not os.path.isdir(prospective_dir):
             parser.print_usage()
             print('Try "{} --help" for help.\n'.format(parser.prog))
-            parser.exit("Error: Inavlid path: {0}".format(prospective_dir))
+            parser.exit("Error: Invalid path: {0}".format(prospective_dir))
         if os.access(prospective_dir, os.R_OK):
             setattr(namespace, self.dest, prospective_dir)
         else:
@@ -38,7 +38,7 @@ class readable_file(argparse.Action):
         if not os.path.isfile(prospective_file):
             parser.print_usage()
             print('Try "{} --help" for help.\n'.format(parser.prog))
-            parser.exit("Error: Inavlid file: {0}".format(prospective_file))
+            parser.exit("Error: Invalid file: {0}".format(prospective_file))
         if os.access(prospective_file, os.R_OK):
             setattr(namespace, self.dest, prospective_file)
         else:

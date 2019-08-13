@@ -8,8 +8,8 @@ OpenStreeMaps data contain information about bus, tram, train and other public t
 This information is not enought for providing a complete routing service, most importantly because
 it lacks timing data. However, it still contains routes, stop positions and some other useful data.
 
-This tool takes an OSM file or URI and thanks to [osmium](http://osmcode.org/) library converts it to a partial 
-[GTFS](https://developers.google.com/transit/gtfs/reference/) feed. GTFS is the de facto standard 
+This tool takes an OSM file or URI and thanks to [osmium](http://osmcode.org/) library converts it to a partial
+[GTFS](https://developers.google.com/transit/gtfs/reference/) feed. GTFS is the de facto standard
 for sharing public transport information and there are many tools around it. The resulting feed would
 not validate if you check it, because it is of course partial. Nevertheless, it is yet valuable to us.
 
@@ -112,7 +112,7 @@ We use the `pytest` package for testing:
 
 ### Profiling
 In order to profile the code we use `cProfile`:
-    
+
     # For the `o2g` script
     $ python -m cProfile -s cumtime o2g/cli.py resources/osm/freiburg.osm.bz2 --outdir resources/out/freiburg --dummy > resources/out/benchmarks/freiburg.txt
 
@@ -129,14 +129,14 @@ In this section we describe important aspects of the implementation in order to 
 
 ### Field Mapping
 GTFS feeds could contain up to thirteen different CSV files with `.txt` extension. Six of these files are required for a valid
-feed, including _agency.txt_, _stops.txt_, _routes.txt_, _trips.txt_, _stop_times.txt_ and _calendar.txt_. 
-Each file contains a set of comumns. Some columns are required and some are optional. 
-Most importantly, not all the fields necessary to build a GTFS feed are available in OSM data. 
+feed, including _agency.txt_, _stops.txt_, _routes.txt_, _trips.txt_, _stop_times.txt_ and _calendar.txt_.
+Each file contains a set of comumns. Some columns are required and some are optional.
+Most importantly, not all the fields necessary to build a GTFS feed are available in OSM data.
 Therefore we have to generate some fileds ourselves or leave them blank.
 Below we cover how the values for each column of the files that we produce at the moment are produced.
 
 #### agency.txt
-We use _operator_ tag on OSM relations which are tagged as `relation=route` to extract agency information. 
+We use _operator_ tag on OSM relations which are tagged as `relation=route` to extract agency information.
 However, there are some routes without operator tags. In such cases we use a dummy agency:
 
     {'agency_id': -1, 'agency_name': 'Unkown agency', 'agency_timezone': ''}
@@ -159,11 +159,11 @@ However, there are some routes without operator tags. In such cases we use a dum
  - route_long_name: a combination of _from_ and _to_ tags on the relation otherwise empty
  - route_type: we map OSM route types to GTFS
  - route_url: link to the relation on openstreetmaps.org
- - route_color: value of the _color_ tag if present otherwise empty
+ - route_color: value of the _colour_ tag if present otherwise empty
  - agency_id: ID of the agency otherwise -1
 
 ### OSM to GTFS Route Type Mapping
- Below is the mapping that we use, the left column is the OSM value and the right column is the 
+ Below is the mapping that we use, the left column is the OSM value and the right column is the
  corresponding value from GTFS specification (make sure the see the code for any changes):
 
     tram: 		0

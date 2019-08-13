@@ -19,7 +19,7 @@ def build_route(relation):
         return
 
     short_name = create_route_short_name(relation)
-    color = relation.tags.get('color')
+    color = relation.tags.get('colour')
     return\
         Route(relation.id,
               short_name,

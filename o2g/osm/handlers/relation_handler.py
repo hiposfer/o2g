@@ -43,7 +43,7 @@ class RelationHandler(o.SimpleHandler):
                 'public_transport': public_transport,
                 'route': route_tag,
                 'operator': rel.tags.get('operator'),
-                'color': rel.tags.get('color'),
+                'colour': rel.tags.get('colour'),
                 'ref': rel.tags.get('ref'),
                 'from': rel.tags.get('from'),
                 'to': rel.tags.get('to'),
